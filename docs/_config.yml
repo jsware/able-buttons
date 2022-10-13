@@ -1,0 +1,52 @@
+# Subsite settings
+title: Arduino Button Library Extension (ABLE)
+subtitle: "JSWare.io - The pain of low quality far outlasts the joy of low price"
+baseurl: "/able-buttons"
+
+url: &url "https://www.jsware.io"
+remote_theme: jsware/modified-mistakes
+name: "John Scott"
+locale: en_GB
+logo: "https://www.jsware.io/assets/favicons/favicon-32x32.png"
+atom_feed:
+  path: https://www.jsware.io/feed.xml
+
+footer:
+  links:
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://linkedin.com/in/JohnScottUK"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/JohnScottUK/"
+    - label: "JSWare"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/jsware"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/JohnScottUK"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      url: "https://www.instagram.com/jsware"
+
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "G-PDGGDVPKW0"
+    anonymize_ip: false
+
+plugins:
+  - jekyll-include-cache
+  - jekyll-seo-tag
+
+include:
+  - _*.html
+  - _*.map
+  - _*.md5
+  - _*.png
+
+exclude:
+  - serve.sh
+  - Doxyfile
+  - Gemfile
+  - Gemfile.lock

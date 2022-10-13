@@ -1,0 +1,10 @@
+<map id="/Users/johnscott/Documents/Arduino/libraries/buttons/src/btntypes.h" name="/Users/johnscott/Documents/Arduino/libraries/buttons/src/btntypes.h">
+<area shape="rect" id="node1" title="Definitions of different button types." alt="" coords="403,5,592,60"/>
+<area shape="rect" id="node2" href="$basicbtn_8h.html" title="Simplest button to check if currently pressed." alt="" coords="403,108,592,163"/>
+<area shape="rect" id="node3" href="$able-buttons_8h.html" title="Main include file for the Arduino Button library Extension." alt="" coords="403,313,592,368"/>
+<area shape="rect" id="node8" href="$callbtn_8h.html" title="Callback Button to call a function when pressed." alt="" coords="469,211,659,265"/>
+<area shape="rect" id="node4" href="$_push_btn_8ino.html" title="Example on/off control from a button." alt="" coords="5,423,216,478"/>
+<area shape="rect" id="node5" href="$_push_btn_all_8ino.html" title="Example on/off control from multiple buttons." alt="" coords="241,423,482,478"/>
+<area shape="rect" id="node6" href="$_push_btn_any_8ino.html" title="Example on/off control from multiple buttons." alt="" coords="506,423,761,478"/>
+<area shape="rect" id="node7" href="$_push_btn_callback_8ino_source.html" title=" " alt="" coords="785,416,975,485"/>
+</map>

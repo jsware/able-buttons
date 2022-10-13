@@ -1,4 +1,26 @@
-# ABLE
+---
+title: Arduino Button Library Extension (ABLE)
+layout: splash
+header:
+  overlay_image: /assets/images/buttons.jpg
+  overlay_filter: 0.66
+  actions:
+    - label: "<i class='fas fa-check-square'></i> Introduction"
+      url: "#introduction"
+    - label: "<i class='fas fa-download'></i> Installation"
+      url: "#installation"
+    - label: "<i class='fas fa-list-alt'></i> Usage"
+      url: "#usage"
+    - label: "<i class='fas fa-book'></i> Docs"
+      url: "./html"
+    - label: "<i class='fab fa-github'></i> View on GitHub"
+      url: "https://github.com/jsware/buttons"
+  caption: "Photo credit: [**Unsplash**](https://unsplash.com/photos/nhR-ALn6x-o)"
+excerpt: >
+  A simple, lightweight button library to capture input from buttons connected
+  to the Arduino.
+---
+# Arduino Button Library Extension (ABLE)
 
 ABLE is a simple, lightweight button library to capture input from buttons connected to an Arduino.
 
