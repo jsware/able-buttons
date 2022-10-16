@@ -63,13 +63,14 @@ namespace jsware {
        * 
        * @return True if all pressed, else false.
        */
-      bool allPressed() const {
+      bool allPressed() {
+        bool rc = true;
         for(size_t i = 0; i < len_; ++i) {
           if(!buttons_[i].isPressed()) {
-            return false;
+            rc = false;
           }
         }
-        return true;
+        return rc;
       }
 
       /**
@@ -77,13 +78,14 @@ namespace jsware {
        * 
        * @return True if any pressed, else false.
        */
-      bool anyPressed() const {
+      bool anyPressed() {
+        bool rc = false;
         for(size_t i = 0; i < len_; ++i) {
           if(buttons_[i].isPressed()) {
-            return true;
+            rc = true;
           }
         }
-        return false;
+        return rc;
       }
 
     private:
