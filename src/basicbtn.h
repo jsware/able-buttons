@@ -43,7 +43,7 @@ namespace jsware {
        * 
        * @return True if pressed, else false.
        */
-      bool isPressed() const {
+      bool isPressed() {
         return button_.isPressed();
       }
 

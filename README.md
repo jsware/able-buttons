@@ -4,7 +4,7 @@ ABLE is a simple, lightweight button library to capture input from buttons conne
 
 ## Introduction
 
-ABLE provides a lightweight easy-to-use button library without unnecessarily including unused button capability. The basic button class uses **52 bytes extra code** over the same functionality without.
+ABLE provides a lightweight easy-to-use button library without unnecessarily including unused button capability. The basic button class uses **248 bytes extra code** to support [button-debouncing](https://www.arduino.cc/en/Tutorial/BuiltInExamples/Debounce) out of the box. This stops isPressed() calls returning a noisey state as a button is pressed or released.
 
 ABLE can support buttons connected using pull-up resitors and pull-down resisters. It also supports the internal pull-up resistors on various Arduino models making it easy to connect a pin to ground through a button or switch.
 
@@ -38,7 +38,9 @@ Sketch uses 892 bytes (2%) of program storage space. Maximum is 30720 bytes.
 Global variables use 9 bytes (0%) of dynamic memory, leaving 2039 bytes for local variables. Maximum is 2048 bytes.
 ```
 
-...with 9 bytes for global variables. The same program using the button library only uses 944 bytes (52 bytes more)...
+...with 9 bytes for global variables. **NB: This program's button is not debounced**. Whilst probably not visible with the built-in LED, pressing and releasing the button may register several presses due to the mechanical and physical issues with buttons. 
+
+The same program using the button library **with button debouncing** only uses 1140 bytes (248 bytes more)...
 
 ```c
 #include <able-buttons.h>
@@ -63,11 +65,11 @@ void loop() {
 ```
 
 ```
-Sketch uses 944 bytes (3%) of program storage space. Maximum is 30720 bytes.
-Global variables use 10 bytes (0%) of dynamic memory, leaving 2038 bytes for local variables. Maximum is 2048 bytes.
+Sketch uses 1140 bytes (3%) of program storage space. Maximum is 30720 bytes.
+Global variables use 15 bytes (0%) of dynamic memory, leaving 2033 bytes for local variables. Maximum is 2048 bytes.
 ```
 
-...with 10 bytes for global variables (1 extra byte).
+...with 15 bytes for global variables (6 extra bytes).
 
 ## Installation
 
