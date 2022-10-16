@@ -9,12 +9,12 @@
 #include <able-buttons.h>
 
 /// Callback function for button pressed.
-void pressedCallback(BasicButton *) {
+void pressedCallback(uint8_t id) {
   digitalWrite(LED_BUILTIN, HIGH);
 }
 
 /// Callback function for button released.
-void releasedCallback(BasicButton *) {
+void releasedCallback(uint8_t id) {
     digitalWrite(LED_BUILTIN, LOW);
 }
 
@@ -26,9 +26,7 @@ CallbackButton btn(BUTTON_PIN, pressedCallback, releasedCallback); ///< The butt
  */
 void setup() {
   // put your setup code here, to run once:
-
   pinMode(LED_BUILTIN, OUTPUT);
-
   btn.begin();
 }
 
@@ -37,6 +35,5 @@ void setup() {
  */
 void loop() {
   // put your main code here, to run repeatedly:
-
   btn.handle();
 }
