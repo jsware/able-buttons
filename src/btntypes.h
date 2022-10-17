@@ -13,7 +13,7 @@
 
 namespace jsware {
   /**
-   * Base class for buttont types. 
+   * Base class for button types. 
    */
   class BaseButtonType {
     public:
