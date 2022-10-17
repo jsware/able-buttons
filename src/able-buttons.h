@@ -11,4 +11,5 @@
 #include "basicbtn.h"
 #include "btnlist.h"
 #include "callbtn.h"
+#include "clickbtn.h"
 #endif /* INCLUDED_ABLE_BUTTONS_H */
