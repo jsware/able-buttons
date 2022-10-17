@@ -8,7 +8,7 @@
  */
 #ifndef INCLUDED_BTNLIST_H
 #define INCLUDED_BTNLIST_H
-#include <stddef.h>
+#include "basicbtn.h"
 
 namespace jsware {
   /**
