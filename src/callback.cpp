@@ -1,6 +1,6 @@
 /**
  * @file
-* Callback button helpers.
+ * Callback button helpers.
  * 
  * @copyright Copyright (c) 2022 John Scott.
  */
