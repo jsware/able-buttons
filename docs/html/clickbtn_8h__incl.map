@@ -1,0 +1,8 @@
+<map id="/Users/johnscott/Documents/Arduino/libraries/buttons/src/clickbtn.h" name="/Users/johnscott/Documents/Arduino/libraries/buttons/src/clickbtn.h">
+<area shape="rect" id="node1" title="Clickable button handling single click buttons." alt="" coords="57,5,247,60"/>
+<area shape="rect" id="node2" href="$basicbtn_8h.html" title="Simplest button to check if currently pressed." alt="" coords="5,108,88,133"/>
+<area shape="rect" id="node5" href="$btnstate_8h.html" title="Button state definitions." alt="" coords="112,108,192,133"/>
+<area shape="rect" id="node6" href="$callback_8h.html" title="Definitions of different button types." alt="" coords="169,181,250,207"/>
+<area shape="rect" id="node3" href="$btntypes_8h.html" title="Definitions of different button types." alt="" coords="43,181,125,207"/>
+<area shape="rect" id="node4" title=" " alt="" coords="99,255,176,280"/>
+</map>

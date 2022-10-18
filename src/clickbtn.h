@@ -44,11 +44,10 @@ namespace jsware {
         if(!(state_ == ButtonState::PRESSED) && BaseButton::isPressed()) {
           state_ = ButtonState::PRESSED;
         } else if(state_ == ButtonState::PRESSED && !BaseButton::isPressed()) {
+          state_ = ButtonState::CLICKED;
           if(onClicked_) {
-            state_ = ButtonState::NONE;
             onClicked_(id_);
-          } else {
-            state_ = ButtonState::CLICKED;
+            state_ = ButtonState::NONE;
           }
         }
       }

@@ -4,9 +4,13 @@ ABLE is a simple, lightweight button library to capture input from buttons conne
 
 ## Introduction
 
-ABLE provides a lightweight easy-to-use button library without unnecessarily including unused button capability. The basic button class uses **248 bytes extra code** to support [button-debouncing](https://www.arduino.cc/en/Tutorial/BuiltInExamples/Debounce) out of the box. This stops isPressed() calls returning a noisey state as a button is pressed or released.
+ABLE provides a lightweight easy-to-use button library without unnecessarily including unused button capability. The basic button class uses **248 bytes extra code** to support [button-debouncing](https://www.arduino.cc/en/Tutorial/BuiltInExamples/Debounce) out of the box. This stops isPressed() calls returning a noisy state as a button is pressed or released.
 
 ABLE can support buttons connected using pull-up resitors and pull-down resisters. It also supports the internal pull-up resistors on various Arduino models making it easy to connect a pin to ground through a button or switch.
+
+### Motivation
+
+The focus of ABLE is to consume minimal memory for the button capability required. ABLE provides a suite of button classes for different capabilities over a general purpose button class supporting all types of buttons. You can choose the button capabilities used at compile time, so no redundant code is included. This is important for embedded micro-controllers such as the Arduino Nano with only 32K Flash and 2K SRAM.
 
 If you need more functionality (e.g. callbacks when pressed), ABLE includes a suite of button classes with extended capabilities.
 

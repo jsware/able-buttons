@@ -1,0 +1,6 @@
+<map id="jsware::TClickableButton&lt; ButtonType, BaseButton &gt;" name="jsware::TClickableButton&lt; ButtonType, BaseButton &gt;">
+<area shape="rect" id="node1" title="Clickable button template for clickable buttons." alt="" coords="5,257,193,297"/>
+<area shape="rect" id="node2" href="$classjsware_1_1_t_basic_button.html" title="Simplest button class to check if the button has been pressed." alt="" coords="26,168,173,208"/>
+<area shape="rect" id="node3" href="$classjsware_1_1_pullup_button_type.html" title="Button connected via a pull&#45;up resistor." alt="" coords="14,80,185,105"/>
+<area shape="rect" id="node4" href="$classjsware_1_1_base_button_type.html" title="Base class for button types." alt="" coords="17,5,181,31"/>
+</map>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['setup_0',['setup',['../_push_btn_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;PushBtn.ino'],['../_push_btn_all_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;PushBtnAll.ino'],['../_push_btn_any_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;PushBtnAny.ino']]]
+  ['pulldownbuttontype_0',['PulldownButtonType',['../classjsware_1_1_pulldown_button_type.html#a911d07f12b2407dcde05bcece05a963c',1,'jsware::PulldownButtonType']]],
+  ['pullupbuttontype_1',['PullupButtonType',['../classjsware_1_1_pullup_button_type.html#a02f5ae0f63a51b065b60617dc64096fc',1,'jsware::PullupButtonType']]]
 ];

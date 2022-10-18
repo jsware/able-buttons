@@ -1,8 +1,9 @@
 <map id="/Users/johnscott/Documents/Arduino/libraries/buttons/src/btnlist.h" name="/Users/johnscott/Documents/Arduino/libraries/buttons/src/btnlist.h">
-<area shape="rect" id="node1" title="Definitions of a button list." alt="" coords="403,5,592,60"/>
-<area shape="rect" id="node2" href="$able-buttons_8h.html" title="Main include file for the Arduino Button library Extension." alt="" coords="403,108,592,163"/>
-<area shape="rect" id="node3" href="$_push_btn_8ino.html" title="Example on/off control from a button." alt="" coords="5,218,216,273"/>
-<area shape="rect" id="node4" href="$_push_btn_all_8ino.html" title="Example on/off control from multiple buttons." alt="" coords="241,218,482,273"/>
-<area shape="rect" id="node5" href="$_push_btn_any_8ino.html" title="Example on/off control from multiple buttons." alt="" coords="506,218,761,273"/>
-<area shape="rect" id="node6" href="$_push_btn_callback_8ino_source.html" title=" " alt="" coords="785,211,975,280"/>
+<area shape="rect" id="node1" title="Definitions of a button list." alt="" coords="530,5,719,60"/>
+<area shape="rect" id="node2" href="$able-buttons_8h.html" title="Main include file for the Arduino Button library Extension." alt="" coords="530,108,719,163"/>
+<area shape="rect" id="node3" href="$_clicked_btn_8ino_source.html" title=" " alt="" coords="5,218,244,273"/>
+<area shape="rect" id="node4" href="$_push_btn_8ino.html" title="Example on/off control from a button." alt="" coords="269,218,479,273"/>
+<area shape="rect" id="node5" href="$_push_btn_all_8ino.html" title="Example on/off control from multiple buttons." alt="" coords="504,218,745,273"/>
+<area shape="rect" id="node6" href="$_push_btn_any_8ino.html" title="Example on/off control from multiple buttons." alt="" coords="769,218,1024,273"/>
+<area shape="rect" id="node7" href="$_push_btn_callback_8ino_source.html" title=" " alt="" coords="1049,211,1238,280"/>
 </map>

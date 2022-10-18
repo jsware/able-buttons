@@ -1,9 +1,11 @@
 <map id="/Users/johnscott/Documents/Arduino/libraries/buttons/src/able&#45;buttons.h" name="/Users/johnscott/Documents/Arduino/libraries/buttons/src/able&#45;buttons.h">
-<area shape="rect" id="node1" title="Main include file for the Arduino Button library Extension." alt="" coords="5,5,195,60"/>
-<area shape="rect" id="node2" title=" " alt="" coords="13,328,91,353"/>
-<area shape="rect" id="node3" href="$basicbtn_8h.html" title="Simplest button to check if currently pressed." alt="" coords="51,181,133,207"/>
-<area shape="rect" id="node5" href="$btnlist_8h.html" title="Definitions of a button list." alt="" coords="197,108,265,133"/>
-<area shape="rect" id="node7" href="$callbtn_8h.html" title="Callback Button to call a function when pressed." alt="" coords="102,108,173,133"/>
-<area shape="rect" id="node4" href="$btntypes_8h.html" title="Definitions of different button types." alt="" coords="51,255,133,280"/>
-<area shape="rect" id="node6" title=" " alt="" coords="196,181,265,207"/>
+<area shape="rect" id="node1" title="Main include file for the Arduino Button library Extension." alt="" coords="41,5,231,60"/>
+<area shape="rect" id="node2" title=" " alt="" coords="80,328,157,353"/>
+<area shape="rect" id="node3" href="$basicbtn_8h.html" title="Simplest button to check if currently pressed." alt="" coords="77,181,160,207"/>
+<area shape="rect" id="node5" href="$btnlist_8h.html" title="Definitions of a button list." alt="" coords="30,108,98,133"/>
+<area shape="rect" id="node6" href="$callbtn_8h.html" title="Callback Button to call a function when pressed." alt="" coords="174,108,245,133"/>
+<area shape="rect" id="node8" href="$clickbtn_8h.html" title="Clickable button handling single click buttons." alt="" coords="269,108,347,133"/>
+<area shape="rect" id="node4" href="$btntypes_8h.html" title="Definitions of different button types." alt="" coords="77,255,160,280"/>
+<area shape="rect" id="node7" href="$callback_8h.html" title="Definitions of different button types." alt="" coords="185,181,266,207"/>
+<area shape="rect" id="node9" href="$btnstate_8h.html" title="Button state definitions." alt="" coords="291,181,371,207"/>
 </map>

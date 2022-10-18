@@ -26,15 +26,18 @@ var NAVTREE =
 [
   [ "Button Library", "index.html", [
     [ "ABLE", "index.html", [
-      [ "Introduction", "index.html#autotoc_md1", null ],
-      [ "Memory Usage", "index.html#autotoc_md2", null ],
-      [ "Installation", "index.html#autotoc_md3", null ],
-      [ "Usage", "index.html#autotoc_md4", [
-        [ "Basic Button", "index.html#autotoc_md5", null ],
-        [ "Callback Button", "index.html#autotoc_md6", null ],
-        [ "Button List", "index.html#autotoc_md7", null ]
+      [ "Introduction", "index.html#autotoc_md1", [
+        [ "Motivation", "index.html#autotoc_md2", null ]
+      ] ],
+      [ "Memory Usage", "index.html#autotoc_md3", null ],
+      [ "Installation", "index.html#autotoc_md4", null ],
+      [ "Usage", "index.html#autotoc_md5", [
+        [ "Basic Button", "index.html#autotoc_md6", null ],
+        [ "Callback Button", "index.html#autotoc_md7", null ],
+        [ "Button List", "index.html#autotoc_md8", null ]
       ] ]
     ] ],
+    [ "Examples", "md___users_johnscott__documents__arduino_libraries_buttons_examples__r_e_a_d_m_e.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -60,7 +63,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_push_btn_8ino.html"
+"_clicked_btn_8ino_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

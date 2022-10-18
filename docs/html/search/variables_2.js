@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['onpressed_5f_0',['onPressed_',['../classjsware_1_1_t_callback_button.html#af5054cd133b0498276b22324abe213ea',1,'jsware::TCallbackButton']]],
-  ['onreleased_5f_1',['onReleased_',['../classjsware_1_1_t_callback_button.html#a85539f54a3152e4a5d5b171167732006',1,'jsware::TCallbackButton']]]
+  ['debounce_5f_0',['debounce_',['../classjsware_1_1_base_button_type.html#a8ae40c685bb705404d9721de4e9c2631',1,'jsware::BaseButtonType']]],
+  ['debouncetime_5f_1',['debounceTime_',['../classjsware_1_1_base_button_type.html#a6bce654c30919e5dc466a8f15952a16a',1,'jsware::BaseButtonType']]]
 ];

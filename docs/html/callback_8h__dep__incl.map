@@ -1,0 +1,12 @@
+<map id="/Users/johnscott/Documents/Arduino/libraries/buttons/src/callback.h" name="/Users/johnscott/Documents/Arduino/libraries/buttons/src/callback.h">
+<area shape="rect" id="node1" title="Definitions of different button types." alt="" coords="423,5,613,60"/>
+<area shape="rect" id="node2" href="$callback_8cpp.html" title="Callback button helpers." alt="" coords="210,108,399,163"/>
+<area shape="rect" id="node3" href="$callbtn_8h.html" title="Callback Button to call a function when pressed." alt="" coords="423,108,613,163"/>
+<area shape="rect" id="node10" href="$clickbtn_8h.html" title="Clickable button handling single click buttons." alt="" coords="637,108,826,163"/>
+<area shape="rect" id="node4" href="$able-buttons_8h.html" title="Main include file for the Arduino Button library Extension." alt="" coords="530,211,719,265"/>
+<area shape="rect" id="node5" href="$_clicked_btn_8ino_source.html" title=" " alt="" coords="5,321,244,375"/>
+<area shape="rect" id="node6" href="$_push_btn_8ino.html" title="Example on/off control from a button." alt="" coords="269,321,479,375"/>
+<area shape="rect" id="node7" href="$_push_btn_all_8ino.html" title="Example on/off control from multiple buttons." alt="" coords="504,321,745,375"/>
+<area shape="rect" id="node8" href="$_push_btn_any_8ino.html" title="Example on/off control from multiple buttons." alt="" coords="769,321,1024,375"/>
+<area shape="rect" id="node9" href="$_push_btn_callback_8ino_source.html" title=" " alt="" coords="1049,313,1238,383"/>
+</map>
