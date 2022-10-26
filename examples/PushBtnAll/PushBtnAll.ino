@@ -32,7 +32,8 @@ void setup() {
  */
 void loop() {
   // put your main code here, to run repeatedly:
-
+  btnList.handle();
+  
   if(btnList.allPressed()) {
     digitalWrite(LED_BUILTIN, HIGH);
   } else {

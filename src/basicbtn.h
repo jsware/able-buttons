@@ -39,6 +39,13 @@ namespace jsware {
       }
 
       /**
+       * Handle the button. Called from setup() of an Arduino program.
+       */
+      void handle() {
+        button_.handle();
+      }
+
+      /**
        * Determine if the button is currently pressed.
        * 
        * @return True if pressed, else false.

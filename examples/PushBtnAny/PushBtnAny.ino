@@ -14,7 +14,7 @@ BasicButton btns[] = {
   BasicButton(BUTTON_PIN),
   BasicButton(BUTTON_PIN + 1)
 };
-BasicButtonList list(btns); ///< List of button to control together.
+BasicButtonList btnList(btns); ///< List of button to control together.
 
 /**
  * Setup the PushBtn example. Called once to initialise everything.
@@ -24,7 +24,7 @@ void setup() {
 
   pinMode(LED_BUILTIN, OUTPUT);
 
-  list.begin();
+  btnList.begin();
 }
 
 /**
@@ -32,8 +32,9 @@ void setup() {
  */
 void loop() {
   // put your main code here, to run repeatedly:
+  btnList.handle();
 
-  if(list.anyPressed()) {
+  if(btnList.anyPressed()) {
     digitalWrite(LED_BUILTIN, HIGH);
   } else {
     digitalWrite(LED_BUILTIN, LOW);

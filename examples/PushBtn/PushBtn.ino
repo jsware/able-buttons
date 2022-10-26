@@ -16,10 +16,8 @@ BasicButton btn(BUTTON_PIN); ///< The button to check.
  */
 void setup() {
   // put your setup code here, to run once:
-
-  pinMode(LED_BUILTIN, OUTPUT);
-
   btn.begin();
+  pinMode(LED_BUILTIN, OUTPUT);
 }
 
 /**
@@ -27,7 +25,8 @@ void setup() {
  */
 void loop() {
   // put your main code here, to run repeatedly:
-
+  btn.handle();
+  
   if(btn.isPressed()) {
     digitalWrite(LED_BUILTIN, HIGH);
   } else {

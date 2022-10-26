@@ -6,15 +6,13 @@
  */
 #include "btntypes.h"
 
-uint8_t jsware::BaseButtonType::debounceTime_ = 50;
+uint8_t jsware::PulldownButtonType::debounceTime_ = 50;
+uint8_t jsware::PullupButtonType::debounceTime_ = 50;
 
-void jsware::BaseButtonType::buttonDebounce(uint8_t debounceTime) {
-  debounceTime_ = debounceTime;
-}
-
-jsware::BaseButtonType::BaseButtonType(uint8_t pin)
+jsware::PulldownButtonType::PulldownButtonType(uint8_t pin)
 :pin_(pin)
-,pressed_(false)
+,state_(0)
+,last_(0)
 ,debounce_(0) {
   // NOP
 }
@@ -23,36 +21,42 @@ void jsware::PulldownButtonType::begin() {
   pinMode(pin_, INPUT);
 }
 
-bool jsware::PulldownButtonType::isPressed() {
-  bool state = (digitalRead(pin_) == HIGH);
+void jsware::PulldownButtonType::handle() {
+  byte reading = digitalRead(pin_);
 
-  if(state != pressed_) {
-    if(debounce_ == 0) { // Start debounce timer.
-      debounce_ = millis();
-    } else if(millis() - debounce_ > debounceTime_) {
-      pressed_ = state;
-      debounce_ = 0;
-    }
+  // New reading, so start the debounce timer.
+  if (reading != last_) {
+    debounce_ = millis();
+  } else if ((millis() - debounce_) >= debounceTime_) {
+    // Use reading if we have the same reading for >= debounce time.
+    state_ = reading;
   }
 
-  return pressed_;
+  last_ = reading;
+}
+
+jsware::PullupButtonType::PullupButtonType(uint8_t pin)
+:pin_(pin)
+,state_(0)
+,last_(0)
+,debounce_(0) {
+  // NOP
 }
 
 void jsware::PullupButtonType::begin() {
   pinMode(pin_, INPUT_PULLUP);
 }
 
-bool jsware::PullupButtonType::isPressed() {
-  bool state = (digitalRead(pin_) == LOW);
+void jsware::PullupButtonType::handle() {
+  byte reading = digitalRead(pin_);
 
-  if(state != pressed_) {
-    if(debounce_ == 0) { // Start debounce timer.
-      debounce_ = millis();
-    } else if(millis() - debounce_ > debounceTime_) {
-      pressed_ = state;
-      debounce_ = 0;
-    }
+  // New reading, so start the debounce timer.
+  if (reading != last_) {
+    debounce_ = millis();
+  } else if ((millis() - debounce_) >= debounceTime_) {
+    // Use reading if we have the same reading for >= DELAY ms.
+    state_ = reading;
   }
 
-  return pressed_;
+  last_ = reading;
 }

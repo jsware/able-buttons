@@ -42,6 +42,7 @@ namespace jsware {
        * Handle the button. Called from loop() of an Arduino program.
        */
       void handle() {
+        BaseButton::handle();
         if(!pressed_ && BaseButton::isPressed()) {
           pressed_ = true;
           if(onPressed_) {
