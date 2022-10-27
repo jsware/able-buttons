@@ -19,7 +19,7 @@ namespace jsware {
    *                   connection.
    */
   template <typename ButtonType = class PullupButtonType, typename BaseButton = TBasicButton<ButtonType> >
-  class TCallbackButton: public BaseButton {
+  class TCallbackButton {
     public:
       // CallbackButton must be connected via a pin.
       TCallbackButton() = delete;
@@ -36,19 +36,26 @@ namespace jsware {
                       void(*onPressed)(uint8_t) = 0,
                       void(*onReleased)(uint8_t) = 0,
                       uint8_t id = autoId())
-      :BaseButton(pin), id_(id), pressed_(false), onPressed_(onPressed), onReleased_(onReleased) {}
+      :button_(pin), id_(id), pressed_(false), onPressed_(onPressed), onReleased_(onReleased) {}
+
+      /**
+       * Initialise the button. Called from setup() of an Arduino program.
+       */
+      void begin() {
+        button_.begin();
+      }
 
       /**
        * Handle the button. Called from loop() of an Arduino program.
        */
       void handle() {
-        BaseButton::handle();
-        if(!pressed_ && BaseButton::isPressed()) {
+        button_.handle();
+        if(!pressed_ && button_.isPressed()) {
           pressed_ = true;
           if(onPressed_) {
             onPressed_(id_);
           }
-        } else if(pressed_ && !BaseButton::isPressed()) {
+        } else if(pressed_ && !button_.isPressed()) {
           pressed_ = false;
           if(onReleased_) {
             onReleased_(id_);
@@ -56,27 +63,37 @@ namespace jsware {
         }
       }
 
-    /**
-     * Set a (new) on pressed callback function.
-     * 
-     * @param callbackFn The function to call when the button is pressed. Use
-     *                   0 to clear the on-pressed callback.
-     */
-    void onPressed(void(*callbackFn)(BaseButton *)) {
-      onPressed_ = callbackFn;
-    }
+      /**
+       * Determine if the button is currently pressed.
+       * 
+       * @return True if pressed, else false.
+       */
+      bool isPressed() {
+        return button_.isPressed();
+      }
 
-    /**
-     * Set a (new) on released callback function.
-     * 
-     * @param callbackFn The function to call when the button is released. Use
-     *                   0 to clear the on-released callback.
-     */
-    void onReleased(void(*callbackFn)(BaseButton *)) {
-      onReleased_ = callbackFn;
-    }
+      /**
+       * Set a (new) on pressed callback function.
+       * 
+       * @param callbackFn The function to call when the button is pressed. Use
+       *                   0 to clear the on-pressed callback.
+       */
+      void onPressed(void(*callbackFn)(BaseButton *)) {
+        onPressed_ = callbackFn;
+      }
+
+      /**
+       * Set a (new) on released callback function.
+       * 
+       * @param callbackFn The function to call when the button is released. Use
+       *                   0 to clear the on-released callback.
+       */
+      void onReleased(void(*callbackFn)(BaseButton *)) {
+        onReleased_ = callbackFn;
+      }
 
     private:
+      BaseButton button_; ///< The underlying button.
       uint8_t id_; ///< Identifier for the button passed to callback functions.
       bool pressed_; ///< Indicates if the button was previously pressed.
       void (*onPressed_)(uint8_t); ///< Callback function for button press.
