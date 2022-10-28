@@ -15,7 +15,6 @@ BasicButton btn(BUTTON_PIN); ///< The button to check.
  * Setup the PushBtn example. Called once to initialise everything.
  */
 void setup() {
-  // put your setup code here, to run once:
   btn.begin();
   pinMode(LED_BUILTIN, OUTPUT);
 }
@@ -24,7 +23,6 @@ void setup() {
  * Control the PushBtn example. Called repeatedly in a loop.
  */
 void loop() {
-  // put your main code here, to run repeatedly:
   btn.handle();
   
   if(btn.isPressed()) {

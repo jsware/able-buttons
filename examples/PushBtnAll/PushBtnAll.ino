@@ -20,18 +20,14 @@ BasicButtonList btnList(btns); ///< List of button to control together.
  * Setup the PushBtn example. Called once to initialise everything.
  */
 void setup() {
-  // put your setup code here, to run once:
-
-  pinMode(LED_BUILTIN, OUTPUT);
-
   btnList.begin();
+  pinMode(LED_BUILTIN, OUTPUT);
 }
 
 /**
  * Control the PushBtn example. Called repeatedly in a loop.
  */
 void loop() {
-  // put your main code here, to run repeatedly:
   btnList.handle();
   
   if(btnList.allPressed()) {

@@ -22,21 +22,16 @@ void clickedCallback(uint8_t id) {
 ClickableButton btn(BUTTON_PIN, clickedCallback); ///< The button to check.
 
 /**
- * Setup the PushBtn example. Called once to initialise everything.
+ * Setup the ClickedBtn example. Called once to initialise everything.
  */
 void setup() {
-  // put your setup code here, to run once:
-
-  pinMode(LED_BUILTIN, OUTPUT);
-
   btn.begin();
+  pinMode(LED_BUILTIN, OUTPUT);
 }
 
 /**
- * Control the PushBtn example. Called repeatedly in a loop.
+ * Control the ClickedBtn example. Called repeatedly in a loop.
  */
 void loop() {
-  // put your main code here, to run repeatedly:
-
   btn.handle();
 }

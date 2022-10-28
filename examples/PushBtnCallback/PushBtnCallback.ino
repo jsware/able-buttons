@@ -1,5 +1,5 @@
 /**
- * @filele-
+ * @file
  * Example on/off callback from a button. The built-in LED lights when a button
  * connected between pin 2 and ground is pressed. Uses the internal pull-up
  * resistor within an Arduino for the simplest button connection.
@@ -22,18 +22,16 @@ void releasedCallback(uint8_t id) {
 CallbackButton btn(BUTTON_PIN, pressedCallback, releasedCallback); ///< The button to check.
 
 /**
- * Setup the PushBtn example. Called once to initialise everything.
+ * Setup the PushBtnCallback example. Called once to initialise everything.
  */
 void setup() {
-  // put your setup code here, to run once:
-  pinMode(LED_BUILTIN, OUTPUT);
   btn.begin();
+  pinMode(LED_BUILTIN, OUTPUT);
 }
 
 /**
- * Control the PushBtn example. Called repeatedly in a loop.
+ * Control the PushBtnCallback example. Called repeatedly in a loop.
  */
 void loop() {
-  // put your main code here, to run repeatedly:
   btn.handle();
 }
