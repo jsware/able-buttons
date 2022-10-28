@@ -29,7 +29,7 @@ namespace jsware {
        * @param pin The pin connected to the button.
        */ 
       TBasicButton(uint8_t pin)
-      :button_(pin) {};
+      :button_(pin) {}
 
       /**
        * Initialise the button. Called from setup() of an Arduino program.
