@@ -11,8 +11,8 @@ uint8_t jsware::PullupButtonType::debounceTime_ = 50;
 
 jsware::PulldownButtonType::PulldownButtonType(uint8_t pin)
 :pin_(pin)
-,state_(0)
-,last_(0)
+,state_(LOW)
+,last_(LOW)
 ,debounce_(0) {
   // NOP
 }
@@ -37,8 +37,8 @@ void jsware::PulldownButtonType::handle() {
 
 jsware::PullupButtonType::PullupButtonType(uint8_t pin)
 :pin_(pin)
-,state_(0)
-,last_(0)
+,state_(HIGH)
+,last_(HIGH)
 ,debounce_(0) {
   // NOP
 }
