@@ -6,20 +6,32 @@
  * 
  * @copyright Copyright (c) 2022 John Scott
  */
-#include <able-buttons.h>
+#include <AbleButtons.h>
 
-/// Callback function for button pressed.
+// Identify which buttons you are using...
+using Button = AblePullupCallbackButton; ///< Using callback pull-up button.
+using ButtonList = AblePullupCallbackButtonList; ///< Using callback pull-up button list.
+
+/**
+ * Callback function for button pressed.
+ * 
+ * @param id The identifier of the button generating the callback.
+ */
 void pressedCallback(uint8_t id) {
   digitalWrite(LED_BUILTIN, HIGH);
 }
 
-/// Callback function for button released.
-void releasedCallback(uint8_t id) {
+/**
+ * Callback function for button released.
+ * 
+ * @param id The identifier of the button generating the callback.
+ */
+void clickedCallback(uint8_t id) {
     digitalWrite(LED_BUILTIN, LOW);
 }
 
 #define BUTTON_PIN 2 ///< Connect button between this pin and ground.
-CallbackButton btn(BUTTON_PIN, pressedCallback, releasedCallback); ///< The button to check.
+Button btn(BUTTON_PIN, pressedCallback, clickedCallback); ///< The button to check.
 
 /**
  * Setup the PushBtnCallback example. Called once to initialise everything.

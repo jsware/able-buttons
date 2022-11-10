@@ -10,12 +10,23 @@
 #include <AbleButtons.h>
 
 // Identify which buttons you are using...
-using Button = AblePullupClickerButton;
-using ButtonList = AblePullupClickerButtonList;
+using Button = AblePullupCallbackClickerButton;
+using ButtonList = AblePullupCallbackClickerButtonList;
+
+bool led=LOW;
+
+/**
+ * Callback function for button pressed.
+ * 
+ * @param id The identifier of the button generating the callback.
+ */
+void pressedCallback(uint8_t id) {
+  led = HIGH;
+  digitalWrite(LED_BUILTIN, HIGH);
+}
 
 #define BUTTON_PIN 2 ///< Connect button between this pin and ground.
-Button btn(BUTTON_PIN);
-bool led=LOW;
+Button btn(BUTTON_PIN, pressedCallback);
 
 /**
  * Setup the ClickedBtn example. Called once to initialise everything.

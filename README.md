@@ -1,10 +1,10 @@
-# ABLE
+# Arduino Button Library Extension
 
-ABLE is a simple, lightweight button library to capture input from buttons connected to an Arduino.
+The Arduino Button Library Extension (ABLE) is a simple, lightweight button library to capture input from buttons connected to an Arduino.
 
 ## Introduction
 
-ABLE provides a lightweight easy-to-use button library without unnecessarily including unused button capability. The basic button class uses **194 bytes extra code** to support [button-debouncing](https://www.arduino.cc/en/Tutorial/BuiltInExamples/Debounce) out of the box. This stops isPressed() calls returning a noisy state as a button is pressed or released.
+ABLE provides a lightweight easy-to-use button library without unnecessarily including unused button capability. The basic button class uses **172 bytes extra code** over the same non-debounced program to support [button-debouncing](https://www.arduino.cc/en/Tutorial/BuiltInExamples/Debounce) out of the box. This stops isPressed() calls returning a noisy state as a button is pressed or released.
 
 ABLE can support buttons connected using pull-up resitors and pull-down resisters. It also supports the internal pull-up resistors on various Arduino models making it easy to connect a pin to ground through a button or switch.
 
