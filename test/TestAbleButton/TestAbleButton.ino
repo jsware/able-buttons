@@ -15,8 +15,6 @@
 #include "utils.h"
 
 // Select the buttons used...
-// using Button = AbleButton;
-// using ButtonList = AbleButtonList;
 using Button = AblePullupCallbackClickerButton;
 using ButtonList = AblePullupCallbackClickerButtonList;
 
@@ -27,8 +25,6 @@ void releasedCallback(uint8_t id);
 #define BUTTON_A_PIN 2 ///< Connect button between this pin and ground.
 #define BUTTON_B_PIN 3 ///< Connect button using pulldown resistor circuit.
 
-// Button btnA(BUTTON_A_PIN, INPUT_PULLUP, pressedCallback, releasedCallback);
-// Button btnB(BUTTON_B_PIN, INPUT_PULLUP, pressedCallback, releasedCallback);
 Button btnA(BUTTON_A_PIN, pressedCallback, releasedCallback);
 Button btnB(BUTTON_B_PIN, pressedCallback, releasedCallback);
 Button *btns[] = { ///< Array of buttons for ButtonList.
@@ -37,7 +33,8 @@ Button *btns[] = { ///< Array of buttons for ButtonList.
 };
 ButtonList btnList(btns); ///< List of buttons.
 
-static bool anyReleased; ///< Flag indicating releasedCallback was called.
+bool anyReleased; ///< Flag indicating releasedCallback was called.
+bool led = false; ///< State of the builtin LED.
 
 /**
  * Setup the PushBtn example. Called once to initialise everything.
@@ -56,8 +53,11 @@ void loop() {
   if(!count++) Serial.println(F("Looking OK..."));
 
   btnList.handle();
-  digitalWrite(LED_BUILTIN, btnList.anyPressed());
 
+  if(btnList.anyClicked()) {
+    led = !led;
+  }
+    
   if(anyReleased) {
     assert(btnList.allClicked() == false);
     assert(btnList.anyClicked() == true);
@@ -69,6 +69,8 @@ void loop() {
     assert(btnList.allClicked() == false);
     assert(btnList.anyClicked() == false);
   }
+
+  digitalWrite(LED_BUILTIN, led);
 }
 
 /**
