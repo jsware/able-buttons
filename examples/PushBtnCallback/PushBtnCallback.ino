@@ -26,12 +26,12 @@ void pressedCallback(uint8_t id) {
  * 
  * @param id The identifier of the button generating the callback.
  */
-void clickedCallback(uint8_t id) {
+void releasedCallback(uint8_t id) {
     digitalWrite(LED_BUILTIN, LOW);
 }
 
 #define BUTTON_PIN 2 ///< Connect button between this pin and ground.
-Button btn(BUTTON_PIN, pressedCallback, clickedCallback); ///< The button to check.
+Button btn(BUTTON_PIN, pressedCallback, releasedCallback); ///< The button to check.
 
 /**
  * Setup the PushBtnCallback example. Called once to initialise everything.
