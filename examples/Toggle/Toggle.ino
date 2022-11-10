@@ -10,8 +10,8 @@
 #include <AbleButtons.h>
 
 // Identify which buttons you are using...
-using Button = AblePullupButton; ///< Using basic pull-up button.
-using ButtonList = AblePullupButtonList; ///< Using basic pull-up button list.
+using Button = AblePullupClickerButton; ///< Using clicker pull-up button.
+using ButtonList = AblePullupClickerButtonList; ///< Using clicker pull-up button list.
 
 #define BUTTON_PIN 2 ///< Connect button between this pin and ground.
 Button btn(BUTTON_PIN); ///< The button to check.
