@@ -35,7 +35,7 @@ class AbleButton {
      * 
      * @returns The number of milliseconds of debounce time. 
      */
-    inline uint8_t debounceTime() const {
+    inline static uint8_t debounceTime() {
       return debounceTime_;
     }
 
