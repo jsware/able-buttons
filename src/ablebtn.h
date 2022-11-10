@@ -39,6 +39,13 @@ class AbleButton {
       return debounceTime_;
     }
 
+    /**
+     * Return the next available auto-assigned button id.
+     * 
+     * @return The next id for the button.
+     */
+    static uint8_t autoId();
+
   public:
     //
     // Public Creators...
@@ -55,7 +62,7 @@ class AbleButton {
                       uint8_t mode,
                       void(*onPressed)(uint8_t) = 0,
                       void(*onReleased)(uint8_t) = 0,
-                      uint8_t id = ++autoId_)
+                      uint8_t id = autoId())
       :pin_(pin), mode_(mode), onPressed_(onPressed), onReleased_(onReleased), id_(id) {}
 
   public:

@@ -6,7 +6,11 @@
 #include "ablebtn.h"
 
 uint8_t AbleButton::debounceTime_ = 50;
- uint8_t AbleButton::autoId_ = 0; ///< Auto-assigned button idedtifier.
+uint8_t AbleButton::autoId_ = 0; ///< Auto-assigned button identifier.
+
+uint8_t AbleButton::autoId() {
+  return ++autoId_;
+}
 
 bool AbleButton::resetClicked() {
   bool rc = isClicked();
