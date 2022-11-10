@@ -1,5 +1,5 @@
 /**
- * @filele-
+ * @file
  * Example clicked callback from a button. The built-in LED lights on/off when a
  * button connected between pin 2 and ground is clicked (pressed and released).
  * Uses the internal pull-up resistor within an Arduino for the simplest button
@@ -10,15 +10,16 @@
 #include <AbleButtons.h>
 
 // Identify which buttons you are using...
-using Button = AblePullupClickerButton;
-using ButtonList = AblePullupClickerButtonList;
+using Button = AblePullupButton; ///< Using basic pull-up button.
+using ButtonList = AblePullupButtonList; ///< Using basic pull-up button list.
 
 #define BUTTON_PIN 2 ///< Connect button between this pin and ground.
-Button btn(BUTTON_PIN);
-bool led=LOW;
+Button btn(BUTTON_PIN); ///< The button to check.
+
+bool led=false; ///< On/off state of the LED.
 
 /**
- * Setup the ClickedBtn example. Called once to initialise everything.
+ * Setup the Toggle example. Called once to initialise everything.
  */
 void setup() {
   btn.begin();
@@ -26,7 +27,7 @@ void setup() {
 }
 
 /**
- * Control the ClickedBtn example. Called repeatedly in a loop.
+ * Control the Toggle example. Called repeatedly in a loop.
  */
 void loop() {
   btn.handle();
