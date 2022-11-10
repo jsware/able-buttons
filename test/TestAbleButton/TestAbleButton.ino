@@ -15,8 +15,10 @@
 #include "utils.h"
 
 // Select the buttons used...
-using Button = AbleButton;//AblePullupCallbackClickerButton;
-using ButtonList = AbleButtonList;//AblePullupCallbackClickerButtonList;
+// using Button = AbleButton;
+// using ButtonList = AbleButtonList;
+using Button = AblePullupCallbackClickerButton;
+using ButtonList = AblePullupCallbackClickerButtonList;
 
 // Forward declarations of callback functions.
 void pressedCallback(uint8_t id);
@@ -25,8 +27,10 @@ void releasedCallback(uint8_t id);
 #define BUTTON_A_PIN 2 ///< Connect button between this pin and ground.
 #define BUTTON_B_PIN 3 ///< Connect button using pulldown resistor circuit.
 
-Button btnA(BUTTON_A_PIN, INPUT_PULLUP, pressedCallback, releasedCallback);
-Button btnB(BUTTON_B_PIN, INPUT_PULLUP, pressedCallback, releasedCallback);
+// Button btnA(BUTTON_A_PIN, INPUT_PULLUP, pressedCallback, releasedCallback);
+// Button btnB(BUTTON_B_PIN, INPUT_PULLUP, pressedCallback, releasedCallback);
+Button btnA(BUTTON_A_PIN, pressedCallback, releasedCallback);
+Button btnB(BUTTON_B_PIN, pressedCallback, releasedCallback);
 Button *btns[] = { ///< Array of buttons for ButtonList.
   &btnA,
   &btnB
