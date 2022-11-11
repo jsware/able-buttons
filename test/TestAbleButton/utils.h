@@ -2,26 +2,29 @@
 
 #define UNKNOWN_PINMODE 0xFF
 
+
+template<typename T>
+inline Print &operator<<(Print &p, const T o) { p.print(o); return p; }
+
+enum endl { endl };
+inline Print &operator <<(Print &p, enum endl) { p.println(); p.flush(); return p; }
+
+
 extern "C" void __assert(const char *__func, const char *__file, int __lineno, const char *__sexp) {
-  Serial.print(F("ERROR: Assertion [ "));
-  Serial.print(__sexp);
-  Serial.print(F(" ] failed"));
+  Serial << F("ERROR: Assertion [ ") << __sexp << F(" ] failed");
+
   if(__func) {
-    Serial.print(F(" in function '"));
-    Serial.print(__func);
+    Serial << F(" in function '") << __func;
   }
 
-  Serial.print(F("' at line "));
-  Serial.print(__lineno);
-  
-  // if(__file) {
-  //   Serial.print(F(" of file "));
-  //   Serial.print(__file);
-  // }
-  Serial.println();
-  Serial.flush();
-}
+  Serial << F("' at line ") << __lineno ;
 
+  if(__file) {
+    Serial << F(" of file ") << __file;
+  }
+
+  Serial << endl;
+}
 
 
 int8_t getPinMode(uint8_t pin)
