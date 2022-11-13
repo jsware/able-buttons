@@ -1,5 +1,5 @@
 /**
- * @file Debouncable.ini Example toggle control from an Able button.
+ * @file Debouncable.ino Example toggle control from an Able button.
  * 
  * This shows how Able can be used to create the same program as the built-in
  * [Debounce example](https://www.arduino.cc/en/Tutorial/BuiltInExamples/Debounce)
@@ -19,7 +19,6 @@ using ButtonList = AblePullupClickerButtonList; ///< Using clicker pull-up butto
 
 #define BUTTON_PIN 2 ///< Connect button between this pin and ground.
 Button btn(BUTTON_PIN); ///< The button to check.
-
 bool led = false; ///< On/off state of the LED.
 
 /**

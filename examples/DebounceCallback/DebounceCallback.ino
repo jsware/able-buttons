@@ -8,16 +8,15 @@
 #include <AbleButtons.h>
 
 // Identify which buttons you are using...
-using Button = AblePullupCallbackClickerButton;
-using ButtonList = AblePullupCallbackClickerButtonList;
-
-bool led = false; ///< On/off state of the LED.
+using Button = AblePullupCallbackButton; ///< Using callback pull-up button.
+using ButtonList = AblePullupCallbackButtonList; ///< Using callback pull-up button list.
 
 // Forward declaration of callback function.
-void releasedCallback(uint8_t);
+void clickedCallback(uint8_t);
 
 #define BUTTON_PIN 2 ///< Connect button between this pin and ground.
-Button btn(BUTTON_PIN, 0, releasedCallback); ///< The button to check.
+Button btn(BUTTON_PIN, 0, clickedCallback); ///< The button to check.
+bool led = false; ///< On/off state of the LED.
 
 /**
  * Setup the ClickedBtn example. Called once to initialise everything.
@@ -37,10 +36,9 @@ void loop() {
 /**
  * Callback function for button released.
  * 
- * @param id The identifier of the button generating the callback (ignored in
- *           this example).)
+ * @param id The identifier of the button generating the callback (ignored in this example).
  */
-void releasedCallback(uint8_t id) {
+void clickedCallback(uint8_t id) {
   led = !led;
   digitalWrite(LED_BUILTIN, led);
 }

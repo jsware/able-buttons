@@ -40,6 +40,7 @@ namespace able {
        * class instead of this class directly.
        * 
        * @param pin The pin to read from.
+       * @param initState The initial (un-pushed) state of the button.
        */
       inline Pin(uint8_t pin, uint8_t initState)
       :pin_(pin), currState_(initState) {}

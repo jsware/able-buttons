@@ -12,7 +12,7 @@
  * 
  * @param id The identifier of the button generating the callback.
  */
-void pressedCallback(uint8_t id) {
+void onPressed(uint8_t id) {
   assert(id > 0);
   Button *btn = btnList.button(id); assert(btn == btns[id - 1]);
 

@@ -5,24 +5,24 @@
  * @copyright Copyright (c) 2022 John Scott
  */
 #pragma once
-#define __ASSERT_USE_STDERR
+#define __ASSERT_USE_STDERR ///< Used by <assert.h> to indicate custom assert output
 #undef NDEBUG
 #include <assert.h>
 
 #include <AbleButtons.h>
 
 // Select the buttons used...
-using Button = AblePullupCallbackClickerButton;
-using ButtonList = AblePullupCallbackClickerButtonList;
+using Button = AblePullupCallbackClickerButton; ///< Using clicker callback pull-up button.
+using ButtonList = AblePullupCallbackClickerButtonList; ///< Using clicker callback pull-up button list.
 
 // Forward declarations of callback functions.
-void pressedCallback(uint8_t id);
-void releasedCallback(uint8_t id);
+void onPressed(uint8_t);
+void onReleased(uint8_t);
 
 #define BUTTON_A_PIN 2 ///< Connect button between this pin and ground.
 #define BUTTON_B_PIN 3 ///< Connect button using pulldown resistor circuit.
 
 extern Button *btns[];
-extern ButtonList btnList;
+extern ButtonList btnList; ///< Declaration of button list.
 
 extern bool anyReleased;

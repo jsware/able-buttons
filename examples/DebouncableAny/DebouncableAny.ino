@@ -15,6 +15,7 @@ using ButtonList = AblePullupClickerButtonList; ///< Using clicker pull-up butto
 
 Button btnA(BUTTON_A_PIN); ///< Primary button.
 Button btnB(BUTTON_B_PIN); ///< Secondary button.
+bool led = false; ///< On/off state of the LED.
 
 /// Array of buttons for ButtonList.
 Button *btns[] = {
@@ -22,8 +23,6 @@ Button *btns[] = {
   &btnB
 };
 ButtonList btnList(btns); ///< List of button to control together.
-
-bool led = false; ///< On/off state of the LED.
 
 /**
  * Setup the DebouncableAny example. Called once to initialise everything.

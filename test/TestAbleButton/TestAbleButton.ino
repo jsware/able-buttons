@@ -12,9 +12,11 @@
  */
 #include "TestAbleButton.h"
 
-Button btnA(BUTTON_A_PIN, pressedCallback, releasedCallback); ///< Button A
-Button btnB(BUTTON_B_PIN, pressedCallback, releasedCallback); ///< Button B
-Button *btns[] = { ///< Array of buttons for ButtonList.
+Button btnA(BUTTON_A_PIN, onPressed, onReleased); ///< Button A
+Button btnB(BUTTON_B_PIN, onPressed, onReleased); ///< Button B
+
+/// Array of buttons for ButtonList.
+Button *btns[] = {
   &btnA,
   &btnB
 };

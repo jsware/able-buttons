@@ -19,13 +19,19 @@
 template<typename T>
 inline Print &operator<<(Print &p, const T o) { p.print(o); return p; }
 
-enum endl { endl }; ///< Special type to allow `Serial << endl` to print a line and flush the stream.
+/// Special type to allow `Serial << endl` to print a line and flush the stream.
+enum endl {
+  endl ///< The special value of endl  triggers the Serial.println() and Serial.flush().
+};
 
 /**
  * Special stream operator for turning Serial << endl into new line and stream flush.
  * 
  * @param p The print-stream to output a new line and flush.
  * @param endl The special `endl` enumeration type
+ * 
+ * @returns The print-stream object (allows chaining of << operators - as in
+ *          `Serial << x << y << z;`).
  */
 inline Print &operator <<(Print &p, enum endl) { p.println(); p.flush(); return p; }
 
