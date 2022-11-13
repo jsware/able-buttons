@@ -1,12 +1,11 @@
 /**
- * @file button.h
- * Definition of an Able Button.
+ * @file Button.h Definition of the core Able Button template class.
  *
  * @copyright Copyright (c) 2022 John Scott.
  */
 #pragma once
-#include "circuits.h"
-#include "pins.h"
+#include "Circuits.h"
+#include "Pins.h"
 
 namespace able {
   /**
@@ -15,41 +14,75 @@ namespace able {
    * 
    * @param Circuit Either a PullupResistorCircuit or PulldownResistorCircuit
    *                class matching the resistor circuit used with the button.
-   * @param Pin Either a DebouncedPin or ClickerPin class. Provides extra click
-   *            information to track when a full-click occurs (i.e. is released
-   *            and was pressed.
+   * @param PinType The Pin class, or a subclass (DebouncedPin or ClickerPin)
+   *                providing additional debounced readings and clicked states.
    */
-  template <typename Circuit, typename Pin>
-  class Button: public Pin {
+  template <typename Circuit, typename PinType>
+  class Button: public PinType {
+    friend void ::loop();
+
     public:
+      //
+      // Creators...
+      //
+
       /**
        * Create a button on the specified pin.
        * 
        * @param pin The pin connected to the button.
        */ 
-      inline Button(uint8_t pin)
-      :Pin(pin, Circuit::BUTTON_RELEASED) {}
+      Button(uint8_t pin)
+      :PinType(pin, Circuit::BUTTON_RELEASED) {}
+
+    private:
+      //
+      // Copying and assignment (not supported)...
+      //
+      Button(const Button &cpy) = delete; ///< Copying is not supported.
+      Button &operator=(const Button &) = delete; ///< Assigning buttons is not supported.
+
+    public:
+      //
+      // Modifiers...
+      //
 
       /**
        * Initialise the button. Called from setup() of an Arduino program.
        */
-      inline void begin() {
+      void begin() {
         pinMode(this->pin_, Circuit::PIN_MODE);
       }
 
       /**
        * Handle the button. Called from loop() of an Arduino program.
        */
-      inline void handle() {
+      void handle() {
         readPin();
       }
+
+      /**
+       * Reset the cliked state of the button, returning what is was. This
+       * allows the click state to be effectively read once so that a clicked
+       * state only triggers something once, when checked. For example toggling
+       * something on/off when the button is clicked. For buttons that don't
+       * support clicking, the compile will fail with undefined reference to the
+       * resetClicked() method.
+       * 
+       * @return True if the button was clicked, else false.
+       */
+      bool resetClicked();
+
+    public:
+      //
+      // Accessors...
+      //
 
       /**
        * Determine if the button is currently pressed.
        * 
        * @return True if pressed, else false.
        */
-      inline bool isPressed() const {
+      bool isPressed() const {
         return this->currState_ == Circuit::BUTTON_PRESSED;
       }
 
@@ -65,23 +98,11 @@ namespace able {
        * @return True if clicked else false.
        */
       bool isClicked() const;
-
-      /**
-       * Reset the cliked state of the button, returning what is was. This
-       * allows the click state to be effectively read once so that a clicked
-       * state only triggers something once, when checked. For example toggling
-       * something on/off when the button is clicked. For buttons that don't
-       * support clicking, the compile will fail with undefined reference to the
-       * resetClicked() method.
-       * 
-       * @return True if the button was clicked, else false.
-       */
-      bool resetClicked();
-
-    private:
-      Button(const Button &cpy) = delete;
-      Button &operator=(const Button &) = delete; ///< Assigning buttons is not supported.
   };
+
+  //
+  // Accessor Specialisations...
+  //
 
   /**
    * Specialisation of Button::isClicked() for clickable pins using pulldown
@@ -101,7 +122,37 @@ namespace able {
    * @return True if clicked (pressed then released), else false.
    */
   template <>
-  inline bool Button<PullupResistorCircuit, ClickerPin>::isClicked() const {
+  inline bool Button<PullupResistorCircuit, ClickerPin>::isClicked() const {    
     return currState_ == PullupResistorCircuit::BUTTON_RELEASED && prevState_ == PullupResistorCircuit::BUTTON_PRESSED;
+  }
+
+  //
+  // Manipulator Specialisations...
+  //
+
+  /**
+   * Specialisation of Button::resetClicked() for clickable pins using pulldown
+   * resistor circuits.
+   * 
+   * @return True if resetting a clicked state, else false.
+   */
+  template <>
+  inline bool Button<PulldownResistorCircuit, ClickerPin>::resetClicked() {
+    bool rc = isClicked();
+    prevState_ = currState_;
+    return rc;
+  }
+
+  /**
+   * Specialisation of Button::resetClicked() for clickable pins using pull-up
+   * resistor circuits.
+   * 
+   * @return True if resetting a clicked state, else false.
+   */
+  template <>
+  inline bool Button<PullupResistorCircuit, ClickerPin>::resetClicked() {
+    bool rc = isClicked();
+    prevState_ = currState_;
+    return rc;
   }
 }

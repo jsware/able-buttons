@@ -1,32 +1,19 @@
 /**
- * @file TestButton.ino
- * Test Arduino Button Library Extension (ABLE). This program will periodically
- * output "Looping..." to the Serial port. As you press buttons connected to
- * pins 2 and 3 it will assert the button settings in the callback fuctions.
+ * @file TestAbleButton.ino Test the Arduino Button Library Extension (ABLE).
+ * This program will periodically output "Looping..." to the Serial port. As you
+ * press buttons connected to pins 2 and 3 it will assert the button settings
+ * in the callback fuctions and in the main loop.
  * 
+ * The TestAbleButton program is split (by design) into multiple files to ensure
+ * ABLE works in multi-module programs. A common TestAbleButton.h header file
+ * declares common elements shared across these modules.
  * 
  * @copyright Copyright (c) 2022 John Scott
  */
-#define __ASSERT_USE_STDERR
-#undef NDEBUG
-#include <assert.h>
+#include "TestAbleButton.h"
 
-#include <AbleButtons.h>
-#include "utils.h"
-
-// Select the buttons used...
-using Button = AblePullupCallbackClickerButton;
-using ButtonList = AblePullupCallbackClickerButtonList;
-
-// Forward declarations of callback functions.
-void pressedCallback(uint8_t id);
-void releasedCallback(uint8_t id);
-
-#define BUTTON_A_PIN 2 ///< Connect button between this pin and ground.
-#define BUTTON_B_PIN 3 ///< Connect button using pulldown resistor circuit.
-
-Button btnA(BUTTON_A_PIN, pressedCallback, releasedCallback);
-Button btnB(BUTTON_B_PIN, pressedCallback, releasedCallback);
+Button btnA(BUTTON_A_PIN, pressedCallback, releasedCallback); ///< Button A
+Button btnB(BUTTON_B_PIN, pressedCallback, releasedCallback); ///< Button B
 Button *btns[] = { ///< Array of buttons for ButtonList.
   &btnA,
   &btnB
@@ -41,7 +28,7 @@ bool led = false; ///< State of the builtin LED.
  */
 void setup() {
   Serial.begin(115200);
-  btnList.begin();
+  btnList.begin(); // Begin buttons in the list (sets pin mode etc).
   pinMode(LED_BUILTIN, OUTPUT);
 }
 
@@ -52,63 +39,23 @@ void loop() {
   static uint16_t count = 0; ///< Counter to preiodically print OK message.
   if(!count++) Serial.println(F("Looking OK..."));
 
-  btnList.handle();
+  btnList.handle(); // Handle features of the buttons (debouncing, clicks & callbacks).
 
   if(btnList.anyClicked()) {
     led = !led;
   }
-    
+
   if(anyReleased) {
-    assert(btnList.allClicked() == false);
-    assert(btnList.anyClicked() == true);
-    assert(btnList.resetClicked() == true);
-    assert(btnList.anyClicked() == false);
-    anyReleased = false;
+    assert(btnList.allClicked() == false); // Not all buttons should be clicked.
+    assert(btnList.anyClicked() == true); // Clicked will be set after button released.
+    assert(btnList.resetClicked() == true); // Clear any clicked status.
+    assert(btnList.anyClicked() == false); // No buttons should be clicked now.
+    anyReleased = false; // Handled most recent release callback signal.
   } else {
-    assert(btnList.allPressed() == false);
-    assert(btnList.allClicked() == false);
-    assert(btnList.anyClicked() == false);
+    assert(btnList.allPressed() == false); // Not all buttons normally pressed.
+    assert(btnList.allClicked() == false); // Not all buttons normally clicked.
+    assert(btnList.anyClicked() == false); // Only clicked when anyReleased set by released callback.
   }
 
   digitalWrite(LED_BUILTIN, led);
-}
-
-/**
- * Callback function for button pressed.
- * 
- * @param id The identifier of the button generating the callback.
- */
-void pressedCallback(uint8_t id) {
-  assert(id > 0);
-  Button *btn = btnList.button(id); assert(btn == btns[id - 1]);
-
-  assert(btnList.allPressed() == false);
-
-  if(btn) {
-    assert(btn->isPressed() == true);
-    assert(btn->isClicked() == false);
-  } else {
-    assert(false);
-  }
-}
-
-/**
- * Callback function for button released.
- * 
- * @param id The identifier of the button generating the callback.
- */
-void releasedCallback(uint8_t id) {
-  assert(id > 0);
-  Button *btn = btnList.button(id); assert(btn == btns[id - 1]);
-
-  assert(btnList.allPressed() == false);
-  assert(btnList.anyPressed() == false);
-  assert(btnList.anyClicked() == true);
-  if(btn) {
-    assert(btn->isPressed() == false);
-    assert(btn->isClicked() == true);
-    anyReleased = true;
-  } else {
-    assert(false);
-  }
 }

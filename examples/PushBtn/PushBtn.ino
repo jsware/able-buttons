@@ -30,9 +30,4 @@ void loop() {
   btn.handle();
 
   digitalWrite(LED_BUILTIN, btn.isPressed());
-  // if(btn.isPressed()) {
-  //   digitalWrite(LED_BUILTIN, HIGH);
-  // } else {
-  //   digitalWrite(LED_BUILTIN, LOW);
-  // }
 }

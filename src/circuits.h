@@ -1,5 +1,5 @@
 /**
- * @file circuits.h Definition of AbleButton Circuit classes.
+ * @file Circuits.h Definition of Pulldown and pull-up ressitor circuits.
  *
  * @copyright Copyright (c) 2022 John Scott.
  */
@@ -15,6 +15,9 @@ namespace able {
    */
   class Circuit {
     private:
+      //
+      // Creators, copying and assignment (not supported)...
+      //
       Circuit() = delete; ///< Creating resistor circuits is not supported.
       Circuit(const Circuit &) = delete; ///< Copying resistor circuits is not supported.
       Circuit &operator=(const Circuit &) = delete; ///< Assigning resistor circuits is not supported.
@@ -28,6 +31,9 @@ namespace able {
    */
   class PulldownResistorCircuit: private Circuit {
     public:
+      //
+      // Constants...
+      //
       enum {
         PIN_MODE = INPUT,
         BUTTON_PRESSED = HIGH,
@@ -35,6 +41,9 @@ namespace able {
       };
 
     private:
+      //
+      // Creators, copying and assignment (not supported)...
+      //
       PulldownResistorCircuit() = delete; ///< Creating resistor circuits is not supported.
       PulldownResistorCircuit(const PulldownResistorCircuit &) = delete; ///< Copying resistor circuits is not supported.
       PulldownResistorCircuit &operator=(const PulldownResistorCircuit &) = delete; ///< Assigning resistor circuits is not supported.
@@ -50,6 +59,9 @@ namespace able {
    */
   class PullupResistorCircuit: private Circuit {
     public:
+      //
+      // Constants...
+      //
       enum {
         PIN_MODE = INPUT_PULLUP,
         BUTTON_PRESSED = LOW,
@@ -57,6 +69,9 @@ namespace able {
       };
 
     private:
+      //
+      // Creators, copying and assignment (not supported)...
+      //
       PullupResistorCircuit() = delete; ///< Creating resistor objects is not supported.
       PullupResistorCircuit(const PullupResistorCircuit &) = delete; ///< Copying resistor objects is not supported.
       PullupResistorCircuit &operator=(const PullupResistorCircuit &) = delete; ///< Assignment is not supported.

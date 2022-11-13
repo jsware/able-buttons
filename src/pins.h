@@ -1,8 +1,7 @@
 /**
- * @file pins.h
- * 
- * Definition of Pin classes (DebouncedPin, ClickerPin), all providing debounce
- * logic when reading from an Arduino pin. Each sub-class adds features.
+ * @file Pins.h Definition of the Pin class and subclasses (DebouncedPin,
+ * ClickerPin), providing debounce logic when reading from an Arduino pin. Each
+ * sub-class adds features for the pin (e.g. remembering clicks).
  *
  * @copyright Copyright (c) 2022 John Scott.
  */
@@ -17,11 +16,60 @@ namespace able {
    */
   class Pin {
     protected:
-      Pin() {} ///< Constructing pins is supported through sub-classes.
+      //
+      // Static Members...
+      //
+
+      /**
+       * Return the next auto-assigned button identifier.
+       * 
+       * @return The next auto-assigned button identifier. Each call increases the
+       *         auto-assigned identifier.
+       */
+      inline static uint8_t nextId() {
+        return ++autoId_;
+      }
+
+    protected:
+      //
+      // Creators...
+      //
+
+      /**
+       * Protected constructor used by sub-classes. Use a sub-class of this
+       * class instead of this class directly.
+       * 
+       * @param pin The pin to read from.
+       */
+      inline Pin(uint8_t pin, uint8_t initState)
+      :pin_(pin), currState_(initState) {}
 
     private:
+      //
+      // Copy and assignment (not supported)...
+      //
       Pin(const Pin &) = delete; ///< Copying pins is not supported.
       Pin &operator=(const Pin &) = delete; ///< Assigning pins not supported.
+
+    protected:
+      /**
+       * Read the pin directly. In order to save memory, virtual functions are
+       * *not* used (which can consume almost 1K of memory to deal with).
+       * Runtime polymorphism is not required, so avoiding virtual functions
+       * saves memory.
+       */
+      inline void readPin() {
+        currState_ = digitalRead(pin_);
+      }
+
+    protected:
+      //
+      // Data...
+      //
+      static uint8_t autoId_; ///< Auto-assigned button identifier.
+
+      uint8_t pin_; ///< The Arduino pin connected to the button.
+      uint8_t currState_; ///< The reading of the pin.
   };
 
   /**
@@ -30,26 +78,11 @@ namespace able {
    * this class directly. Use one of the Button sub-classes instead.
    */
   class DebouncedPin: protected Pin {
-    protected:
-      /**
-       * Protected constructor used by sub-classes. Use a sub-class of this
-       * class instead of this class directly.
-       * 
-       * @param pin The pin to read from.
-       * @param initState The initial (un-pushed) state of the button.
-       */
-      inline DebouncedPin(uint8_t pin, uint8_t initState)
-      :Pin(), pin_(pin), currState_(initState), prevReading_(initState) {}
-
-      /**
-       * Debounce the pin readings to get a stable state of the pin. In order to
-       * save memory, virtual functions are *not* used (which can consume almost
-       * 1K of memory to deal with). Runtime polymorphism is not required, so
-       * avoiding virtual functions saves memory.
-       */
-      void readPin();
-
     public:
+      //
+      // Static Members...
+      //
+
       /**
        * Set the debounce time for input pins. Pins may read noise as buttons
        * are pressed and released. This noise can be registered as multiple
@@ -64,6 +97,58 @@ namespace able {
         debounceTime_ = debounceTime;
       };
 
+    protected:
+      //
+      // Creators...
+      //
+
+      /**
+       * Protected constructor used by sub-classes. Use a sub-class of this
+       * class instead of this class directly.
+       * 
+       * @param pin The pin to read from.
+       * @param initState The initial (un-pushed) state of the button.
+       */
+      DebouncedPin(uint8_t pin, uint8_t initState)
+      :Pin(pin, initState), prevReading_(initState) {}
+
+    private:
+      //
+      // Copying and assignment (not supported)...
+      //
+      DebouncedPin(const DebouncedPin &) = delete; ///< Copying pins is not supported.
+      DebouncedPin &operator=(const DebouncedPin &) = delete; ///< Assigning pins not supported.
+
+    protected:
+      //
+      // Modifiers...
+      //
+
+      /**
+       * Debounce the pin readings to get a stable state of the pin. In order to
+       * save memory, virtual functions are *not* used (which can consume almost
+       * 1K of memory to deal with). Runtime polymorphism is not required, so
+       * avoiding virtual functions saves memory.
+       */
+      inline void readPin() {
+        byte currReading = digitalRead(pin_);
+
+        // New reading, so start the debounce timer.
+        if (currReading != prevReading_) {
+          debounceStart_ = millis();
+        } else if ((millis() - debounceStart_) >= debounceTime_) {
+          // Use reading if we have the same reading for >= DELAY ms.
+          currState_ = currReading;
+        }
+
+        prevReading_ = currReading;
+      }
+
+    public:
+      //
+      // Accessors...
+      //
+
       /**
        * Return the pin debounce time.
        * 
@@ -73,15 +158,12 @@ namespace able {
         return debounceTime_;
       }
 
-    private:
-      DebouncedPin(const DebouncedPin &) = delete; ///< Copying pins is not supported.
-      DebouncedPin &operator=(const DebouncedPin &) = delete; ///< Assigning pins not supported.
-
     protected:
+      //
+      // Data...
+      //
       static uint8_t debounceTime_; ///< Time required to debounce all input pins.
 
-      uint8_t pin_; ///< The Arduino pin connected to the button.
-      uint8_t currState_; ///< The debounced reading of the pin.
       uint8_t prevReading_; ///< The previous pin reading, to monitor state transitions.
       unsigned long debounceStart_; ///< Debounce start timer to handle button transition.
   };
@@ -93,6 +175,10 @@ namespace able {
    */
   class ClickerPin: protected DebouncedPin {
     protected:
+      //
+      // Creators...
+      //
+
       /**
        * Protected constructor used by sub-classes. Use a sub-class of this
        * class instead of this class directly.
@@ -100,8 +186,20 @@ namespace able {
        * @param pin The pin to read from.
        * @param initState The initial (un-pushed) state of the button.
        */
-      inline ClickerPin(uint8_t pin, uint8_t initState)
+      ClickerPin(uint8_t pin, uint8_t initState)
       :DebouncedPin(pin, initState), prevState_(initState) {}
+
+    private:
+      //
+      // Copying and assignment (not supported)...
+      //
+      ClickerPin(const ClickerPin &cpy) = delete; ///< Copying pins is not supported.
+      ClickerPin &operator=(const DebouncedPin &) = delete; ///< Assigning pins is not supported.
+
+    protected:
+      //
+      // Modifiers...
+      //
 
       /**
        * Debounce the pin readings to get a stable state of the pin. When the
@@ -109,13 +207,21 @@ namespace able {
        * release can be identified). Calls DebouncedPin::readPin() and monitors
        * for a change in debounced state, remembering the previous state.
        */
-      void readPin();
-      
-    private:
-      ClickerPin(const ClickerPin &cpy) = delete; ///< Copying pins is not supported.
-      ClickerPin &operator=(const DebouncedPin &) = delete; ///< Assigning pins is not supported.
+      inline void readPin() {
+        uint8_t currState = currState_; // Remember current state.
 
+        DebouncedPin::readPin();
+
+        // Save previous state if it changed.
+        if(currState != currState_) {
+          prevState_ = currState;
+        }
+      }
+      
     protected:
+      //
+      // Data...
+      //
       uint8_t prevState_; ///< Previous debounced reading of the pin.
   };
 }

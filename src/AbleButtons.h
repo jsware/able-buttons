@@ -7,6 +7,7 @@
  * similar to:
  * 
  *     #include <AbleButtons.h>
+ *     ...
  *     using Button = AblePullupButton;
  *     using ButtonList = AblePullupButtonList;
  *     ...
@@ -15,13 +16,17 @@
  * @copyright Copyright (c) 2022 John Scott.
  */
 #pragma once
-#include "button.h"
-#include "btnlist.h"
-#include "callback.h"
+#include "Button.h"
+#include "ButtonList.h"
+#include "CallbackButton.h"
+
+//
+// Pulldown buttons...
+//
 
 /**
  * AblePulldownButton provides basic button is-pressed capability for buttons
- * connected using pull-down resistor circuits. Button presses are debounced to
+ * connected using pulldown resistor circuits. Button presses are debounced to
  * provide a reliable push/released signal.
  */
 using AblePulldownButton = able::Button<able::PulldownResistorCircuit, able::DebouncedPin>;
@@ -31,24 +36,194 @@ using AblePulldownButton = able::Button<able::PulldownResistorCircuit, able::Deb
  * on pressed and on released events. When the button is pressed, a user-
  * supplied on-pressed function can be called with the id of the button. The
  * id can be used with the AblePulldownCallbackButtonList class to retrieve a
- * pointer to the button generating the callback.
- *  
+ * pointer to the button generating the callback. Similarly, when the button is
+ * released, a user-supplied on-released function can be called.  
  */
-using AblePulldownCallbackButton = able::CallbackButton<able::Button<able::PulldownResistorCircuit, able::DebouncedPin>>; ///< Shorthand for a callback button using a pull-down resistor.
-using AblePulldownClickerButton = able::Button<able::PulldownResistorCircuit, able::ClickerPin>; ///< Shorthand for clicker using pull-down resistor circuit.
-using AblePulldownCallbackClickerButton = able::CallbackButton<able::Button<able::PulldownResistorCircuit, able::ClickerPin>>; ///< Shorthand for clicker using pull-down resistor circuit.
+using AblePulldownCallbackButton = able::CallbackButton<able::Button<able::PulldownResistorCircuit, able::DebouncedPin>>; ///< Shorthand for a callback button using a pulldown resistor.
 
-using AblePulldownButtonList = able::ButtonList<AblePulldownButton>; ///< Handler for list of AblePulldownButton objects.
-using AblePulldownCallbackButtonList = able::ButtonList<AblePulldownCallbackButton>; ///< Handler for list of AblePulldownCallbackButton objects.
-using AblePulldownClickerButtonList = able::ButtonList<AblePulldownClickerButton>; ///< Handler for list of AblePulldownClicker objects.
-using AblePulldownCallbackClickerButtonList = able::ButtonList<AblePulldownCallbackClickerButton>; ///< Handler for list of AblePulldownCallbackClicker objects.
+/**
+ * AblePulldownClickerButton provides additional button-click capability to the
+ * is-pressed capability of a basic button. A button click is a button-press,
+ * followed by a button-release. As with basic button capabilities, button
+ * presses are debounced to provide a reliable push/released signal.
+ */
+using AblePulldownClickerButton = able::Button<able::PulldownResistorCircuit, able::ClickerPin>;
 
-using AblePullupButton = able::Button<able::PullupResistorCircuit, able::DebouncedPin>; ///< Shorthand for button using pull-up resistor circuit.
-using AblePullupCallbackButton = able::CallbackButton<able::Button<able::PullupResistorCircuit, able::DebouncedPin>>; ///< Shorthand for a callback button using a pull-up resistor.
-using AblePullupClickerButton = able::Button<able::PullupResistorCircuit, able::ClickerPin>; ///< Shorthand for clicker using pull-up resistor circuit.
-using AblePullupCallbackClickerButton = able::CallbackButton<able::Button<able::PullupResistorCircuit, able::ClickerPin>>; ///< Shorthand for clicker using pull-up resistor circuit.
+/**
+ * AblePulldownCallbackClickerButton provides callback capability to a clicker
+ * button. A button click is a button-press, followed by a button-release. It
+ * also extends the button with callbacks on pressed and on released events.
+ * When the button is pressed, a user-supplied on-pressed function can be called
+ * with the id of the button. The id can be used with the
+ * AblePulldownCallbackClickerButtonList class to retrieve a pointer to the
+ * clicker button generating the callback. Similarly, when the button is
+ * released, a user-supplied on-released function can be called. As with basic
+ * button capabilities, button presses are debounced to provide a reliable push/
+ * released signal.
+ */
+using AblePulldownCallbackClickerButton = able::CallbackButton<able::Button<able::PulldownResistorCircuit, able::ClickerPin>>; ///< Shorthand for clicker using pulldown resistor circuit.
 
+/**
+ * AblePulldownDirectButton provides basic button is-pressed capability for
+ * buttons connected using pulldown resistor circuits. Button presses are
+ * **not** debounced so provide potentially unreliable push/released signals
+ * when pressed or released due to contact bouncing.
+ */
+using AblePulldownDirectButton = able::Button<able::PulldownResistorCircuit, able::Pin>;
+
+
+//
+// Pulldown button lists...
+//
+
+/**
+ * AblePulldownButtonList allows an array of AblePulldownButton objects to be
+ * managed together. Rather than calling begin() and handle() methods for each
+ * button, call the begin() and handle() method of the button list object, which
+ * calls the begin() and handle() methods of each button in the list. 
+ */
+using AblePulldownButtonList = able::ButtonList<AblePulldownButton>;
+
+/**
+ * AblePulldownButtonList allows an array of AblePulldownButton objects
+ * to be managed together. Rather than calling begin() and handle() methods for
+ * each button, call the begin() and handle() method of the button list object,
+ * which calls the begin() and handle() methods of each button in the list. 
+ */
+using AblePulldownButtonList = able::ButtonList<AblePulldownButton>;
+
+/**
+ * AblePulldownCallbackButtonList allows an array of AblePulldownCallbackButton
+ * objects to be managed together. Rather than calling begin() and handle()
+ * methods for each button, call the begin() and handle() method of the button
+ * list object, which calls the begin() and handle() methods of each button in
+ * the list. 
+ */
+using AblePulldownCallbackButtonList = able::ButtonList<AblePulldownCallbackButton>;
+
+/**
+ * AblePulldownClickerButtonList allows an array of AblePulldownClickerButton
+ * objects to be managed together. Rather than calling begin() and handle()
+ * methods for each button, call the begin() and handle() method of the button
+ * list object, which calls the begin() and handle() methods of each button in
+ * the list. 
+ */
+using AblePulldownClickerButtonList = able::ButtonList<AblePulldownClickerButton>;
+
+/**
+ * AblePulldownCallbackClickerButtonList allows an array of
+ * AblePulldownCallbackClickerButton objects to be managed together. Rather than
+ * calling begin() and handle() methods for each button, call the begin() and
+ * handle() method of the button list object, which calls the begin() and
+ * handle() methods of each button in the list. 
+ */
+using AblePulldownCallbackClickerButtonList = able::ButtonList<AblePulldownCallbackClickerButton>;
+
+/**
+ * AblePulldownDirectButtonList allows an array of AblePulldownDirectButton
+ * objects to be managed together. Rather than calling begin() and handle()
+ * methods for each button, call the begin() and handle() method of the button
+ * list object, which calls the begin() and handle() methods of each button in
+ * the list. 
+ */
+using AblePulldownDirectButtonList = able::ButtonList<AblePulldownDirectButton>;
+
+
+//
+// Pull-up buttons...
+//
+
+/**
+ * AblePullupButton provides basic button is-pressed capability for buttons
+ * connected using pull-up resistor circuits. Button presses are debounced to
+ * provide a reliable push/released signal.
+ */
+using AblePullupButton = able::Button<able::PullupResistorCircuit, able::DebouncedPin>;
+
+/**
+ * AblePullupCallbackButton extends the basic debouced button with callbacks
+ * on pressed and on released events. When the button is pressed, a user-
+ * supplied on-pressed function can be called with the id of the button. The
+ * id can be used with the AblePullupCallbackButtonList class to retrieve a
+ * pointer to the button generating the callback. Similarly, when the button is
+ * released, a user-supplied on-released function can be called.  
+ */
+using AblePullupCallbackButton = able::CallbackButton<able::Button<able::PullupResistorCircuit, able::DebouncedPin>>; ///< Shorthand for a callback button using a pulldown resistor.
+
+/**
+ * AblePullupClickerButton provides additional button-click capability to the
+ * is-pressed capability of a basic button. A button click is a button-press,
+ * followed by a button-release. As with basic button capabilities, button
+ * presses are debounced to provide a reliable push/released signal.
+ */
+using AblePullupClickerButton = able::Button<able::PullupResistorCircuit, able::ClickerPin>;
+
+/**
+ * AblePullupCallbackClickerButton provides callback capability to a clicker
+ * button. A button click is a button-press, followed by a button-release. It
+ * also extends the button with callbacks on pressed and on released events.
+ * When the button is pressed, a user-supplied on-pressed function can be called
+ * with the id of the button. The id can be used with the
+ * AblePullupCallbackClickerButtonList class to retrieve a pointer to the
+ * clicker button generating the callback. Similarly, when the button is
+ * released, a user-supplied on-released function can be called. As with basic
+ * button capabilities, button presses are debounced to provide a reliable push/
+ * released signal.
+ */
+using AblePullupCallbackClickerButton = able::CallbackButton<able::Button<able::PullupResistorCircuit, able::ClickerPin>>; ///< Shorthand for clicker using pulldown resistor circuit.
+
+/**
+ * AblePullupDirectButton provides basic button is-pressed capability for
+ * buttons connected using pull-up resistor circuits. Button presses are **not**
+ * debounced so provide potentially unreliable push/released signals when
+ * pressed or released due to contact bouncing.
+ */
+using AblePullupDirectButton = able::Button<able::PullupResistorCircuit, able::Pin>;
+
+
+//
+// Pull-up button lists...
+//
+
+/**
+ * AblePullupButtonList allows an array of AblePullupButton objects to be
+ * managed together. Rather than calling begin() and handle() methods for each
+ * button, call the begin() and handle() method of the button list object, which
+ * calls the begin() and handle() methods of each button in the list. 
+ */
 using AblePullupButtonList = able::ButtonList<AblePullupButton>; ///< Handler for list of AblePullupButton objects.
-using AblePullupCallbackButtonList = able::ButtonList<AblePullupCallbackButton>; ///< Handler for list of AblePullupCallbackButton objects.
-using AblePullupClickerButtonList = able::ButtonList<AblePullupClickerButton>; ///< Handler for list of AblePullupClicker objects.
-using AblePullupCallbackClickerButtonList = able::ButtonList<AblePullupCallbackClickerButton>; ///< Handler for list of AblePullupCallbackClicker objects.
+
+/**
+ * AblePullupCallbackButtonList allows an array of AblePullupCallbackButton
+ * objects to be managed together. Rather than calling begin() and handle()
+ * methods for each button, call the begin() and handle() method of the button
+ * list object, which calls the begin() and handle() methods of each button in
+ * the list. 
+ */
+using AblePullupCallbackButtonList = able::ButtonList<AblePullupCallbackButton>;
+
+/**
+ * AblePullupClickerButtonList allows an array of AblePullupClickerButton
+ * objects to be managed together. Rather than calling begin() and handle()
+ * methods for each button, call the begin() and handle() method of the button
+ * list object, which calls the begin() and handle() methods of each button in
+ * the list. 
+ */
+using AblePullupClickerButtonList = able::ButtonList<AblePullupClickerButton>;
+
+/**
+ * AblePullupCallbackClickerButtonList allows an array of
+ * AblePullupCallbackClickerButton objects to be managed together. Rather than
+ * calling begin() and handle() methods for each button, call the begin() and
+ * handle() method of the button list object, which calls the begin() and
+ * handle() methods of each button in the list. 
+ */
+using AblePullupCallbackClickerButtonList = able::ButtonList<AblePullupCallbackClickerButton>; ///< Handler for list of AblePulldownCallbackClicker objects.
+
+/**
+ * AblePullupDirectButtonList allows an array of AblePullupDirectButton objects
+ * to be managed together. Rather than calling begin() and handle() methods for
+ * each button, call the begin() and handle() method of the button list object,
+ * which calls the begin() and handle() methods of each button in the list. 
+ */
+using AblePullupDirectButtonList = able::ButtonList<AblePullupDirectButton>;

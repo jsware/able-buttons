@@ -1,13 +1,12 @@
 /**
- * @file btnlist.h
- * Definitions of a button list. ButtonList allows an array of buttons to be
- * controlled via a single begin() and handle() calls. Useful for programs that
- * use multiple buttons.
+ * @file ButtonList.h Definitions of the ButtonList templae class. The button
+ * list allows an array of buttons to be controlled via a single begin() and
+ * handle() pair of methods. Useful for programs that use multiple buttons.
  *
  * @copyright Copyright (c) 2022 John Scott.
  */
 #pragma once
-#include "button.h"
+#include "Button.h"
 
 namespace able {
   /**
@@ -20,6 +19,10 @@ namespace able {
   template <typename Button>
   class ButtonList {
     public:
+      //
+      // Creators...
+      //
+
       /**
        * Create a list of buttons. Makes beginning and handling of a set of
        * buttons easier.
@@ -39,16 +42,49 @@ namespace able {
       inline ButtonList(Button **buttons, size_t len)
       : buttons_(buttons), len_(len) {}
 
+    public:
+      //
+      // Modifiers...
+      //
+
       /**
        * Initialise all the buttons. Called from setup() of an Arduino program.
        */
-      void begin();
+      inline void begin() { 
+        for(size_t i = 0; i < len_; ++i) {
+          buttons_[i]->begin(); 
+        } 
+      }
 
       /**
        * Handle all the buttons. Called in the loop() of an Arduino program to
        * monitor all button states and dispatch any callback events if required.
        */
-      void handle();
+      void handle() {
+        for(size_t i = 0; i < len_; ++i) {
+          buttons_[i]->handle();
+        }
+      }
+
+      /**
+       * Reset clicked state of all buttons, returning true if any were clicked.
+       * 
+       * @return True if any clicked, else false.
+       */
+      bool resetClicked() {
+        bool rc = false;
+        for(size_t i = 0; i < len_; ++i) {
+          if(buttons_[i]->resetClicked()) {
+            rc = true;
+          }
+        }
+        return rc;
+      }
+
+    public:
+      //
+      // Accessors...
+      //
 
       /**
        * For CallbackButtons (which each have an id), return a pointer to the
@@ -63,46 +99,85 @@ namespace able {
        *         // Id not found in list...
        *       }
        * 
+       * @param id The identifier of the button to find in the list.
+       * 
        * @return The first id-matching button, or a null pointer.
        */
-      Button *button(uint8_t id);
+      Button *button(uint8_t id) const {
+        Button *rc = 0;
+        for(size_t i = 0; i < len_; ++i) {
+          if(buttons_[i]->id() == id ) {
+            rc = buttons_[i];
+            break;
+          }
+        }
+        return rc;
+      }
 
       /**
        * Determine if all of the buttons are currently pressed.
        * 
        * @return True if all pressed, else false.
        */
-      bool allPressed();
+      bool allPressed() const {
+        bool rc = true;
+        for(size_t i = 0; i < len_; ++i) {
+          if(!buttons_[i]->isPressed()) {
+            rc = false;
+          }
+        }
+        return rc;
+      }
 
       /**
        * Determine if any of the buttons are currently pressed.
        * 
        * @return True if any pressed, else false.
        */
-      bool anyPressed();
+      bool anyPressed() const {
+        bool rc = false;
+        for(size_t i = 0; i < len_; ++i) {
+          if(buttons_[i]->isPressed()) {
+            rc = true;
+          }
+        }
+        return rc;
+      }
 
       /**
        * Determine if all of the buttons have been clicked.
        * 
        * @return True if all pressed, else false.
        */
-      bool allClicked();
+      bool allClicked() const {
+        bool rc = true;
+        for(size_t i = 0; i < len_; ++i) {
+          if(!buttons_[i]->isClicked()) {
+            rc = false;
+          }
+        }
+        return rc;
+      }
 
       /**
        * Determine if all of the buttons have been clicked.
        * 
        * @return True if any clicked, else false.
        */
-      bool anyClicked();
-
-      /**
-       * Reset clicked state of all buttons, returning true if any were clicked.
-       * 
-       * @return True if any clicked, else false.
-       */
-      bool resetClicked();
+      bool anyClicked() const {
+        bool rc = false;
+        for(size_t i = 0; i < len_; ++i) {
+          if(buttons_[i]->isClicked()) {
+            rc = true;
+          }
+        }
+        return rc;
+      }
 
     private:
+      //
+      // Data...
+      //
       Button **buttons_; ///< The array of buttons to manage together.
       size_t len_; ///< The length o the button array.
   };
