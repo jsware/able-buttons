@@ -19,8 +19,6 @@ namespace able {
    */
   template <typename Circuit, typename PinType>
   class Button: public PinType {
-    friend void ::loop();
-
     public:
       //
       // Creators...
