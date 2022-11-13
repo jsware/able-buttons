@@ -23,7 +23,7 @@ Button btn(BUTTON_PIN); ///< The button to check.
 bool led = false; ///< On/off state of the LED.
 
 /**
- * Setup the Toggle example. Called once to initialise everything.
+ * Setup the Debouncable example. Called once to initialise everything.
  */
 void setup() {
   btn.begin();
@@ -31,11 +31,13 @@ void setup() {
 }
 
 /**
- * Control the Toggle example. Called repeatedly in a loop.
+ * Control the Debouncable example. Called repeatedly in a loop.
  */
 void loop() {
   btn.handle();
 
+  // resetClicked() clears the click, returning if the button was clicked. It
+  // resets the click, so it only returns true once per click.
   if(btn.resetClicked()) {
     led = !led;
     digitalWrite(LED_BUILTIN, led);

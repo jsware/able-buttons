@@ -1,9 +1,7 @@
 /**
- * @filele-
- * Example clicked callback from a button. The built-in LED lights on/off when a
- * button connected between pin 2 and ground is clicked (pressed and released).
- * Uses the internal pull-up resistor within an Arduino for the simplest button
- * connection.
+ * @file DebounceCallback.ino Example of toggling an LED using callback
+ * functions instead of a clicker. When the button is released (completing a
+ * click), the on-released function is called to toggle the LED.
  * 
  * @copyright Copyright (c) 2022 John Scott
  */
@@ -13,20 +11,13 @@
 using Button = AblePullupCallbackClickerButton;
 using ButtonList = AblePullupCallbackClickerButtonList;
 
-bool led=LOW;
+bool led = false; ///< On/off state of the LED.
 
-/**
- * Callback function for button pressed.
- * 
- * @param id The identifier of the button generating the callback.
- */
-void pressedCallback(uint8_t id) {
-  led = HIGH;
-  digitalWrite(LED_BUILTIN, HIGH);
-}
+// Forward declaration of callback function.
+void releasedCallback(uint8_t);
 
 #define BUTTON_PIN 2 ///< Connect button between this pin and ground.
-Button btn(BUTTON_PIN, pressedCallback);
+Button btn(BUTTON_PIN, 0, releasedCallback); ///< The button to check.
 
 /**
  * Setup the ClickedBtn example. Called once to initialise everything.
@@ -41,9 +32,15 @@ void setup() {
  */
 void loop() {
   btn.handle();
+}
 
-  if(btn.resetClicked()) {
-    led = !led;
-    digitalWrite(LED_BUILTIN, led);
-  }
+/**
+ * Callback function for button released.
+ * 
+ * @param id The identifier of the button generating the callback (ignored in
+ *           this example).)
+ */
+void releasedCallback(uint8_t id) {
+  led = !led;
+  digitalWrite(LED_BUILTIN, led);
 }

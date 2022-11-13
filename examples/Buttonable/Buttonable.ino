@@ -25,7 +25,7 @@ using ButtonList = AblePullupDirectButtonList; ///< Using the direct pull-up but
 Button btn(BUTTON_PIN); ///< The button to check.
 
 /**
- * Setup the PushBtn example. Called once to initialise everything.
+ * Setup the Buttonable example. Called once to initialise everything.
  */
 void setup() {
   btn.begin();
@@ -33,7 +33,7 @@ void setup() {
 }
 
 /**
- * Control the PushBtn example. Called repeatedly in a loop.
+ * Control the Buttonable example. Called repeatedly in a loop.
  */
 void loop() {
   btn.handle();

@@ -1,7 +1,7 @@
 /**
- * @file
- * Example on/off control from multiple buttons. The built-in LED lights when
- * all of the buttons are pressed. Each button is connected to a subsequent PIN.
+ * @file ButtonableAll.ino Example on/off control from multiple buttons. Only
+ * when all the button in the list are pressed will the built-in LED lights.
+ * Each button is connected to a subsequent pin.
  * 
  * @copyright Copyright (c) 2022 John Scott
  */
@@ -25,20 +25,20 @@ Button *btns[] = {
 ButtonList btnList(btns); ///< List of button to control together.
 
 /**
- * Setup the PushBtn example. Called once to initialise everything.
+ * Setup the ButtonableAll example. Called once to initialise everything.
  */
 void setup() {
-  btnList.begin();
+  btnList.begin(); // ButtonList calls begin() for each button in the list.
   pinMode(LED_BUILTIN, OUTPUT);
 }
 
 /**
- * Control the PushBtn example. Called repeatedly in a loop.
+ * Control the ButtonableAll example. Called repeatedly in a loop.
  */
 void loop() {
-  btnList.handle();
+  btnList.handle(); // ButtonList calls handle() for each button in the list.
   
-  if(btnList.allPressed()) {
+  if(btnList.allPressed()) { // ButtonList can check all buttons together.
     digitalWrite(LED_BUILTIN, HIGH);
   } else {
     digitalWrite(LED_BUILTIN, LOW);
