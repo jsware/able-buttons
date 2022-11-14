@@ -60,6 +60,7 @@ The `Buttonable` example is also much easier to read:
 
 // Identify which buttons you are using...
 using Button = AblePullupDirectButton; // Using the direct pull-up button.
+using ButtonList = AblePullupDirectButtonList; // Using the direct pull-up button list.
 
 #define BUTTON_PIN 2 // Connect button between this pin and ground.
 Button btn(BUTTON_PIN); // The button to check.
@@ -93,6 +94,7 @@ Additionally, the `Debouncable` example is also much easier to understand:
 
 // Identify which buttons you are using...
 using Button = AblePullupClickerButton; // Using clicker pull-up button.
+using ButtonList = AblePullupClickerButtonList; // Using the clicker pull-up button list.
 
 #define BUTTON_PIN 2 // Connect button between this pin and ground.
 Button btn(BUTTON_PIN); // The button to check.
