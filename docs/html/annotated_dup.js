@@ -1,12 +1,14 @@
 var annotated_dup =
 [
-    [ "jsware", null, [
-      [ "BaseButtonType", "classjsware_1_1_base_button_type.html", "classjsware_1_1_base_button_type" ],
-      [ "PulldownButtonType", "classjsware_1_1_pulldown_button_type.html", "classjsware_1_1_pulldown_button_type" ],
-      [ "PullupButtonType", "classjsware_1_1_pullup_button_type.html", "classjsware_1_1_pullup_button_type" ],
-      [ "TBasicButton", "classjsware_1_1_t_basic_button.html", "classjsware_1_1_t_basic_button" ],
-      [ "TButtonList", "classjsware_1_1_t_button_list.html", "classjsware_1_1_t_button_list" ],
-      [ "TCallbackButton", "classjsware_1_1_t_callback_button.html", "classjsware_1_1_t_callback_button" ],
-      [ "TClickableButton", "classjsware_1_1_t_clickable_button.html", "classjsware_1_1_t_clickable_button" ]
+    [ "able", null, [
+      [ "Button", "classable_1_1_button.html", "classable_1_1_button" ],
+      [ "ButtonList", "classable_1_1_button_list.html", "classable_1_1_button_list" ],
+      [ "CallbackButton", "classable_1_1_callback_button.html", "classable_1_1_callback_button" ],
+      [ "Circuit", "classable_1_1_circuit.html", null ],
+      [ "ClickerPin", "classable_1_1_clicker_pin.html", "classable_1_1_clicker_pin" ],
+      [ "DebouncedPin", "classable_1_1_debounced_pin.html", "classable_1_1_debounced_pin" ],
+      [ "Pin", "classable_1_1_pin.html", "classable_1_1_pin" ],
+      [ "PulldownResistorCircuit", "classable_1_1_pulldown_resistor_circuit.html", null ],
+      [ "PullupResistorCircuit", "classable_1_1_pullup_resistor_circuit.html", null ]
     ] ]
 ];

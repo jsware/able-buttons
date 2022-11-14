@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['loop_0',['loop',['../_push_btn_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;PushBtn.ino'],['../_push_btn_all_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;PushBtnAll.ino'],['../_push_btn_any_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;PushBtnAny.ino']]]
+  ['debouncedpin_0',['DebouncedPin',['../classable_1_1_debounced_pin.html#aa3aba731f6ceceb186318a88187fc64a',1,'able::DebouncedPin']]],
+  ['debouncetime_1',['debounceTime',['../classable_1_1_debounced_pin.html#a3a43229ba0f30485a1a353180b3c1f92',1,'able::DebouncedPin']]]
 ];

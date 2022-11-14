@@ -1,7 +1,0 @@
-<map id="/Users/johnscott/Documents/Arduino/libraries/buttons/src/buttons.h" name="/Users/johnscott/Documents/Arduino/libraries/buttons/src/buttons.h">
-<area shape="rect" id="node1" title="Main include file for the Buttons library." alt="" coords="403,5,592,60"/>
-<area shape="rect" id="node2" href="$_push_btn_8ino.html" title="Example on/off control from a button." alt="" coords="5,115,216,170"/>
-<area shape="rect" id="node3" href="$_push_btn_all_8ino.html" title="Example on/off control from multiple buttons." alt="" coords="241,115,482,170"/>
-<area shape="rect" id="node4" href="$_push_btn_any_8ino.html" title="Example on/off control from multiple buttons." alt="" coords="506,115,761,170"/>
-<area shape="rect" id="node5" href="$_push_btn_callback_8ino.html" title="Example on/off callback from a button." alt="" coords="785,108,975,177"/>
-</map>

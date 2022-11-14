@@ -24,20 +24,24 @@
 */
 var NAVTREE =
 [
-  [ "Button Library", "index.html", [
+  [ "AbleButtons", "index.html", [
     [ "ABLE", "index.html", [
       [ "Introduction", "index.html#autotoc_md1", [
         [ "Motivation", "index.html#autotoc_md2", null ]
       ] ],
       [ "Memory Usage", "index.html#autotoc_md3", null ],
       [ "Installation", "index.html#autotoc_md4", null ],
-      [ "Usage", "index.html#autotoc_md5", [
-        [ "Basic Button", "index.html#autotoc_md6", null ],
-        [ "Callback Button", "index.html#autotoc_md7", null ],
-        [ "Button List", "index.html#autotoc_md8", null ]
+      [ "Buttons", "index.html#autotoc_md5", null ],
+      [ "Usage", "index.html#autotoc_md6", [
+        [ "Basic Button", "index.html#autotoc_md7", null ],
+        [ "Callback Button", "index.html#autotoc_md8", null ]
+      ] ],
+      [ "Troubleshooting", "index.html#autotoc_md9", [
+        [ "Resistor Circuits", "index.html#autotoc_md10", null ]
       ] ]
     ] ],
-    [ "Examples", "md___users_johnscott__documents__arduino_libraries_buttons_examples__r_e_a_d_m_e.html", null ],
+    [ "Examples", "md__able_buttons_examples__r_e_a_d_m_e.html", null ],
+    [ "Tests", "md__able_buttons_test__r_e_a_d_m_e.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -55,6 +59,8 @@ var NAVTREE =
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
+        [ "Enumerations", "globals_enum.html", null ],
+        [ "Enumerator", "globals_eval.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -63,7 +69,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_clicked_btn_8ino_source.html"
+"_able_buttons_8h.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

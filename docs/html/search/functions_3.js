@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['ispressed_0',['isPressed',['../classjsware_1_1_t_basic_button.html#aef2a25609ea7d0227d9cf27def9f29de',1,'jsware::TBasicButton::isPressed()'],['../classjsware_1_1_pulldown_button_type.html#ab02bba48ced4ee3a09f3a403dba90fd0',1,'jsware::PulldownButtonType::isPressed()'],['../classjsware_1_1_pullup_button_type.html#ae8fc3e1223367dad7baa8bf1cf9d01d3',1,'jsware::PullupButtonType::isPressed()']]]
+  ['callbackbutton_0',['CallbackButton',['../classable_1_1_callback_button.html#a871d73974184c5ab2d00f5155c91e415',1,'able::CallbackButton']]],
+  ['clickedcallback_1',['clickedCallback',['../_debouncable_callback_8ino.html#a7576e6eb216bd3940d00c3aa6e889d50',1,'DebouncableCallback.ino']]],
+  ['clickerpin_2',['ClickerPin',['../classable_1_1_clicker_pin.html#a67130ddd227559b5bbda79abb568c509',1,'able::ClickerPin']]]
 ];

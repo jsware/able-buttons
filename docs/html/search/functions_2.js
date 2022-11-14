@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['handle_0',['handle',['../classjsware_1_1_t_button_list.html#a27450f40ef5d70df64c7bf4b81d4c740',1,'jsware::TButtonList::handle()'],['../classjsware_1_1_t_callback_button.html#a8f5f1c7c4bb88d307a4c64ff714ed96c',1,'jsware::TCallbackButton::handle()'],['../classjsware_1_1_t_clickable_button.html#a8faa3663c5970186ff81f578e22de8ab',1,'jsware::TClickableButton::handle()']]]
+  ['begin_0',['begin',['../classable_1_1_button.html#a070c4bacf8e732147d70888cde2e162c',1,'able::Button::begin()'],['../classable_1_1_button_list.html#aea1b30048be505cb60e803539b4b46bb',1,'able::ButtonList::begin()']]],
+  ['button_1',['Button',['../classable_1_1_button.html#aeb78589242174f3b14541d3e4bdc5d7d',1,'able::Button']]],
+  ['button_2',['button',['../classable_1_1_button_list.html#a8f9deaddaefb298adbcab518781dfb35',1,'able::ButtonList']]],
+  ['buttonlist_3',['ButtonList',['../classable_1_1_button_list.html#aebe7a97df38f4fca9d484a5c93dd76f5',1,'able::ButtonList::ButtonList(Button *(&amp;buttons)[n])'],['../classable_1_1_button_list.html#ad13dd9dce010b0bb954c096d0bf01772',1,'able::ButtonList::ButtonList(Button **buttons, size_t len)']]]
 ];

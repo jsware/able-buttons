@@ -1,5 +1,0 @@
-<map id="jsware::TBasicButton&lt; ButtonType &gt;" name="jsware::TBasicButton&lt; ButtonType &gt;">
-<area shape="rect" id="node1" title="Simplest button class to check if the button has been pressed." alt="" coords="5,37,152,77"/>
-<area shape="rect" id="node2" href="$classjsware_1_1_t_callback_button.html" title="Callback button template to call a function if the button is pressed." alt="" coords="200,5,388,45"/>
-<area shape="rect" id="node3" href="$classjsware_1_1_t_clickable_button.html" title="Clickable button template for clickable buttons." alt="" coords="200,69,388,109"/>
-</map>

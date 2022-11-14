@@ -9,16 +9,16 @@
 
 namespace able {
   /**
-   * Able Buttons. This is the simplest button type. It supports pulldown and
-   * pull-up resistor circuits specified using the Circuit.
+   * Core Button class. This is the simplest button type. It supports pulldown
+   * and pull-up resistor circuits specified using the Circuit.
    * 
    * @param Circuit Either a PullupResistorCircuit or PulldownResistorCircuit
    *                class matching the resistor circuit used with the button.
-   * @param PinType The Pin class, or a subclass (DebouncedPin or ClickerPin)
-   *                providing additional debounced readings and clicked states.
+   * @param Pin The Pin class, or a subclass (DebouncedPin or ClickerPin)
+   *            providing additional debounced readings and clicked states.
    */
-  template <typename Circuit, typename PinType>
-  class Button: public PinType {
+  template <typename Circuit, typename Pin>
+  class Button: public Pin {
     public:
       //
       // Creators...
@@ -30,7 +30,7 @@ namespace able {
        * @param pin The pin connected to the button.
        */ 
       Button(uint8_t pin)
-      :PinType(pin, Circuit::BUTTON_RELEASED) {}
+      :Pin(pin, Circuit::BUTTON_RELEASED) {}
 
     private:
       //

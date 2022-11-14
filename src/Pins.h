@@ -10,9 +10,9 @@
 
 namespace able {
   /**
-   * Pin base class. All pins inherit directly/indirectly from this base class.
-   * This class cannot be instantiated directly. Instantiation comes through
-   * sub-classes.
+   * Pin base class reading direct from the pin (without debouncing). All pins
+   * inherit directly/indirectly from this base class. This class cannot be
+   * instantiated directly. Instantiation comes through Button sub-classes.
    */
   class Pin {
     protected:

@@ -1,13 +1,16 @@
 var hierarchy =
 [
-    [ "jsware::BaseButtonType", "classjsware_1_1_base_button_type.html", [
-      [ "jsware::PulldownButtonType", "classjsware_1_1_pulldown_button_type.html", null ],
-      [ "jsware::PullupButtonType", "classjsware_1_1_pullup_button_type.html", null ]
+    [ "able::ButtonList< Button >", "classable_1_1_button_list.html", null ],
+    [ "able::Circuit", "classable_1_1_circuit.html", [
+      [ "able::PulldownResistorCircuit", "classable_1_1_pulldown_resistor_circuit.html", null ],
+      [ "able::PullupResistorCircuit", "classable_1_1_pullup_resistor_circuit.html", null ]
     ] ],
-    [ "jsware::TBasicButton< ButtonType >", "classjsware_1_1_t_basic_button.html", [
-      [ "jsware::TCallbackButton< ButtonType, BaseButton >", "classjsware_1_1_t_callback_button.html", null ],
-      [ "jsware::TClickableButton< ButtonType, BaseButton >", "classjsware_1_1_t_clickable_button.html", null ]
-    ] ],
-    [ "jsware::TBasicButton< class PullupButtonType >", "classjsware_1_1_t_basic_button.html", null ],
-    [ "jsware::TButtonList< Button >", "classjsware_1_1_t_button_list.html", null ]
+    [ "able::Pin", "classable_1_1_pin.html", [
+      [ "able::Button< Circuit, Pin >", "classable_1_1_button.html", [
+        [ "able::CallbackButton< Button >", "classable_1_1_callback_button.html", null ]
+      ] ],
+      [ "able::DebouncedPin", "classable_1_1_debounced_pin.html", [
+        [ "able::ClickerPin", "classable_1_1_clicker_pin.html", null ]
+      ] ]
+    ] ]
 ];

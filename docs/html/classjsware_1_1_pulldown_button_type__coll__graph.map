@@ -1,4 +1,0 @@
-<map id="jsware::PulldownButtonType" name="jsware::PulldownButtonType">
-<area shape="rect" id="node1" title="Button connected via a pull&#45;down resistor." alt="" coords="5,79,192,104"/>
-<area shape="rect" id="node2" href="$classjsware_1_1_base_button_type.html" title="Base class for button types." alt="" coords="17,5,181,31"/>
-</map>

@@ -11,11 +11,11 @@ namespace able {
   /**
    * Callback button template to call a function if the button is pressed.
    * 
-   * @param Base The base button class for Callback. Defaults to the Button
-   *             template class.
+   * @param Button The base button class for Callback. Defaults to the Button
+   *               template class.
    */
-  template <typename Base>
-  class CallbackButton: public Base {
+  template <typename Button>
+  class CallbackButton: public Button {
     public:
       //
       // Creators...
@@ -33,7 +33,7 @@ namespace able {
                      void(*onPressed)(uint8_t) = 0,
                      void(*onReleased)(uint8_t) = 0,
                      uint8_t id = nextId())
-      :Base(pin), onPressed_(onPressed), onReleased_(onReleased), id_(id) {}
+      :Button(pin), onPressed_(onPressed), onReleased_(onReleased), id_(id) {}
 
     private:
       //
@@ -52,7 +52,7 @@ namespace able {
        */
       void handle() {
         uint8_t currState = this->currState_;
-        Base::handle();
+        Button::handle();
         if(currState != this->currState_) {
           bool pressed = this->isPressed();
           if(pressed && onPressed_) {

@@ -1,5 +1,0 @@
-<map id="jsware::TBasicButton&lt; ButtonType &gt;" name="jsware::TBasicButton&lt; ButtonType &gt;">
-<area shape="rect" id="node1" title="Simplest button class to check if the button has been pressed." alt="" coords="17,168,164,208"/>
-<area shape="rect" id="node2" href="$classjsware_1_1_pullup_button_type.html" title="Button connected via a pull&#45;up resistor." alt="" coords="5,80,176,105"/>
-<area shape="rect" id="node3" href="$classjsware_1_1_base_button_type.html" title="Base class for button types." alt="" coords="9,5,173,31"/>
-</map>

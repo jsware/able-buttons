@@ -1,5 +1,0 @@
-<map id="examples/WasClicked/WasClicked.ino" name="examples/WasClicked/WasClicked.ino">
-<area shape="rect" id="node1" title="Light LED when button B is pressed if button A was clicked." alt="" coords="5,5,157,45"/>
-<area shape="rect" id="node2" href="$_simple_button_8h.html" title="Simple Button Library." alt="" coords="26,93,137,119"/>
-<area shape="rect" id="node3" title=" " alt="" coords="43,167,120,192"/>
-</map>

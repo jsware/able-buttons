@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Button Library: ABLE</title>
+<title>AbleButtons: ABLE</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript">var page_layout=1;</script>
 <script type="text/javascript" src="jquery.js"></script>
@@ -32,7 +32,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Button Library
+   <div id="projectname">AbleButtons<span id="projectnumber">&#160;V0.2.0</span>
    </div>
    <div id="projectbrief">Lightweight button library for Arduino.</div>
   </td>
@@ -100,186 +100,282 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
   <div class="headertitle"><div class="title">ABLE </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p ><a class="anchor" id="md__Users_johnscott_Documents_Arduino_libraries_buttons_README"></a> ABLE is a simple, lightweight button library to capture input from buttons connected to an Arduino.</p>
+<div class="textblock"><p ><a class="anchor" id="md_AbleButtons_README"></a> The <b>Arduino Button Library Extension</b> (Able) is a simple, lightweight button library requiring minimal memory overhead. For example, the <code>Buttonable</code> sample has minimal overhead compared to the equivalent <a href="https://www.arduino.cc/en/Tutorial/BuiltInExamples/Button">Button</a> example included with the Arduino IDE. Additionally, the <code>Debouncable</code> example uses <em>less</em> program storage than the equivalent <a href="https://www.arduino.cc/en/Tutorial/BuiltInExamples/Debounce">Debounce</a> program provided with the Arduino IDE.</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Introduction</h1>
-<p >ABLE provides a lightweight easy-to-use button library without unnecessarily including unused button capability. The basic button class uses <b>248 bytes extra code</b> to support <a href="https://www.arduino.cc/en/Tutorial/BuiltInExamples/Debounce">button-debouncing</a> out of the box. This stops isPressed() calls returning a noisy state as a button is pressed or released.</p>
-<p >ABLE can support buttons connected using pull-up resitors and pull-down resisters. It also supports the internal pull-up resistors on various Arduino models making it easy to connect a pin to ground through a button or switch.</p>
+<p >Able provides a suite of button classes so you can choose the best fit for your needs without including unused capabilities. By choosing, at compile time, the features you require, only the code necessary for those features is included.</p>
+<p >For example, if you do not use callback functions, choosing the right button without the callback feature reduces your program's size giving you more space for your project's purpose.</p>
+<p >This selection is done with <code>using Button = AbleButton</code> and <code>using ButtonList = AbleButtonList</code> style commands in your program. You must initialise each button with a <code>begin()</code> call in your <code><a class="el" href="_buttonable_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup the Buttonable example.">setup()</a></code> function and <code>handle()</code> it in your <code><a class="el" href="_buttonable_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Control the Buttonable example.">loop()</a></code> function.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_able_buttons_8h.html">AbleButtons.h</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Identify which buttons you are using...</span></div>
+<div class="line"><span class="keyword">using </span><a class="code hl_class" href="classable_1_1_button.html">Button</a> = <a class="code hl_typedef" href="_able_buttons_8h.html#a8cd5dc55a3bc639693f0e4afff4c8f23">AblePullupButton</a>; <span class="comment">// Using basic pull-up button.</span></div>
+<div class="line"><span class="keyword">using </span><a class="code hl_class" href="classable_1_1_button_list.html">ButtonList</a> = <a class="code hl_typedef" href="_able_buttons_8h.html#a5550706b7f3b54877ac4cd64910add12">AblePullupButtonList</a>; <span class="comment">// Using basic pull-up button list.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#define BUTTON_PIN 2 </span><span class="comment">// Connect button between this pin and ground.</span></div>
+<div class="line"><a class="code hl_class" href="classable_1_1_button.html">Button</a> <a class="code hl_variable" href="_buttonable_8ino.html#afb973aa0441941c0f90b58102600c3da">btn</a>(<a class="code hl_define" href="_buttonable_8ino.html#abc2ad14f0789907024ac765711ffd3da">BUTTON_PIN</a>); <span class="comment">// The button to check.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="_buttonable_8ino.html#a4fc01d736fe50cf5b977f755b675f11d">setup</a>() {</div>
+<div class="line">  <span class="comment">// put your setup code here, to run once:</span></div>
+<div class="line"> </div>
+<div class="line">  <a class="code hl_variable" href="_buttonable_8ino.html#afb973aa0441941c0f90b58102600c3da">btn</a>.<a class="code hl_function" href="classable_1_1_button.html#a070c4bacf8e732147d70888cde2e162c">begin</a>(); <span class="comment">// Always begin() each button to initialise it.</span></div>
+<div class="line"> </div>
+<div class="line">  pinMode(LED_BUILTIN, OUTPUT);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="_buttonable_8ino.html#afe461d27b9c48d5921c00d521181f12f">loop</a>() {</div>
+<div class="line">  <span class="comment">// put your main code here, to run repeatedly:</span></div>
+<div class="line"> </div>
+<div class="line">  <a class="code hl_variable" href="_buttonable_8ino.html#afb973aa0441941c0f90b58102600c3da">btn</a>.<a class="code hl_function" href="classable_1_1_button.html#a5ab3ba8f63c4e0b19fd82a60f291203a">handle</a>(); <span class="comment">// Always handle() each button in a loop to use it.</span></div>
+<div class="line"> </div>
+<div class="line">  digitalWrite(LED_BUILTIN, <a class="code hl_variable" href="_buttonable_8ino.html#afb973aa0441941c0f90b58102600c3da">btn</a>.<a class="code hl_function" href="classable_1_1_button.html#ad7a98a51e5ba5e23b83b5480662bd3d0">isPressed</a>());</div>
+<div class="line">}</div>
+<div class="ttc" id="a_able_buttons_8h_html"><div class="ttname"><a href="_able_buttons_8h.html">AbleButtons.h</a></div><div class="ttdoc">The main include file for the Arduino Button library Extension (ABLE).</div></div>
+<div class="ttc" id="a_able_buttons_8h_html_a5550706b7f3b54877ac4cd64910add12"><div class="ttname"><a href="_able_buttons_8h.html#a5550706b7f3b54877ac4cd64910add12">AblePullupButtonList</a></div><div class="ttdeci">able::ButtonList&lt; AblePullupButton &gt; AblePullupButtonList</div><div class="ttdoc">Handler for list of AblePullupButton objects.</div><div class="ttdef"><b>Definition:</b> <a href="_able_buttons_8h_source.html#l00194">AbleButtons.h:194</a></div></div>
+<div class="ttc" id="a_able_buttons_8h_html_a8cd5dc55a3bc639693f0e4afff4c8f23"><div class="ttname"><a href="_able_buttons_8h.html#a8cd5dc55a3bc639693f0e4afff4c8f23">AblePullupButton</a></div><div class="ttdeci">able::Button&lt; able::PullupResistorCircuit, able::DebouncedPin &gt; AblePullupButton</div><div class="ttdoc">AblePullupButton provides basic button is-pressed capability for buttons connected using pull-up resi...</div><div class="ttdef"><b>Definition:</b> <a href="_able_buttons_8h_source.html#l00141">AbleButtons.h:141</a></div></div>
+<div class="ttc" id="a_buttonable_8ino_html_a4fc01d736fe50cf5b977f755b675f11d"><div class="ttname"><a href="_buttonable_8ino.html#a4fc01d736fe50cf5b977f755b675f11d">setup</a></div><div class="ttdeci">void setup()</div><div class="ttdoc">Setup the Buttonable example.</div><div class="ttdef"><b>Definition:</b> <a href="_buttonable_8ino_source.html#l00030">Buttonable.ino:30</a></div></div>
+<div class="ttc" id="a_buttonable_8ino_html_abc2ad14f0789907024ac765711ffd3da"><div class="ttname"><a href="_buttonable_8ino.html#abc2ad14f0789907024ac765711ffd3da">BUTTON_PIN</a></div><div class="ttdeci">#define BUTTON_PIN</div><div class="ttdoc">Connect button between this pin and ground.</div><div class="ttdef"><b>Definition:</b> <a href="_buttonable_8ino_source.html#l00024">Buttonable.ino:24</a></div></div>
+<div class="ttc" id="a_buttonable_8ino_html_afb973aa0441941c0f90b58102600c3da"><div class="ttname"><a href="_buttonable_8ino.html#afb973aa0441941c0f90b58102600c3da">btn</a></div><div class="ttdeci">Button btn(BUTTON_PIN)</div><div class="ttdoc">The button to check.</div></div>
+<div class="ttc" id="a_buttonable_8ino_html_afe461d27b9c48d5921c00d521181f12f"><div class="ttname"><a href="_buttonable_8ino.html#afe461d27b9c48d5921c00d521181f12f">loop</a></div><div class="ttdeci">void loop()</div><div class="ttdoc">Control the Buttonable example.</div><div class="ttdef"><b>Definition:</b> <a href="_buttonable_8ino_source.html#l00038">Buttonable.ino:38</a></div></div>
+<div class="ttc" id="aclassable_1_1_button_html"><div class="ttname"><a href="classable_1_1_button.html">able::Button</a></div><div class="ttdoc">Core Button class.</div><div class="ttdef"><b>Definition:</b> <a href="_button_8h_source.html#l00021">Button.h:21</a></div></div>
+<div class="ttc" id="aclassable_1_1_button_html_a070c4bacf8e732147d70888cde2e162c"><div class="ttname"><a href="classable_1_1_button.html#a070c4bacf8e732147d70888cde2e162c">able::Button::begin</a></div><div class="ttdeci">void begin()</div><div class="ttdoc">Initialise the button.</div><div class="ttdef"><b>Definition:</b> <a href="_button_8h_source.html#l00050">Button.h:50</a></div></div>
+<div class="ttc" id="aclassable_1_1_button_html_a5ab3ba8f63c4e0b19fd82a60f291203a"><div class="ttname"><a href="classable_1_1_button.html#a5ab3ba8f63c4e0b19fd82a60f291203a">able::Button::handle</a></div><div class="ttdeci">void handle()</div><div class="ttdoc">Handle the button.</div><div class="ttdef"><b>Definition:</b> <a href="_button_8h_source.html#l00057">Button.h:57</a></div></div>
+<div class="ttc" id="aclassable_1_1_button_html_ad7a98a51e5ba5e23b83b5480662bd3d0"><div class="ttname"><a href="classable_1_1_button.html#ad7a98a51e5ba5e23b83b5480662bd3d0">able::Button::isPressed</a></div><div class="ttdeci">bool isPressed() const</div><div class="ttdoc">Determine if the button is currently pressed.</div><div class="ttdef"><b>Definition:</b> <a href="_button_8h_source.html#l00083">Button.h:83</a></div></div>
+<div class="ttc" id="aclassable_1_1_button_list_html"><div class="ttname"><a href="classable_1_1_button_list.html">able::ButtonList</a></div><div class="ttdoc">Template for a list of buttons of the same type.</div><div class="ttdef"><b>Definition:</b> <a href="_button_list_8h_source.html#l00020">ButtonList.h:20</a></div></div>
+</div><!-- fragment --><p >All AbleButtons support <a href="https://www.arduino.cc/en/Tutorial/BuiltInExamples/Debounce">button debouncing</a> (with the exception of the direct button). Button debouncing addresses <a href="https://en.wikipedia.org/wiki/Switch#Contact_bounce">contact bounce</a> common to mechanical buttons in electronic circuits. Debouncing a button waits for a steady contact so the button does not appear to bounce between open and closed. You can control the debounce wait-time for a steady contact, but the default value is usually sufficient.</p>
+<p >All AbleButtons (including the direct button) support pull-up and pulldown resistor circuits; including the internal pull-up resistors in an Arduino. The internal pull-up resistors make it easy to connect a pin to ground through a button or switch. Whether your circuits use pull-up or pulldown resistors is chosen at compile time.</p>
+<p >The button list classes enable multiple buttons (of the same type) to be managed together.</p>
 <h2><a class="anchor" id="autotoc_md2"></a>
 Motivation</h2>
-<p >The focus of ABLE is to consume minimal memory for the button capability required. ABLE provides a suite of button classes for different capabilities over a general purpose button class supporting all types of buttons. You can choose the button capabilities used at compile time, so no redundant code is included. This is important for embedded micro-controllers such as the Arduino Nano with only 32K Flash and 2K SRAM.</p>
-<p >If you need more functionality (e.g. callbacks when pressed), ABLE includes a suite of button classes with extended capabilities.</p>
+<p >The focus of Able is to consume minimal memory for the button capability required. This is important for embedded micro-controllers such as the Arduino Nano with only 32K Flash and 2K SRAM.</p>
 <h1><a class="anchor" id="autotoc_md3"></a>
 Memory Usage</h1>
-<p >The following manual code compiles to 892 bytes using Arduino IDE v1.8.19...</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#define BUTTON_PIN 2</span></div>
+<p >AbleButtons basic <code>Buttonable</code> example consumes 952 bytes of program storage (<em>only 60 more than Arduino built-in <code>Button</code> example</em>). It also uses 11 bytes for global variables (<em>only 2 more than <code>Button</code></em>).</p>
+<p >AbleButtons <code>Debouncable</code> LED toggle example <b>only uses 1110 bytes of program storage</b>, <em>which is 6 bytes less</em> than the Arduino's built-in <code>Debounce</code> example. It also uses <em>1 byte less</em> for global variables. As your program becomes more complex to achieve its purpose, code efficiency will be an advantage with memory constrained devices such as the Arduino Nano with 32K for programs and only 2K for global variables.</p>
+<p >The <code>Buttonable</code> example is also much easier to read:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_able_buttons_8h.html">AbleButtons.h</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> setup() {</div>
+<div class="line"><span class="comment">// Identify which buttons you are using...</span></div>
+<div class="line"><span class="keyword">using </span><a class="code hl_class" href="classable_1_1_button.html">Button</a> = <a class="code hl_typedef" href="_able_buttons_8h.html#a1a1fa9e1aa7c3ba445fdb7b8e680aa11">AblePullupDirectButton</a>; <span class="comment">// Using the direct pull-up button.</span></div>
+<div class="line"><span class="keyword">using </span><a class="code hl_class" href="classable_1_1_button_list.html">ButtonList</a> = <a class="code hl_typedef" href="_able_buttons_8h.html#a475f887735cf3eb7d717ea4b9e49af38">AblePullupDirectButtonList</a>; <span class="comment">// Using the direct pull-up button list.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#define BUTTON_PIN 2 </span><span class="comment">// Connect button between this pin and ground.</span></div>
+<div class="line"><a class="code hl_class" href="classable_1_1_button.html">Button</a> <a class="code hl_variable" href="_buttonable_8ino.html#afb973aa0441941c0f90b58102600c3da">btn</a>(<a class="code hl_define" href="_buttonable_8ino.html#abc2ad14f0789907024ac765711ffd3da">BUTTON_PIN</a>); <span class="comment">// The button to check.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="_buttonable_8ino.html#a4fc01d736fe50cf5b977f755b675f11d">setup</a>() {</div>
 <div class="line">  <span class="comment">// put your setup code here, to run once:</span></div>
-<div class="line">  pinMode(BUTTON_PIN, INPUT_PULLUP);</div>
+<div class="line">  </div>
+<div class="line">  <a class="code hl_variable" href="_buttonable_8ino.html#afb973aa0441941c0f90b58102600c3da">btn</a>.<a class="code hl_function" href="classable_1_1_button.html#a070c4bacf8e732147d70888cde2e162c">begin</a>(); <span class="comment">// You must always call begin() once for each button.</span></div>
+<div class="line">  </div>
 <div class="line">  pinMode(LED_BUILTIN, OUTPUT);</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> loop() {</div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="_buttonable_8ino.html#afe461d27b9c48d5921c00d521181f12f">loop</a>() {</div>
 <div class="line">  <span class="comment">// put your main code here, to run repeatedly:</span></div>
-<div class="line">  <span class="keywordflow">if</span>(digitalRead(BUTTON_PIN) == LOW) {</div>
-<div class="line">    digitalWrite(LED_BUILTIN, HIGH);</div>
-<div class="line">  } <span class="keywordflow">else</span> {</div>
-<div class="line">    digitalWrite(LED_BUILTIN, LOW);</div>
-<div class="line">  }</div>
+<div class="line">  </div>
+<div class="line">  <a class="code hl_variable" href="_buttonable_8ino.html#afb973aa0441941c0f90b58102600c3da">btn</a>.<a class="code hl_function" href="classable_1_1_button.html#a5ab3ba8f63c4e0b19fd82a60f291203a">handle</a>(); <span class="comment">// You must always call handle() repeatedly in a loop.</span></div>
+<div class="line"> </div>
+<div class="line">  digitalWrite(LED_BUILTIN, <a class="code hl_variable" href="_buttonable_8ino.html#afb973aa0441941c0f90b58102600c3da">btn</a>.<a class="code hl_function" href="classable_1_1_button.html#ad7a98a51e5ba5e23b83b5480662bd3d0">isPressed</a>());</div>
 <div class="line">}</div>
-</div><!-- fragment --><div class="fragment"><div class="line">Sketch uses 892 bytes (2%) of program storage space. Maximum is 30720 bytes.</div>
-<div class="line">Global variables use 9 bytes (0%) of dynamic memory, leaving 2039 bytes for local variables. Maximum is 2048 bytes.</div>
-</div><!-- fragment --><p >...with 9 bytes for global variables. <b>NB: This program's button is not debounced</b>. Whilst probably not visible with the built-in LED, pressing and releasing the button may register several presses due to the mechanical and physical issues with buttons.</p>
-<p >The same program using the button library <b>with button debouncing</b> only uses 1140 bytes (248 bytes more)...</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="able-buttons_8h.html">able-buttons.h</a>&gt;</span></div>
+<div class="ttc" id="a_able_buttons_8h_html_a1a1fa9e1aa7c3ba445fdb7b8e680aa11"><div class="ttname"><a href="_able_buttons_8h.html#a1a1fa9e1aa7c3ba445fdb7b8e680aa11">AblePullupDirectButton</a></div><div class="ttdeci">able::Button&lt; able::PullupResistorCircuit, able::Pin &gt; AblePullupDirectButton</div><div class="ttdoc">AblePullupDirectButton provides basic button is-pressed capability for buttons connected using pull-u...</div><div class="ttdef"><b>Definition:</b> <a href="_able_buttons_8h_source.html#l00181">AbleButtons.h:181</a></div></div>
+<div class="ttc" id="a_able_buttons_8h_html_a475f887735cf3eb7d717ea4b9e49af38"><div class="ttname"><a href="_able_buttons_8h.html#a475f887735cf3eb7d717ea4b9e49af38">AblePullupDirectButtonList</a></div><div class="ttdeci">able::ButtonList&lt; AblePullupDirectButton &gt; AblePullupDirectButtonList</div><div class="ttdoc">AblePullupDirectButtonList allows an array of AblePullupDirectButton objects to be managed together.</div><div class="ttdef"><b>Definition:</b> <a href="_able_buttons_8h_source.html#l00229">AbleButtons.h:229</a></div></div>
+</div><!-- fragment --><div class="fragment"><div class="line">Sketch uses 952 bytes (3%) of program storage space. Maximum is 30720 bytes.</div>
+<div class="line">Global variables use 11 bytes (0%) of dynamic memory, leaving 2037 bytes for local variables. Maximum is 2048 bytes.</div>
+</div><!-- fragment --><p >Additionally, the <code>Debouncable</code> example is also much easier to understand:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_able_buttons_8h.html">AbleButtons.h</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#define BUTTON_PIN 2</span></div>
-<div class="line"><a class="code hl_class" href="classjsware_1_1_t_basic_button.html">BasicButton</a> btn(BUTTON_PIN);</div>
+<div class="line"><span class="comment">// Identify which buttons you are using...</span></div>
+<div class="line"><span class="keyword">using </span><a class="code hl_class" href="classable_1_1_button.html">Button</a> = <a class="code hl_typedef" href="_able_buttons_8h.html#a58333db0cc51397627bacbc3a2baed5b">AblePullupClickerButton</a>; <span class="comment">// Using clicker pull-up button.</span></div>
+<div class="line"><span class="keyword">using </span><a class="code hl_class" href="classable_1_1_button_list.html">ButtonList</a> = <a class="code hl_typedef" href="_able_buttons_8h.html#a7e95ef13a49ccf36d6207aa855ce6873">AblePullupClickerButtonList</a>; <span class="comment">// Using the clicker pull-up button list.</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> setup() {</div>
+<div class="line"><span class="preprocessor">#define BUTTON_PIN 2 </span><span class="comment">// Connect button between this pin and ground.</span></div>
+<div class="line"><a class="code hl_class" href="classable_1_1_button.html">Button</a> <a class="code hl_variable" href="_buttonable_8ino.html#afb973aa0441941c0f90b58102600c3da">btn</a>(<a class="code hl_define" href="_buttonable_8ino.html#abc2ad14f0789907024ac765711ffd3da">BUTTON_PIN</a>); <span class="comment">// The button to check.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> <a class="code hl_variable" href="_debouncable_8ino.html#ad4769d9bfa410d8af132dc0aeddab2fd">led</a> = <span class="keyword">false</span>; <span class="comment">// On/off state of the LED.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="_buttonable_8ino.html#a4fc01d736fe50cf5b977f755b675f11d">setup</a>() {</div>
 <div class="line">  <span class="comment">// put your setup code here, to run once:</span></div>
+<div class="line"> </div>
+<div class="line">  <a class="code hl_variable" href="_buttonable_8ino.html#afb973aa0441941c0f90b58102600c3da">btn</a>.<a class="code hl_function" href="classable_1_1_button.html#a070c4bacf8e732147d70888cde2e162c">begin</a>(); <span class="comment">// You must always call begin() once for each button.</span></div>
+<div class="line"> </div>
 <div class="line">  pinMode(LED_BUILTIN, OUTPUT);</div>
-<div class="line">  btn.<a class="code hl_function" href="classjsware_1_1_t_basic_button.html#ae9817607b2bf3f02e98f7a14c623f01e">begin</a>();</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> loop() {</div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="_buttonable_8ino.html#afe461d27b9c48d5921c00d521181f12f">loop</a>() {</div>
 <div class="line">  <span class="comment">// put your main code here, to run repeatedly:</span></div>
-<div class="line">  <span class="keywordflow">if</span>(btn.<a class="code hl_function" href="classjsware_1_1_t_basic_button.html#aef2a25609ea7d0227d9cf27def9f29de">isPressed</a>()) {</div>
-<div class="line">    digitalWrite(LED_BUILTIN, HIGH);</div>
-<div class="line">  } <span class="keywordflow">else</span> {</div>
-<div class="line">    digitalWrite(LED_BUILTIN, LOW);</div>
+<div class="line"> </div>
+<div class="line">  <a class="code hl_variable" href="_buttonable_8ino.html#afb973aa0441941c0f90b58102600c3da">btn</a>.<a class="code hl_function" href="classable_1_1_button.html#a5ab3ba8f63c4e0b19fd82a60f291203a">handle</a>(); <span class="comment">// You must always call handle() repeatedly in a loop.</span></div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">if</span>(<a class="code hl_variable" href="_buttonable_8ino.html#afb973aa0441941c0f90b58102600c3da">btn</a>.<a class="code hl_function" href="classable_1_1_button.html#a7a67d1efc4ccd4700263f1f83ecb9cd8">resetClicked</a>()) {</div>
+<div class="line">    <a class="code hl_variable" href="_debouncable_8ino.html#ad4769d9bfa410d8af132dc0aeddab2fd">led</a> = !<a class="code hl_variable" href="_debouncable_8ino.html#ad4769d9bfa410d8af132dc0aeddab2fd">led</a>;</div>
+<div class="line">    digitalWrite(LED_BUILTIN, <a class="code hl_variable" href="_debouncable_8ino.html#ad4769d9bfa410d8af132dc0aeddab2fd">led</a>);</div>
 <div class="line">  }</div>
 <div class="line">}</div>
-<div class="ttc" id="aable-buttons_8h_html"><div class="ttname"><a href="able-buttons_8h.html">able-buttons.h</a></div><div class="ttdoc">Main include file for the Arduino Button library Extension.</div></div>
-<div class="ttc" id="aclassjsware_1_1_t_basic_button_html"><div class="ttname"><a href="classjsware_1_1_t_basic_button.html">jsware::TBasicButton</a></div><div class="ttdoc">Simplest button class to check if the button has been pressed.</div><div class="ttdef"><b>Definition:</b> <a href="basicbtn_8h_source.html#l00021">basicbtn.h:21</a></div></div>
-<div class="ttc" id="aclassjsware_1_1_t_basic_button_html_ae9817607b2bf3f02e98f7a14c623f01e"><div class="ttname"><a href="classjsware_1_1_t_basic_button.html#ae9817607b2bf3f02e98f7a14c623f01e">jsware::TBasicButton::begin</a></div><div class="ttdeci">void begin()</div><div class="ttdoc">Initialise the button.</div><div class="ttdef"><b>Definition:</b> <a href="basicbtn_8h_source.html#l00037">basicbtn.h:37</a></div></div>
-<div class="ttc" id="aclassjsware_1_1_t_basic_button_html_aef2a25609ea7d0227d9cf27def9f29de"><div class="ttname"><a href="classjsware_1_1_t_basic_button.html#aef2a25609ea7d0227d9cf27def9f29de">jsware::TBasicButton::isPressed</a></div><div class="ttdeci">bool isPressed()</div><div class="ttdoc">Determine if the button is currently pressed.</div><div class="ttdef"><b>Definition:</b> <a href="basicbtn_8h_source.html#l00046">basicbtn.h:46</a></div></div>
-</div><!-- fragment --><div class="fragment"><div class="line">Sketch uses 1140 bytes (3%) of program storage space. Maximum is 30720 bytes.</div>
-<div class="line">Global variables use 15 bytes (0%) of dynamic memory, leaving 2033 bytes for local variables. Maximum is 2048 bytes.</div>
-</div><!-- fragment --><p >...with 15 bytes for global variables (6 extra bytes).</p>
-<h1><a class="anchor" id="autotoc_md4"></a>
+<div class="ttc" id="a_able_buttons_8h_html_a58333db0cc51397627bacbc3a2baed5b"><div class="ttname"><a href="_able_buttons_8h.html#a58333db0cc51397627bacbc3a2baed5b">AblePullupClickerButton</a></div><div class="ttdeci">able::Button&lt; able::PullupResistorCircuit, able::ClickerPin &gt; AblePullupClickerButton</div><div class="ttdoc">AblePullupClickerButton provides additional button-click capability to the is-pressed capability of a...</div><div class="ttdef"><b>Definition:</b> <a href="_able_buttons_8h_source.html#l00159">AbleButtons.h:159</a></div></div>
+<div class="ttc" id="a_able_buttons_8h_html_a7e95ef13a49ccf36d6207aa855ce6873"><div class="ttname"><a href="_able_buttons_8h.html#a7e95ef13a49ccf36d6207aa855ce6873">AblePullupClickerButtonList</a></div><div class="ttdeci">able::ButtonList&lt; AblePullupClickerButton &gt; AblePullupClickerButtonList</div><div class="ttdoc">AblePullupClickerButtonList allows an array of AblePullupClickerButton objects to be managed together...</div><div class="ttdef"><b>Definition:</b> <a href="_able_buttons_8h_source.html#l00212">AbleButtons.h:212</a></div></div>
+<div class="ttc" id="a_debouncable_8ino_html_ad4769d9bfa410d8af132dc0aeddab2fd"><div class="ttname"><a href="_debouncable_8ino.html#ad4769d9bfa410d8af132dc0aeddab2fd">led</a></div><div class="ttdeci">bool led</div><div class="ttdoc">On/off state of the LED.</div><div class="ttdef"><b>Definition:</b> <a href="_debouncable_8ino_source.html#l00022">Debouncable.ino:22</a></div></div>
+<div class="ttc" id="aclassable_1_1_button_html_a7a67d1efc4ccd4700263f1f83ecb9cd8"><div class="ttname"><a href="classable_1_1_button.html#a7a67d1efc4ccd4700263f1f83ecb9cd8">able::Button::resetClicked</a></div><div class="ttdeci">bool resetClicked()</div><div class="ttdoc">Reset the cliked state of the button, returning what is was.</div></div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md4"></a>
 Installation</h1>
 <p >To manually install this library, download the version you require and extract it into the Arduino libraries directory (normally the libraries sub-folder of the <a href="https://support.arduino.cc/hc/en-us/articles/4412950938514">sketchbook folder</a> - <code>$HOME/Documents/Arduino/libraries</code>)</p>
-<p >Alternatively use the Arduino IDE's library manager to find the <code>able-buttons</code> library.</p>
-<p >With either approach, your <code>libraries</code> directory in your sketchbook folder should contain an <code>able-buttons</code> directory with further files and sub-folders similar to the list below (additional files and directories may be present):</p>
-<div class="fragment"><div class="line">/able-buttons</div>
+<p ><em>NB: The initial version 0.1.0 of this library was called <code>able-buttons</code> but was renamed to <code>AbleButtons</code> at v0.2.0 due to significant changes in the code.</em></p>
+<p >Alternatively use the Arduino IDE's library manager to find the <code>AbleButtons</code> library. This is the easiest approach.</p>
+<p >With either installation approach, your <code>libraries</code> directory in your sketchbook folder should contain an <code>AbleButtons</code> directory with further files and sub-folders similar to the list below (additional files and directories may be present):</p>
+<div class="fragment"><div class="line">/AbleButtons</div>
 <div class="line"> |- /docs</div>
 <div class="line"> |- /examples</div>
-<div class="line"> |   +- /PushBtn</div>
-<div class="line"> |   |   `- PushBtn.ino</div>
-<div class="line"> |   +- /PushBtnAny</div>
-<div class="line"> |   |   `- PushBtnAny.ino</div>
-<div class="line"> |   +- /PushBtnAll</div>
-<div class="line"> |   |   `- PushBtnAll.ino</div>
-<div class="line"> |   `- /PushBtnCallback</div>
-<div class="line"> |      `- PushBtnCallback.ino</div>
+<div class="line"> |   +- /Buttonable</div>
+<div class="line"> |   |   `- Buttonable.ino</div>
+<div class="line"> |   `- /Debounceable</div>
+<div class="line"> |       `- Debouncable.ino</div>
 <div class="line"> +- /src</div>
-<div class="line"> |   +- callbtn.h</div>
-<div class="line"> |   +- btnlist.h</div>
-<div class="line"> |   +- btntypes.h</div>
-<div class="line"> |   +- basicbtn.h</div>
-<div class="line"> |   `- buttons.h</div>
-<div class="line"> +- /tests</div>
-<div class="line"> +- .gitignore</div>
-<div class="line"> +- Doxyfile</div>
+<div class="line"> |   +- AbleButtons.h</div>
+<div class="line"> |   +- Button.h</div>
+<div class="line"> |   +- ButtonList.h</div>
+<div class="line"> |   +- CallbackButton.h</div>
+<div class="line"> |   +- ...</div>
+<div class="line"> |   `- Pins.h</div>
 <div class="line"> +- library.properties</div>
 <div class="line"> +- LICENSE</div>
 <div class="line"> +- platformio.ini</div>
 <div class="line"> `- README.md</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md5"></a>
+Buttons</h1>
+<p >Different AbleButtons have additional capabilities that build on simpler button features. The following button combinations are available from AbleButtons:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadLeft">Using   </th><th class="markdownTableHeadCenter">Resistor   </th><th class="markdownTableHeadCenter">Pin   </th><th class="markdownTableHeadCenter">Callback?   </th><th class="markdownTableHeadLeft">Button List    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><code>AblePulldownButton</code>   </td><td class="markdownTableBodyCenter">Pulldown   </td><td class="markdownTableBodyCenter">Push   </td><td class="markdownTableBodyCenter">No   </td><td class="markdownTableBodyLeft"><code>AblePulldownButtonList</code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><code>AblePulldownCallbackButton</code>   </td><td class="markdownTableBodyCenter">Pulldown   </td><td class="markdownTableBodyCenter">Push   </td><td class="markdownTableBodyCenter">Yes   </td><td class="markdownTableBodyLeft"><code>AblePulldownCallbackButtonList</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><code>AblePulldownClickerButton</code>   </td><td class="markdownTableBodyCenter">Pulldown   </td><td class="markdownTableBodyCenter">Click   </td><td class="markdownTableBodyCenter">No   </td><td class="markdownTableBodyLeft"><code>AblePulldownClickerButtonList</code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><code>AblePulldownCallbackClickerButton</code>   </td><td class="markdownTableBodyCenter">Pulldown   </td><td class="markdownTableBodyCenter">Click   </td><td class="markdownTableBodyCenter">Yes   </td><td class="markdownTableBodyLeft"><code>AblePulldownCallbackClickerButtonList</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><code>AblePulldownDirectButton</code>   </td><td class="markdownTableBodyCenter">Pulldown   </td><td class="markdownTableBodyCenter">Direct   </td><td class="markdownTableBodyCenter">No   </td><td class="markdownTableBodyLeft"><code>AblePulldownDirectButtonList</code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><code>AblePullupButton</code>   </td><td class="markdownTableBodyCenter">Pull-up   </td><td class="markdownTableBodyCenter">Push   </td><td class="markdownTableBodyCenter">No   </td><td class="markdownTableBodyLeft"><code>AblePullupButtonList</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><code>AblePullupCallbackButton</code>   </td><td class="markdownTableBodyCenter">Pull-up   </td><td class="markdownTableBodyCenter">Push   </td><td class="markdownTableBodyCenter">Yes   </td><td class="markdownTableBodyLeft"><code>AblePullupCallbackButtonList</code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><code>AblePullupClickerButton</code>   </td><td class="markdownTableBodyCenter">Pull-up   </td><td class="markdownTableBodyCenter">Click   </td><td class="markdownTableBodyCenter">No   </td><td class="markdownTableBodyLeft"><code>AblePullupClickerButtonList</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><code>AblePullupCallbackClickerButton</code>   </td><td class="markdownTableBodyCenter">Pull-up   </td><td class="markdownTableBodyCenter">Click   </td><td class="markdownTableBodyCenter">Yes   </td><td class="markdownTableBodyLeft"><code>AblePullupCallbackClickerButtonList</code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><code>AblePullupDirectButton</code>   </td><td class="markdownTableBodyCenter">Pull-up   </td><td class="markdownTableBodyCenter">Direct   </td><td class="markdownTableBodyCenter">No   </td><td class="markdownTableBodyLeft"><code>AblePullupDirectButtonList</code>   </td></tr>
+</table>
+<p >AbleButton classes above identify the features available with them:</p>
+<ul>
+<li>Pulldown and pull-up classes identify which resistor circuit they can be used with.</li>
+<li><code>AblePulldownButton</code> and <code>AblePullupButton</code> just provide debounced <code>isPressed()</code> detection. This waits until the closed/open state of the button stabalises when the button is pressed or released.</li>
+<li>A "direct" button bypasses the debounce checking. Without debouncing a button, it may appear the button has been pressed and released multiple times due to <a href="https://en.wikipedia.org/wiki/Switch#Contact_bounce">contact bouncing</a> as the button is pressed or released. If you do not need button debouncing, this can dramatically reduce program size.</li>
+<li>A "clicker" button provides <code>isClicked()</code> in addition to <code>isPressed()</code> detection. Clicker buttons remember they have been pressed and released to complete a click. Your program can respond when clicked, rather than a simple press.</li>
+<li>A "callback" button provides on-pressed and on-released function callbacks. When the button is pressed and released, a function you define can be called for that event. The callback function receives the <code>id</code> of the button pressed or released. This <code>id</code> allows a shared callback function to differentiate between those buttons.</li>
+<li>The <code>AblePulldownCallbackClickerButton</code> and <code>AblePullupCallbackClickerButton</code> classes combine "callback" and "clicker" capabilities if required.</li>
+</ul>
+<p >For programs with several buttons, AbleButtons provides a <code>ButtonList</code> feature. A program can define a list of buttons and then manage them together. Buttons still work independently (each has its own pressed, clicked and callback settings), but you can call the button list's <code>begin()</code> and <code>handle()</code> functions to manage all the buttons together.</p>
+<p >Remember to choose the appropriate <code>ButtonList</code> class for the button you are using:</p>
+<div class="fragment"><div class="line"><span class="comment">// Identify which buttons you are using...</span></div>
+<div class="line"><span class="keyword">using </span><a class="code hl_class" href="classable_1_1_button.html">Button</a> = <a class="code hl_typedef" href="_able_buttons_8h.html#a58333db0cc51397627bacbc3a2baed5b">AblePullupClickerButton</a>; <span class="comment">// Using clicker pull-up button.</span></div>
+<div class="line"><span class="keyword">using </span><a class="code hl_class" href="classable_1_1_button_list.html">ButtonList</a> = <a class="code hl_typedef" href="_able_buttons_8h.html#a7e95ef13a49ccf36d6207aa855ce6873">AblePullupClickerButtonList</a>; <span class="comment">// Using the clicker pull-up button list.</span></div>
+</div><!-- fragment --><p >If you have multiple buttons with different requirements (e.g. a clicker and basic push-button), it is recommended to use a button with the most features for all your buttons. This allows a button list to manage all your buttons together (they must be of the same type) and avoids including duplicate code for both button types. So if you have both push- and clickable-buttons, the following would be the most efficient, since clicker-buttons include push-button capabiities.</p>
+<div class="fragment"><div class="line"><span class="keyword">using </span><a class="code hl_class" href="classable_1_1_button.html">Button</a> = <a class="code hl_typedef" href="_able_buttons_8h.html#a58333db0cc51397627bacbc3a2baed5b">AblePullupClickerButton</a>;</div>
+<div class="line"><span class="keyword">using </span><a class="code hl_class" href="classable_1_1_button_list.html">ButtonList</a> = <a class="code hl_typedef" href="_able_buttons_8h.html#a7e95ef13a49ccf36d6207aa855ce6873">AblePullupClickerButtonList</a>;</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
 Usage</h1>
-<p >The full button library documentation can be found <a href="https://www.jsware.io/able-buttons/html">here</a>. The library provides some examples to help get started with the library.</p>
-<h2><a class="anchor" id="autotoc_md6"></a>
+<p >The full button library documentation can be found <a href="https://www.jsware.io/able-buttons/html">here</a>. The library also provides some examples to help get started with the library.</p>
+<h2><a class="anchor" id="autotoc_md7"></a>
 Basic Button</h2>
-<p >Here is a simple button to check if it has been pressed. It can be found in the PushBtn example:</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="able-buttons_8h.html">able-buttons.h</a>&gt;</span></div>
+<p >Here is a simple button to check if it has been pressed. It can be found in the Buttonable2 example:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_able_buttons_8h.html">AbleButtons.h</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#define BUTTON_PIN 2                        </span><span class="comment">// Macro defining the pin to use.</span></div>
-<div class="line"><a class="code hl_class" href="classjsware_1_1_t_basic_button.html">BasicButton</a> btn(BUTTON_PIN);                <span class="comment">// Declare a basic button using the internal pull-up resistor.</span></div>
+<div class="line"><span class="comment">// Identify which buttons you are using...</span></div>
+<div class="line"><span class="keyword">using </span><a class="code hl_class" href="classable_1_1_button.html">Button</a> = <a class="code hl_typedef" href="_able_buttons_8h.html#a8cd5dc55a3bc639693f0e4afff4c8f23">AblePullupButton</a>; <span class="comment">// AblePullupDirectButton if debouncing not required.</span></div>
+<div class="line"><span class="keyword">using </span><a class="code hl_class" href="classable_1_1_button_list.html">ButtonList</a> = <a class="code hl_typedef" href="_able_buttons_8h.html#a5550706b7f3b54877ac4cd64910add12">AblePullupButtonList</a>; <span class="comment">// AblePullupDirectButtonList if debouncing not required.</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> setup() {</div>
+<div class="line"><span class="preprocessor">#define BUTTON_PIN 2 </span><span class="comment">// Connect button between this pin and ground.</span></div>
+<div class="line"><a class="code hl_class" href="classable_1_1_button.html">Button</a> <a class="code hl_variable" href="_buttonable_8ino.html#afb973aa0441941c0f90b58102600c3da">btn</a>(<a class="code hl_define" href="_buttonable_8ino.html#abc2ad14f0789907024ac765711ffd3da">BUTTON_PIN</a>); <span class="comment">// The button to check.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="_buttonable_8ino.html#a4fc01d736fe50cf5b977f755b675f11d">setup</a>() {</div>
 <div class="line">  <span class="comment">// put your setup code here, to run once:</span></div>
+<div class="line">  </div>
+<div class="line">  <a class="code hl_variable" href="_buttonable_8ino.html#afb973aa0441941c0f90b58102600c3da">btn</a>.<a class="code hl_function" href="classable_1_1_button.html#a070c4bacf8e732147d70888cde2e162c">begin</a>(); <span class="comment">// Call the button&#39;s begin() method to initialise.</span></div>
+<div class="line"> </div>
 <div class="line">  pinMode(LED_BUILTIN, OUTPUT);</div>
-<div class="line">  btn.<a class="code hl_function" href="classjsware_1_1_t_basic_button.html#ae9817607b2bf3f02e98f7a14c623f01e">begin</a>();                              <span class="comment">// Call the button&#39;s begin() method to initialise.</span></div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> loop() {</div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="_buttonable_8ino.html#afe461d27b9c48d5921c00d521181f12f">loop</a>() {</div>
 <div class="line">  <span class="comment">// put your main code here, to run repeatedly:</span></div>
-<div class="line">  <span class="keywordflow">if</span>(btn.<a class="code hl_function" href="classjsware_1_1_t_basic_button.html#aef2a25609ea7d0227d9cf27def9f29de">isPressed</a>()) {                     <span class="comment">// Check if the button is pressed.</span></div>
+<div class="line"> </div>
+<div class="line">  <a class="code hl_variable" href="_buttonable_8ino.html#afb973aa0441941c0f90b58102600c3da">btn</a>.<a class="code hl_function" href="classable_1_1_button.html#a5ab3ba8f63c4e0b19fd82a60f291203a">handle</a>(); <span class="comment">// Call the button&#39;s handle() method in a loop.</span></div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">if</span>(<a class="code hl_variable" href="_buttonable_8ino.html#afb973aa0441941c0f90b58102600c3da">btn</a>.<a class="code hl_function" href="classable_1_1_button.html#ad7a98a51e5ba5e23b83b5480662bd3d0">isPressed</a>()) {</div>
 <div class="line">    digitalWrite(LED_BUILTIN, HIGH);</div>
 <div class="line">  } <span class="keywordflow">else</span> {</div>
 <div class="line">    digitalWrite(LED_BUILTIN, LOW);</div>
 <div class="line">  }</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md7"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md8"></a>
 Callback Button</h2>
-<p >To see the callback button capability use the PushBtnCallback example:</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="able-buttons_8h.html">able-buttons.h</a>&gt;</span></div>
+<p >Here is an equivalent program using callback functions. It can be found in the ButtonableCallback example:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_able_buttons_8h.html">AbleButtons.h</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> pressedCallback(<a class="code hl_class" href="classjsware_1_1_t_basic_button.html">BasicButton</a> *) {       <span class="comment">// Callback function for button pressed.</span></div>
+<div class="line"><span class="comment">// Identify which buttons you are using...</span></div>
+<div class="line"><span class="keyword">using </span><a class="code hl_class" href="classable_1_1_button.html">Button</a> = <a class="code hl_typedef" href="_able_buttons_8h.html#a737faeb91f92ed3693b98a04fae6d0fb">AblePullupCallbackButton</a>; <span class="comment">// Using callback pull-up button.</span></div>
+<div class="line"><span class="keyword">using </span><a class="code hl_class" href="classable_1_1_button_list.html">ButtonList</a> = <a class="code hl_typedef" href="_able_buttons_8h.html#a1d2c2770a705f68870a89e10dde70609">AblePullupCallbackButtonList</a>; <span class="comment">// Using callback pull-up button list.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Declarations of callback functions defined later.</span></div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="_buttonable_callback_8ino.html#a1222da63aeb5a684c8d653512ac09aad">pressedCallback</a>(uint8_t);</div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="_buttonable_callback_8ino.html#a2312152efba4caaa2ab85e4c6a645a2f">releasedCallback</a>(uint8_t);</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#define BUTTON_PIN 2 </span><span class="comment">// Connect button between this pin and ground.</span></div>
+<div class="line"><a class="code hl_class" href="classable_1_1_button.html">Button</a> <a class="code hl_variable" href="_buttonable_8ino.html#afb973aa0441941c0f90b58102600c3da">btn</a>(<a class="code hl_define" href="_buttonable_8ino.html#abc2ad14f0789907024ac765711ffd3da">BUTTON_PIN</a>, <a class="code hl_function" href="_buttonable_callback_8ino.html#a1222da63aeb5a684c8d653512ac09aad">pressedCallback</a>, <a class="code hl_function" href="_buttonable_callback_8ino.html#a2312152efba4caaa2ab85e4c6a645a2f">releasedCallback</a>); <span class="comment">// The button to check.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="_buttonable_8ino.html#a4fc01d736fe50cf5b977f755b675f11d">setup</a>() {</div>
+<div class="line">  <span class="comment">// put your setup code here, to run once:</span></div>
+<div class="line"> </div>
+<div class="line">  <a class="code hl_variable" href="_buttonable_8ino.html#afb973aa0441941c0f90b58102600c3da">btn</a>.<a class="code hl_function" href="classable_1_1_button.html#a070c4bacf8e732147d70888cde2e162c">begin</a>();</div>
+<div class="line"> </div>
+<div class="line">  pinMode(LED_BUILTIN, OUTPUT);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="_buttonable_8ino.html#afe461d27b9c48d5921c00d521181f12f">loop</a>() {</div>
+<div class="line">  <span class="comment">// put your main code here, to run repeatedly:</span></div>
+<div class="line"> </div>
+<div class="line">  <a class="code hl_variable" href="_buttonable_8ino.html#afb973aa0441941c0f90b58102600c3da">btn</a>.<a class="code hl_function" href="classable_1_1_button.html#a5ab3ba8f63c4e0b19fd82a60f291203a">handle</a>();</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="_buttonable_callback_8ino.html#a1222da63aeb5a684c8d653512ac09aad">pressedCallback</a>(uint8_t <span class="keywordtype">id</span>) {</div>
 <div class="line">  digitalWrite(LED_BUILTIN, HIGH);</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> releasedCallback(<a class="code hl_class" href="classjsware_1_1_t_basic_button.html">BasicButton</a> *) {      <span class="comment">// Callback function for button released.</span></div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="_buttonable_callback_8ino.html#a2312152efba4caaa2ab85e4c6a645a2f">releasedCallback</a>(uint8_t <span class="keywordtype">id</span>) {</div>
 <div class="line">    digitalWrite(LED_BUILTIN, LOW);</div>
 <div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#define BUTTON_PIN 2                        </span><span class="comment">// Connect button between this pin and ground.</span></div>
-<div class="line"><a class="code hl_class" href="classjsware_1_1_t_callback_button.html">CallbackButton</a> btn(BUTTON_PIN, pressedCallback, releasedCallback); <span class="comment">// The button to check.</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> setup() {</div>
-<div class="line">  <span class="comment">// put your setup code here, to run once:</span></div>
-<div class="line"> </div>
-<div class="line">  pinMode(LED_BUILTIN, OUTPUT);</div>
-<div class="line"> </div>
-<div class="line">  btn.<a class="code hl_function" href="classjsware_1_1_t_basic_button.html#ae9817607b2bf3f02e98f7a14c623f01e">begin</a>();                              <span class="comment">// Initialise each button using the begin() function.</span></div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> loop() {</div>
-<div class="line">  <span class="comment">// put your main code here, to run repeatedly:</span></div>
-<div class="line"> </div>
-<div class="line">  btn.<a class="code hl_function" href="classjsware_1_1_t_clickable_button.html#a8faa3663c5970186ff81f578e22de8ab">handle</a>();                             <span class="comment">// Handle events for the button.</span></div>
-<div class="line">}</div>
-<div class="ttc" id="aclassjsware_1_1_t_callback_button_html"><div class="ttname"><a href="classjsware_1_1_t_callback_button.html">jsware::TCallbackButton</a></div><div class="ttdoc">Callback button template to call a function if the button is pressed.</div><div class="ttdef"><b>Definition:</b> <a href="callbtn_8h_source.html#l00022">callbtn.h:22</a></div></div>
-<div class="ttc" id="aclassjsware_1_1_t_clickable_button_html_a8faa3663c5970186ff81f578e22de8ab"><div class="ttname"><a href="classjsware_1_1_t_clickable_button.html#a8faa3663c5970186ff81f578e22de8ab">jsware::TClickableButton::handle</a></div><div class="ttdeci">void handle()</div><div class="ttdoc">Handle the button.</div><div class="ttdef"><b>Definition:</b> <a href="clickbtn_8h_source.html#l00043">clickbtn.h:43</a></div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md8"></a>
-Button List</h2>
-<p >If you have a list of buttons, it's easy to declare them in a list so a single begin() and handle() functions will control them all. The PushBtnAll and PushBtnAny examples show the button list class in action.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="able-buttons_8h.html">able-buttons.h</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#define BUTTON_PIN 2                        </span><span class="comment">// Connect button between this pin and ground.</span></div>
-<div class="line"> </div>
-<div class="line"><a class="code hl_class" href="classjsware_1_1_t_basic_button.html">BasicButton</a> <a class="code hl_variable" href="_push_btn_all_8ino.html#af5a8a1606d28e9b7e9d36457fdeace74">btns</a>[] = {                      <span class="comment">// Array of buttons.</span></div>
-<div class="line">  <a class="code hl_typedef" href="basicbtn_8h.html#a5760b853e2e9f7cb336542c236f43d97">BasicButton</a>(BUTTON_PIN),</div>
-<div class="line">  <a class="code hl_typedef" href="basicbtn_8h.html#a5760b853e2e9f7cb336542c236f43d97">BasicButton</a>(BUTTON_PIN + 1)</div>
-<div class="line">};</div>
-<div class="line"><a class="code hl_class" href="classjsware_1_1_t_button_list.html">BasicButtonList</a> <a class="code hl_variable" href="_push_btn_all_8ino.html#aa3ad0f06848802a0886d651f6d988912">btnList</a>(<a class="code hl_variable" href="_push_btn_all_8ino.html#af5a8a1606d28e9b7e9d36457fdeace74">btns</a>);              <span class="comment">// List of button to control together.</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> setup() {</div>
-<div class="line">  <span class="comment">// put your setup code here, to run once:</span></div>
-<div class="line"> </div>
-<div class="line">  pinMode(LED_BUILTIN, OUTPUT);</div>
-<div class="line"> </div>
-<div class="line">  <a class="code hl_variable" href="_push_btn_all_8ino.html#aa3ad0f06848802a0886d651f6d988912">btnList</a>.<a class="code hl_function" href="classjsware_1_1_t_button_list.html#a01887cbc29f0f52c86d59ef93eb537f9">begin</a>();                          <span class="comment">// Call begin on a button list calls begin on all the list&#39;s buttons.</span></div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> loop() {</div>
-<div class="line">  <span class="comment">// put your main code here, to run repeatedly:</span></div>
-<div class="line"> </div>
-<div class="line">  <span class="keywordflow">if</span>(<a class="code hl_variable" href="_push_btn_all_8ino.html#aa3ad0f06848802a0886d651f6d988912">btnList</a>.<a class="code hl_function" href="classjsware_1_1_t_button_list.html#a4b1f6f5f59bc81e9106f5829d79fc740">allPressed</a>()) {                <span class="comment">// Check if all the buttons are pressed together.</span></div>
-<div class="line">    digitalWrite(LED_BUILTIN, HIGH);</div>
-<div class="line">  } <span class="keywordflow">else</span> {</div>
-<div class="line">    digitalWrite(LED_BUILTIN, LOW);</div>
-<div class="line">  }</div>
-<div class="line">}</div>
-<div class="ttc" id="a_push_btn_all_8ino_html_aa3ad0f06848802a0886d651f6d988912"><div class="ttname"><a href="_push_btn_all_8ino.html#aa3ad0f06848802a0886d651f6d988912">btnList</a></div><div class="ttdeci">BasicButtonList btnList(btns)</div><div class="ttdoc">List of button to control together.</div></div>
-<div class="ttc" id="a_push_btn_all_8ino_html_af5a8a1606d28e9b7e9d36457fdeace74"><div class="ttname"><a href="_push_btn_all_8ino.html#af5a8a1606d28e9b7e9d36457fdeace74">btns</a></div><div class="ttdeci">BasicButton btns[]</div><div class="ttdoc">Array of buttons.</div><div class="ttdef"><b>Definition:</b> <a href="_push_btn_all_8ino_source.html#l00013">PushBtnAll.ino:13</a></div></div>
-<div class="ttc" id="abasicbtn_8h_html_a5760b853e2e9f7cb336542c236f43d97"><div class="ttname"><a href="basicbtn_8h.html#a5760b853e2e9f7cb336542c236f43d97">BasicButton</a></div><div class="ttdeci">jsware::TBasicButton&lt; jsware::PullupButtonType &gt; BasicButton</div><div class="ttdoc">Shorthand for a basic button using a pull-up resistor (most common type).</div><div class="ttdef"><b>Definition:</b> <a href="basicbtn_8h_source.html#l00055">basicbtn.h:55</a></div></div>
-<div class="ttc" id="aclassjsware_1_1_t_button_list_html"><div class="ttname"><a href="classjsware_1_1_t_button_list.html">jsware::TButtonList</a></div><div class="ttdoc">Template for a list of buttons of the same type.</div><div class="ttdef"><b>Definition:</b> <a href="btnlist_8h_source.html#l00020">btnlist.h:20</a></div></div>
-<div class="ttc" id="aclassjsware_1_1_t_button_list_html_a01887cbc29f0f52c86d59ef93eb537f9"><div class="ttname"><a href="classjsware_1_1_t_button_list.html#a01887cbc29f0f52c86d59ef93eb537f9">jsware::TButtonList::begin</a></div><div class="ttdeci">void begin()</div><div class="ttdoc">Initialise all the buttons.</div><div class="ttdef"><b>Definition:</b> <a href="btnlist_8h_source.html#l00045">btnlist.h:45</a></div></div>
-<div class="ttc" id="aclassjsware_1_1_t_button_list_html_a4b1f6f5f59bc81e9106f5829d79fc740"><div class="ttname"><a href="classjsware_1_1_t_button_list.html#a4b1f6f5f59bc81e9106f5829d79fc740">jsware::TButtonList::allPressed</a></div><div class="ttdeci">bool allPressed()</div><div class="ttdoc">Determine if all of the buttons are currently pressed.</div><div class="ttdef"><b>Definition:</b> <a href="btnlist_8h_source.html#l00066">btnlist.h:66</a></div></div>
-</div><!-- fragment --> </div></div><!-- PageDoc -->
+<div class="ttc" id="a_able_buttons_8h_html_a1d2c2770a705f68870a89e10dde70609"><div class="ttname"><a href="_able_buttons_8h.html#a1d2c2770a705f68870a89e10dde70609">AblePullupCallbackButtonList</a></div><div class="ttdeci">able::ButtonList&lt; AblePullupCallbackButton &gt; AblePullupCallbackButtonList</div><div class="ttdoc">AblePullupCallbackButtonList allows an array of AblePullupCallbackButton objects to be managed togeth...</div><div class="ttdef"><b>Definition:</b> <a href="_able_buttons_8h_source.html#l00203">AbleButtons.h:203</a></div></div>
+<div class="ttc" id="a_able_buttons_8h_html_a737faeb91f92ed3693b98a04fae6d0fb"><div class="ttname"><a href="_able_buttons_8h.html#a737faeb91f92ed3693b98a04fae6d0fb">AblePullupCallbackButton</a></div><div class="ttdeci">able::CallbackButton&lt; able::Button&lt; able::PullupResistorCircuit, able::DebouncedPin &gt; &gt; AblePullupCallbackButton</div><div class="ttdoc">Shorthand for a callback button using a pulldown resistor.</div><div class="ttdef"><b>Definition:</b> <a href="_able_buttons_8h_source.html#l00151">AbleButtons.h:151</a></div></div>
+<div class="ttc" id="a_buttonable_callback_8ino_html_a1222da63aeb5a684c8d653512ac09aad"><div class="ttname"><a href="_buttonable_callback_8ino.html#a1222da63aeb5a684c8d653512ac09aad">pressedCallback</a></div><div class="ttdeci">void pressedCallback(uint8_t)</div><div class="ttdoc">Callback function for button pressed.</div><div class="ttdef"><b>Definition:</b> <a href="_buttonable_callback_8ino_source.html#l00042">ButtonableCallback.ino:42</a></div></div>
+<div class="ttc" id="a_buttonable_callback_8ino_html_a2312152efba4caaa2ab85e4c6a645a2f"><div class="ttname"><a href="_buttonable_callback_8ino.html#a2312152efba4caaa2ab85e4c6a645a2f">releasedCallback</a></div><div class="ttdeci">void releasedCallback(uint8_t)</div><div class="ttdoc">Callback function for button released.</div><div class="ttdef"><b>Definition:</b> <a href="_buttonable_callback_8ino_source.html#l00052">ButtonableCallback.ino:52</a></div></div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md9"></a>
+Troubleshooting</h1>
+<p >AbleButtons is very simple to use. There are just a few things to remember.</p>
+<ol type="1">
+<li>Remember to choose the button with the resistor circuit and features you are using.</li>
+<li>Signals from <a href="https://www.arduino.cc/en/Tutorial/BuiltInExamples/Button">pulldown</a> and <a href="https://docs.arduino.cc/tutorials/generic/digital-input-pullup">pull-up</a> resistors are different. AbleButtons needs to know which one to use. Arduino microcontrollers have internal pull-up resistors, so connecting a pin to ground via a button uses a pull-up resistor circuit.</li>
+<li>Choose the button features you need from basic button, a clicker and callback functions. If you try to use the clicker-specific methods when <code>using Button = AbleButton</code> style commands without "Clicker" in the name will result in compile time errors if you attempt to use any clicker-specific methods (e.g. <code>isClicked()</code> and <code>resetClicked()</code>).</li>
+<li>Remember to <code>begin()</code> each button in your <code><a class="el" href="_buttonable_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup the Buttonable example.">setup()</a></code> function and <code>handle()</code> each button in your <code><a class="el" href="_buttonable_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Control the Buttonable example.">loop()</a></code> function. If you are using a <code>ButtonList</code>, you can call the <code>begin()</code> and <code>handle()</code> methods on the list.</li>
+<li>If using a <code>ButtonList</code>, remember to include all your buttons in the list. For this reason it is best (and most memory efficient) to have the same resistor circuit for all your buttons.</li>
+<li>If you need different features for different buttons, you should be <code>using Button = AbleButton</code> with the highest feature set you need over including both feature sets, otherwise duplicate code will be included.</li>
+</ol>
+<h2><a class="anchor" id="autotoc_md10"></a>
+Resistor Circuits</h2>
+<p >AbleButton supports both pulldown and pull-up resistor circuits. This affect the pressed vs unpressed signals. With a pulldown resistor, the signal will be "pulled down" to ground when not pressed. When pressed, the button signal will go "high".</p>
+<p >With a pull-up resistor (including the internal pull-up resistors), the signal is "pulled high" when not pressed and go low when pressed.</p>
+<p >See the <a href="https://docs.arduino.cc/built-in-examples/digital/Button">Button</a> for a pulldown resistor circuit.</p>
+<p >See the <a href="https://docs.arduino.cc/tutorials/generic/digital-input-pullup">Digital Input Pull-Up Resistor</a> for the internal pull-up resistor circuit. This is much easier as it involves connecting the pin to ground via a button. </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

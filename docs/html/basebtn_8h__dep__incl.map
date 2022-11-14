@@ -1,8 +1,0 @@
-<map id="src/basebtn.h" name="src/basebtn.h">
-<area shape="rect" id="node1" title="Abstract button class for all buttons." alt="" coords="158,5,259,31"/>
-<area shape="rect" id="node2" href="$basicbtn_8h.html" title="Simplest button to check if currently pressed." alt="" coords="97,79,201,104"/>
-<area shape="rect" id="node6" href="$btnlist_8h.html" title="Definitions of a button list." alt="" coords="225,79,315,104"/>
-<area shape="rect" id="node3" href="$buttons_8h.html" title="Main include file for the Buttons library." alt="" coords="159,152,258,177"/>
-<area shape="rect" id="node4" href="$_push_btn_8ino.html" title="Example on/off control from a button." alt="" coords="5,225,212,251"/>
-<area shape="rect" id="node5" href="$_simple_button_8cpp.html" title="Simple button implementation." alt="" coords="237,225,383,251"/>
-</map>
