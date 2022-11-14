@@ -71,9 +71,9 @@ The focus of Able is to consume minimal memory for the button capability require
 
 ## Memory Usage
 
-Able's basic `Buttonable` example consumes **952 bytes of program storage** (only 60 more than Arduino built-in `Button` example). It also uses **11 bytes for global variables** (only 2 more than `Button`).
+Able's basic `Buttonable` example consumes 952 bytes of program storage (*only 60 more than Arduino built-in `Button` example*). It also uses 11 bytes for global variables (*only 2 more than `Button`*).
 
-Able's `Debouncable` LED toggle example uses 1110 bytes of program storage, *which is 6 bytes less* than the Arduino's built-in `Debounce` example. It also uses *1 byte less* for global variables. as your program becomes more complex to achieve its purpose, code efficiency will be an advantage on memory constrained devices such as the Arduino Nano with 32K for programs and only 2K for global variables.
+Able's `Debouncable` LED toggle example **only uses 1110 bytes of program storage**, *which is 6 bytes less* than the Arduino's built-in `Debounce` example. It also uses *1 byte less* for global variables. as your program becomes more complex to achieve its purpose, code efficiency will be an advantage on memory constrained devices such as the Arduino Nano with 32K for programs and only 2K for global variables.
 
 The `Buttonable` example is also much easier to read:
 
