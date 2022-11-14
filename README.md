@@ -8,11 +8,40 @@ Able provides a suite of button classes so you can choose the best fit for your 
 
 For example, if you do not use callback functions, choosing the right button without the callback feature reduces your program's size giving you more space for your project's purpose.
 
-This selection is done with a single `using Button = AbleButton` style command in your program.
+This selection is done with `using Button = AbleButton` and `using ButtonList = AbleButtonList` style commands in your program. You must initialise each button with a `begin()` call in your `setup()` function and `handle()` it in your `loop()` function.
+
+```c++
+#include <AbleButtons.h>
+
+// Identify which buttons you are using...
+using Button = AblePullupButton; // Using basic pull-up button.
+using ButtonList = AblePullupButtonList; // Using basic pull-up button list.
+
+#define BUTTON_PIN 2 // Connect button between this pin and ground.
+Button btn(BUTTON_PIN); // The button to check.
+
+void setup() {
+  // put your setup code here, to run once:
+
+  btn.begin(); // Always begin() each button to initialise it.
+
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  btn.handle(); // Always handle() each button in a loop to use it.
+
+  digitalWrite(LED_BUILTIN, btn.isPressed());
+}
+```
 
 All Able buttons support [button debouncing](https://www.arduino.cc/en/Tutorial/BuiltInExamples/Debounce) (with the exception of the direct button). Button debouncing addresses [contact bounce](https://en.wikipedia.org/wiki/Switch#Contact_bounce) common to mechanical buttons in electronic circuits. Debouncing a button waits for a steady contact so the button does not appear to bounce between open and closed. You can control the debounce wait-time for a steady contact, but the default value is usually sufficient.
 
 All Able buttons (including the direct button) support pull-up and pulldown resistor circuits; including the internal pull-up resistors in an Arduino. The internal pull-up resistors make it easy to connect a pin to ground through a button or switch. Whether your circuits use pull-up or pulldown resistors is chosen at compile time.
+
+The button list classes enable multiple buttons (of the same type) to be managed together.
 
 ### Motivation
 
@@ -119,108 +148,66 @@ With either approach, your `libraries` directory in your sketchbook folder shoul
  `- README.md
 ```
 
-## Usage
+## Buttons
 
-Different Able buttons have additional capabilities that build on simpler button features. 
+Different AbleButtons have additional capabilities that build on simpler button features. The following button combinations are available from AbleButtons:
 
-Additional button classes build on the basic button capability, capturing clicks and adding callback functions.
+| Using                             | Resistor | Pin    | Callback? | Button List                           |
+| :-------------------------------- | :------: | :----: | :-------: | :------------------------------------ |
+| AblePulldownButton                | Pulldown | Push   | No        | AblePulldownButtonList                |
+| AblePulldownCallbackButton        | Pulldown | Push   | Yes       | AblePulldownCallbackButtonList        |
+| AblePulldownClickerButton         | Pulldown | Click  | No        | AblePulldownClickerButtonList         |
+| AblePulldownCallbackClickerButton | Pulldown | Click  | Yes       | AblePulldownCallbackClickerButtonList |
+| AblePulldownDirectButton          | Pulldown | Direct | No        | AblePulldownDirectButtonList          |
+| AblePullupButton                  | Pull-up  | Push   | No        | AblePullupButtonList                  |
+| AblePullupCallbackButton          | Pull-up  | Push   | Yes       | AblePullupCallbackButtonList          |
+| AblePullupClickerButton           | Pull-up  | Click  | No        | AblePullupClickerButtonList           |
+| AblePullupCallbackClickerButton   | Pull-up  | Click  | Yes       | AblePullupCallbackClickerButtonList   |
+| AblePullupDirectButton            | Pull-up  | Direct | No        | AblePullupDirectButtonList            |
 
-A "clicker" button remembers it has been pressed and released to complete a click. Your program can respond to a complete click (a press followed by release), rather than a simple press.
+AbleButton classes above identify the features available with them:
 
-AbleButtons supports callback functions. When the button is pressed and released, a function you define can be called for that event. The callback function receives the id of the button pressed or released. This allows a common function for multiple buttons to differentiate between multiple buttons.
+* Pulldown and pull-up classes identify which resistor circuit they can be used with.
+* AblePulldownButton and AblePullupButton provide just debounced isPressed() detection. This waits until the closed/open state of the button stabalises when the button is pressed or released.
+* A Direct button bypass debounce checking. Without debouncing a button, it may appear the button has been pressed and released multiple times due to contact bouncing as the button is pressed or released.
+* A Clicker button provides isClicked() in addition to isPressed() detection. A "clicker" button remembers it has been pressed and released to complete a click. Your program can respond to a complete click (a press followed by release), rather than a simple press.
+* A Callback button provides on-pressed and on-released function calls. When the button is pressed and released, a function you define can be called for that event. The callback function receives the id of the button pressed or released. This allows a common function for multiple buttons to differentiate between those buttons.
+* A Callback Clicker button combined Callback and Clicker capabilities.
 
 For programs with several buttons, Able provides a button list feature. A program can define a list of buttons and then manage them together. Buttons still work independently (each has its own pressed, clicked and callback settings), but you can call the button list begin() and handle() functions to manage all the buttons together.
 
+## Usage
 
-The full button library documentation can be found [here](https://www.jsware.io/able-buttons/html). The library provides some examples to help get started with the library.
-
+The full button library documentation can be found [here](https://www.jsware.io/able-buttons/html). The library also provides some examples to help get started with the library.
 
 ### Basic Button
 
 Here is a simple button to check if it has been pressed. It can be found in the PushBtn example:
 
-```c
-#include <able-buttons.h>
+```c++
+#include <AbleButtons.h>
 
-#define BUTTON_PIN 2                        // Macro defining the pin to use.
-BasicButton btn(BUTTON_PIN);                // Declare a basic button using the internal pull-up resistor.
+// Identify which buttons you are using...
+using Button = AblePullupButton; // AblePullupDirectButton if debouncing not required.
+using ButtonList = AblePullupDirectButtonList; // AblePullupDirectButtonList.
 
-void setup() {
-  // put your setup code here, to run once:
-  pinMode(LED_BUILTIN, OUTPUT);
-  btn.begin();                              // Call the button's begin() method to initialise.
-}
-
-void loop() {
-  // put your main code here, to run repeatedly:
-  if(btn.isPressed()) {                     // Check if the button is pressed.
-    digitalWrite(LED_BUILTIN, HIGH);
-  } else {
-    digitalWrite(LED_BUILTIN, LOW);
-  }
-}
-```
-
-### Callback Button
-
-To see the callback button capability use the PushBtnCallback example:
-
-```c
-#include <able-buttons.h>
-
-void pressedCallback(BasicButton *) {       // Callback function for button pressed.
-  digitalWrite(LED_BUILTIN, HIGH);
-}
-
-void releasedCallback(BasicButton *) {      // Callback function for button released.
-    digitalWrite(LED_BUILTIN, LOW);
-}
-
-#define BUTTON_PIN 2                        // Connect button between this pin and ground.
-CallbackButton btn(BUTTON_PIN, pressedCallback, releasedCallback); // The button to check.
+#define BUTTON_PIN 2 // Connect button between this pin and ground.
+Button btn(BUTTON_PIN); // The button to check.
 
 void setup() {
   // put your setup code here, to run once:
+  
+  btn.begin(); // Call the button's begin() method to initialise.
 
   pinMode(LED_BUILTIN, OUTPUT);
-
-  btn.begin();                              // Initialise each button using the begin() function.
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
 
-  btn.handle();                             // Handle events for the button.
-}
-```
+  btn.handle(); // Call the button's handle() method in a loop.
 
-### Button List
-
-If you have a list of buttons, it's easy to declare them in a list so a single begin() and handle() functions will control them all. The PushBtnAll and PushBtnAny examples show the button list class in action.
-
-```c
-#include <able-buttons.h>
-
-#define BUTTON_PIN 2                        // Connect button between this pin and ground.
-
-BasicButton btns[] = {                      // Array of buttons.
-  BasicButton(BUTTON_PIN),
-  BasicButton(BUTTON_PIN + 1)
-};
-BasicButtonList btnList(btns);              // List of button to control together.
-
-void setup() {
-  // put your setup code here, to run once:
-
-  pinMode(LED_BUILTIN, OUTPUT);
-
-  btnList.begin();                          // Call begin on a button list calls begin on all the list's buttons.
-}
-
-void loop() {
-  // put your main code here, to run repeatedly:
-
-  if(btnList.allPressed()) {                // Check if all the buttons are pressed together.
+  if(btn.isPressed()) {
     digitalWrite(LED_BUILTIN, HIGH);
   } else {
     digitalWrite(LED_BUILTIN, LOW);
