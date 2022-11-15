@@ -247,9 +247,17 @@ A callback button will call you back using a user-supplied function when button 
 
 You can also `setCallback(callbackFunction)` to change the callback function used by a button in your program.
 
-Your callback function takes two parameters - an event code and button id.
+Your callback function takes two parameters - an event code and button id. It should have the following definition:
 
-The event code identifies the event. Callback buttons support `BEGIN_EVENT`, `PRESSED_EVENT` and `RELEASED_EVENT` codes. Callback functions should ignore codes not used, or not required.
+```c
+void myCallbackFunction(Button::CALLBACK_EVENT event, uint8_t id) {
+  // ...
+}
+```
+
+The function name can be anything, but it should accept two arguments - the `event` code and button `id`.
+
+The event code identifies the event. Callback buttons support `BEGIN_EVENT`, `PRESSED_EVENT` and `RELEASED_EVENT` codes. Callback functions should ignore codes not used, or not recognised (later versions of `AbleButtons` may include additional event codes).
 
 * The `BEGIN_EVENT` is called when the `begin()` function is called.
 * The `PRESSED_EVENT` is called once when the button is pressed. It is not called repeatedly when the button is held down.

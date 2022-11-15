@@ -312,8 +312,12 @@ Clicker Buttons</h2>
 Callback Buttons</h2>
 <p >A callback button will call you back using a user-supplied function when button events occur. You define a callback function and provide it to the button when defined.</p>
 <p >You can also <code>setCallback(callbackFunction)</code> to change the callback function used by a button in your program.</p>
-<p >Your callback function takes two parameters - an event code and button id.</p>
-<p >The event code identifies the event. Callback buttons support <code>BEGIN_EVENT</code>, <code>PRESSED_EVENT</code> and <code>RELEASED_EVENT</code> codes. Callback functions should ignore codes not used, or not required.</p>
+<p >Your callback function takes two parameters - an event code and button id. It should have the following definition:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> myCallbackFunction(Button::CALLBACK_EVENT event, uint8_t <span class="keywordtype">id</span>) {</div>
+<div class="line">  <span class="comment">// ...</span></div>
+<div class="line">}</div>
+</div><!-- fragment --><p >The function name can be anything, but it should accept two arguments - the <code>event</code> code and button <code>id</code>.</p>
+<p >The event code identifies the event. Callback buttons support <code>BEGIN_EVENT</code>, <code>PRESSED_EVENT</code> and <code>RELEASED_EVENT</code> codes. Callback functions should ignore codes not used, or not recognised (later versions of <code>AbleButtons</code> may include additional event codes).</p>
 <ul>
 <li>The <code>BEGIN_EVENT</code> is called when the <code>begin()</code> function is called.</li>
 <li>The <code>PRESSED_EVENT</code> is called once when the button is pressed. It is not called repeatedly when the button is held down.</li>
