@@ -10,12 +10,9 @@
 /**
  * Callback function for button released.
  * 
- * @param id The identifier of the button generating the callback.
+ * @param btn The button generaing the event.
  */
-void onReleased(uint8_t id) {
-  assert(id > 0);
-  Button *btn = btnList.button(id); assert(btn == btns[id - 1]);
-
+void onReleased(Button *btn) {
   assert(btnList.allPressed() == false);
   assert(btnList.anyPressed() == false);
   assert(btnList.anyClicked() == true);

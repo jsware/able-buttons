@@ -17,6 +17,17 @@ namespace able {
   template <typename Button>
   class CallbackButton: public Button {
     public:
+      /**
+       * Button event codes. When a callback function is called, the first
+       * argument is an event code below.
+       */
+      enum CALLBACK_EVENT {
+        BEGIN_EVENT, ///< The button's begin() method has completed.
+        PRESSED_EVENT, ///< The button has been pressed.
+        RELEASED_EVENT ///< The button has been released.
+      };
+
+    public:
       //
       // Creators...
       //
@@ -25,15 +36,13 @@ namespace able {
        * Create a callback button on the specified pin.
        * 
        * @param pin The pin connected to the button.
-       * @param onPressed The function to call when the button is pressed.
-       * @param onReleased The function to call when the button is released.
+       * @param callbackFn The function to call when the button is pressed.
        * @param id Callback identifier for the button (default auto-assigned).
        */ 
       inline CallbackButton(uint8_t pin,
-                     void(*onPressed)(uint8_t) = 0,
-                     void(*onReleased)(uint8_t) = 0,
+                     void(*callbackFn)(enum CALLBACK_EVENT, uint8_t),
                      uint8_t id = nextId())
-      :Button(pin), onPressed_(onPressed), onReleased_(onReleased), id_(id) {}
+      :Button(pin), callbackFn_(callbackFn), id_(id) {}
 
     private:
       //
@@ -48,6 +57,16 @@ namespace able {
       //
 
       /**
+       * Initialise the button. Called from setup() of an Arduino program.
+       */
+      void begin() {
+        Button::begin();
+        if(callbackFn_) {
+          callbackFn_(BEGIN_EVENT, id_);
+        }
+      }
+
+      /**
        * Handle the button. Called from loop() of an Arduino program.
        */
       void handle() {
@@ -55,10 +74,10 @@ namespace able {
         Button::handle();
         if(currState != this->currState_) {
           bool pressed = this->isPressed();
-          if(pressed && onPressed_) {
-            onPressed_(id_);
-          } else if(!pressed && onReleased_) {
-            onReleased_(id_);
+          if(pressed && callbackFn_) {
+            callbackFn_(PRESSED_EVENT, id_);
+          } else if(!pressed && callbackFn_) {
+            callbackFn_(RELEASED_EVENT, id_);
           }
         }
       }
@@ -69,19 +88,8 @@ namespace able {
        * @param callbackFn The function to call when the button is pressed. Use
        *                   0 to clear the on-pressed callback.
        */
-      inline void setOnPressed(void(*callbackFn)(uint8_t)) {
-        onPressed_ = callbackFn;
-      }
-
-      /**
-       * Set a (new) on released callback function.
-       * 
-       * @param callbackFn The function to call when the button is released
-       *                   (completing a "click"). Use 0 to clear the
-       *                   on-released callback.
-       */
-      inline void setOnClicked(void(*callbackFn)(uint8_t)) {
-        onReleased_ = callbackFn;
+      inline void setCallback(void(*callbackFn)(CALLBACK_EVENT, uint8_t)) {
+        callbackFn_ = callbackFn;
       }
 
     public:
@@ -102,8 +110,7 @@ namespace able {
       //
       // Data...
       //
-      void (*onPressed_)(uint8_t); ///< Callback function for button press.
-      void (*onReleased_)(uint8_t); ///< Callback function for button release.
+      void (*callbackFn_)(enum CALLBACK_EVENT, uint8_t); ///< Callback function.
       uint8_t id_; ///< Identifier for the button passed to callback functions.
   };
 }

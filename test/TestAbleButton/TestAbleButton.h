@@ -16,8 +16,9 @@ using Button = AblePullupCallbackClickerButton; ///< Using clicker callback pull
 using ButtonList = AblePullupCallbackClickerButtonList; ///< Using clicker callback pull-up button list.
 
 // Forward declarations of callback functions.
-void onPressed(uint8_t);
-void onReleased(uint8_t);
+void onEvent(Button::CALLBACK_EVENT, uint8_t);
+void onPressed(Button *);
+void onReleased(Button *);
 
 #define BUTTON_A_PIN 2 ///< Connect button between this pin and ground.
 #define BUTTON_B_PIN 3 ///< Connect button using pulldown resistor circuit.

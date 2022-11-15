@@ -12,10 +12,10 @@ using Button = AblePullupCallbackButton; ///< Using callback pull-up button.
 using ButtonList = AblePullupCallbackButtonList; ///< Using callback pull-up button list.
 
 // Forward declaration of callback function.
-void clickedCallback(uint8_t);
+void clickedCallback(Button::CALLBACK_EVENT, uint8_t);
 
 #define BUTTON_PIN 2 ///< Connect button between this pin and ground.
-Button btn(BUTTON_PIN, 0, clickedCallback); ///< The button to check.
+Button btn(BUTTON_PIN, clickedCallback); ///< The button to check.
 bool led = false; ///< On/off state of the LED.
 
 /**
@@ -36,9 +36,12 @@ void loop() {
 /**
  * Callback function for button released.
  * 
+ * @param event The event that has occured.
  * @param id The identifier of the button generating the callback (ignored in this example).
  */
-void clickedCallback(uint8_t id) {
-  led = !led;
-  digitalWrite(LED_BUILTIN, led);
+void clickedCallback(Button::CALLBACK_EVENT event, uint8_t id) {
+  if(event == Button::RELEASED_EVENT) {
+    led = !led;
+    digitalWrite(LED_BUILTIN, led);
+  }
 }

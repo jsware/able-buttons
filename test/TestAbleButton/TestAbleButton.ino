@@ -12,8 +12,8 @@
  */
 #include "TestAbleButton.h"
 
-Button btnA(BUTTON_A_PIN, onPressed, onReleased); ///< Button A
-Button btnB(BUTTON_B_PIN, onPressed, onReleased); ///< Button B
+Button btnA(BUTTON_A_PIN, onEvent); ///< Button A
+Button btnB(BUTTON_B_PIN, onEvent); ///< Button B
 
 /// Array of buttons for ButtonList.
 Button *btns[] = {

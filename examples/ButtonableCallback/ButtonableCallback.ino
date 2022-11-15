@@ -12,11 +12,10 @@ using Button = AblePullupCallbackButton; ///< Using callback pull-up button.
 using ButtonList = AblePullupCallbackButtonList; ///< Using callback pull-up button list.
 
 // Declarations of callback functions defined later.
-void pressedCallback(uint8_t);
-void releasedCallback(uint8_t);
+void buttonableCallback(Button::CALLBACK_EVENT, uint8_t);
 
 #define BUTTON_PIN 2 ///< Connect button between this pin and ground.
-Button btn(BUTTON_PIN, pressedCallback, releasedCallback); ///< The button to check.
+Button btn(BUTTON_PIN, buttonableCallback); ///< The button to check.
 
 /**
  * Setup the ButtonableCallback example. Called once to initialise everything.
@@ -34,21 +33,16 @@ void loop() {
 }
 
 /**
- * Callback function for button pressed.
+ * Callback function for button events.
  * 
+ * @param event The event that has occured.
  * @param id The identifier of the button generating the callback (unused in
  *           this example).
  */
-void pressedCallback(uint8_t id) {
-  digitalWrite(LED_BUILTIN, HIGH);
-}
-
-/**
- * Callback function for button released.
- * 
- * @param id The identifier of the button generating the callback (unused in
- *           this example).
- */
-void releasedCallback(uint8_t id) {
+void buttonableCallback(Button::CALLBACK_EVENT event, uint8_t id) {
+  if(event == Button::PRESSED_EVENT) {
+    digitalWrite(LED_BUILTIN, HIGH);
+  } else {
     digitalWrite(LED_BUILTIN, LOW);
+  }
 }

@@ -136,12 +136,15 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa2dc8fc3af19cba74e4c922928b002ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_test_able_button_8h.html#aa2dc8fc3af19cba74e4c922928b002ea">onPressed</a> (uint8_t)</td></tr>
-<tr class="memdesc:aa2dc8fc3af19cba74e4c922928b002ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function for button pressed.  <a href="_test_able_button_8h.html#aa2dc8fc3af19cba74e4c922928b002ea">More...</a><br /></td></tr>
-<tr class="separator:aa2dc8fc3af19cba74e4c922928b002ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9922aec2c7703665ff0b09e7e1ac4d27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_test_able_button_8h.html#a9922aec2c7703665ff0b09e7e1ac4d27">onReleased</a> (uint8_t)</td></tr>
-<tr class="memdesc:a9922aec2c7703665ff0b09e7e1ac4d27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function for button released.  <a href="_test_able_button_8h.html#a9922aec2c7703665ff0b09e7e1ac4d27">More...</a><br /></td></tr>
-<tr class="separator:a9922aec2c7703665ff0b09e7e1ac4d27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a793457dc661112832d8961d822eabc1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_test_able_button_8h.html#a793457dc661112832d8961d822eabc1a">onEvent</a> (Button::CALLBACK_EVENT, uint8_t)</td></tr>
+<tr class="memdesc:a793457dc661112832d8961d822eabc1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function for button events.  <a href="_test_able_button_8h.html#a793457dc661112832d8961d822eabc1a">More...</a><br /></td></tr>
+<tr class="separator:a793457dc661112832d8961d822eabc1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af678765d7b54d9f38cf26a910aa52803"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_test_able_button_8h.html#af678765d7b54d9f38cf26a910aa52803">onPressed</a> (<a class="el" href="_buttonable_8ino.html#a8a11b3d061165a6ccdfcd38b6457aa1d">Button</a> *)</td></tr>
+<tr class="memdesc:af678765d7b54d9f38cf26a910aa52803"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function for button pressed.  <a href="_test_able_button_8h.html#af678765d7b54d9f38cf26a910aa52803">More...</a><br /></td></tr>
+<tr class="separator:af678765d7b54d9f38cf26a910aa52803"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cec265a0b30213ea3c4295fd7822a4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_test_able_button_8h.html#a7cec265a0b30213ea3c4295fd7822a4f">onReleased</a> (<a class="el" href="_buttonable_8ino.html#a8a11b3d061165a6ccdfcd38b6457aa1d">Button</a> *)</td></tr>
+<tr class="memdesc:a7cec265a0b30213ea3c4295fd7822a4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function for button released.  <a href="_test_able_button_8h.html#a7cec265a0b30213ea3c4295fd7822a4f">More...</a><br /></td></tr>
+<tr class="separator:a7cec265a0b30213ea3c4295fd7822a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -195,7 +198,7 @@ Variables</h2></td></tr>
 
 <p>Connect button between this pin and ground. </p>
 
-<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00022">22</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00023">23</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
 
 </div>
 </div>
@@ -213,7 +216,7 @@ Variables</h2></td></tr>
 
 <p>Connect button using pulldown resistor circuit. </p>
 
-<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00023">23</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00024">24</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
 
 </div>
 </div>
@@ -255,8 +258,47 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="aa2dc8fc3af19cba74e4c922928b002ea" name="aa2dc8fc3af19cba74e4c922928b002ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2dc8fc3af19cba74e4c922928b002ea">&#9670;&#160;</a></span>onPressed()</h2>
+<a id="a793457dc661112832d8961d822eabc1a" name="a793457dc661112832d8961d822eabc1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a793457dc661112832d8961d822eabc1a">&#9670;&#160;</a></span>onEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void onEvent </td>
+          <td>(</td>
+          <td class="paramtype">Button::CALLBACK_EVENT&#160;</td>
+          <td class="paramname"><em>event</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Callback function for button events. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>The event that has occured. </td></tr>
+    <tr><td class="paramname">id</td><td>The identifier of the button generating the callback. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_callback_8cpp_source.html#l00021">21</a> of file <a class="el" href="_callback_8cpp_source.html">Callback.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af678765d7b54d9f38cf26a910aa52803" name="af678765d7b54d9f38cf26a910aa52803"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af678765d7b54d9f38cf26a910aa52803">&#9670;&#160;</a></span>onPressed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -264,8 +306,8 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void onPressed </td>
           <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="_buttonable_8ino.html#a8a11b3d061165a6ccdfcd38b6457aa1d">Button</a> *&#160;</td>
+          <td class="paramname"><em>btn</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -274,7 +316,7 @@ Variables</h2></td></tr>
 <p>Callback function for button pressed. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">id</td><td>The identifier of the button generating the callback. </td></tr>
+    <tr><td class="paramname">btn</td><td>The button generaing the event. </td></tr>
   </table>
   </dd>
 </dl>
@@ -283,8 +325,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a9922aec2c7703665ff0b09e7e1ac4d27" name="a9922aec2c7703665ff0b09e7e1ac4d27"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9922aec2c7703665ff0b09e7e1ac4d27">&#9670;&#160;</a></span>onReleased()</h2>
+<a id="a7cec265a0b30213ea3c4295fd7822a4f" name="a7cec265a0b30213ea3c4295fd7822a4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cec265a0b30213ea3c4295fd7822a4f">&#9670;&#160;</a></span>onReleased()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -292,8 +334,8 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void onReleased </td>
           <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="_buttonable_8ino.html#a8a11b3d061165a6ccdfcd38b6457aa1d">Button</a> *&#160;</td>
+          <td class="paramname"><em>btn</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -302,7 +344,7 @@ Variables</h2></td></tr>
 <p>Callback function for button released. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">id</td><td>The identifier of the button generating the callback. </td></tr>
+    <tr><td class="paramname">btn</td><td>The button generaing the event. </td></tr>
   </table>
   </dd>
 </dl>

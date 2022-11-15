@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AbleButtons: AbleButtons/test/TestAbleButton/Pressed.cpp File Reference</title>
+<title>AbleButtons: AbleButtons/test/TestAbleButton/Callback.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript">var page_layout=1;</script>
 <script type="text/javascript" src="jquery.js"></script>
@@ -71,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('_pressed_8cpp.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('_callback_8cpp.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -99,54 +99,65 @@ $(document).ready(function(){initNavTree('_pressed_8cpp.html',''); initResizable
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">Pressed.cpp File Reference</div></div>
+  <div class="headertitle"><div class="title">Callback.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Definition of the on-pressed callback function.  
+<p>Definition of the callback function.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>&quot;</code><br />
 </div>
-<p><a href="_pressed_8cpp_source.html">Go to the source code of this file.</a></p>
+<p><a href="_callback_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab5c96cd501cabd72de639a1b452e53e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_pressed_8cpp.html#ab5c96cd501cabd72de639a1b452e53e4">onPressed</a> (<a class="el" href="_buttonable_8ino.html#a8a11b3d061165a6ccdfcd38b6457aa1d">Button</a> *<a class="el" href="_buttonable_8ino.html#afb973aa0441941c0f90b58102600c3da">btn</a>)</td></tr>
-<tr class="memdesc:ab5c96cd501cabd72de639a1b452e53e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function for button pressed.  <a href="_pressed_8cpp.html#ab5c96cd501cabd72de639a1b452e53e4">More...</a><br /></td></tr>
-<tr class="separator:ab5c96cd501cabd72de639a1b452e53e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3052fa60c84a204cb07a73c3ddf6eb65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_callback_8cpp.html#a3052fa60c84a204cb07a73c3ddf6eb65">onEvent</a> (Button::CALLBACK_EVENT event, uint8_t id)</td></tr>
+<tr class="memdesc:a3052fa60c84a204cb07a73c3ddf6eb65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function for button events.  <a href="_callback_8cpp.html#a3052fa60c84a204cb07a73c3ddf6eb65">More...</a><br /></td></tr>
+<tr class="separator:a3052fa60c84a204cb07a73c3ddf6eb65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Definition of the on-pressed callback function. </p>
+<div class="textblock"><p >Definition of the callback function. </p>
 <p >This function performs some assertions on the state of the button list and the individual button pressed when a button is pressed.</p>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2022 John Scott </dd></dl>
 
-<p class="definition">Definition in file <a class="el" href="_pressed_8cpp_source.html">Pressed.cpp</a>.</p>
+<p class="definition">Definition in file <a class="el" href="_callback_8cpp_source.html">Callback.cpp</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="ab5c96cd501cabd72de639a1b452e53e4" name="ab5c96cd501cabd72de639a1b452e53e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5c96cd501cabd72de639a1b452e53e4">&#9670;&#160;</a></span>onPressed()</h2>
+<a id="a3052fa60c84a204cb07a73c3ddf6eb65" name="a3052fa60c84a204cb07a73c3ddf6eb65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3052fa60c84a204cb07a73c3ddf6eb65">&#9670;&#160;</a></span>onEvent()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void onPressed </td>
+          <td class="memname">void onEvent </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="_buttonable_8ino.html#a8a11b3d061165a6ccdfcd38b6457aa1d">Button</a> *&#160;</td>
-          <td class="paramname"><em>btn</em></td><td>)</td>
+          <td class="paramtype">Button::CALLBACK_EVENT&#160;</td>
+          <td class="paramname"><em>event</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Callback function for button pressed. </p>
+<p>Callback function for button events. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">btn</td><td>The button generaing the event. </td></tr>
+    <tr><td class="paramname">event</td><td>The event that has occured. </td></tr>
+    <tr><td class="paramname">id</td><td>The identifier of the button generating the callback. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_pressed_8cpp_source.html#l00015">15</a> of file <a class="el" href="_pressed_8cpp_source.html">Pressed.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_callback_8cpp_source.html#l00021">21</a> of file <a class="el" href="_callback_8cpp_source.html">Callback.cpp</a>.</p>
 
 </div>
 </div>
@@ -155,7 +166,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_a679973b5f9b252792adbf373985adc6.html">AbleButtons</a></li><li class="navelem"><a class="el" href="dir_e231ef13fe44591fac07e0130a4cb038.html">test</a></li><li class="navelem"><a class="el" href="dir_595e2874fd7efd55610e731c7521445f.html">TestAbleButton</a></li><li class="navelem"><a class="el" href="_pressed_8cpp.html">Pressed.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_a679973b5f9b252792adbf373985adc6.html">AbleButtons</a></li><li class="navelem"><a class="el" href="dir_e231ef13fe44591fac07e0130a4cb038.html">test</a></li><li class="navelem"><a class="el" href="dir_595e2874fd7efd55610e731c7521445f.html">TestAbleButton</a></li><li class="navelem"><a class="el" href="_callback_8cpp.html">Callback.cpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>

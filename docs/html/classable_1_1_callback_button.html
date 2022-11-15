@@ -98,6 +98,7 @@ $(document).ready(function(){initNavTree('classable_1_1_callback_button.html',''
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
@@ -125,26 +126,32 @@ $(document).ready(function(){initNavTree('classable_1_1_callback_button.html',''
   </map>
 </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a415cc7c70b71735d760ba28700a315f9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9">CALLBACK_EVENT</a> { <a class="el" href="classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9ad71cf352ea611f487cf00b637bacc013">BEGIN_EVENT</a>
+, <a class="el" href="classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9a5d92b52ea719735a1c019dff620bd307">PRESSED_EVENT</a>
+, <a class="el" href="classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9ac4ac4fc9518ae512e37b043cc3967bee">RELEASED_EVENT</a>
+ }</td></tr>
+<tr class="memdesc:a415cc7c70b71735d760ba28700a315f9"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classable_1_1_button.html" title="Core Button class.">Button</a> event codes.  <a href="classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9">More...</a><br /></td></tr>
+<tr class="separator:a415cc7c70b71735d760ba28700a315f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a871d73974184c5ab2d00f5155c91e415"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_callback_button.html#a871d73974184c5ab2d00f5155c91e415">CallbackButton</a> (uint8_t pin, void(*<a class="el" href="_pressed_8cpp.html#adfa6ef80cb2ec0343c5982cb304c136b">onPressed</a>)(uint8_t)=0, void(*<a class="el" href="_released_8cpp.html#adc5af3be25eef18311d0bce0a2794f88">onReleased</a>)(uint8_t)=0, uint8_t <a class="el" href="classable_1_1_callback_button.html#a9cd5300dbadca4bde342e52744394908">id</a>=<a class="el" href="classable_1_1_pin.html#ad600fe87414987bf74b6c2602478f05d">nextId</a>())</td></tr>
-<tr class="memdesc:a871d73974184c5ab2d00f5155c91e415"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a callback button on the specified pin.  <a href="classable_1_1_callback_button.html#a871d73974184c5ab2d00f5155c91e415">More...</a><br /></td></tr>
-<tr class="separator:a871d73974184c5ab2d00f5155c91e415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d4a75b582e6c4a27ee1a1e19d9a10ae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_callback_button.html#a5d4a75b582e6c4a27ee1a1e19d9a10ae">CallbackButton</a> (uint8_t pin, void(*callbackFn)(enum <a class="el" href="classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9">CALLBACK_EVENT</a>, uint8_t), uint8_t <a class="el" href="classable_1_1_callback_button.html#a9cd5300dbadca4bde342e52744394908">id</a>=<a class="el" href="classable_1_1_pin.html#ad600fe87414987bf74b6c2602478f05d">nextId</a>())</td></tr>
+<tr class="memdesc:a5d4a75b582e6c4a27ee1a1e19d9a10ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a callback button on the specified pin.  <a href="classable_1_1_callback_button.html#a5d4a75b582e6c4a27ee1a1e19d9a10ae">More...</a><br /></td></tr>
+<tr class="separator:a5d4a75b582e6c4a27ee1a1e19d9a10ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af225fbf706c3733bf375868d71fc341f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_callback_button.html#af225fbf706c3733bf375868d71fc341f">begin</a> ()</td></tr>
+<tr class="memdesc:af225fbf706c3733bf375868d71fc341f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise the button.  <a href="classable_1_1_callback_button.html#af225fbf706c3733bf375868d71fc341f">More...</a><br /></td></tr>
+<tr class="separator:af225fbf706c3733bf375868d71fc341f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3d1873b82c021c79dc47eb104b7f0dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_callback_button.html#ad3d1873b82c021c79dc47eb104b7f0dd">handle</a> ()</td></tr>
 <tr class="memdesc:ad3d1873b82c021c79dc47eb104b7f0dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle the button.  <a href="classable_1_1_callback_button.html#ad3d1873b82c021c79dc47eb104b7f0dd">More...</a><br /></td></tr>
 <tr class="separator:ad3d1873b82c021c79dc47eb104b7f0dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1426be524f0f602c05055ec391da3ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_callback_button.html#aa1426be524f0f602c05055ec391da3ce">setOnPressed</a> (void(*callbackFn)(uint8_t))</td></tr>
-<tr class="memdesc:aa1426be524f0f602c05055ec391da3ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a (new) on pressed callback function.  <a href="classable_1_1_callback_button.html#aa1426be524f0f602c05055ec391da3ce">More...</a><br /></td></tr>
-<tr class="separator:aa1426be524f0f602c05055ec391da3ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb84b202c78ef45d7979d7db7a674c81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_callback_button.html#aeb84b202c78ef45d7979d7db7a674c81">setOnClicked</a> (void(*callbackFn)(uint8_t))</td></tr>
-<tr class="memdesc:aeb84b202c78ef45d7979d7db7a674c81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a (new) on released callback function.  <a href="classable_1_1_callback_button.html#aeb84b202c78ef45d7979d7db7a674c81">More...</a><br /></td></tr>
-<tr class="separator:aeb84b202c78ef45d7979d7db7a674c81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad85752457f708c5c4d4fa7e173656778"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_callback_button.html#ad85752457f708c5c4d4fa7e173656778">setCallback</a> (void(*callbackFn)(<a class="el" href="classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9">CALLBACK_EVENT</a>, uint8_t))</td></tr>
+<tr class="memdesc:ad85752457f708c5c4d4fa7e173656778"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a (new) on pressed callback function.  <a href="classable_1_1_callback_button.html#ad85752457f708c5c4d4fa7e173656778">More...</a><br /></td></tr>
+<tr class="separator:ad85752457f708c5c4d4fa7e173656778"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9cd5300dbadca4bde342e52744394908"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_callback_button.html#a9cd5300dbadca4bde342e52744394908">id</a> () const</td></tr>
 <tr class="memdesc:a9cd5300dbadca4bde342e52744394908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the id of the button.  <a href="classable_1_1_callback_button.html#a9cd5300dbadca4bde342e52744394908">More...</a><br /></td></tr>
 <tr class="separator:a9cd5300dbadca4bde342e52744394908"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a070c4bacf8e732147d70888cde2e162c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_button.html#a070c4bacf8e732147d70888cde2e162c">begin</a> ()</td></tr>
-<tr class="memdesc:a070c4bacf8e732147d70888cde2e162c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise the button.  <a href="classable_1_1_button.html#a070c4bacf8e732147d70888cde2e162c">More...</a><br /></td></tr>
-<tr class="separator:a070c4bacf8e732147d70888cde2e162c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a67d1efc4ccd4700263f1f83ecb9cd8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_button.html#a7a67d1efc4ccd4700263f1f83ecb9cd8">resetClicked</a> ()</td></tr>
 <tr class="memdesc:a7a67d1efc4ccd4700263f1f83ecb9cd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the cliked state of the button, returning what is was.  <a href="classable_1_1_button.html#a7a67d1efc4ccd4700263f1f83ecb9cd8">More...</a><br /></td></tr>
 <tr class="separator:a7a67d1efc4ccd4700263f1f83ecb9cd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -181,12 +188,9 @@ Static Protected Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a97714157696436b72f415b74fa22275e"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_callback_button.html#a97714157696436b72f415b74fa22275e">onPressed_</a> )(uint8_t)</td></tr>
-<tr class="memdesc:a97714157696436b72f415b74fa22275e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function for button press.  <a href="classable_1_1_callback_button.html#a97714157696436b72f415b74fa22275e">More...</a><br /></td></tr>
-<tr class="separator:a97714157696436b72f415b74fa22275e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa61f1c7126b792c1e1d70dbe9827a72"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_callback_button.html#afa61f1c7126b792c1e1d70dbe9827a72">onReleased_</a> )(uint8_t)</td></tr>
-<tr class="memdesc:afa61f1c7126b792c1e1d70dbe9827a72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function for button release.  <a href="classable_1_1_callback_button.html#afa61f1c7126b792c1e1d70dbe9827a72">More...</a><br /></td></tr>
-<tr class="separator:afa61f1c7126b792c1e1d70dbe9827a72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa885fe0a4bea53c0af637a7eb3534227"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_callback_button.html#aa885fe0a4bea53c0af637a7eb3534227">callbackFn_</a> )(enum <a class="el" href="classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9">CALLBACK_EVENT</a>, uint8_t)</td></tr>
+<tr class="memdesc:aa885fe0a4bea53c0af637a7eb3534227"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function.  <a href="classable_1_1_callback_button.html#aa885fe0a4bea53c0af637a7eb3534227">More...</a><br /></td></tr>
+<tr class="separator:aa885fe0a4bea53c0af637a7eb3534227"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29ab6114b735883ad135ff5b7b4f82ec"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_callback_button.html#a29ab6114b735883ad135ff5b7b4f82ec">id_</a></td></tr>
 <tr class="memdesc:a29ab6114b735883ad135ff5b7b4f82ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifier for the button passed to callback functions.  <a href="classable_1_1_callback_button.html#a29ab6114b735883ad135ff5b7b4f82ec">More...</a><br /></td></tr>
 <tr class="separator:a29ab6114b735883ad135ff5b7b4f82ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -214,9 +218,39 @@ class able::CallbackButton&lt; Button &gt;</div><p >Callback button template to 
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00018">18</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a871d73974184c5ab2d00f5155c91e415" name="a871d73974184c5ab2d00f5155c91e415"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a871d73974184c5ab2d00f5155c91e415">&#9670;&#160;</a></span>CallbackButton()</h2>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a415cc7c70b71735d760ba28700a315f9" name="a415cc7c70b71735d760ba28700a315f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a415cc7c70b71735d760ba28700a315f9">&#9670;&#160;</a></span>CALLBACK_EVENT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9">able::CallbackButton::CALLBACK_EVENT</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classable_1_1_button.html" title="Core Button class.">Button</a> event codes. </p>
+<p >When a callback function is called, the first argument is an event code below. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a415cc7c70b71735d760ba28700a315f9ad71cf352ea611f487cf00b637bacc013" name="a415cc7c70b71735d760ba28700a315f9ad71cf352ea611f487cf00b637bacc013"></a>BEGIN_EVENT&#160;</td><td class="fielddoc"><p >The button's <a class="el" href="classable_1_1_callback_button.html#af225fbf706c3733bf375868d71fc341f" title="Initialise the button.">begin()</a> method has completed. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a415cc7c70b71735d760ba28700a315f9a5d92b52ea719735a1c019dff620bd307" name="a415cc7c70b71735d760ba28700a315f9a5d92b52ea719735a1c019dff620bd307"></a>PRESSED_EVENT&#160;</td><td class="fielddoc"><p >The button has been pressed. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a415cc7c70b71735d760ba28700a315f9ac4ac4fc9518ae512e37b043cc3967bee" name="a415cc7c70b71735d760ba28700a315f9ac4ac4fc9518ae512e37b043cc3967bee"></a>RELEASED_EVENT&#160;</td><td class="fielddoc"><p >The button has been released. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00024">24</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a5d4a75b582e6c4a27ee1a1e19d9a10ae" name="a5d4a75b582e6c4a27ee1a1e19d9a10ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d4a75b582e6c4a27ee1a1e19d9a10ae">&#9670;&#160;</a></span>CallbackButton()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -235,14 +269,8 @@ template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">void(*)(uint8_t)&#160;</td>
-          <td class="paramname"><em>onPressed</em> = <code>0</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void(*)(uint8_t)&#160;</td>
-          <td class="paramname"><em>onReleased</em> = <code>0</code>, </td>
+          <td class="paramtype">void(*)(enum <a class="el" href="classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9">CALLBACK_EVENT</a>, uint8_t)&#160;</td>
+          <td class="paramname"><em>callbackFn</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -267,31 +295,30 @@ template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pin</td><td>The pin connected to the button. </td></tr>
-    <tr><td class="paramname">onPressed</td><td>The function to call when the button is pressed. </td></tr>
-    <tr><td class="paramname">onReleased</td><td>The function to call when the button is released. </td></tr>
+    <tr><td class="paramname">callbackFn</td><td>The function to call when the button is pressed. </td></tr>
     <tr><td class="paramname">id</td><td>Callback identifier for the button (default auto-assigned). </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00032">32</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00042">42</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a070c4bacf8e732147d70888cde2e162c" name="a070c4bacf8e732147d70888cde2e162c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a070c4bacf8e732147d70888cde2e162c">&#9670;&#160;</a></span>begin()</h2>
+<a id="af225fbf706c3733bf375868d71fc341f" name="af225fbf706c3733bf375868d71fc341f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af225fbf706c3733bf375868d71fc341f">&#9670;&#160;</a></span>begin()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename <a class="el" href="classable_1_1_circuit.html">Circuit</a> , typename <a class="el" href="classable_1_1_pin.html">Pin</a> &gt; </div>
+template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classable_1_1_button.html">able::Button</a>&lt; <a class="el" href="classable_1_1_circuit.html">Circuit</a>, <a class="el" href="classable_1_1_pin.html">Pin</a> &gt;::begin </td>
+          <td class="memname">void <a class="el" href="classable_1_1_callback_button.html">able::CallbackButton</a>&lt; <a class="el" href="classable_1_1_button.html">Button</a> &gt;::begin </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -299,7 +326,7 @@ template&lt;typename <a class="el" href="classable_1_1_circuit.html">Circuit</a>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -307,7 +334,7 @@ template&lt;typename <a class="el" href="classable_1_1_circuit.html">Circuit</a>
 <p>Initialise the button. </p>
 <p >Called from <a class="el" href="_buttonable_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup the Buttonable example.">setup()</a> of an Arduino program. </p>
 
-<p class="definition">Definition at line <a class="el" href="_button_8h_source.html#l00050">50</a> of file <a class="el" href="_button_8h_source.html">Button.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00062">62</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
 
 </div>
 </div>
@@ -339,7 +366,7 @@ template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &
 <p>Handle the button. </p>
 <p >Called from <a class="el" href="_buttonable_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Control the Buttonable example.">loop()</a> of an Arduino program. </p>
 
-<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00053">53</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00072">72</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
 
 </div>
 </div>
@@ -371,7 +398,7 @@ template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &
 <p>Return the id of the button. </p>
 <dl class="section return"><dt>Returns</dt><dd>The id of the button (auto-assigned or set when created). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00097">97</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00105">105</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
 
 </div>
 </div>
@@ -650,8 +677,8 @@ template&lt;typename <a class="el" href="classable_1_1_circuit.html">Circuit</a>
 
 </div>
 </div>
-<a id="aeb84b202c78ef45d7979d7db7a674c81" name="aeb84b202c78ef45d7979d7db7a674c81"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb84b202c78ef45d7979d7db7a674c81">&#9670;&#160;</a></span>setOnClicked()</h2>
+<a id="ad85752457f708c5c4d4fa7e173656778" name="ad85752457f708c5c4d4fa7e173656778"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad85752457f708c5c4d4fa7e173656778">&#9670;&#160;</a></span>setCallback()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -662,47 +689,9 @@ template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classable_1_1_callback_button.html">able::CallbackButton</a>&lt; <a class="el" href="classable_1_1_button.html">Button</a> &gt;::setOnClicked </td>
+          <td class="memname">void <a class="el" href="classable_1_1_callback_button.html">able::CallbackButton</a>&lt; <a class="el" href="classable_1_1_button.html">Button</a> &gt;::setCallback </td>
           <td>(</td>
-          <td class="paramtype">void(*)(uint8_t)&#160;</td>
-          <td class="paramname"><em>callbackFn</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Set a (new) on released callback function. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">callbackFn</td><td>The function to call when the button is released (completing a "click"). Use 0 to clear the on-released callback. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00083">83</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
-
-</div>
-</div>
-<a id="aa1426be524f0f602c05055ec391da3ce" name="aa1426be524f0f602c05055ec391da3ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa1426be524f0f602c05055ec391da3ce">&#9670;&#160;</a></span>setOnPressed()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classable_1_1_callback_button.html">able::CallbackButton</a>&lt; <a class="el" href="classable_1_1_button.html">Button</a> &gt;::setOnPressed </td>
-          <td>(</td>
-          <td class="paramtype">void(*)(uint8_t)&#160;</td>
+          <td class="paramtype">void(*)(<a class="el" href="classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9">CALLBACK_EVENT</a>, uint8_t)&#160;</td>
           <td class="paramname"><em>callbackFn</em></td><td>)</td>
           <td></td>
         </tr>
@@ -722,7 +711,7 @@ template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00072">72</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00091">91</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
 
 </div>
 </div>
@@ -750,6 +739,34 @@ template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &
 <p>Auto-assigned button identifier. </p>
 
 <p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00070">70</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+
+</div>
+</div>
+<a id="aa885fe0a4bea53c0af637a7eb3534227" name="aa885fe0a4bea53c0af637a7eb3534227"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa885fe0a4bea53c0af637a7eb3534227">&#9670;&#160;</a></span>callbackFn_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* <a class="el" href="classable_1_1_callback_button.html">able::CallbackButton</a>&lt; <a class="el" href="classable_1_1_button.html">Button</a> &gt;::callbackFn_) (enum <a class="el" href="classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9">CALLBACK_EVENT</a>, uint8_t)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Callback function. </p>
+
+<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00113">113</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
 
 </div>
 </div>
@@ -803,63 +820,7 @@ template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &
 
 <p>Identifier for the button passed to callback functions. </p>
 
-<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00107">107</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
-
-</div>
-</div>
-<a id="a97714157696436b72f415b74fa22275e" name="a97714157696436b72f415b74fa22275e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97714157696436b72f415b74fa22275e">&#9670;&#160;</a></span>onPressed_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void(* <a class="el" href="classable_1_1_callback_button.html">able::CallbackButton</a>&lt; <a class="el" href="classable_1_1_button.html">Button</a> &gt;::onPressed_) (uint8_t)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Callback function for button press. </p>
-
-<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00105">105</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
-
-</div>
-</div>
-<a id="afa61f1c7126b792c1e1d70dbe9827a72" name="afa61f1c7126b792c1e1d70dbe9827a72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa61f1c7126b792c1e1d70dbe9827a72">&#9670;&#160;</a></span>onReleased_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void(* <a class="el" href="classable_1_1_callback_button.html">able::CallbackButton</a>&lt; <a class="el" href="classable_1_1_button.html">Button</a> &gt;::onReleased_) (uint8_t)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Callback function for button release. </p>
-
-<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00106">106</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00114">114</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
 
 </div>
 </div>

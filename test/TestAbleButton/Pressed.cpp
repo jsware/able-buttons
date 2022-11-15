@@ -10,12 +10,9 @@
 /**
  * Callback function for button pressed.
  * 
- * @param id The identifier of the button generating the callback.
+ * @param btn The button generaing the event.
  */
-void onPressed(uint8_t id) {
-  assert(id > 0);
-  Button *btn = btnList.button(id); assert(btn == btns[id - 1]);
-
+void onPressed(Button *btn) {
   assert(btnList.allPressed() == false);
 
   if(btn) {
