@@ -40,7 +40,7 @@ namespace able {
        * @param id Callback identifier for the button (default auto-assigned).
        */ 
       inline CallbackButton(uint8_t pin,
-                     void(*callbackFn)(enum CALLBACK_EVENT, uint8_t),
+                     void(*callbackFn)(enum CALLBACK_EVENT, uint8_t) = 0,
                      uint8_t id = nextId())
       :Button(pin), callbackFn_(callbackFn), id_(id) {}
 
@@ -83,10 +83,10 @@ namespace able {
       }
       
       /**
-       * Set a (new) on pressed callback function.
+       * Set a (new) callback function.
        * 
-       * @param callbackFn The function to call when the button is pressed. Use
-       *                   0 to clear the on-pressed callback.
+       * @param callbackFn The function to call for a button event. Use 0 to
+       *                   clear the callback function.
        */
       inline void setCallback(void(*callbackFn)(CALLBACK_EVENT, uint8_t)) {
         callbackFn_ = callbackFn;

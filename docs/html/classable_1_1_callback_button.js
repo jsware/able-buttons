@@ -5,7 +5,7 @@ var classable_1_1_callback_button =
       [ "PRESSED_EVENT", "classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9a5d92b52ea719735a1c019dff620bd307", null ],
       [ "RELEASED_EVENT", "classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9ac4ac4fc9518ae512e37b043cc3967bee", null ]
     ] ],
-    [ "CallbackButton", "classable_1_1_callback_button.html#a5d4a75b582e6c4a27ee1a1e19d9a10ae", null ],
+    [ "CallbackButton", "classable_1_1_callback_button.html#a7a1d18440adb6e9489b53d182ab8c47f", null ],
     [ "begin", "classable_1_1_callback_button.html#af225fbf706c3733bf375868d71fc341f", null ],
     [ "handle", "classable_1_1_callback_button.html#ad3d1873b82c021c79dc47eb104b7f0dd", null ],
     [ "id", "classable_1_1_callback_button.html#a9cd5300dbadca4bde342e52744394908", null ],
