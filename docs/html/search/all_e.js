@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['testablebutton_2eh_0',['TestAbleButton.h',['../_test_able_button_8h.html',1,'']]],
-  ['testablebutton_2eino_1',['TestAbleButton.ino',['../_test_able_button_8ino.html',1,'']]],
-  ['tests_2',['Tests',['../md__able_buttons_test__r_e_a_d_m_e.html',1,'']]]
+  ['setcallback_0',['setCallback',['../classable_1_1_callback_button.html#ad85752457f708c5c4d4fa7e173656778',1,'able::CallbackButton']]],
+  ['setdebouncetime_1',['setDebounceTime',['../classable_1_1_debounced_pin.html#a504cf37c150a36c01ad7cc65bbdde4f0',1,'able::DebouncedPin']]],
+  ['setheldtime_2',['setHeldTime',['../classable_1_1_debounced_pin.html#aa57495a33fa3323cd5c6be521d1dbfb7',1,'able::DebouncedPin']]],
+  ['setidletime_3',['setIdleTime',['../classable_1_1_debounced_pin.html#aabf0cb4d7fa0f959d5b0e9496fc400a2',1,'able::DebouncedPin']]],
+  ['setup_4',['setup',['../_buttonable_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;Buttonable.ino'],['../_buttonable2_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;Buttonable2.ino'],['../_buttonable_all_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;ButtonableAll.ino'],['../_buttonable_callback_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;ButtonableCallback.ino'],['../_debouncable_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;Debouncable.ino'],['../_debouncable_any_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;DebouncableAny.ino'],['../_debouncable_callback_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;DebouncableCallback.ino'],['../_holdable_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;Holdable.ino'],['../_holdable_callback_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;HoldableCallback.ino'],['../_test_able_button_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;TestAbleButton.ino']]]
 ];

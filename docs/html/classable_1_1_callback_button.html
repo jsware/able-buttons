@@ -128,9 +128,14 @@ $(document).ready(function(){initNavTree('classable_1_1_callback_button.html',''
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a415cc7c70b71735d760ba28700a315f9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9">CALLBACK_EVENT</a> { <a class="el" href="classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9ad71cf352ea611f487cf00b637bacc013">BEGIN_EVENT</a>
+<tr class="memitem:a415cc7c70b71735d760ba28700a315f9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9">CALLBACK_EVENT</a> { <br />
+&#160;&#160;<a class="el" href="classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9ad71cf352ea611f487cf00b637bacc013">BEGIN_EVENT</a>
 , <a class="el" href="classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9a5d92b52ea719735a1c019dff620bd307">PRESSED_EVENT</a>
 , <a class="el" href="classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9ac4ac4fc9518ae512e37b043cc3967bee">RELEASED_EVENT</a>
+, <a class="el" href="classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9aeee060bcd7df087f888208760e1dd348">HELD_EVENT</a>
+, <br />
+&#160;&#160;<a class="el" href="classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9a6ccfc71a9bb0429a3d5247af76e8644c">IDLE_EVENT</a>
+<br />
  }</td></tr>
 <tr class="memdesc:a415cc7c70b71735d760ba28700a315f9"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classable_1_1_button.html" title="Core Button class.">Button</a> event codes.  <a href="classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9">More...</a><br /></td></tr>
 <tr class="separator:a415cc7c70b71735d760ba28700a315f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,6 +169,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad7a98a51e5ba5e23b83b5480662bd3d0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_button.html#ad7a98a51e5ba5e23b83b5480662bd3d0">isPressed</a> () const</td></tr>
 <tr class="memdesc:ad7a98a51e5ba5e23b83b5480662bd3d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine if the button is currently pressed.  <a href="classable_1_1_button.html#ad7a98a51e5ba5e23b83b5480662bd3d0">More...</a><br /></td></tr>
 <tr class="separator:ad7a98a51e5ba5e23b83b5480662bd3d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94aa3b6437e308c1b50bee5b316f3461"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_button.html#a94aa3b6437e308c1b50bee5b316f3461">isHeld</a> () const</td></tr>
+<tr class="memdesc:a94aa3b6437e308c1b50bee5b316f3461"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine if the button is currently held down.  <a href="classable_1_1_button.html#a94aa3b6437e308c1b50bee5b316f3461">More...</a><br /></td></tr>
+<tr class="separator:a94aa3b6437e308c1b50bee5b316f3461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3d0d96d97d4616011b4b5c458616b0b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_button.html#aa3d0d96d97d4616011b4b5c458616b0b">isIdle</a> () const</td></tr>
+<tr class="memdesc:aa3d0d96d97d4616011b4b5c458616b0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine if the button is currently idle (unpressed for a "long" time).  <a href="classable_1_1_button.html#aa3d0d96d97d4616011b4b5c458616b0b">More...</a><br /></td></tr>
+<tr class="separator:aa3d0d96d97d4616011b4b5c458616b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7da87945bfaad6957d6a3040f1d0035a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_button.html#a7da87945bfaad6957d6a3040f1d0035a">isClicked</a> () const</td></tr>
 <tr class="memdesc:a7da87945bfaad6957d6a3040f1d0035a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine if the button is clicked.  <a href="classable_1_1_button.html#a7da87945bfaad6957d6a3040f1d0035a">More...</a><br /></td></tr>
 <tr class="separator:a7da87945bfaad6957d6a3040f1d0035a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -194,6 +205,9 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a29ab6114b735883ad135ff5b7b4f82ec"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_callback_button.html#a29ab6114b735883ad135ff5b7b4f82ec">id_</a></td></tr>
 <tr class="memdesc:a29ab6114b735883ad135ff5b7b4f82ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifier for the button passed to callback functions.  <a href="classable_1_1_callback_button.html#a29ab6114b735883ad135ff5b7b4f82ec">More...</a><br /></td></tr>
 <tr class="separator:a29ab6114b735883ad135ff5b7b4f82ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9b307bc7abeb4b283ecb4cc89571ac0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_callback_button.html#ac9b307bc7abeb4b283ecb4cc89571ac0">longEvent_</a></td></tr>
+<tr class="memdesc:ac9b307bc7abeb4b283ecb4cc89571ac0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates the held/idle event has been sent.  <a href="classable_1_1_callback_button.html#ac9b307bc7abeb4b283ecb4cc89571ac0">More...</a><br /></td></tr>
+<tr class="separator:ac9b307bc7abeb4b283ecb4cc89571ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3fd6ae0c9f8638e66d44513db30f0f45"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_pin.html#a3fd6ae0c9f8638e66d44513db30f0f45">pin_</a></td></tr>
 <tr class="memdesc:a3fd6ae0c9f8638e66d44513db30f0f45"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Arduino pin connected to the button.  <a href="classable_1_1_pin.html#a3fd6ae0c9f8638e66d44513db30f0f45">More...</a><br /></td></tr>
 <tr class="separator:a3fd6ae0c9f8638e66d44513db30f0f45"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -241,6 +255,10 @@ template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &
 <tr><td class="fieldname"><a id="a415cc7c70b71735d760ba28700a315f9a5d92b52ea719735a1c019dff620bd307" name="a415cc7c70b71735d760ba28700a315f9a5d92b52ea719735a1c019dff620bd307"></a>PRESSED_EVENT&#160;</td><td class="fielddoc"><p >The button has been pressed. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a415cc7c70b71735d760ba28700a315f9ac4ac4fc9518ae512e37b043cc3967bee" name="a415cc7c70b71735d760ba28700a315f9ac4ac4fc9518ae512e37b043cc3967bee"></a>RELEASED_EVENT&#160;</td><td class="fielddoc"><p >The button has been released. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a415cc7c70b71735d760ba28700a315f9aeee060bcd7df087f888208760e1dd348" name="a415cc7c70b71735d760ba28700a315f9aeee060bcd7df087f888208760e1dd348"></a>HELD_EVENT&#160;</td><td class="fielddoc"><p >The button has been held down for a while. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a415cc7c70b71735d760ba28700a315f9a6ccfc71a9bb0429a3d5247af76e8644c" name="a415cc7c70b71735d760ba28700a315f9a6ccfc71a9bb0429a3d5247af76e8644c"></a>IDLE_EVENT&#160;</td><td class="fielddoc"><p >The button has been idle (untouched) for a while. </p>
 </td></tr>
 </table>
 
@@ -301,7 +319,7 @@ template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00042">42</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00044">44</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
 
 </div>
 </div>
@@ -334,7 +352,7 @@ template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &
 <p>Initialise the button. </p>
 <p >Called from <a class="el" href="_buttonable_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="Setup the Buttonable example.">setup()</a> of an Arduino program. </p>
 
-<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00062">62</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00064">64</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
 
 </div>
 </div>
@@ -366,7 +384,7 @@ template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &
 <p>Handle the button. </p>
 <p >Called from <a class="el" href="_buttonable_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Control the Buttonable example.">loop()</a> of an Arduino program. </p>
 
-<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00072">72</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00074">74</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
 
 </div>
 </div>
@@ -398,7 +416,7 @@ template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &
 <p>Return the id of the button. </p>
 <dl class="section return"><dt>Returns</dt><dd>The id of the button (auto-assigned or set when created). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00105">105</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00117">117</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
 
 </div>
 </div>
@@ -460,7 +478,7 @@ template&lt;typename <a class="el" href="classable_1_1_circuit.html">Circuit</a>
 <p>Specialisation of <a class="el" href="classable_1_1_button.html#a7da87945bfaad6957d6a3040f1d0035a" title="Determine if the button is clicked.">Button::isClicked()</a> for clickable pins using pulldown resistor circuits. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if clicked (pressed then released), else false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_button_8h_source.html#l00112">112</a> of file <a class="el" href="_button_8h_source.html">Button.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_button_8h_source.html#l00130">130</a> of file <a class="el" href="_button_8h_source.html">Button.h</a>.</p>
 
 </div>
 </div>
@@ -490,7 +508,71 @@ template&lt;typename <a class="el" href="classable_1_1_circuit.html">Circuit</a>
 <p>Specialisation of <a class="el" href="classable_1_1_button.html#a7da87945bfaad6957d6a3040f1d0035a" title="Determine if the button is clicked.">Button::isClicked()</a> for clickable pins using pull-up resistor circuits. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if clicked (pressed then released), else false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_button_8h_source.html#l00123">123</a> of file <a class="el" href="_button_8h_source.html">Button.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_button_8h_source.html#l00141">141</a> of file <a class="el" href="_button_8h_source.html">Button.h</a>.</p>
+
+</div>
+</div>
+<a id="a94aa3b6437e308c1b50bee5b316f3461" name="a94aa3b6437e308c1b50bee5b316f3461"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94aa3b6437e308c1b50bee5b316f3461">&#9670;&#160;</a></span>isHeld()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="classable_1_1_circuit.html">Circuit</a> , typename <a class="el" href="classable_1_1_pin.html">Pin</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classable_1_1_button.html">able::Button</a>&lt; <a class="el" href="classable_1_1_circuit.html">Circuit</a>, <a class="el" href="classable_1_1_pin.html">Pin</a> &gt;::isHeld </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Determine if the button is currently held down. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if held, else false. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_button_8h_source.html#l00092">92</a> of file <a class="el" href="_button_8h_source.html">Button.h</a>.</p>
+
+</div>
+</div>
+<a id="aa3d0d96d97d4616011b4b5c458616b0b" name="aa3d0d96d97d4616011b4b5c458616b0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3d0d96d97d4616011b4b5c458616b0b">&#9670;&#160;</a></span>isIdle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="classable_1_1_circuit.html">Circuit</a> , typename <a class="el" href="classable_1_1_pin.html">Pin</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classable_1_1_button.html">able::Button</a>&lt; <a class="el" href="classable_1_1_circuit.html">Circuit</a>, <a class="el" href="classable_1_1_pin.html">Pin</a> &gt;::isIdle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Determine if the button is currently idle (unpressed for a "long" time). </p>
+<dl class="section return"><dt>Returns</dt><dd>True if idle, else false. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_button_8h_source.html#l00101">101</a> of file <a class="el" href="_button_8h_source.html">Button.h</a>.</p>
 
 </div>
 </div>
@@ -643,7 +725,7 @@ template&lt;typename <a class="el" href="classable_1_1_circuit.html">Circuit</a>
 <p>Specialisation of <a class="el" href="classable_1_1_button.html#a7a67d1efc4ccd4700263f1f83ecb9cd8" title="Reset the cliked state of the button, returning what is was.">Button::resetClicked()</a> for clickable pins using pulldown resistor circuits. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if resetting a clicked state, else false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_button_8h_source.html#l00138">138</a> of file <a class="el" href="_button_8h_source.html">Button.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_button_8h_source.html#l00156">156</a> of file <a class="el" href="_button_8h_source.html">Button.h</a>.</p>
 
 </div>
 </div>
@@ -673,7 +755,7 @@ template&lt;typename <a class="el" href="classable_1_1_circuit.html">Circuit</a>
 <p>Specialisation of <a class="el" href="classable_1_1_button.html#a7a67d1efc4ccd4700263f1f83ecb9cd8" title="Reset the cliked state of the button, returning what is was.">Button::resetClicked()</a> for clickable pins using pull-up resistor circuits. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if resetting a clicked state, else false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_button_8h_source.html#l00151">151</a> of file <a class="el" href="_button_8h_source.html">Button.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_button_8h_source.html#l00169">169</a> of file <a class="el" href="_button_8h_source.html">Button.h</a>.</p>
 
 </div>
 </div>
@@ -711,7 +793,7 @@ template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00091">91</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00103">103</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
 
 </div>
 </div>
@@ -766,7 +848,7 @@ template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &
 
 <p>Callback function. </p>
 
-<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00113">113</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00125">125</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
 
 </div>
 </div>
@@ -820,7 +902,35 @@ template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &
 
 <p>Identifier for the button passed to callback functions. </p>
 
-<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00114">114</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00126">126</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
+
+</div>
+</div>
+<a id="ac9b307bc7abeb4b283ecb4cc89571ac0" name="ac9b307bc7abeb4b283ecb4cc89571ac0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9b307bc7abeb4b283ecb4cc89571ac0">&#9670;&#160;</a></span>longEvent_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classable_1_1_callback_button.html">able::CallbackButton</a>&lt; <a class="el" href="classable_1_1_button.html">Button</a> &gt;::longEvent_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Indicates the held/idle event has been sent. </p>
+
+<p class="definition">Definition at line <a class="el" href="_callback_button_8h_source.html#l00127">127</a> of file <a class="el" href="_callback_button_8h_source.html">CallbackButton.h</a>.</p>
 
 </div>
 </div>

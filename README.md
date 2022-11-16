@@ -26,15 +26,13 @@ Button btn(BUTTON_PIN); // The button to check.
 
 void setup() {
   // put your setup code here, to run once:
+  pinMode(LED_BUILTIN, OUTPUT);
 
   btn.begin(); // Always begin() each button to initialise it.
-
-  pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-
   btn.handle(); // Always handle() each button in a loop to use it.
 
   if(btn.isPressed()) { // isPressed() is true when the button is pressed.
@@ -66,18 +64,20 @@ Programs using `AbleButtons` are easy to read:
 ```c
 #include <AbleButtons.h>
 
-using Button = AblePullupDirectButton;
-using ButtonList = AblePullupDirectButtonList;
+using Button = AblePullupButton;
+using ButtonList = AblePullupButtonList;
 
 Button btn(2); // The button to check is on pin 2.
 
 void setup() {
-  btn.begin();
-
+  // put your setup code here, to run once:
   pinMode(LED_BUILTIN, OUTPUT);
+
+  btn.begin();
 }
 
 void loop() {
+  // put your main code here, to run repeatedly:
   btn.handle();
 
   digitalWrite(LED_BUILTIN, btn.isPressed());
@@ -99,12 +99,14 @@ Button btn(2); // The button to check is on pin 2.
 bool led = false; // The state of the LED.
 
 void setup() {
+  // put your setup code here, to run once:
   pinMode(LED_BUILTIN, OUTPUT);
 
   btn.begin();
 }
 
 void loop() {
+  // put your main code here, to run repeatedly:
   btn.handle();
 
   if(btn.resetClicked()) { // Reset the click, indicating if it had been clicked.
@@ -132,12 +134,14 @@ void buttonableCallback(Button::CALLBACK_EVENT, uint8_t);
 Button btn(BUTTON_PIN, buttonableCallback); // The button to check.
 
 void setup() {
+  // put your setup code here, to run once:
   pinMode(LED_BUILTIN, OUTPUT);
 
   btn.begin();
 }
 
 void loop() {
+  // put your main code here, to run repeatedly:
   btn.handle();
 }
 
@@ -204,21 +208,29 @@ As your program becomes more complex to achieve its purpose, code efficiency wil
 
 ### Button Debouncing
 
-All `AbleButtons` (except `Able...DirectButton`s) support [button debouncing](https://www.arduino.cc/en/Tutorial/BuiltInExamples/Debounce).
+All `AbleButtons` (except `Able...DirectButton` types) support [button debouncing](https://www.arduino.cc/en/Tutorial/BuiltInExamples/Debounce).
 
 Debounce logic addresses [contact bounce](https://en.wikipedia.org/wiki/Switch#Contact_bounce) common to mechanical buttons in your electronic circuits. Debouncing a button waits for a steady contact so the button does not appear to bounce between open and closed as it is pressed or released.
 
 You can `setDebounceTime(ms)` to control the time used to wait for a steady signal. The default 50ms is usually sufficient.
-
-### Basic Push Buttons
-
-All `AbleButtons` include simple push-button detection with the `isPressed()` method. This returns true when the button is closed (pressed) and false when open (unpressed or released).
 
 ### Direct Button Readings
 
 The `Able...DirectButton` types read the pin signal directly without waiting for [contact bouncing](https://en.wikipedia.org/wiki/Switch#Contact_bounce) to stabalise.
 
 With these buttons, `isPressed()` may bounce between true and false as the button is pushed and released. Normally debouncing is useful, but if your project handles it another way, then using the `Able...DirectButton` type can remove unnecessary debounce logic. This can dramatically reduce `AbleButtons` memory requirements.
+
+### Basic Push Buttons
+
+All `AbleButtons` include simple push-button detection with the `isPressed()` method. This returns true when the button is closed (pressed) and false when open (unpressed or released).
+
+### Held & Idle Checks
+
+All `AbleButtons` (except `Able...DirectButon` types) include "held" and "idle" checks via `isHeld()` and `isIdle()` methods. The `isHeld()` check returns true when the button is held closed. The `isIdle()` check returns true if the button has been left open. Both return false otherwise.
+
+*NB: If you connect a switch to the pin, the idle time is only counted when the switch is open **not** when it is untouched.*
+
+The time required for buttons to be held is controlled via `setHeldTime(ms)` methods and time to become idle is controlled with the `setIdleTime(ms)` method. The default held time is 1 second and idle time is 60 seconds.
 
 ### Clicker Buttons
 
@@ -231,6 +243,7 @@ The clicker-buttons have an `isClicked()` method in addition to `isPressed()`. W
 bool led = false; // Current state of the LED.
 // ...
 void loop() {
+  // put your main code here, to run repeatedly:
   btn.handle(); // Always handle() each button in a loop to use it.
 
   if(btn.resetClicked()) { // resetClicked() is true only once when the button was clicked.
@@ -262,6 +275,8 @@ The event code identifies the event. Callback buttons support `BEGIN_EVENT`, `PR
 * The `BEGIN_EVENT` is called when the `begin()` function is called.
 * The `PRESSED_EVENT` is called once when the button is pressed. It is not called repeatedly when the button is held down.
 * The `RELEASED_EVENT` is called once when the button is released. It is not called repeatedly when the button is unpressed.
+* The `HELD_EVENT` is called when a button has been pressed longer than the `setHeldTime()` duration.
+* The `IDLE_EVENT` is called when a button has been released longer than the `setIdleTime()` duration.
 
 Your callback function also receives the `id` of the button. This `id` allows a shared callback function to differentiate between each button. A `ButtonList::button(id)` method retrieves the button based on the id provided.
 
@@ -343,14 +358,13 @@ bool led = false; // On/off state of the LED.
 
 void setup() {
   // put your setup code here, to run once:
+  pinMode(LED_BUILTIN, OUTPUT);
 
   btnList.begin(); // ButtonList calls begin() for each button in the list.
-  pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-
   btnList.handle(); // ButtonList calls handle() for each button in the list.
 
   // resetClicked() on ButtonList clears clicks on all the buttons in the list,
@@ -390,15 +404,13 @@ ButtonList btnList(btns); ///< List of button to control together.
 
 void setup() {
   // put your setup code here, to run once:
+  pinMode(LED_BUILTIN, OUTPUT);
   
   btnList.begin(); // You must always call begin() once for each button.
-  
-  pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  
   btnList.handle(); // You must always call handle() repeatedly in a loop.
 
   if(pushButton.isPressed()) { // Just using basic push-button features...

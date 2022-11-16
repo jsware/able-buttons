@@ -23,9 +23,13 @@ var searchData=
   ['ablepullupdirectbutton_20',['AblePullupDirectButton',['../_able_buttons_8h.html#a1a1fa9e1aa7c3ba445fdb7b8e680aa11',1,'AbleButtons.h']]],
   ['ablepullupdirectbuttonlist_21',['AblePullupDirectButtonList',['../_able_buttons_8h.html#a475f887735cf3eb7d717ea4b9e49af38',1,'AbleButtons.h']]],
   ['allclicked_22',['allClicked',['../classable_1_1_button_list.html#ace487df020849dec74b45257f74e57b2',1,'able::ButtonList']]],
-  ['allpressed_23',['allPressed',['../classable_1_1_button_list.html#a390aa96240516ad92176d6c9516e5e4c',1,'able::ButtonList']]],
-  ['anyclicked_24',['anyClicked',['../classable_1_1_button_list.html#a7e8650907f8b91fa4d5dc50be499ff0d',1,'able::ButtonList']]],
-  ['anypressed_25',['anyPressed',['../classable_1_1_button_list.html#a96577e7371ebc2c6f6247358718aa56d',1,'able::ButtonList']]],
-  ['anyreleased_26',['anyReleased',['../_test_able_button_8h.html#a3d86322a67588895edeef2222157141c',1,'anyReleased():&#160;TestAbleButton.ino'],['../_test_able_button_8ino.html#a3d86322a67588895edeef2222157141c',1,'anyReleased():&#160;TestAbleButton.ino']]],
-  ['autoid_5f_27',['autoId_',['../classable_1_1_pin.html#a5363a5d24c735ee3761b64b08ce569b7',1,'able::Pin']]]
+  ['allheld_23',['allHeld',['../classable_1_1_button_list.html#a5aac066edd4c5c56fcc3f4e22fd82759',1,'able::ButtonList']]],
+  ['allidle_24',['allIdle',['../classable_1_1_button_list.html#ac38e68396ecdde95c9a5904fc0532b81',1,'able::ButtonList']]],
+  ['allpressed_25',['allPressed',['../classable_1_1_button_list.html#a390aa96240516ad92176d6c9516e5e4c',1,'able::ButtonList']]],
+  ['anyclicked_26',['anyClicked',['../classable_1_1_button_list.html#a7e8650907f8b91fa4d5dc50be499ff0d',1,'able::ButtonList']]],
+  ['anyheld_27',['anyHeld',['../classable_1_1_button_list.html#a528b6e655f66e34ac51fa327363402da',1,'able::ButtonList']]],
+  ['anyidle_28',['anyIdle',['../classable_1_1_button_list.html#ab15a3c6fd7f7a38e599319e5b87a52d9',1,'able::ButtonList']]],
+  ['anypressed_29',['anyPressed',['../classable_1_1_button_list.html#a96577e7371ebc2c6f6247358718aa56d',1,'able::ButtonList']]],
+  ['anyreleased_30',['anyReleased',['../_test_able_button_8h.html#a3d86322a67588895edeef2222157141c',1,'anyReleased():&#160;TestAbleButton.ino'],['../_test_able_button_8ino.html#a3d86322a67588895edeef2222157141c',1,'anyReleased():&#160;TestAbleButton.ino']]],
+  ['autoid_5f_31',['autoId_',['../classable_1_1_pin.html#a5363a5d24c735ee3761b64b08ce569b7',1,'able::Pin']]]
 ];

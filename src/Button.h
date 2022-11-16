@@ -85,6 +85,24 @@ namespace able {
       }
 
       /**
+       * Determine if the button is currently held down.
+       * 
+       * @return True if held, else false.
+       */
+      bool isHeld() const {
+        return isPressed() && ((millis() - this->millisStart_) >= this->heldTime_);
+      }
+
+      /**
+       * Determine if the button is currently idle (unpressed for a "long" time).
+       * 
+       * @return True if idle, else false.
+       */
+      bool isIdle() const {
+        return !isPressed() && ((millis() - this->millisStart_) >= this->idleTime_);
+      }
+      
+      /**
        * Determine if the button is clicked. Clicks are registered as a press
        * then release. If the ClickerPin is used, the button returns the click
        * state, otherwise the compile will fail with undefined reference to the

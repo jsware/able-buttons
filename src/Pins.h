@@ -78,7 +78,7 @@ namespace able {
    * The readPin() function manages debouncing the pin readings. You cannot use
    * this class directly. Use one of the Button sub-classes instead.
    */
-  class DebouncedPin: protected Pin {
+  class DebouncedPin: public Pin {
     public:
       //
       // Static Members...
@@ -97,6 +97,26 @@ namespace able {
       inline static void setDebounceTime(uint8_t debounceTime) {
         debounceTime_ = debounceTime;
       };
+
+      /**
+       * Set the held time for input pins. If a button is pressed for longer
+       * than this time, it will be held.
+       * 
+       * @param heldTime The number of milliseconds for a held state.
+       */
+      inline static void setHeldTime(uint16_t heldTime) {
+        heldTime_ = heldTime;
+      }
+
+      /**
+       * Set the idle time for input pins. If a button is unpressed for longer
+       * than this time, it will be held.
+       * 
+       * @param idleTime The number of milliseconds for an idle state.
+       */
+      inline static void setIdleTime(uint16_t idleTime) {
+        idleTime_ = idleTime;
+      }
 
     protected:
       //
@@ -136,8 +156,8 @@ namespace able {
 
         // New reading, so start the debounce timer.
         if (currReading != prevReading_) {
-          debounceStart_ = millis();
-        } else if ((millis() - debounceStart_) >= debounceTime_) {
+          millisStart_ = millis();
+        } else if ((millis() - millisStart_) >= debounceTime_) {
           // Use reading if we have the same reading for >= DELAY ms.
           currState_ = currReading;
         }
@@ -155,7 +175,7 @@ namespace able {
        * 
        * @returns The number of milliseconds of debounce time. 
        */
-      inline uint8_t debounceTime() const {
+      static inline uint8_t debounceTime() {
         return debounceTime_;
       }
 
@@ -164,9 +184,11 @@ namespace able {
       // Data...
       //
       static uint8_t debounceTime_; ///< Time required to debounce all input pins.
+      static uint16_t heldTime_; ///< Time required for button to be held.
+      static uint32_t idleTime_; ///< Time required for button to be idle.
 
       uint8_t prevReading_; ///< The previous pin reading, to monitor state transitions.
-      unsigned long debounceStart_; ///< Debounce start timer to handle button transition.
+      unsigned long millisStart_; ///< Debounce start timer to handle button transition.
   };
 
   /**
@@ -174,7 +196,7 @@ namespace able {
    * allows clicks (a combination of press then release) to be identified.
    * This class extends the basic DebouncedPin class to add the previous state.
    */
-  class ClickerPin: protected DebouncedPin {
+  class ClickerPin: public DebouncedPin {
     protected:
       //
       // Creators...

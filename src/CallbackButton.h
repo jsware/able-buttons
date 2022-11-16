@@ -24,7 +24,9 @@ namespace able {
       enum CALLBACK_EVENT {
         BEGIN_EVENT, ///< The button's begin() method has completed.
         PRESSED_EVENT, ///< The button has been pressed.
-        RELEASED_EVENT ///< The button has been released.
+        RELEASED_EVENT, ///< The button has been released.
+        HELD_EVENT, ///< The button has been held down for a while.
+        IDLE_EVENT ///< The button has been idle (untouched) for a while.
       };
 
     public:
@@ -73,11 +75,21 @@ namespace able {
         uint8_t currState = this->currState_;
         Button::handle();
         if(currState != this->currState_) {
-          bool pressed = this->isPressed();
-          if(pressed && callbackFn_) {
-            callbackFn_(PRESSED_EVENT, id_);
-          } else if(!pressed && callbackFn_) {
-            callbackFn_(RELEASED_EVENT, id_);
+          longEvent_ = false;
+          if(callbackFn_) {
+            if(this->isPressed()) {
+              callbackFn_(PRESSED_EVENT, id_);
+            } else {
+              callbackFn_(RELEASED_EVENT, id_);
+            }
+          }
+        } else if(!longEvent_ && callbackFn_) {
+          if(isHeld()) {
+            longEvent_ = true;
+            callbackFn_(HELD_EVENT, id_);
+          } else if(isIdle()) {
+            longEvent_ = true;
+            callbackFn_(IDLE_EVENT, id_);
           }
         }
       }
@@ -112,5 +124,6 @@ namespace able {
       //
       void (*callbackFn_)(enum CALLBACK_EVENT, uint8_t); ///< Callback function.
       uint8_t id_; ///< Identifier for the button passed to callback functions.
+      bool longEvent_; ///< Indicates the held/idle event has been sent.
   };
 }

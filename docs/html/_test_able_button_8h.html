@@ -100,6 +100,7 @@ $(document).ready(function(){initNavTree('_test_able_button_8h.html',''); initRe
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">TestAbleButton.h File Reference</div></div>
@@ -134,8 +135,22 @@ Typedefs</h2></td></tr>
 <tr class="memdesc:a56e75fad80c0fa2d308443b7ddeccd06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Using clicker callback pull-up button list.  <a href="_test_able_button_8h.html#a56e75fad80c0fa2d308443b7ddeccd06">More...</a><br /></td></tr>
 <tr class="separator:a56e75fad80c0fa2d308443b7ddeccd06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:af3e89d6d049971ff5b2358a3d5fcd594"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_test_able_button_8h.html#af3e89d6d049971ff5b2358a3d5fcd594">endl</a> { <a class="el" href="_test_able_button_8h.html#af3e89d6d049971ff5b2358a3d5fcd594a5cbad4ad24fd9b8c066cdad096cd2f18">endl</a>
+ }</td></tr>
+<tr class="memdesc:af3e89d6d049971ff5b2358a3d5fcd594"><td class="mdescLeft">&#160;</td><td class="mdescRight">Special type to allow <code>Serial &lt;&lt; endl</code> to print a line and flush the stream.  <a href="_test_able_button_8h.html#af3e89d6d049971ff5b2358a3d5fcd594">More...</a><br /></td></tr>
+<tr class="separator:af3e89d6d049971ff5b2358a3d5fcd594"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a09cf4becf86c7606a1e6faf6dae9b488"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a09cf4becf86c7606a1e6faf6dae9b488"><td class="memTemplItemLeft" align="right" valign="top">Print &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_test_able_button_8h.html#a09cf4becf86c7606a1e6faf6dae9b488">operator&lt;&lt;</a> (Print &amp;p, const T o)</td></tr>
+<tr class="memdesc:a09cf4becf86c7606a1e6faf6dae9b488"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output a specific type to the Print stream.  <a href="_test_able_button_8h.html#a09cf4becf86c7606a1e6faf6dae9b488">More...</a><br /></td></tr>
+<tr class="separator:a09cf4becf86c7606a1e6faf6dae9b488"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa63fe64e88762027e628be138bda7b89"><td class="memItemLeft" align="right" valign="top">Print &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_test_able_button_8h.html#aa63fe64e88762027e628be138bda7b89">operator&lt;&lt;</a> (Print &amp;p, enum <a class="el" href="_test_able_button_8h.html#af3e89d6d049971ff5b2358a3d5fcd594">endl</a>)</td></tr>
+<tr class="memdesc:aa63fe64e88762027e628be138bda7b89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Special stream operator for turning Serial &lt;&lt; endl into new line and stream flush.  <a href="_test_able_button_8h.html#aa63fe64e88762027e628be138bda7b89">More...</a><br /></td></tr>
+<tr class="separator:aa63fe64e88762027e628be138bda7b89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a793457dc661112832d8961d822eabc1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_test_able_button_8h.html#a793457dc661112832d8961d822eabc1a">onEvent</a> (Button::CALLBACK_EVENT, uint8_t)</td></tr>
 <tr class="memdesc:a793457dc661112832d8961d822eabc1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function for button events.  <a href="_test_able_button_8h.html#a793457dc661112832d8961d822eabc1a">More...</a><br /></td></tr>
 <tr class="separator:a793457dc661112832d8961d822eabc1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -145,6 +160,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a7cec265a0b30213ea3c4295fd7822a4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_test_able_button_8h.html#a7cec265a0b30213ea3c4295fd7822a4f">onReleased</a> (<a class="el" href="_buttonable_8ino.html#a8a11b3d061165a6ccdfcd38b6457aa1d">Button</a> *)</td></tr>
 <tr class="memdesc:a7cec265a0b30213ea3c4295fd7822a4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function for button released.  <a href="_test_able_button_8h.html#a7cec265a0b30213ea3c4295fd7822a4f">More...</a><br /></td></tr>
 <tr class="separator:a7cec265a0b30213ea3c4295fd7822a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17949a44bb0a8021bf0384e1c2389ca0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_test_able_button_8h.html#a17949a44bb0a8021bf0384e1c2389ca0">onHeld</a> (<a class="el" href="_buttonable_8ino.html#a8a11b3d061165a6ccdfcd38b6457aa1d">Button</a> *)</td></tr>
+<tr class="memdesc:a17949a44bb0a8021bf0384e1c2389ca0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function for button held.  <a href="_test_able_button_8h.html#a17949a44bb0a8021bf0384e1c2389ca0">More...</a><br /></td></tr>
+<tr class="separator:a17949a44bb0a8021bf0384e1c2389ca0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27dcba0f829242a84aca5885e86a1eb2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_test_able_button_8h.html#a27dcba0f829242a84aca5885e86a1eb2">onIdle</a> (<a class="el" href="_buttonable_8ino.html#a8a11b3d061165a6ccdfcd38b6457aa1d">Button</a> *)</td></tr>
+<tr class="memdesc:a27dcba0f829242a84aca5885e86a1eb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function for button idle.  <a href="_test_able_button_8h.html#a27dcba0f829242a84aca5885e86a1eb2">More...</a><br /></td></tr>
+<tr class="separator:a27dcba0f829242a84aca5885e86a1eb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -198,7 +219,7 @@ Variables</h2></td></tr>
 
 <p>Connect button between this pin and ground. </p>
 
-<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00023">23</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00053">53</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
 
 </div>
 </div>
@@ -216,7 +237,7 @@ Variables</h2></td></tr>
 
 <p>Connect button using pulldown resistor circuit. </p>
 
-<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00024">24</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00054">54</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
 
 </div>
 </div>
@@ -235,7 +256,7 @@ Variables</h2></td></tr>
 
 <p>Using clicker callback pull-up button. </p>
 
-<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00015">15</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00043">43</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
 
 </div>
 </div>
@@ -253,7 +274,30 @@ Variables</h2></td></tr>
 
 <p>Using clicker callback pull-up button list. </p>
 
-<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00016">16</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00044">44</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="af3e89d6d049971ff5b2358a3d5fcd594" name="af3e89d6d049971ff5b2358a3d5fcd594"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3e89d6d049971ff5b2358a3d5fcd594">&#9670;&#160;</a></span>endl</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="_test_able_button_8h.html#af3e89d6d049971ff5b2358a3d5fcd594">endl</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Special type to allow <code>Serial &lt;&lt; endl</code> to print a line and flush the stream. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af3e89d6d049971ff5b2358a3d5fcd594a5cbad4ad24fd9b8c066cdad096cd2f18" name="af3e89d6d049971ff5b2358a3d5fcd594a5cbad4ad24fd9b8c066cdad096cd2f18"></a>endl&#160;</td><td class="fielddoc"><p >The special value of endl triggers the Serial.println() and Serial.flush(). </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00027">27</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
 
 </div>
 </div>
@@ -294,6 +338,62 @@ Variables</h2></td></tr>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_callback_8cpp_source.html#l00021">21</a> of file <a class="el" href="_callback_8cpp_source.html">Callback.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a17949a44bb0a8021bf0384e1c2389ca0" name="a17949a44bb0a8021bf0384e1c2389ca0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17949a44bb0a8021bf0384e1c2389ca0">&#9670;&#160;</a></span>onHeld()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void onHeld </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_buttonable_8ino.html#a8a11b3d061165a6ccdfcd38b6457aa1d">Button</a> *&#160;</td>
+          <td class="paramname"><em>btn</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Callback function for button held. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">btn</td><td>The button generaing the event. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_pressed_8cpp_source.html#l00040">40</a> of file <a class="el" href="_pressed_8cpp_source.html">Pressed.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a27dcba0f829242a84aca5885e86a1eb2" name="a27dcba0f829242a84aca5885e86a1eb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27dcba0f829242a84aca5885e86a1eb2">&#9670;&#160;</a></span>onIdle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void onIdle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_buttonable_8ino.html#a8a11b3d061165a6ccdfcd38b6457aa1d">Button</a> *&#160;</td>
+          <td class="paramname"><em>btn</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Callback function for button idle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">btn</td><td>The button generaing the event. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_released_8cpp_source.html#l00041">41</a> of file <a class="el" href="_released_8cpp_source.html">Released.cpp</a>.</p>
 
 </div>
 </div>
@@ -350,6 +450,104 @@ Variables</h2></td></tr>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_released_8cpp_source.html#l00015">15</a> of file <a class="el" href="_released_8cpp_source.html">Released.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a09cf4becf86c7606a1e6faf6dae9b488" name="a09cf4becf86c7606a1e6faf6dae9b488"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09cf4becf86c7606a1e6faf6dae9b488">&#9670;&#160;</a></span>operator&lt;&lt;() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Print &amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">Print &amp;&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T&#160;</td>
+          <td class="paramname"><em>o</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Output a specific type to the Print stream. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>The print-stream to output to. </td></tr>
+    <tr><td class="paramname">o</td><td>The object to output.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The print-stream object (allows chaining of &lt;&lt; operators - as in <code>Serial &lt;&lt; x &lt;&lt; y &lt;&lt; z;</code>). </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00024">24</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
+
+</div>
+</div>
+<a id="aa63fe64e88762027e628be138bda7b89" name="aa63fe64e88762027e628be138bda7b89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa63fe64e88762027e628be138bda7b89">&#9670;&#160;</a></span>operator&lt;&lt;() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Print &amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">Print &amp;&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">enum&#160;</td>
+          <td class="paramname"><em>endl</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Special stream operator for turning Serial &lt;&lt; endl into new line and stream flush. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>The print-stream to output a new line and flush. </td></tr>
+    <tr><td class="paramname">endl</td><td>The special <code>endl</code> enumeration type</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The print-stream object (allows chaining of &lt;&lt; operators - as in <code>Serial &lt;&lt; x &lt;&lt; y &lt;&lt; z;</code>). </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00040">40</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
 
 </div>
 </div>

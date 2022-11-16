@@ -145,6 +145,66 @@ namespace able {
       }
 
       /**
+       * Determine if all of the buttons are currently held.
+       * 
+       * @return True if all held, else false.
+       */
+      bool allHeld() const {
+        bool rc = true;
+        for(size_t i = 0; i < len_; ++i) {
+          if(!buttons_[i]->isHeld()) {
+            rc = false;
+          }
+        }
+        return rc;
+      }
+
+      /**
+       * Determine if any of the buttons are currently held.
+       * 
+       * @return True if any held, else false.
+       */
+      bool anyHeld() const {
+        bool rc = false;
+        for(size_t i = 0; i < len_; ++i) {
+          if(buttons_[i]->isHeld()) {
+            rc = true;
+          }
+        }
+        return rc;
+      }
+
+      /**
+       * Determine if all of the buttons are currently idle.
+       * 
+       * @return True if all idle, else false.
+       */
+      bool allIdle() const {
+        bool rc = true;
+        for(size_t i = 0; i < len_; ++i) {
+          if(!buttons_[i]->isIdle()) {
+            rc = false;
+          }
+        }
+        return rc;
+      }
+
+      /**
+       * Determine if any of the buttons are currently idle.
+       * 
+       * @return True if any idle, else false.
+       */
+      bool anyIdle() const {
+        bool rc = false;
+        for(size_t i = 0; i < len_; ++i) {
+          if(buttons_[i]->isIdle()) {
+            rc = true;
+          }
+        }
+        return rc;
+      }
+
+      /**
        * Determine if all of the buttons have been clicked.
        * 
        * @return True if all pressed, else false.

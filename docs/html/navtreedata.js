@@ -36,21 +36,22 @@ var NAVTREE =
       [ "Memory Usage", "index.html#autotoc_md7", null ],
       [ "Button Features", "index.html#autotoc_md8", [
         [ "Button Debouncing", "index.html#autotoc_md9", null ],
-        [ "Basic Push Buttons", "index.html#autotoc_md10", null ],
-        [ "Direct Button Readings", "index.html#autotoc_md11", null ],
-        [ "Clicker Buttons", "index.html#autotoc_md12", null ],
-        [ "Callback Buttons", "index.html#autotoc_md13", null ],
-        [ "Combined Features", "index.html#autotoc_md14", null ],
-        [ "Resistor Circuits", "index.html#autotoc_md15", [
-          [ "Pulldown Resistors", "index.html#autotoc_md16", null ],
-          [ "Pull-up Resistors", "index.html#autotoc_md17", null ]
+        [ "Direct Button Readings", "index.html#autotoc_md10", null ],
+        [ "Basic Push Buttons", "index.html#autotoc_md11", null ],
+        [ "Held & Idle Checks", "index.html#autotoc_md12", null ],
+        [ "Clicker Buttons", "index.html#autotoc_md13", null ],
+        [ "Callback Buttons", "index.html#autotoc_md14", null ],
+        [ "Combined Features", "index.html#autotoc_md15", null ],
+        [ "Resistor Circuits", "index.html#autotoc_md16", [
+          [ "Pulldown Resistors", "index.html#autotoc_md17", null ],
+          [ "Pull-up Resistors", "index.html#autotoc_md18", null ]
         ] ]
       ] ],
-      [ "Button Types", "index.html#autotoc_md18", [
-        [ "Button Lists", "index.html#autotoc_md19", null ],
-        [ "Mixing Button Types", "index.html#autotoc_md20", null ]
+      [ "Button Types", "index.html#autotoc_md19", [
+        [ "Button Lists", "index.html#autotoc_md20", null ],
+        [ "Mixing Button Types", "index.html#autotoc_md21", null ]
       ] ],
-      [ "Troubleshooting", "index.html#autotoc_md21", null ]
+      [ "Troubleshooting", "index.html#autotoc_md22", null ]
     ] ],
     [ "Examples", "md__able_buttons_examples__r_e_a_d_m_e.html", null ],
     [ "Tests", "md__able_buttons_test__r_e_a_d_m_e.html", null ],
@@ -84,7 +85,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_able_buttons_8h.html",
-"index.html#autotoc_md15"
+"dir_a4a632321f83a6093395152e7431aa30.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

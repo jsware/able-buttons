@@ -30,8 +30,12 @@ bool led = false; ///< State of the builtin LED.
  */
 void setup() {
   Serial.begin(115200);
-  btnList.begin(); // Begin buttons in the list (sets pin mode etc).
   pinMode(LED_BUILTIN, OUTPUT);
+
+  Button::setHeldTime(2500);
+  Button::setIdleTime(2500);
+  
+  btnList.begin(); // Begin buttons in the list (sets pin mode etc).
 }
 
 /**
@@ -48,15 +52,26 @@ void loop() {
   }
 
   if(anyReleased) {
+    assert(btnList.allPressed() == false);
+    // assert(btnList.anyPressed() == true);
+    // assert(btnList.allHeld() == false);
+    // assert(btnList.anyHeld() == true);
+    // assert(btnList.allIdle() == false);
+    // assert(btnList.anyIdle() == false);
     assert(btnList.allClicked() == false); // Not all buttons should be clicked.
     assert(btnList.anyClicked() == true); // Clicked will be set after button released.
     assert(btnList.resetClicked() == true); // Clear any clicked status.
     assert(btnList.anyClicked() == false); // No buttons should be clicked now.
     anyReleased = false; // Handled most recent release callback signal.
   } else {
-    assert(btnList.allPressed() == false); // Not all buttons normally pressed.
-    assert(btnList.allClicked() == false); // Not all buttons normally clicked.
-    assert(btnList.anyClicked() == false); // Only clicked when anyReleased set by released callback.
+    assert(btnList.allPressed() == false);
+    // assert(btnList.anyPressed() == true);
+    // assert(btnList.allHeld() == false);
+    // assert(btnList.anyHeld() == true);
+    // assert(btnList.allIdle() == false);
+    // assert(btnList.anyIdle() == false);
+    assert(btnList.allClicked() == false);
+    assert(btnList.anyClicked() == false);
   }
 
   digitalWrite(LED_BUILTIN, led);

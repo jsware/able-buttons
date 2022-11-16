@@ -142,6 +142,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad7a98a51e5ba5e23b83b5480662bd3d0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_button.html#ad7a98a51e5ba5e23b83b5480662bd3d0">isPressed</a> () const</td></tr>
 <tr class="memdesc:ad7a98a51e5ba5e23b83b5480662bd3d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine if the button is currently pressed.  <a href="classable_1_1_button.html#ad7a98a51e5ba5e23b83b5480662bd3d0">More...</a><br /></td></tr>
 <tr class="separator:ad7a98a51e5ba5e23b83b5480662bd3d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94aa3b6437e308c1b50bee5b316f3461"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_button.html#a94aa3b6437e308c1b50bee5b316f3461">isHeld</a> () const</td></tr>
+<tr class="memdesc:a94aa3b6437e308c1b50bee5b316f3461"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine if the button is currently held down.  <a href="classable_1_1_button.html#a94aa3b6437e308c1b50bee5b316f3461">More...</a><br /></td></tr>
+<tr class="separator:a94aa3b6437e308c1b50bee5b316f3461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3d0d96d97d4616011b4b5c458616b0b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_button.html#aa3d0d96d97d4616011b4b5c458616b0b">isIdle</a> () const</td></tr>
+<tr class="memdesc:aa3d0d96d97d4616011b4b5c458616b0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine if the button is currently idle (unpressed for a "long" time).  <a href="classable_1_1_button.html#aa3d0d96d97d4616011b4b5c458616b0b">More...</a><br /></td></tr>
+<tr class="separator:aa3d0d96d97d4616011b4b5c458616b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7da87945bfaad6957d6a3040f1d0035a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_button.html#a7da87945bfaad6957d6a3040f1d0035a">isClicked</a> () const</td></tr>
 <tr class="memdesc:a7da87945bfaad6957d6a3040f1d0035a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine if the button is clicked.  <a href="classable_1_1_button.html#a7da87945bfaad6957d6a3040f1d0035a">More...</a><br /></td></tr>
 <tr class="separator:a7da87945bfaad6957d6a3040f1d0035a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -352,7 +358,7 @@ template&lt;typename <a class="el" href="classable_1_1_circuit.html">Circuit</a>
 <p>Specialisation of <a class="el" href="classable_1_1_button.html#a7da87945bfaad6957d6a3040f1d0035a" title="Determine if the button is clicked.">Button::isClicked()</a> for clickable pins using pulldown resistor circuits. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if clicked (pressed then released), else false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_button_8h_source.html#l00112">112</a> of file <a class="el" href="_button_8h_source.html">Button.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_button_8h_source.html#l00130">130</a> of file <a class="el" href="_button_8h_source.html">Button.h</a>.</p>
 
 </div>
 </div>
@@ -382,7 +388,71 @@ template&lt;typename <a class="el" href="classable_1_1_circuit.html">Circuit</a>
 <p>Specialisation of <a class="el" href="classable_1_1_button.html#a7da87945bfaad6957d6a3040f1d0035a" title="Determine if the button is clicked.">Button::isClicked()</a> for clickable pins using pull-up resistor circuits. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if clicked (pressed then released), else false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_button_8h_source.html#l00123">123</a> of file <a class="el" href="_button_8h_source.html">Button.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_button_8h_source.html#l00141">141</a> of file <a class="el" href="_button_8h_source.html">Button.h</a>.</p>
+
+</div>
+</div>
+<a id="a94aa3b6437e308c1b50bee5b316f3461" name="a94aa3b6437e308c1b50bee5b316f3461"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94aa3b6437e308c1b50bee5b316f3461">&#9670;&#160;</a></span>isHeld()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="classable_1_1_circuit.html">Circuit</a> , typename <a class="el" href="classable_1_1_pin.html">Pin</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classable_1_1_button.html">able::Button</a>&lt; <a class="el" href="classable_1_1_circuit.html">Circuit</a>, <a class="el" href="classable_1_1_pin.html">Pin</a> &gt;::isHeld </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Determine if the button is currently held down. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if held, else false. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_button_8h_source.html#l00092">92</a> of file <a class="el" href="_button_8h_source.html">Button.h</a>.</p>
+
+</div>
+</div>
+<a id="aa3d0d96d97d4616011b4b5c458616b0b" name="aa3d0d96d97d4616011b4b5c458616b0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3d0d96d97d4616011b4b5c458616b0b">&#9670;&#160;</a></span>isIdle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="classable_1_1_circuit.html">Circuit</a> , typename <a class="el" href="classable_1_1_pin.html">Pin</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classable_1_1_button.html">able::Button</a>&lt; <a class="el" href="classable_1_1_circuit.html">Circuit</a>, <a class="el" href="classable_1_1_pin.html">Pin</a> &gt;::isIdle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Determine if the button is currently idle (unpressed for a "long" time). </p>
+<dl class="section return"><dt>Returns</dt><dd>True if idle, else false. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_button_8h_source.html#l00101">101</a> of file <a class="el" href="_button_8h_source.html">Button.h</a>.</p>
 
 </div>
 </div>
@@ -527,7 +597,7 @@ template&lt;typename <a class="el" href="classable_1_1_circuit.html">Circuit</a>
 <p>Specialisation of <a class="el" href="classable_1_1_button.html#a7a67d1efc4ccd4700263f1f83ecb9cd8" title="Reset the cliked state of the button, returning what is was.">Button::resetClicked()</a> for clickable pins using pulldown resistor circuits. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if resetting a clicked state, else false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_button_8h_source.html#l00138">138</a> of file <a class="el" href="_button_8h_source.html">Button.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_button_8h_source.html#l00156">156</a> of file <a class="el" href="_button_8h_source.html">Button.h</a>.</p>
 
 </div>
 </div>
@@ -557,7 +627,7 @@ template&lt;typename <a class="el" href="classable_1_1_circuit.html">Circuit</a>
 <p>Specialisation of <a class="el" href="classable_1_1_button.html#a7a67d1efc4ccd4700263f1f83ecb9cd8" title="Reset the cliked state of the button, returning what is was.">Button::resetClicked()</a> for clickable pins using pull-up resistor circuits. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if resetting a clicked state, else false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_button_8h_source.html#l00151">151</a> of file <a class="el" href="_button_8h_source.html">Button.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_button_8h_source.html#l00169">169</a> of file <a class="el" href="_button_8h_source.html">Button.h</a>.</p>
 
 </div>
 </div>

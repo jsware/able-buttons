@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['pin_5f_0',['pin_',['../classable_1_1_pin.html#a3fd6ae0c9f8638e66d44513db30f0f45',1,'able::Pin']]],
-  ['prevreading_5f_1',['prevReading_',['../classable_1_1_debounced_pin.html#a045efdc6b3718d280cd986feeb97caa0',1,'able::DebouncedPin']]],
-  ['prevstate_5f_2',['prevState_',['../classable_1_1_clicker_pin.html#a656eaee430ae34983091cf0d5bc509e2',1,'able::ClickerPin']]]
+  ['led_0',['led',['../_debouncable_8ino.html#ad4769d9bfa410d8af132dc0aeddab2fd',1,'led():&#160;Debouncable.ino'],['../_debouncable_any_8ino.html#ad4769d9bfa410d8af132dc0aeddab2fd',1,'led():&#160;DebouncableAny.ino'],['../_debouncable_callback_8ino.html#ad4769d9bfa410d8af132dc0aeddab2fd',1,'led():&#160;DebouncableCallback.ino'],['../_test_able_button_8ino.html#ad4769d9bfa410d8af132dc0aeddab2fd',1,'led():&#160;TestAbleButton.ino']]],
+  ['longevent_5f_1',['longEvent_',['../classable_1_1_callback_button.html#ac9b307bc7abeb4b283ecb4cc89571ac0',1,'able::CallbackButton']]]
 ];

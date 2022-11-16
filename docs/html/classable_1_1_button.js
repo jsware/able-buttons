@@ -6,6 +6,8 @@ var classable_1_1_button =
     [ "isClicked", "classable_1_1_button.html#a7da87945bfaad6957d6a3040f1d0035a", null ],
     [ "isClicked", "classable_1_1_button.html#a956489d4f75e1f14b6a2d79831230e2f", null ],
     [ "isClicked", "classable_1_1_button.html#a53791890350b6ab648aeb57d7662bbef", null ],
+    [ "isHeld", "classable_1_1_button.html#a94aa3b6437e308c1b50bee5b316f3461", null ],
+    [ "isIdle", "classable_1_1_button.html#aa3d0d96d97d4616011b4b5c458616b0b", null ],
     [ "isPressed", "classable_1_1_button.html#ad7a98a51e5ba5e23b83b5480662bd3d0", null ],
     [ "readPin", "classable_1_1_button.html#a736e530cb6cc3c536a2fc4ba36f5d966", null ],
     [ "resetClicked", "classable_1_1_button.html#a7a67d1efc4ccd4700263f1f83ecb9cd8", null ],
