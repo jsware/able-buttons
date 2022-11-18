@@ -1,7 +1,7 @@
 # ABLE
 
-[![Lint Sketches](https://github.com/jsware/able-buttons/actions/workflows/lint-sketches.yml/badge.svg)](https://github.com/jsware/able-buttons/actions/workflows/lint-sketches.yml)
-[![Compile Sketches](https://github.com/jsware/able-buttons/actions/workflows/compile-sketches.yml/badge.svg)](https://github.com/jsware/able-buttons/actions/workflows/compile-sketches.yml)
+[![Lint AbleButton](https://github.com/jsware/able-buttons/actions/workflows/lint-sketches.yml/badge.svg)](https://github.com/jsware/able-buttons/actions/workflows/lint-sketches.yml)
+[![Compile AbleButtons](https://github.com/jsware/able-buttons/actions/workflows/compile-sketches.yml/badge.svg)](https://github.com/jsware/able-buttons/actions/workflows/compile-sketches.yml)
 
 The **Arduino Button Library Extension** (ABLE) is a simple, lightweight button library with minimal memory requirements. 
 
