@@ -13,3 +13,4 @@ The following examples are provided:
 * DebouncableCallback shows how the on-released callback can be used to capture a button-click.
 * Holdable shows how the on-held check can be used to delay an activity.
 * HoldableCallback shows how the on-held and on-idle events can create a timed LED timer.
+* TestAbleButton asserts AbleButton values to ensure AbleButton works as expected.
