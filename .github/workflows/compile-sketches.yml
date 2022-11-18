@@ -10,7 +10,7 @@ jobs:
       - uses: arduino/compile-sketches@v1
         with:
           sketch-paths: |
-            - ./exampes
+            - ./examples
             - ./test
           libraries: |
             - source-path: ./
