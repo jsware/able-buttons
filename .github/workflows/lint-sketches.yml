@@ -1,4 +1,4 @@
-name: Lint Sketches
+name: Lint AbleButtons
 on:
   - push
   - pull_request

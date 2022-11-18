@@ -1,4 +1,4 @@
-name: Compile Sketches
+name: Compile AbleButtons
 on:
   - push
   - pull_request
