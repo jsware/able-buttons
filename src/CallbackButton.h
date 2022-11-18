@@ -43,7 +43,7 @@ namespace able {
        */ 
       inline CallbackButton(uint8_t pin,
                      void(*callbackFn)(enum CALLBACK_EVENT, uint8_t) = 0,
-                     uint8_t id = this->nextId())
+                     uint8_t id = Pin::nextId())
       :Button(pin), callbackFn_(callbackFn), id_(id) {}
 
     private:
