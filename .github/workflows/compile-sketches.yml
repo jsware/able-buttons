@@ -1,0 +1,17 @@
+name: Compile Sketches
+on:
+  - push
+  - pull_request
+jobs:
+  compile-sketch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: arduino/compile-sketches@v1
+        with:
+          sketch-paths: |
+            - ./exampes
+            - ./test
+          libraries: |
+            - source-path: ./
+              destination-name: AbleButtons
