@@ -39,7 +39,7 @@ void loop() {
  * @param id The identifier of the button generating the callback (unused in
  *           this example).
  */
-void buttonableCallback(Button::CALLBACK_EVENT event, uint8_t id) {
+void buttonableCallback(Button::CALLBACK_EVENT event, uint8_t /*id*/) {
   if(event == Button::PRESSED_EVENT) {
     digitalWrite(LED_BUILTIN, HIGH);
   } else {

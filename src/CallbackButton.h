@@ -43,7 +43,7 @@ namespace able {
        */ 
       inline CallbackButton(uint8_t pin,
                      void(*callbackFn)(enum CALLBACK_EVENT, uint8_t) = 0,
-                     uint8_t id = nextId())
+                     uint8_t id = this->nextId())
       :Button(pin), callbackFn_(callbackFn), id_(id) {}
 
     private:
@@ -84,10 +84,10 @@ namespace able {
             }
           }
         } else if(!longEvent_ && callbackFn_) {
-          if(isHeld()) {
+          if(this->isHeld()) {
             longEvent_ = true;
             callbackFn_(HELD_EVENT, id_);
-          } else if(isIdle()) {
+          } else if(this->isIdle()) {
             longEvent_ = true;
             callbackFn_(IDLE_EVENT, id_);
           }

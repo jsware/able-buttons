@@ -55,7 +55,7 @@ namespace able {
        * Handle the button. Called from loop() of an Arduino program.
        */
       void handle() {
-        readPin();
+        this->readPin();
       }
 
       /**
