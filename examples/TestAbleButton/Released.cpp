@@ -21,15 +21,27 @@ void onReleased(Button *btn) {
   // assert(btnList.anyIdle() == false);
   assert(btnList.allClicked() == false);
   assert(btnList.anyClicked() == true);
+  assert(btnList.allDoubleClicked() == false);
 
   if(btn) {
+    assert(btnList.anyDoubleClicked() == btn->isDoubleClicked());
+
     assert(btn->isPressed() == false);
     assert(btn->isHeld() == false);
     assert(btn->isIdle() == false);
     assert(btn->isClicked() == true);
+
+    if(btn->isDoubleClicked()) {
+      Serial << F("Double-click detected") << endl;
+
+      assert(btn->resetDoubleClicked() == true);
+      assert(btn->isDoubleClicked() == false);
+      assert(btn->resetDoubleClicked() == false);
+    }
+
     anyReleased = true;
   } else {
-    assert(false);
+    assert(btn != nullptr);
   }
 }
 

@@ -8,9 +8,13 @@
 #include "Pins.h"
 
 namespace able {
+  template<bool C, class T = void> struct enable_if {};
+  template<class T> struct enable_if<true, T> { typedef T type; };
+
   /**
-   * Core Button class. This is the simplest button type. It supports pulldown
-   * and pull-up resistor circuits specified using the Circuit.
+   * Core Button class. It supports pulldown and pull-up resistor circuits
+   * specified using the Circuit template parameter and different pin features
+   * using the Pin template parameter.
    * 
    * @param Circuit Either a PullupResistorCircuit or PulldownResistorCircuit
    *                class matching the resistor circuit used with the button.
@@ -59,16 +63,35 @@ namespace able {
       }
 
       /**
-       * Reset the cliked state of the button, returning what is was. This
+       * Reset the clicked state of the button, returning what is was. This
        * allows the click state to be effectively read once so that a clicked
        * state only triggers something once, when checked. For example toggling
        * something on/off when the button is clicked. For buttons that don't
-       * support clicking, the compile will fail with undefined reference to the
-       * resetClicked() method.
+       * support clicking, the compile will fail with errors.
        * 
        * @return True if the button was clicked, else false.
        */
-      bool resetClicked();
+      bool resetClicked() {
+        bool rc = this->isClicked();
+        this->prevState_ = this->currState_;
+        return rc;
+      }
+
+      /**
+       * Reset the double-clicked state of the button, returning what is was.
+       * This allows the double-click state to be effectively read once so that
+       * a double-clicked state only triggers something once, when checked.
+       * For example toggling something on/off when the button is double-
+       * clicked. For buttons that don't support double-clicking, the compile
+       * will fail with errors.
+       * 
+       * @return True if the button was double-clicked, else false.
+       */
+      bool resetDoubleClicked() {
+        bool rc = this->isDoubleClicked();
+        if(rc) this->stateCount_ = 0;
+        return rc;
+      }
 
     public:
       //
@@ -104,71 +127,25 @@ namespace able {
       
       /**
        * Determine if the button is clicked. Clicks are registered as a press
-       * then release. If the ClickerPin is used, the button returns the click
-       * state, otherwise the compile will fail with undefined reference to the
-       * isClicked() method.
-       * 
-       * See the Button<PulldownResistorCircuit, ClickerPin>::isClicked() and
-       * Button<PullupResistorCircuit, ClickerPin>::isClicked() specialisations.
+       * then release. If the ClickerPin (or subclass) is used, the button
+       * returns the click state, otherwise the compile will fail with errors.
        * 
        * @return True if clicked else false.
        */
-      bool isClicked() const;
+      bool isClicked() const {
+        return this->currState_ == Circuit::BUTTON_RELEASED && this->prevState_ == Circuit::BUTTON_PRESSED;
+      }
+
+      /**
+       * Determine if the button is double-clicked. Double-clicks are registered
+       * as two clicks within the double-click time. If the DoubleClickPin is
+       * used, the button returns the double-click state, otherwise the compile
+       * will fail with errors.
+       * 
+       * @return True if double-clicked else false.
+       */
+      bool isDoubleClicked() const {
+        return this->stateCount_ >= 4;
+      }
   };
-
-  //
-  // Accessor Specialisations...
-  //
-
-  /**
-   * Specialisation of Button::isClicked() for clickable pins using pulldown
-   * resistor circuits.
-   * 
-   * @return True if clicked (pressed then released), else false.
-   */
-  template <>
-  inline bool Button<PulldownResistorCircuit, ClickerPin>::isClicked() const {
-    return currState_ == PulldownResistorCircuit::BUTTON_RELEASED && prevState_ == PulldownResistorCircuit::BUTTON_PRESSED;
-  }
-
-  /**
-   * Specialisation of Button::isClicked() for clickable pins using pull-up
-   * resistor circuits.
-   * 
-   * @return True if clicked (pressed then released), else false.
-   */
-  template <>
-  inline bool Button<PullupResistorCircuit, ClickerPin>::isClicked() const {    
-    return currState_ == PullupResistorCircuit::BUTTON_RELEASED && prevState_ == PullupResistorCircuit::BUTTON_PRESSED;
-  }
-
-  //
-  // Manipulator Specialisations...
-  //
-
-  /**
-   * Specialisation of Button::resetClicked() for clickable pins using pulldown
-   * resistor circuits.
-   * 
-   * @return True if resetting a clicked state, else false.
-   */
-  template <>
-  inline bool Button<PulldownResistorCircuit, ClickerPin>::resetClicked() {
-    bool rc = isClicked();
-    prevState_ = currState_;
-    return rc;
-  }
-
-  /**
-   * Specialisation of Button::resetClicked() for clickable pins using pull-up
-   * resistor circuits.
-   * 
-   * @return True if resetting a clicked state, else false.
-   */
-  template <>
-  inline bool Button<PullupResistorCircuit, ClickerPin>::resetClicked() {
-    bool rc = isClicked();
-    prevState_ = currState_;
-    return rc;
-  }
 }

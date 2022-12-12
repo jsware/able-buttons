@@ -10,7 +10,7 @@
 
 namespace able {
   /**
-   * Pin base class reading direct from the pin (without debouncing). All pins
+   * Pin base class reading direct from the pin (without debouncing). Other pins
    * inherit directly/indirectly from this base class. This class cannot be
    * instantiated directly. Instantiation comes through Button sub-classes.
    */
@@ -36,8 +36,8 @@ namespace able {
       //
 
       /**
-       * Protected constructor used by sub-classes. Use a sub-class of this
-       * class instead of this class directly.
+       * Protected constructor used by sub-classes. Use a Button sub-class
+       * instead of this class directly.
        * 
        * @param pin The pin to read from.
        * @param initState The initial (un-pushed) state of the button.
@@ -74,8 +74,8 @@ namespace able {
   };
 
   /**
-   * Pin debouncing class. Manages making reliable readings from an input pin.
-   * The readPin() function manages debouncing the pin readings. You cannot use
+   * Debouned Pin class. Manages making reliable readings from an input pin.
+   * The readPin() method manages debouncing the pin readings. You cannot use
    * this class directly. Use one of the Button sub-classes instead.
    */
   class DebouncedPin: public Pin {
@@ -92,7 +92,8 @@ namespace able {
        * changes before using that reading. See https://docs.arduino.cc/built-in-examples/digital/Debounce
        * for details on debounce.
        * 
-       * @param debounceTime The number of milliseconds before a button state change is returned (max 255ms).
+       * @param debounceTime The number of milliseconds before a button state
+       *                     change is returned (default 50ms, max 255ms).
        */
       inline static void setDebounceTime(uint8_t debounceTime) {
         debounceTime_ = debounceTime;
@@ -102,7 +103,7 @@ namespace able {
        * Set the held time for input pins. If a button is pressed for longer
        * than this time, it will be held.
        * 
-       * @param heldTime The number of milliseconds for a held state.
+       * @param heldTime The number of milliseconds for a held state (default 1s).
        */
       inline static void setHeldTime(uint16_t heldTime) {
         heldTime_ = heldTime;
@@ -110,11 +111,11 @@ namespace able {
 
       /**
        * Set the idle time for input pins. If a button is unpressed for longer
-       * than this time, it will be held.
+       * than this time, it will be idle.
        * 
-       * @param idleTime The number of milliseconds for an idle state.
+       * @param idleTime The number of milliseconds for an idle state (default 60s).
        */
-      inline static void setIdleTime(uint16_t idleTime) {
+      inline static void setIdleTime(uint32_t idleTime) {
         idleTime_ = idleTime;
       }
 
@@ -179,6 +180,24 @@ namespace able {
         return debounceTime_;
       }
 
+      /**
+       * Return the pin held time.
+       * 
+       * @returns The number of milliseconds after which a pin is held.
+       */
+      static inline uint8_t heldTime() {
+        return heldTime_;
+      }
+
+      /**
+       * Return the pin idle time.
+       * 
+       * @returns The number of milliseconds after which a pin is idle.
+       */
+      static inline uint8_t idleTime() {
+        return idleTime_;
+      }
+
     protected:
       //
       // Data...
@@ -192,7 +211,7 @@ namespace able {
   };
 
   /**
-   * Pin debouncing class that remembers the previous debounced state. This
+   * Debounced pin class that remembers the previous debounced state. This
    * allows clicks (a combination of press then release) to be identified.
    * This class extends the basic DebouncedPin class to add the previous state.
    */
@@ -203,8 +222,8 @@ namespace able {
       //
 
       /**
-       * Protected constructor used by sub-classes. Use a sub-class of this
-       * class instead of this class directly.
+       * Protected constructor used by sub-classes. Use a Button sub-class of
+       * this class instead of this class directly.
        * 
        * @param pin The pin to read from.
        * @param initState The initial (un-pushed) state of the button.
@@ -217,7 +236,7 @@ namespace able {
       // Copying and assignment (not supported)...
       //
       ClickerPin(const ClickerPin &cpy) = delete; ///< Copying pins is not supported.
-      ClickerPin &operator=(const DebouncedPin &) = delete; ///< Assigning pins is not supported.
+      ClickerPin &operator=(const ClickerPin &) = delete; ///< Assigning pins is not supported.
 
     protected:
       //
@@ -246,5 +265,88 @@ namespace able {
       // Data...
       //
       uint8_t prevState_; ///< Previous debounced reading of the pin.
+  };
+
+  /**
+   * Pin class that counts state changes within a time-period. This enables it
+   * to identify double-clicks.
+   */
+  class DoubleClickerPin: public ClickerPin {
+    public:
+      //
+      // Static Members...
+      //
+
+      /**
+       * Set the click time for input pins. If a button is clicked again
+       * within this millisecond value, it will be counted, else the count
+       * resets. Allows tracking of double-clicks within the specified time.
+       * 
+       * @param clickTime The number of milliseconds between clicks.
+       */
+      inline static void setClickTime(uint16_t clickTime) {
+        clickTime_ = clickTime / 2; // Halve clickTime as we count presses and releases.
+      }
+
+    protected:
+      //
+      // Creators...
+      //
+
+      /**
+       * Protected constructor used by sub-classes. Use a Button sub-class of
+       * this class instead of this class directly.
+       * 
+       * @param pin The pin to read from.
+       * @param initState The initial (un-pushed) state of the button.
+       */
+      DoubleClickerPin(uint8_t pin, uint8_t initState)
+      :ClickerPin(pin, initState) {}
+
+    private:
+      //
+      // Copying and assignment (not supported)...
+      //
+      DoubleClickerPin(const DoubleClickerPin &cpy) = delete; ///< Copying pins is not supported.
+      DoubleClickerPin &operator=(const DoubleClickerPin &) = delete; ///< Assigning pins is not supported.
+
+    protected:
+      //
+      // Modifiers...
+      //
+
+      /**
+       * Debounce the pin readings to get a stable state of the pin. When the
+       * state changes, remember the previous state so clicks (press then
+       * release can be identified). Calls DebouncedPin::readPin() and monitors
+       * for a change in debounced state, remembering the previous state.
+       */
+      inline void readPin() {
+        uint8_t currState = currState_; // Remember current state.
+
+        // NB: Calls DebouncedPin version to avoid remembering current state
+        // twice.
+        DebouncedPin::readPin();
+
+        // Save previous state & millis if it changed.
+        if(currState != currState_) {
+          prevState_ = currState;
+          if(millisStart_ - prevMillis_ <= clickTime_) {
+            ++stateCount_;
+          } else {
+            stateCount_ = 1;
+          }
+          prevMillis_ = millisStart_;
+        }
+      }
+      
+    protected:
+      //
+      // Data...
+      //
+      static uint16_t clickTime_; ///< Time required for button to be double-clicked.
+
+      uint8_t stateCount_; ///< Count changes in state within double-click time.
+      unsigned long prevMillis_; ///< Previous millisecond count from last state change.
   };
 }

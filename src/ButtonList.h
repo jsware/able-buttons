@@ -81,6 +81,22 @@ namespace able {
         return rc;
       }
 
+      /**
+       * Reset double-clicked state of all buttons, returning true if any were
+       * double-clicked.
+       * 
+       * @return True if any double-clicked, else false.
+       */
+      bool resetDoubleClicked() {
+        bool rc = false;
+        for(size_t i = 0; i < len_; ++i) {
+          if(buttons_[i]->resetDoubleClicked()) {
+            rc = true;
+          }
+        }
+        return rc;
+      }
+
     public:
       //
       // Accessors...
@@ -228,6 +244,36 @@ namespace able {
         bool rc = false;
         for(size_t i = 0; i < len_; ++i) {
           if(buttons_[i]->isClicked()) {
+            rc = true;
+          }
+        }
+        return rc;
+      }
+
+      /**
+       * Determine if all of the buttons have been double-clicked.
+       * 
+       * @return True if all double-clicked, else false.
+       */
+      bool allDoubleClicked() const {
+        bool rc = true;
+        for(size_t i = 0; i < len_; ++i) {
+          if(!buttons_[i]->isDoubleClicked()) {
+            rc = false;
+          }
+        }
+        return rc;
+      }
+
+      /**
+       * Determine if any of the buttons have been double-clicked.
+       * 
+       * @return True if any double-clicked, else false.
+       */
+      bool anyDoubleClicked() const {
+        bool rc = false;
+        for(size_t i = 0; i < len_; ++i) {
+          if(buttons_[i]->isDoubleClicked()) {
             rc = true;
           }
         }

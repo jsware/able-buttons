@@ -51,17 +51,21 @@ void loop() {
     led = !led;
   }
 
-  if(anyReleased) {
-    assert(btnList.allPressed() == false);
-    // assert(btnList.anyPressed() == true);
-    // assert(btnList.allHeld() == false);
-    // assert(btnList.anyHeld() == true);
-    // assert(btnList.allIdle() == false);
-    // assert(btnList.anyIdle() == false);
-    assert(btnList.allClicked() == false); // Not all buttons should be clicked.
-    assert(btnList.anyClicked() == true); // Clicked will be set after button released.
-    assert(btnList.resetClicked() == true); // Clear any clicked status.
-    assert(btnList.anyClicked() == false); // No buttons should be clicked now.
+  if(anyReleased) { // Given button just released, when checking button list status...
+    assert(btnList.allPressed() == false); // ...then cannot be all pressed.
+    assert(btnList.anyPressed() == false); // ...then none pressed (unless pressing both). 
+    assert(btnList.allHeld() == false); // ...then cannot be all held.
+    assert(btnList.anyHeld() == false); // ...then none will be held (unless two pressed together).
+    assert(btnList.allIdle() == false); // ...then cannot all be idle if one just released.
+    // assert(btnList.anyIdle() == false); /// ...then some might be idle.
+    assert(btnList.allClicked() == false); // ...then not all should be clicked.
+    assert(btnList.anyClicked() == true); // ...then the one just released should be clicked.
+    assert(btnList.resetClicked() == true); // ...then clearing clicked indicates one clicked.
+    assert(btnList.anyClicked() == false); // ...and no buttons should be clicked after a reset.
+
+    assert(btnList.allDoubleClicked() == false); // onReleased() has checked and reset double-clicks.
+    assert(btnList.anyDoubleClicked() == false);
+
     anyReleased = false; // Handled most recent release callback signal.
   } else {
     assert(btnList.allPressed() == false);

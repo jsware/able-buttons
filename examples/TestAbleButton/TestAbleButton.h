@@ -42,8 +42,10 @@ inline Print &operator <<(Print &p, enum endl) { p.println(); p.flush(); return 
 // Select the buttons used...
 // using Button = AblePulldownCallbackClickerButton; ///< Using clicker callback pull-up button.
 // using ButtonList = AblePulldownCallbackClickerButtonList; ///< Using clicker callback pull-up button list.
-using Button = AblePullupCallbackClickerButton; ///< Using clicker callback pull-up button.
-using ButtonList = AblePullupCallbackClickerButtonList; ///< Using clicker callback pull-up button list.
+// using Button = AblePullupCallbackClickerButton; ///< Using clicker callback pull-up button.
+// using ButtonList = AblePullupCallbackClickerButtonList; ///< Using clicker callback pull-up button list.
+using Button = AblePullupCallbackDoubleClickerButton; ///< Using double-clicker callback pull-up button.
+using ButtonList = AblePullupCallbackDoubleClickerButtonList; ///< Using double-clicker callback pull-up button list.
 
 // Forward declarations of callback functions.
 void onEvent(Button::CALLBACK_EVENT, uint8_t);

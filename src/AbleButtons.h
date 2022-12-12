@@ -61,7 +61,7 @@ using AblePulldownClickerButton = able::Button<able::PulldownResistorCircuit, ab
  * button capabilities, button presses are debounced to provide a reliable push/
  * released signal.
  */
-using AblePulldownCallbackClickerButton = able::CallbackButton<able::Button<able::PulldownResistorCircuit, able::ClickerPin>>; ///< Shorthand for clicker using pulldown resistor circuit.
+using AblePulldownCallbackClickerButton = able::CallbackButton<able::Button<able::PulldownResistorCircuit, able::ClickerPin>>;
 
 /**
  * AblePulldownDirectButton provides basic button is-pressed capability for
@@ -71,6 +71,23 @@ using AblePulldownCallbackClickerButton = able::CallbackButton<able::Button<able
  */
 using AblePulldownDirectButton = able::Button<able::PulldownResistorCircuit, able::Pin>;
 
+/**
+ * AblePulldownDoubleClickerButton provides additional double-click capability to
+ * the is-clicked capability of a clicker button. A button double-click is a
+ * second click (button-press, followed by a button-release) within the double-
+ * click time. As with other button capabilities, button presses are debounced
+ * to provide a reliable push/released signal.
+ */
+using AblePulldownDoubleClickerButton = able::Button<able::PulldownResistorCircuit, able::DoubleClickerPin>;
+
+/**
+ * AblePulldownCallbackDoubleClickerButton provides additional double-click
+ * capability to the is-clicked capability of a clicker button. A button double-
+ * click is a second click (button-press, followed by a button-release) within
+ * the double-click time. As with other button capabilities, button presses are
+ * debounced to provide a reliable push/released signal.
+ */
+using AblePulldownCallbackDoubleClickerButton = able::CallbackButton<able::Button<able::PulldownResistorCircuit, able::DoubleClickerPin>>;
 
 //
 // Pulldown button lists...
@@ -128,6 +145,23 @@ using AblePulldownCallbackClickerButtonList = able::ButtonList<AblePulldownCallb
  */
 using AblePulldownDirectButtonList = able::ButtonList<AblePulldownDirectButton>;
 
+/**
+ * AblePulldownDoubleClickerButtonList allows an array of AblePulldownDoubleClickerButton
+ * objects to be managed together. Rather than calling begin() and handle()
+ * methods for each button, call the begin() and handle() method of the button
+ * list object, which calls the begin() and handle() methods of each button in
+ * the list. 
+ */
+using AblePulldownDoubleClickerButtonList = able::ButtonList<AblePulldownDoubleClickerButton>;
+
+/**
+ * AblePulldownCallbackDoubleClickerButtonList allows an array of
+ * AblePulldownCallbackDoubleClickerButton objects to be managed together. Rather
+ * than calling begin() and handle() methods for each button, call the begin()
+ * and handle() method of the button list object, which calls the begin() and
+ * handle() methods of each button in the list. 
+ */
+using AblePulldownCallbackDoubleClickerButtonList = able::ButtonList<AblePulldownCallbackDoubleClickerButton>;
 
 //
 // Pull-up buttons...
@@ -180,6 +214,23 @@ using AblePullupCallbackClickerButton = able::CallbackButton<able::Button<able::
  */
 using AblePullupDirectButton = able::Button<able::PullupResistorCircuit, able::Pin>;
 
+/**
+ * AblePullupDoubleClickerButton provides additional double-click capability to
+ * the is-clicked capability of a clicker button. A button double-click is a
+ * second click (button-press, followed by a button-release) within the double-
+ * click time. As with other button capabilities, button presses are debounced
+ * to provide a reliable push/released signal.
+ */
+using AblePullupDoubleClickerButton = able::Button<able::PullupResistorCircuit, able::DoubleClickerPin>;
+
+/**
+ * AblePullupCallbackDoubleClickerButton provides additional double-click capability to
+ * the is-clicked capability of a clicker button. A button double-click is a
+ * second click (button-press, followed by a button-release) within the double-
+ * click time. As with other button capabilities, button presses are debounced
+ * to provide a reliable push/released signal.
+ */
+using AblePullupCallbackDoubleClickerButton = able::CallbackButton<able::Button<able::PullupResistorCircuit, able::DoubleClickerPin>>;
 
 //
 // Pull-up button lists...
@@ -227,3 +278,21 @@ using AblePullupCallbackClickerButtonList = able::ButtonList<AblePullupCallbackC
  * which calls the begin() and handle() methods of each button in the list. 
  */
 using AblePullupDirectButtonList = able::ButtonList<AblePullupDirectButton>;
+
+/**
+ * AblePullupDoubleClickerButtonList allows an array of AblePullupDoubleClickerButton
+ * objects to be managed together. Rather than calling begin() and handle()
+ * methods for each button, call the begin() and handle() method of the button
+ * list object, which calls the begin() and handle() methods of each button in
+ * the list. 
+ */
+using AblePullupDoubleClickerButtonList = able::ButtonList<AblePullupDoubleClickerButton>;
+
+/**
+ * AblePullupCallbackDoubleClickerButtonList allows an array of
+ * AblePullupCallbackDoubleClickerButton objects to be managed together. Rather
+ * than calling begin() and handle() methods for each button, call the begin()
+ * and handle() method of the button list object, which calls the begin() and
+ * handle() methods of each button in the list. 
+ */
+using AblePullupCallbackDoubleClickerButtonList = able::ButtonList<AblePullupCallbackDoubleClickerButton>;
