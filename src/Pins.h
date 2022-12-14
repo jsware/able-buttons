@@ -185,7 +185,7 @@ namespace able {
        * 
        * @returns The number of milliseconds after which a pin is held.
        */
-      static inline uint8_t heldTime() {
+      static inline uint16_t heldTime() {
         return heldTime_;
       }
 
@@ -194,7 +194,7 @@ namespace able {
        * 
        * @returns The number of milliseconds after which a pin is idle.
        */
-      static inline uint8_t idleTime() {
+      static inline uint32_t idleTime() {
         return idleTime_;
       }
 

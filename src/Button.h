@@ -8,9 +8,6 @@
 #include "Pins.h"
 
 namespace able {
-  template<bool C, class T = void> struct enable_if {};
-  template<class T> struct enable_if<true, T> { typedef T type; };
-
   /**
    * Core Button class. It supports pulldown and pull-up resistor circuits
    * specified using the Circuit template parameter and different pin features
