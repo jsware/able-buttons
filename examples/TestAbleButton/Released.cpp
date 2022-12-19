@@ -7,41 +7,23 @@
  */
 #include "TestAbleButton.h"
 
+Button *releasedBtn; ///< Button just released.
+
 /**
  * Callback function for button released.
  * 
  * @param btn The button generaing the event.
  */
 void onReleased(Button *btn) {
-  assert(btnList.allPressed() == false);
-  assert(btnList.anyPressed() == false);
-  assert(btnList.allHeld() == false);
-  // assert(btnList.anyHeld() == true);
-  assert(btnList.allIdle() == false);
-  // assert(btnList.anyIdle() == false);
-  assert(btnList.allClicked() == false);
-  assert(btnList.anyClicked() == true);
-  assert(btnList.allDoubleClicked() == false);
+  checkButtonListIntegrity();
 
   if(btn) {
-    assert(btnList.anyDoubleClicked() == btn->isDoubleClicked());
+    checkButtonJustReleased(btn);
+    checkButtonListJustReleased(btn);
 
-    assert(btn->isPressed() == false);
-    assert(btn->isHeld() == false);
-    assert(btn->isIdle() == false);
-    assert(btn->isClicked() == true);
-
-    if(btn->isDoubleClicked()) {
-      Serial << F("Double-click detected") << endl;
-
-      assert(btn->resetDoubleClicked() == true);
-      assert(btn->isDoubleClicked() == false);
-      assert(btn->resetDoubleClicked() == false);
-    }
-
-    anyReleased = true;
+    releasedBtn = btn;
   } else {
-    assert(btn != nullptr);
+    assert(false);
   }
 }
 
@@ -51,20 +33,11 @@ void onReleased(Button *btn) {
  * @param btn The button generaing the event.
  */
 void onIdle(Button *btn) {
-  assert(btnList.allPressed() == false);
-  assert(btnList.anyPressed() == false);
-  assert(btnList.allHeld() == false);
-  // assert(btnList.anyHeld() == true);
-  // assert(btnList.allIdle() == false);
-  assert(btnList.anyIdle() == true);
-  assert(btnList.allClicked() == false);
-  // assert(btnList.anyClicked() == true);
+  checkButtonListIntegrity();
 
   if(btn) {
-    assert(btn->isPressed() == false);
-    assert(btn->isHeld() == false);
-    assert(btn->isIdle() == true);
-    assert(btn->isClicked() == false);
+    checkButtonJustIdle(btn);
+    checkButtonListJustIdle(btn);
   } else {
     assert(false);
   }

@@ -15,7 +15,7 @@
  * @param __lineno The line number in the file where the assertion failed.
  * @param __sexp The assertion expression that evaluated to false.
  */
-extern "C" void __assert(const char *__func, const char *__file, int __lineno, const char *__sexp) {
+void __assert(const char *__func, const char *__file, int __lineno, const __FlashStringHelper *__sexp) {
   Serial << F("ERROR: Assertion [ ") << __sexp << F(" ] failed");
 
   if(__func) {

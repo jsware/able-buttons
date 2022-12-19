@@ -7,28 +7,23 @@
  */
 #include "TestAbleButton.h"
 
+Button *pressedBtn; ///< Button just pressed.
+
 /**
  * Callback function for button pressed.
  * 
  * @param btn The button generaing the event.
  */
 void onPressed(Button *btn) {
-  assert(btnList.allPressed() == false);
-  assert(btnList.anyPressed() == true);
-  assert(btnList.allHeld() == false);
-  // assert(btnList.anyHeld() == false);
-  assert(btnList.allIdle() == false);
-  // assert(btnList.anyIdle() == false);
-  assert(btnList.allClicked() == false);
-  // assert(btnList.anyClicked() == false);
+  checkButtonListIntegrity();
 
   if(btn) {
-    assert(btn->isPressed() == true);
-    assert(btn->isHeld() == false);
-    assert(btn->isIdle() == false);
-    assert(btn->isClicked() == false);
+    checkButtonJustPressed(btn);
+    checkButtonListJustPressed(btn);
+
+    pressedBtn = btn;
   } else {
-    assert(false);
+    assert(btn != 0);
   }
 }
 
@@ -38,21 +33,11 @@ void onPressed(Button *btn) {
  * @param btn The button generaing the event.
  */
 void onHeld(Button *btn) {
-  assert(btnList.allPressed() == false);
-  assert(btnList.anyPressed() == true);
-  assert(btnList.allHeld() == false);
-  assert(btnList.anyHeld() == true);
-  assert(btnList.allIdle() == false);
-  // assert(btnList.anyIdle() == false);
-  assert(btnList.allClicked() == false);
-  // assert(btnList.anyClicked() == false);
-
+  checkButtonListIntegrity();
   if(btn) {
-    assert(btn->isPressed() == true);
-    assert(btn->isHeld() == true);
-    assert(btn->isIdle() == false);
-    assert(btn->isClicked() == false);
+    checkButtonJustHeld(btn);
+    checkButtonListJustHeld(btn);
   } else {
-    assert(false);
+    assert(btn != 0);
   }
 }
