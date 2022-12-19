@@ -10,7 +10,9 @@ var hierarchy =
         [ "able::CallbackButton< Button >", "classable_1_1_callback_button.html", null ]
       ] ],
       [ "able::DebouncedPin", "classable_1_1_debounced_pin.html", [
-        [ "able::ClickerPin", "classable_1_1_clicker_pin.html", null ]
+        [ "able::ClickerPin", "classable_1_1_clicker_pin.html", [
+          [ "able::DoubleClickerPin", "classable_1_1_double_clicker_pin.html", null ]
+        ] ]
       ] ]
     ] ]
 ];

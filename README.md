@@ -215,7 +215,7 @@ All `AbleButtons` (except `Able...DirectButton` types) support [button debouncin
 
 Debounce logic addresses [contact bounce](https://en.wikipedia.org/wiki/Switch#Contact_bounce) common to mechanical buttons in your electronic circuits. Debouncing a button waits for a steady contact so the button does not appear to bounce between open and closed as it is pressed or released.
 
-You can `setDebounceTime(ms)` to control the time used to wait for a steady signal. The default 50ms is usually sufficient.
+You can `Button::setDebounceTime(ms)` to control the time used to wait for a steady signal. The default 50ms is usually sufficient.
 
 ### Direct Button Readings
 
@@ -233,7 +233,7 @@ All `AbleButtons` (except `Able...DirectButon` types) include "held" and "idle" 
 
 *NB: If you connect a switch to the pin, the idle time is only counted when the switch is open **not** when it is untouched.*
 
-The time required for buttons to be held is controlled via `setHeldTime(ms)` methods and time to become idle is controlled with the `setIdleTime(ms)` method. The default held time is 1 second and idle time is 60 seconds.
+The time required for buttons to be held is controlled via `Button::setHeldTime(ms)` methods and time to become idle is controlled with the `Button::setIdleTime(ms)` method. The default held time is 1 second and idle time is 60 seconds.
 
 ### Clicker Buttons
 
@@ -250,6 +250,28 @@ void loop() {
   btn.handle(); // Always handle() each button in a loop to use it.
 
   if(btn.resetClicked()) { // resetClicked() is true only once when the button was clicked.
+    led = !led;
+  }
+
+  digitalWrite(LED_BUILTIN, led);
+}
+```
+
+### Double-Clicker Buttons
+
+The `Able...DoubleClickerButton` types detect button double-clicks. A double-click is two clicks in quick succession (within the `Button::setClickTime(ms)` setting).
+
+The double-clicker buttons have an `isDoubleClicked()` method in addition to `isPressed()` and others. When double-clicked, `isDoubleClicked()` returns true until `resetDoubleClicked()` is called. You can also use `resetDoubleClicked()` to determine if a button has been double-clicked. The `resetDoubleClicked()` call returns true if the button was double-clicked (so the click was reset). This makes detecting each double-click easy:
+
+```c
+// ...
+bool led = false; // Current state of the LED.
+// ...
+void loop() {
+  // put your main code here, to run repeatedly:
+  btn.handle(); // Always handle() each button in a loop to use it.
+
+  if(btn.resetDoubleClicked()) { // resetDoubleClicked() is true only once when the button was double-clicked.
     led = !led;
   }
 
@@ -278,8 +300,8 @@ The event code identifies the event. Callback buttons support `BEGIN_EVENT`, `PR
 * The `BEGIN_EVENT` is called when the `begin()` function is called.
 * The `PRESSED_EVENT` is called once when the button is pressed. It is not called repeatedly when the button is held down.
 * The `RELEASED_EVENT` is called once when the button is released. It is not called repeatedly when the button is unpressed.
-* The `HELD_EVENT` is called when a button has been pressed longer than the `setHeldTime()` duration.
-* The `IDLE_EVENT` is called when a button has been released longer than the `setIdleTime()` duration.
+* The `HELD_EVENT` is called when a button has been pressed longer than the `Button::setHeldTime()` duration.
+* The `IDLE_EVENT` is called when a button has been released longer than the `Button::setIdleTime()` duration.
 
 Your callback function also receives the `id` of the button. This `id` allows a shared callback function to differentiate between each button. A `ButtonList::button(id)` method retrieves the button based on the id provided.
 
@@ -311,18 +333,22 @@ The following circuit uses the internal pull-up resistor for a button connected 
 
 Different `AbleButtons` can be used by a name that represents the combined features required. The following button combinations are available from `AbleButtons`:
 
-| Using                               | Resistor | Pin    | Callback? | Button List                             |
-| :---------------------------------- | :------: | :----: | :-------: | :-------------------------------------- |
-| `AblePulldownButton`                | Pulldown | Push   | No        | `AblePulldownButtonList`                |
-| `AblePulldownCallbackButton`        | Pulldown | Push   | Yes       | `AblePulldownCallbackButtonList`        |
-| `AblePulldownClickerButton`         | Pulldown | Click  | No        | `AblePulldownClickerButtonList`         |
-| `AblePulldownCallbackClickerButton` | Pulldown | Click  | Yes       | `AblePulldownCallbackClickerButtonList` |
-| `AblePulldownDirectButton`          | Pulldown | Direct | No        | `AblePulldownDirectButtonList`          |
-| `AblePullupButton`                  | Pull-up  | Push   | No        | `AblePullupButtonList`                  |
-| `AblePullupCallbackButton`          | Pull-up  | Push   | Yes       | `AblePullupCallbackButtonList`          |
-| `AblePullupClickerButton`           | Pull-up  | Click  | No        | `AblePullupClickerButtonList`           |
-| `AblePullupCallbackClickerButton`   | Pull-up  | Click  | Yes       | `AblePullupCallbackClickerButtonList`   |
-| `AblePullupDirectButton`            | Pull-up  | Direct | No        | `AblePullupDirectButtonList`            |
+| Using                                     | Resistor | Pin          | Callback? | Button List                                   |
+| :---------------------------------------- | :------: | :----------: | :-------: | :-------------------------------------------- |
+| `AblePulldownButton`                      | Pulldown | Push         | No        | `AblePulldownButtonList`                      |
+| `AblePulldownCallbackButton`              | Pulldown | Push         | Yes       | `AblePulldownCallbackButtonList`              |
+| `AblePulldownClickerButton`               | Pulldown | Click        | No        | `AblePulldownClickerButtonList`               |
+| `AblePulldownCallbackClickerButton`       | Pulldown | Click        | Yes       | `AblePulldownCallbackClickerButtonList`       |
+| `AblePulldownDirectButton`                | Pulldown | Direct       | No        | `AblePulldownDirectButtonList`                |
+| `AblePulldownDoubleClickerButton`         | Pull-up  | Double-Click | No        | `AblePulldownDoubleClickerButtonList`         |
+| `AblePulldownCallbackDoubleClickerButton` | Pull-up  | Double-Click | Yes       | `AblePulldownCallbackDoubleClickerButtonList` |
+| `AblePullupButton`                        | Pull-up  | Push         | No        | `AblePullupButtonList`                        |
+| `AblePullupCallbackButton`                | Pull-up  | Push         | Yes       | `AblePullupCallbackButtonList`                |
+| `AblePullupClickerButton`                 | Pull-up  | Click        | No        | `AblePullupClickerButtonList`                 |
+| `AblePullupCallbackClickerButton`         | Pull-up  | Click        | Yes       | `AblePullupCallbackClickerButtonList`         |
+| `AblePullupDirectButton`                  | Pull-up  | Direct       | No        | `AblePullupDirectButtonList`                  |
+| `AblePullupDoubleClickerButton`           | Pull-up  | Double-Click | No        | `AblePullupDoubleClickerButtonList`           |
+| `AblePullupCallbackDoubleClickerButton`   | Pull-up  | Double-Click | Yes       | `AblePullupCallbackDoubleClickerButtonList`   |
 
 The classes above identify the [features](#button-features) available with them. Remember to identify which button type you are `using`:
 
@@ -437,7 +463,7 @@ void loop() {
 1. Remember to choose the button with the resistor circuit and features you are using. See [button features](#button-features) and [button types](#button-types) for details.
 2. Signals from [pulldown](https://www.arduino.cc/en/Tutorial/BuiltInExamples/Button) and [pull-up](https://docs.arduino.cc/tutorials/generic/digital-input-pullup) resistors are different. `AbleButtons` needs to know which one to use. Arduino microcontrollers have internal pull-up resistors, so connecting a pin to ground via a button uses a pull-up resistor circuit.
 3. Choose the [button features](#button-features) you need from `AbleButtons`. A basic push-button, a clicker and callback functions.
-4. Only use included features in your code. Compiler errors and warnings will occur if you try to use features not included. For example, errors occur if you try to use the clicker-specific methods (e.g. `isClicked()` and `restClicked()` when `using Button = Able...Button` without "Clicker" in the name.
-4. Remember to `begin()` each button in your `setup()` function and `handle()` each button in your `loop()` function. If you are using a `ButtonList`, you can call the `begin()` and `handle()` methods on the list.
-5. If using a `ButtonList`, remember to include all your buttons in the list. For this reason it is best (and most memory efficient) to have the same resistor circuit for all your buttons.
-6. If you need different features for different buttons, you should be `using Button = Able...Button` with the highest feature set you need over including both feature sets, otherwise duplicate code will be included. See [mixing button types](#mixing-button-types) for details.
+4. Only use included features in your code. Compiler errors and warnings will occur if you try to use features not included. For example, errors occur if you try to use the clicker-specific methods (e.g. `isClicked()` and `resetClicked()` when `using Button = Able...Button` without "Clicker" in the name.
+5. Remember to `begin()` each button in your `setup()` function and `handle()` each button in your `loop()` function. If you are using a `ButtonList`, you can call the `begin()` and `handle()` methods on the list.
+6. If using a `ButtonList`, remember to include all your buttons in the list. For this reason it is best (and most memory efficient) to have the same resistor circuit for all your buttons.
+7. If you need different features for different buttons, you should be `using Button = Able...Button` with the highest feature set you need over including both feature sets, otherwise duplicate code will be included. See [mixing button types](#mixing-button-types) for details.

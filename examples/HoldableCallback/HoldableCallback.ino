@@ -47,7 +47,9 @@ void loop() {
  * @param event The event that has occured.
  * @param id The identifier of the button generating the callback (ignored in this example).
  */
-void holdableCallback(Button::CALLBACK_EVENT event, uint8_t /*id*/) {
+void holdableCallback(Button::CALLBACK_EVENT event, uint8_t id) {
+  (void)id; // id is unused.
+
   if(event == Button::HELD_EVENT) {
     digitalWrite(LED_BUILTIN, HIGH);
   } else if(event == Button::IDLE_EVENT) {

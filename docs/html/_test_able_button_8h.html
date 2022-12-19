@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AbleButtons: AbleButtons/test/TestAbleButton/TestAbleButton.h File Reference</title>
+<title>AbleButtons: AbleButtons/examples/TestAbleButton/TestAbleButton.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript">var page_layout=1;</script>
 <script type="text/javascript" src="jquery.js"></script>
@@ -109,16 +109,16 @@ $(document).ready(function(){initNavTree('_test_able_button_8h.html',''); initRe
 
 <p>Declarations for the TestAbleButton program.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;assert.h&gt;</code><br />
-<code>#include &lt;<a class="el" href="_able_buttons_8h_source.html">AbleButtons.h</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="_able_buttons_8h_source.html">AbleButtons.h</a>&gt;</code><br />
+<code>#include &quot;<a class="el" href="_config_8h_source.html">Config.h</a>&quot;</code><br />
 </div>
 <p><a href="_test_able_button_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a412557130ca57a31095a506f4535b5fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_test_able_button_8h.html#a412557130ca57a31095a506f4535b5fe">__ASSERT_USE_STDERR</a></td></tr>
-<tr class="memdesc:a412557130ca57a31095a506f4535b5fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used by &lt;assert.h&gt; to indicate custom assert output.  <a href="_test_able_button_8h.html#a412557130ca57a31095a506f4535b5fe">More...</a><br /></td></tr>
-<tr class="separator:a412557130ca57a31095a506f4535b5fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6d5aaa966ca7424f7cb9bd01f2c838b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_test_able_button_8h.html#ad6d5aaa966ca7424f7cb9bd01f2c838b">assert</a>(e)&#160;&#160;&#160;((e) ? (void)0 : <a class="el" href="_test_able_button_8h.html#afa7a3b4df18d4c84ed7e70bb0cf8d8b2">__assert</a>(__func__, __FILE__, __LINE__, F(#e)))</td></tr>
+<tr class="memdesc:ad6d5aaa966ca7424f7cb9bd01f2c838b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to assert using FlashStringHelper to reduce memory usage.  <a href="_test_able_button_8h.html#ad6d5aaa966ca7424f7cb9bd01f2c838b">More...</a><br /></td></tr>
+<tr class="separator:ad6d5aaa966ca7424f7cb9bd01f2c838b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a957be9f36cfd145ce1d6683a1300a175"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_test_able_button_8h.html#a957be9f36cfd145ce1d6683a1300a175">BUTTON_A_PIN</a>&#160;&#160;&#160;2</td></tr>
 <tr class="memdesc:a957be9f36cfd145ce1d6683a1300a175"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connect button between this pin and ground.  <a href="_test_able_button_8h.html#a957be9f36cfd145ce1d6683a1300a175">More...</a><br /></td></tr>
 <tr class="separator:a957be9f36cfd145ce1d6683a1300a175"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,12 +128,12 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:aad3a22eec2874f58699715e3dd122c59"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_test_able_button_8h.html#aad3a22eec2874f58699715e3dd122c59">Button</a> = <a class="el" href="_able_buttons_8h.html#a08dbd45038faec957c21c29789063324">AblePullupCallbackClickerButton</a></td></tr>
-<tr class="memdesc:aad3a22eec2874f58699715e3dd122c59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Using clicker callback pull-up button.  <a href="_test_able_button_8h.html#aad3a22eec2874f58699715e3dd122c59">More...</a><br /></td></tr>
-<tr class="separator:aad3a22eec2874f58699715e3dd122c59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56e75fad80c0fa2d308443b7ddeccd06"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_test_able_button_8h.html#a56e75fad80c0fa2d308443b7ddeccd06">ButtonList</a> = <a class="el" href="_able_buttons_8h.html#a7633e42479b54b51950f13153214e125">AblePullupCallbackClickerButtonList</a></td></tr>
-<tr class="memdesc:a56e75fad80c0fa2d308443b7ddeccd06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Using clicker callback pull-up button list.  <a href="_test_able_button_8h.html#a56e75fad80c0fa2d308443b7ddeccd06">More...</a><br /></td></tr>
-<tr class="separator:a56e75fad80c0fa2d308443b7ddeccd06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7d36170ab6f8eda331c38120d0659e6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_test_able_button_8h.html#ae7d36170ab6f8eda331c38120d0659e6">Button</a> = <a class="el" href="_config_8h.html#ab48d3be973709a7a807d30a6dd030da6">TESTABLE_USING_BUTTON</a></td></tr>
+<tr class="memdesc:ae7d36170ab6f8eda331c38120d0659e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Using the button defined by the circuit, callback and class.  <a href="_test_able_button_8h.html#ae7d36170ab6f8eda331c38120d0659e6">More...</a><br /></td></tr>
+<tr class="separator:ae7d36170ab6f8eda331c38120d0659e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25a47b796851e3dbde4dc3672a1b28cc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_test_able_button_8h.html#a25a47b796851e3dbde4dc3672a1b28cc">ButtonList</a> = <a class="el" href="_config_8h.html#a2dc5f40ab9c8e187708b2122a16057d5">TESTABLE_USING_BUTTONLIST</a></td></tr>
+<tr class="memdesc:a25a47b796851e3dbde4dc3672a1b28cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Using the button list defined by the circuit, callback and class.  <a href="_test_able_button_8h.html#a25a47b796851e3dbde4dc3672a1b28cc">More...</a><br /></td></tr>
+<tr class="separator:a25a47b796851e3dbde4dc3672a1b28cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -144,6 +144,9 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:afa7a3b4df18d4c84ed7e70bb0cf8d8b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_test_able_button_8h.html#afa7a3b4df18d4c84ed7e70bb0cf8d8b2">__assert</a> (const char *__func, const char *__file, int __lineno, const __FlashStringHelper *__sexp)</td></tr>
+<tr class="memdesc:afa7a3b4df18d4c84ed7e70bb0cf8d8b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assert output function.  <a href="_test_able_button_8h.html#afa7a3b4df18d4c84ed7e70bb0cf8d8b2">More...</a><br /></td></tr>
+<tr class="separator:afa7a3b4df18d4c84ed7e70bb0cf8d8b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09cf4becf86c7606a1e6faf6dae9b488"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a09cf4becf86c7606a1e6faf6dae9b488"><td class="memTemplItemLeft" align="right" valign="top">Print &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_test_able_button_8h.html#a09cf4becf86c7606a1e6faf6dae9b488">operator&lt;&lt;</a> (Print &amp;p, const T o)</td></tr>
 <tr class="memdesc:a09cf4becf86c7606a1e6faf6dae9b488"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output a specific type to the Print stream.  <a href="_test_able_button_8h.html#a09cf4becf86c7606a1e6faf6dae9b488">More...</a><br /></td></tr>
@@ -187,21 +190,25 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition in file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a412557130ca57a31095a506f4535b5fe" name="a412557130ca57a31095a506f4535b5fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a412557130ca57a31095a506f4535b5fe">&#9670;&#160;</a></span>__ASSERT_USE_STDERR</h2>
+<a id="ad6d5aaa966ca7424f7cb9bd01f2c838b" name="ad6d5aaa966ca7424f7cb9bd01f2c838b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6d5aaa966ca7424f7cb9bd01f2c838b">&#9670;&#160;</a></span>assert</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define __ASSERT_USE_STDERR</td>
+          <td class="memname">#define assert</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">e</td><td>)</td>
+          <td>&#160;&#160;&#160;((e) ? (void)0 : <a class="el" href="_test_able_button_8h.html#afa7a3b4df18d4c84ed7e70bb0cf8d8b2">__assert</a>(__func__, __FILE__, __LINE__, F(#e)))</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Used by &lt;assert.h&gt; to indicate custom assert output. </p>
+<p>Macro to assert using FlashStringHelper to reduce memory usage. </p>
 
-<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00008">8</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00014">14</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
 
 </div>
 </div>
@@ -219,7 +226,7 @@ Variables</h2></td></tr>
 
 <p>Connect button between this pin and ground. </p>
 
-<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00053">53</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00054">54</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
 
 </div>
 </div>
@@ -237,44 +244,44 @@ Variables</h2></td></tr>
 
 <p>Connect button using pulldown resistor circuit. </p>
 
-<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00054">54</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00055">55</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Typedef Documentation</h2>
-<a id="aad3a22eec2874f58699715e3dd122c59" name="aad3a22eec2874f58699715e3dd122c59"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad3a22eec2874f58699715e3dd122c59">&#9670;&#160;</a></span>Button</h2>
+<a id="ae7d36170ab6f8eda331c38120d0659e6" name="ae7d36170ab6f8eda331c38120d0659e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7d36170ab6f8eda331c38120d0659e6">&#9670;&#160;</a></span>Button</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="_buttonable_8ino.html#a8a11b3d061165a6ccdfcd38b6457aa1d">Button</a> =  <a class="el" href="_able_buttons_8h.html#a08dbd45038faec957c21c29789063324">AblePullupCallbackClickerButton</a></td>
+          <td class="memname">using <a class="el" href="_buttonable_8ino.html#a8a11b3d061165a6ccdfcd38b6457aa1d">Button</a> =  <a class="el" href="_config_8h.html#ab48d3be973709a7a807d30a6dd030da6">TESTABLE_USING_BUTTON</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Using clicker callback pull-up button. </p>
-
-<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00043">43</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
-
-</div>
-</div>
-<a id="a56e75fad80c0fa2d308443b7ddeccd06" name="a56e75fad80c0fa2d308443b7ddeccd06"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56e75fad80c0fa2d308443b7ddeccd06">&#9670;&#160;</a></span>ButtonList</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="_buttonable_8ino.html#a4308cba7b4a20b95db97fc6ec77f4b86">ButtonList</a> =  <a class="el" href="_able_buttons_8h.html#a7633e42479b54b51950f13153214e125">AblePullupCallbackClickerButtonList</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Using clicker callback pull-up button list. </p>
+<p>Using the button defined by the circuit, callback and class. </p>
 
 <p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00044">44</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
+
+</div>
+</div>
+<a id="a25a47b796851e3dbde4dc3672a1b28cc" name="a25a47b796851e3dbde4dc3672a1b28cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25a47b796851e3dbde4dc3672a1b28cc">&#9670;&#160;</a></span>ButtonList</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="_buttonable_8ino.html#a4308cba7b4a20b95db97fc6ec77f4b86">ButtonList</a> =  <a class="el" href="_config_8h.html#a2dc5f40ab9c8e187708b2122a16057d5">TESTABLE_USING_BUTTONLIST</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Using the button list defined by the circuit, callback and class. </p>
+
+<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00045">45</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
 
 </div>
 </div>
@@ -297,11 +304,65 @@ Variables</h2></td></tr>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00027">27</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00029">29</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="afa7a3b4df18d4c84ed7e70bb0cf8d8b2" name="afa7a3b4df18d4c84ed7e70bb0cf8d8b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa7a3b4df18d4c84ed7e70bb0cf8d8b2">&#9670;&#160;</a></span>__assert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void __assert </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>__func</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>__file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>__lineno</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const __FlashStringHelper *&#160;</td>
+          <td class="paramname"><em>__sexp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Assert output function. </p>
+<p >Outputs an assertion failed message to Serial.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">__func</td><td>The function name where the assertion failed. </td></tr>
+    <tr><td class="paramname">__file</td><td>The file name where the assertion failed. </td></tr>
+    <tr><td class="paramname">__lineno</td><td>The line number in the file where the assertion failed. </td></tr>
+    <tr><td class="paramname">__sexp</td><td>The assertion expression that evaluated to false. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00018">18</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
+
+</div>
+</div>
 <a id="a793457dc661112832d8961d822eabc1a" name="a793457dc661112832d8961d822eabc1a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a793457dc661112832d8961d822eabc1a">&#9670;&#160;</a></span>onEvent()</h2>
 
@@ -393,7 +454,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_released_8cpp_source.html#l00041">41</a> of file <a class="el" href="_released_8cpp_source.html">Released.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_released_8cpp_source.html#l00053">53</a> of file <a class="el" href="_released_8cpp_source.html">Released.cpp</a>.</p>
 
 </div>
 </div>
@@ -499,7 +560,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The print-stream object (allows chaining of &lt;&lt; operators - as in <code>Serial &lt;&lt; x &lt;&lt; y &lt;&lt; z;</code>). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00024">24</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00026">26</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
 
 </div>
 </div>
@@ -547,7 +608,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The print-stream object (allows chaining of &lt;&lt; operators - as in <code>Serial &lt;&lt; x &lt;&lt; y &lt;&lt; z;</code>). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00040">40</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_test_able_button_8h_source.html#l00042">42</a> of file <a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>.</p>
 
 </div>
 </div>
@@ -609,7 +670,7 @@ template&lt;typename T &gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_a679973b5f9b252792adbf373985adc6.html">AbleButtons</a></li><li class="navelem"><a class="el" href="dir_e231ef13fe44591fac07e0130a4cb038.html">test</a></li><li class="navelem"><a class="el" href="dir_595e2874fd7efd55610e731c7521445f.html">TestAbleButton</a></li><li class="navelem"><a class="el" href="_test_able_button_8h.html">TestAbleButton.h</a></li>
+    <li class="navelem"><a class="el" href="dir_a679973b5f9b252792adbf373985adc6.html">AbleButtons</a></li><li class="navelem"><a class="el" href="dir_c4911e3876ea90c0ef0cf74289ef8e18.html">examples</a></li><li class="navelem"><a class="el" href="dir_e18bf9c786eb8bd0d8481e338695a431.html">TestAbleButton</a></li><li class="navelem"><a class="el" href="_test_able_button_8h.html">TestAbleButton.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>

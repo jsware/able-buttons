@@ -127,6 +127,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a971170ffe9f785f757c3a3c44f2a2f64"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_button_list.html#a971170ffe9f785f757c3a3c44f2a2f64">resetClicked</a> ()</td></tr>
 <tr class="memdesc:a971170ffe9f785f757c3a3c44f2a2f64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset clicked state of all buttons, returning true if any were clicked.  <a href="classable_1_1_button_list.html#a971170ffe9f785f757c3a3c44f2a2f64">More...</a><br /></td></tr>
 <tr class="separator:a971170ffe9f785f757c3a3c44f2a2f64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3824a62eef500200bd0158ff0ba4f75a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_button_list.html#a3824a62eef500200bd0158ff0ba4f75a">resetDoubleClicked</a> ()</td></tr>
+<tr class="memdesc:a3824a62eef500200bd0158ff0ba4f75a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset double-clicked state of all buttons, returning true if any were double-clicked.  <a href="classable_1_1_button_list.html#a3824a62eef500200bd0158ff0ba4f75a">More...</a><br /></td></tr>
+<tr class="separator:a3824a62eef500200bd0158ff0ba4f75a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f9deaddaefb298adbcab518781dfb35"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classable_1_1_button.html">Button</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_button_list.html#a8f9deaddaefb298adbcab518781dfb35">button</a> (uint8_t id) const</td></tr>
 <tr class="memdesc:a8f9deaddaefb298adbcab518781dfb35"><td class="mdescLeft">&#160;</td><td class="mdescRight">For CallbackButtons (which each have an id), return a pointer to the first button matching the id (or a null pointer if the id is not found).  <a href="classable_1_1_button_list.html#a8f9deaddaefb298adbcab518781dfb35">More...</a><br /></td></tr>
 <tr class="separator:a8f9deaddaefb298adbcab518781dfb35"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -154,6 +157,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7e8650907f8b91fa4d5dc50be499ff0d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_button_list.html#a7e8650907f8b91fa4d5dc50be499ff0d">anyClicked</a> () const</td></tr>
 <tr class="memdesc:a7e8650907f8b91fa4d5dc50be499ff0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine if all of the buttons have been clicked.  <a href="classable_1_1_button_list.html#a7e8650907f8b91fa4d5dc50be499ff0d">More...</a><br /></td></tr>
 <tr class="separator:a7e8650907f8b91fa4d5dc50be499ff0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dc93e5b536df1c594134ebc2393119c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_button_list.html#a2dc93e5b536df1c594134ebc2393119c">allDoubleClicked</a> () const</td></tr>
+<tr class="memdesc:a2dc93e5b536df1c594134ebc2393119c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine if all of the buttons have been double-clicked.  <a href="classable_1_1_button_list.html#a2dc93e5b536df1c594134ebc2393119c">More...</a><br /></td></tr>
+<tr class="separator:a2dc93e5b536df1c594134ebc2393119c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5aeeea98591063d172309572a98f0aff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_button_list.html#a5aeeea98591063d172309572a98f0aff">anyDoubleClicked</a> () const</td></tr>
+<tr class="memdesc:a5aeeea98591063d172309572a98f0aff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine if any of the buttons have been double-clicked.  <a href="classable_1_1_button_list.html#a5aeeea98591063d172309572a98f0aff">More...</a><br /></td></tr>
+<tr class="separator:a5aeeea98591063d172309572a98f0aff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a>&gt;<br />
@@ -282,7 +291,39 @@ template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &
 <p>Determine if all of the buttons have been clicked. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if all pressed, else false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_button_list_8h_source.html#l00212">212</a> of file <a class="el" href="_button_list_8h_source.html">ButtonList.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_button_list_8h_source.html#l00228">228</a> of file <a class="el" href="_button_list_8h_source.html">ButtonList.h</a>.</p>
+
+</div>
+</div>
+<a id="a2dc93e5b536df1c594134ebc2393119c" name="a2dc93e5b536df1c594134ebc2393119c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dc93e5b536df1c594134ebc2393119c">&#9670;&#160;</a></span>allDoubleClicked()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classable_1_1_button_list.html">able::ButtonList</a>&lt; <a class="el" href="classable_1_1_button.html">Button</a> &gt;::allDoubleClicked </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Determine if all of the buttons have been double-clicked. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if all double-clicked, else false. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_button_list_8h_source.html#l00258">258</a> of file <a class="el" href="_button_list_8h_source.html">ButtonList.h</a>.</p>
 
 </div>
 </div>
@@ -314,7 +355,7 @@ template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &
 <p>Determine if all of the buttons are currently held. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if all held, else false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_button_list_8h_source.html#l00152">152</a> of file <a class="el" href="_button_list_8h_source.html">ButtonList.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_button_list_8h_source.html#l00168">168</a> of file <a class="el" href="_button_list_8h_source.html">ButtonList.h</a>.</p>
 
 </div>
 </div>
@@ -346,7 +387,7 @@ template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &
 <p>Determine if all of the buttons are currently idle. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if all idle, else false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_button_list_8h_source.html#l00182">182</a> of file <a class="el" href="_button_list_8h_source.html">ButtonList.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_button_list_8h_source.html#l00198">198</a> of file <a class="el" href="_button_list_8h_source.html">ButtonList.h</a>.</p>
 
 </div>
 </div>
@@ -378,7 +419,7 @@ template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &
 <p>Determine if all of the buttons are currently pressed. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if all pressed, else false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_button_list_8h_source.html#l00122">122</a> of file <a class="el" href="_button_list_8h_source.html">ButtonList.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_button_list_8h_source.html#l00138">138</a> of file <a class="el" href="_button_list_8h_source.html">ButtonList.h</a>.</p>
 
 </div>
 </div>
@@ -410,7 +451,39 @@ template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &
 <p>Determine if all of the buttons have been clicked. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if any clicked, else false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_button_list_8h_source.html#l00227">227</a> of file <a class="el" href="_button_list_8h_source.html">ButtonList.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_button_list_8h_source.html#l00243">243</a> of file <a class="el" href="_button_list_8h_source.html">ButtonList.h</a>.</p>
+
+</div>
+</div>
+<a id="a5aeeea98591063d172309572a98f0aff" name="a5aeeea98591063d172309572a98f0aff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5aeeea98591063d172309572a98f0aff">&#9670;&#160;</a></span>anyDoubleClicked()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classable_1_1_button_list.html">able::ButtonList</a>&lt; <a class="el" href="classable_1_1_button.html">Button</a> &gt;::anyDoubleClicked </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Determine if any of the buttons have been double-clicked. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if any double-clicked, else false. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_button_list_8h_source.html#l00273">273</a> of file <a class="el" href="_button_list_8h_source.html">ButtonList.h</a>.</p>
 
 </div>
 </div>
@@ -442,7 +515,7 @@ template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &
 <p>Determine if any of the buttons are currently held. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if any held, else false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_button_list_8h_source.html#l00167">167</a> of file <a class="el" href="_button_list_8h_source.html">ButtonList.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_button_list_8h_source.html#l00183">183</a> of file <a class="el" href="_button_list_8h_source.html">ButtonList.h</a>.</p>
 
 </div>
 </div>
@@ -474,7 +547,7 @@ template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &
 <p>Determine if any of the buttons are currently idle. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if any idle, else false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_button_list_8h_source.html#l00197">197</a> of file <a class="el" href="_button_list_8h_source.html">ButtonList.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_button_list_8h_source.html#l00213">213</a> of file <a class="el" href="_button_list_8h_source.html">ButtonList.h</a>.</p>
 
 </div>
 </div>
@@ -506,7 +579,7 @@ template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &
 <p>Determine if any of the buttons are currently pressed. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if any pressed, else false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_button_list_8h_source.html#l00137">137</a> of file <a class="el" href="_button_list_8h_source.html">ButtonList.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_button_list_8h_source.html#l00153">153</a> of file <a class="el" href="_button_list_8h_source.html">ButtonList.h</a>.</p>
 
 </div>
 </div>
@@ -583,7 +656,7 @@ template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The first id-matching button, or a null pointer. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_button_list_8h_source.html#l00106">106</a> of file <a class="el" href="_button_list_8h_source.html">ButtonList.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_button_list_8h_source.html#l00122">122</a> of file <a class="el" href="_button_list_8h_source.html">ButtonList.h</a>.</p>
 
 </div>
 </div>
@@ -648,6 +721,38 @@ template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &
 <dl class="section return"><dt>Returns</dt><dd>True if any clicked, else false. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_button_list_8h_source.html#l00074">74</a> of file <a class="el" href="_button_list_8h_source.html">ButtonList.h</a>.</p>
+
+</div>
+</div>
+<a id="a3824a62eef500200bd0158ff0ba4f75a" name="a3824a62eef500200bd0158ff0ba4f75a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3824a62eef500200bd0158ff0ba4f75a">&#9670;&#160;</a></span>resetDoubleClicked()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="classable_1_1_button.html">Button</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classable_1_1_button_list.html">able::ButtonList</a>&lt; <a class="el" href="classable_1_1_button.html">Button</a> &gt;::resetDoubleClicked </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reset double-clicked state of all buttons, returning true if any were double-clicked. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if any double-clicked, else false. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_button_list_8h_source.html#l00090">90</a> of file <a class="el" href="_button_list_8h_source.html">ButtonList.h</a>.</p>
 
 </div>
 </div>

@@ -25,21 +25,23 @@
 var NAVTREE =
 [
   [ "AbleButtons", "index.html", [
-    [ "ABLE", "index.html", [
-      [ "Motivation", "index.html#autotoc_md1", null ],
-      [ "Introduction", "index.html#autotoc_md2", null ],
-      [ "Usage", "index.html#autotoc_md3", [
-        [ "Toggling LEDs", "index.html#autotoc_md4", null ],
-        [ "Callback Button", "index.html#autotoc_md5", null ]
+    [ "Examples", "md__able_buttons_examples__r_e_a_d_m_e.html", null ],
+    [ "Classes", "annotated.html", [
+      [ "Motivation", "index.html#autotoc_md0", null ],
+      [ "Introduction", "index.html#autotoc_md1", null ],
+      [ "Usage", "index.html#autotoc_md2", [
+        [ "Toggling LEDs", "index.html#autotoc_md3", null ],
+        [ "Callback Button", "index.html#autotoc_md4", null ]
       ] ],
-      [ "Installation", "index.html#autotoc_md6", null ],
-      [ "Memory Usage", "index.html#autotoc_md7", null ],
-      [ "Button Features", "index.html#autotoc_md8", [
-        [ "Button Debouncing", "index.html#autotoc_md9", null ],
-        [ "Direct Button Readings", "index.html#autotoc_md10", null ],
-        [ "Basic Push Buttons", "index.html#autotoc_md11", null ],
-        [ "Held & Idle Checks", "index.html#autotoc_md12", null ],
-        [ "Clicker Buttons", "index.html#autotoc_md13", null ],
+      [ "Installation", "index.html#autotoc_md5", null ],
+      [ "Memory Usage", "index.html#autotoc_md6", null ],
+      [ "Button Features", "index.html#autotoc_md7", [
+        [ "Button Debouncing", "index.html#autotoc_md8", null ],
+        [ "Direct Button Readings", "index.html#autotoc_md9", null ],
+        [ "Basic Push Buttons", "index.html#autotoc_md10", null ],
+        [ "Held & Idle Checks", "index.html#autotoc_md11", null ],
+        [ "Clicker Buttons", "index.html#autotoc_md12", null ],
+        [ "Double-Clicker Buttons", "index.html#autotoc_md13", null ],
         [ "Callback Buttons", "index.html#autotoc_md14", null ],
         [ "Combined Features", "index.html#autotoc_md15", null ],
         [ "Resistor Circuits", "index.html#autotoc_md16", [
@@ -51,11 +53,7 @@ var NAVTREE =
         [ "Button Lists", "index.html#autotoc_md20", null ],
         [ "Mixing Button Types", "index.html#autotoc_md21", null ]
       ] ],
-      [ "Troubleshooting", "index.html#autotoc_md22", null ]
-    ] ],
-    [ "Examples", "md__able_buttons_examples__r_e_a_d_m_e.html", null ],
-    [ "Tests", "md__able_buttons_test__r_e_a_d_m_e.html", null ],
-    [ "Classes", "annotated.html", [
+      [ "Troubleshooting", "index.html#autotoc_md22", null ],
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
@@ -85,7 +83,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_able_buttons_8h.html",
-"dir_a4a632321f83a6093395152e7431aa30.html"
+"classable_1_1_callback_button.html#ad85752457f708c5c4d4fa7e173656778"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

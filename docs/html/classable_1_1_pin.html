@@ -120,9 +120,10 @@ $(document).ready(function(){initNavTree('classable_1_1_pin.html',''); initResiz
   <img src="classable_1_1_pin.png" usemap="#able::Pin_map" alt=""/>
   <map id="able::Pin_map" name="able::Pin_map">
 <area href="classable_1_1_button.html" title="Core Button class." alt="able::Button&lt; Circuit, Pin &gt;" shape="rect" coords="0,56,185,80"/>
-<area href="classable_1_1_debounced_pin.html" title="Pin debouncing class." alt="able::DebouncedPin" shape="rect" coords="195,56,380,80"/>
+<area href="classable_1_1_debounced_pin.html" title="Debouned Pin class." alt="able::DebouncedPin" shape="rect" coords="195,56,380,80"/>
 <area href="classable_1_1_callback_button.html" title="Callback button template to call a function if the button is pressed." alt="able::CallbackButton&lt; Button &gt;" shape="rect" coords="0,112,185,136"/>
-<area href="classable_1_1_clicker_pin.html" title="Pin debouncing class that remembers the previous debounced state." alt="able::ClickerPin" shape="rect" coords="195,112,380,136"/>
+<area href="classable_1_1_clicker_pin.html" title="Debounced pin class that remembers the previous debounced state." alt="able::ClickerPin" shape="rect" coords="195,112,380,136"/>
+<area href="classable_1_1_double_clicker_pin.html" title="Pin class that counts state changes within a time-period." alt="able::DoubleClickerPin" shape="rect" coords="195,168,380,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -158,7 +159,7 @@ Static Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p ><a class="el" href="classable_1_1_pin.html" title="Pin base class reading direct from the pin (without debouncing).">Pin</a> base class reading direct from the pin (without debouncing). </p>
-<p >All pins inherit directly/indirectly from this base class. This class cannot be instantiated directly. Instantiation comes through <a class="el" href="classable_1_1_button.html" title="Core Button class.">Button</a> sub-classes. </p>
+<p >Other pins inherit directly/indirectly from this base class. This class cannot be instantiated directly. Instantiation comes through <a class="el" href="classable_1_1_button.html" title="Core Button class.">Button</a> sub-classes. </p>
 
 <p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00017">17</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -197,7 +198,7 @@ Static Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Protected constructor used by sub-classes. </p>
-<p >Use a sub-class of this class instead of this class directly.</p>
+<p >Use a <a class="el" href="classable_1_1_button.html" title="Core Button class.">Button</a> sub-class instead of this class directly.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pin</td><td>The pin to read from. </td></tr>

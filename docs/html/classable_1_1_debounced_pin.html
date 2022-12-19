@@ -108,7 +108,7 @@ $(document).ready(function(){initNavTree('classable_1_1_debounced_pin.html','');
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classable_1_1_pin.html" title="Pin base class reading direct from the pin (without debouncing).">Pin</a> debouncing class.  
+<p>Debouned <a class="el" href="classable_1_1_pin.html" title="Pin base class reading direct from the pin (without debouncing).">Pin</a> class.  
  <a href="classable_1_1_debounced_pin.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_pins_8h_source.html">Pins.h</a>&gt;</code></p>
@@ -120,8 +120,9 @@ $(document).ready(function(){initNavTree('classable_1_1_debounced_pin.html','');
  <div class="center">
   <img src="classable_1_1_debounced_pin.png" usemap="#able::DebouncedPin_map" alt=""/>
   <map id="able::DebouncedPin_map" name="able::DebouncedPin_map">
-<area href="classable_1_1_pin.html" title="Pin base class reading direct from the pin (without debouncing)." alt="able::Pin" shape="rect" coords="0,0,125,24"/>
-<area href="classable_1_1_clicker_pin.html" title="Pin debouncing class that remembers the previous debounced state." alt="able::ClickerPin" shape="rect" coords="0,112,125,136"/>
+<area href="classable_1_1_pin.html" title="Pin base class reading direct from the pin (without debouncing)." alt="able::Pin" shape="rect" coords="0,0,140,24"/>
+<area href="classable_1_1_clicker_pin.html" title="Debounced pin class that remembers the previous debounced state." alt="able::ClickerPin" shape="rect" coords="0,112,140,136"/>
+<area href="classable_1_1_double_clicker_pin.html" title="Pin class that counts state changes within a time-period." alt="able::DoubleClickerPin" shape="rect" coords="0,168,140,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -130,15 +131,21 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a504cf37c150a36c01ad7cc65bbdde4f0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_debounced_pin.html#a504cf37c150a36c01ad7cc65bbdde4f0">setDebounceTime</a> (uint8_t <a class="el" href="classable_1_1_debounced_pin.html#a706abb6220ce6ecbb7fb77f1ec614bfc">debounceTime</a>)</td></tr>
 <tr class="memdesc:a504cf37c150a36c01ad7cc65bbdde4f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the debounce time for input pins.  <a href="classable_1_1_debounced_pin.html#a504cf37c150a36c01ad7cc65bbdde4f0">More...</a><br /></td></tr>
 <tr class="separator:a504cf37c150a36c01ad7cc65bbdde4f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa57495a33fa3323cd5c6be521d1dbfb7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_debounced_pin.html#aa57495a33fa3323cd5c6be521d1dbfb7">setHeldTime</a> (uint16_t heldTime)</td></tr>
+<tr class="memitem:aa57495a33fa3323cd5c6be521d1dbfb7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_debounced_pin.html#aa57495a33fa3323cd5c6be521d1dbfb7">setHeldTime</a> (uint16_t <a class="el" href="classable_1_1_debounced_pin.html#a804374bda0b5a8ee1116c29cbfa3aadc">heldTime</a>)</td></tr>
 <tr class="memdesc:aa57495a33fa3323cd5c6be521d1dbfb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the held time for input pins.  <a href="classable_1_1_debounced_pin.html#aa57495a33fa3323cd5c6be521d1dbfb7">More...</a><br /></td></tr>
 <tr class="separator:aa57495a33fa3323cd5c6be521d1dbfb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabf0cb4d7fa0f959d5b0e9496fc400a2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_debounced_pin.html#aabf0cb4d7fa0f959d5b0e9496fc400a2">setIdleTime</a> (uint16_t idleTime)</td></tr>
-<tr class="memdesc:aabf0cb4d7fa0f959d5b0e9496fc400a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the idle time for input pins.  <a href="classable_1_1_debounced_pin.html#aabf0cb4d7fa0f959d5b0e9496fc400a2">More...</a><br /></td></tr>
-<tr class="separator:aabf0cb4d7fa0f959d5b0e9496fc400a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae7831657b3879176885558b7b0ac72b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_debounced_pin.html#aae7831657b3879176885558b7b0ac72b">setIdleTime</a> (uint32_t <a class="el" href="classable_1_1_debounced_pin.html#ad078a319a985a11370525affcb5cebeb">idleTime</a>)</td></tr>
+<tr class="memdesc:aae7831657b3879176885558b7b0ac72b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the idle time for input pins.  <a href="classable_1_1_debounced_pin.html#aae7831657b3879176885558b7b0ac72b">More...</a><br /></td></tr>
+<tr class="separator:aae7831657b3879176885558b7b0ac72b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a706abb6220ce6ecbb7fb77f1ec614bfc"><td class="memItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_debounced_pin.html#a706abb6220ce6ecbb7fb77f1ec614bfc">debounceTime</a> ()</td></tr>
 <tr class="memdesc:a706abb6220ce6ecbb7fb77f1ec614bfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the pin debounce time.  <a href="classable_1_1_debounced_pin.html#a706abb6220ce6ecbb7fb77f1ec614bfc">More...</a><br /></td></tr>
 <tr class="separator:a706abb6220ce6ecbb7fb77f1ec614bfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a804374bda0b5a8ee1116c29cbfa3aadc"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_debounced_pin.html#a804374bda0b5a8ee1116c29cbfa3aadc">heldTime</a> ()</td></tr>
+<tr class="memdesc:a804374bda0b5a8ee1116c29cbfa3aadc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the pin held time.  <a href="classable_1_1_debounced_pin.html#a804374bda0b5a8ee1116c29cbfa3aadc">More...</a><br /></td></tr>
+<tr class="separator:a804374bda0b5a8ee1116c29cbfa3aadc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad078a319a985a11370525affcb5cebeb"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_debounced_pin.html#ad078a319a985a11370525affcb5cebeb">idleTime</a> ()</td></tr>
+<tr class="memdesc:ad078a319a985a11370525affcb5cebeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the pin idle time.  <a href="classable_1_1_debounced_pin.html#ad078a319a985a11370525affcb5cebeb">More...</a><br /></td></tr>
+<tr class="separator:ad078a319a985a11370525affcb5cebeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -186,8 +193,8 @@ Static Protected Attributes</h2></td></tr>
 <tr class="separator:a5363a5d24c735ee3761b64b08ce569b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p ><a class="el" href="classable_1_1_pin.html" title="Pin base class reading direct from the pin (without debouncing).">Pin</a> debouncing class. </p>
-<p >Manages making reliable readings from an input pin. The <a class="el" href="classable_1_1_debounced_pin.html#a2dd4ea473f2e5c0a3909b2ebad3e3628" title="Debounce the pin readings to get a stable state of the pin.">readPin()</a> function manages debouncing the pin readings. You cannot use this class directly. Use one of the <a class="el" href="classable_1_1_button.html" title="Core Button class.">Button</a> sub-classes instead. </p>
+<div class="textblock"><p >Debouned <a class="el" href="classable_1_1_pin.html" title="Pin base class reading direct from the pin (without debouncing).">Pin</a> class. </p>
+<p >Manages making reliable readings from an input pin. The <a class="el" href="classable_1_1_debounced_pin.html#a2dd4ea473f2e5c0a3909b2ebad3e3628" title="Debounce the pin readings to get a stable state of the pin.">readPin()</a> method manages debouncing the pin readings. You cannot use this class directly. Use one of the <a class="el" href="classable_1_1_button.html" title="Core Button class.">Button</a> sub-classes instead. </p>
 
 <p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00081">81</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -235,7 +242,7 @@ Static Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00133">133</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00134">134</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -266,7 +273,67 @@ Static Protected Attributes</h2></td></tr>
 <p>Return the pin debounce time. </p>
 <dl class="section return"><dt>Returns</dt><dd>The number of milliseconds of debounce time. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00178">178</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00179">179</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+
+</div>
+</div>
+<a id="a804374bda0b5a8ee1116c29cbfa3aadc" name="a804374bda0b5a8ee1116c29cbfa3aadc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a804374bda0b5a8ee1116c29cbfa3aadc">&#9670;&#160;</a></span>heldTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static uint16_t able::DebouncedPin::heldTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the pin held time. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of milliseconds after which a pin is held. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00188">188</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+
+</div>
+</div>
+<a id="ad078a319a985a11370525affcb5cebeb" name="ad078a319a985a11370525affcb5cebeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad078a319a985a11370525affcb5cebeb">&#9670;&#160;</a></span>idleTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static uint32_t able::DebouncedPin::idleTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the pin idle time. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of milliseconds after which a pin is idle. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00197">197</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -326,7 +393,7 @@ Static Protected Attributes</h2></td></tr>
 <p>Debounce the pin readings to get a stable state of the pin. </p>
 <p >In order to save memory, virtual functions are <em>not</em> used (which can consume almost 1K of memory to deal with). Runtime polymorphism is not required, so avoiding virtual functions saves memory. </p>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00154">154</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00155">155</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -358,12 +425,12 @@ Static Protected Attributes</h2></td></tr>
 <p >Pins may read noise as buttons are pressed and released. This noise can be registered as multiple button presses in a short time period, confusing your program. The debounce time is the number of milliseconds to wait when a reading changes before using that reading. See <a href="https://docs.arduino.cc/built-in-examples/digital/Debounce">https://docs.arduino.cc/built-in-examples/digital/Debounce</a> for details on debounce.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">debounceTime</td><td>The number of milliseconds before a button state change is returned (max 255ms). </td></tr>
+    <tr><td class="paramname">debounceTime</td><td>The number of milliseconds before a button state change is returned (default 50ms, max 255ms). </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00097">97</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00098">98</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -395,17 +462,17 @@ Static Protected Attributes</h2></td></tr>
 <p >If a button is pressed for longer than this time, it will be held.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">heldTime</td><td>The number of milliseconds for a held state. </td></tr>
+    <tr><td class="paramname">heldTime</td><td>The number of milliseconds for a held state (default 1s). </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00107">107</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00108">108</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
-<a id="aabf0cb4d7fa0f959d5b0e9496fc400a2" name="aabf0cb4d7fa0f959d5b0e9496fc400a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aabf0cb4d7fa0f959d5b0e9496fc400a2">&#9670;&#160;</a></span>setIdleTime()</h2>
+<a id="aae7831657b3879176885558b7b0ac72b" name="aae7831657b3879176885558b7b0ac72b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae7831657b3879176885558b7b0ac72b">&#9670;&#160;</a></span>setIdleTime()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -416,7 +483,7 @@ Static Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">static void able::DebouncedPin::setIdleTime </td>
           <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramtype">uint32_t&#160;</td>
           <td class="paramname"><em>idleTime</em></td><td>)</td>
           <td></td>
         </tr>
@@ -429,15 +496,15 @@ Static Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Set the idle time for input pins. </p>
-<p >If a button is unpressed for longer than this time, it will be held.</p>
+<p >If a button is unpressed for longer than this time, it will be idle.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">idleTime</td><td>The number of milliseconds for an idle state. </td></tr>
+    <tr><td class="paramname">idleTime</td><td>The number of milliseconds for an idle state (default 60s). </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00117">117</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00118">118</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -516,7 +583,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Time required to debounce all input pins. </p>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00186">186</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00205">205</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -542,7 +609,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Time required for button to be held. </p>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00187">187</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00206">206</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -568,7 +635,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Time required for button to be idle. </p>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00188">188</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00207">207</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -594,7 +661,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Debounce start timer to handle button transition. </p>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00191">191</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00210">210</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -646,7 +713,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>The previous pin reading, to monitor state transitions. </p>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00190">190</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00209">209</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>

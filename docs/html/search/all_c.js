@@ -6,8 +6,9 @@ var searchData=
   ['pins_2eh_3',['Pins.h',['../_pins_8h.html',1,'']]],
   ['pressed_2ecpp_4',['Pressed.cpp',['../_pressed_8cpp.html',1,'']]],
   ['pressed_5fevent_5',['PRESSED_EVENT',['../classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9a5d92b52ea719735a1c019dff620bd307',1,'able::CallbackButton']]],
-  ['prevreading_5f_6',['prevReading_',['../classable_1_1_debounced_pin.html#a045efdc6b3718d280cd986feeb97caa0',1,'able::DebouncedPin']]],
-  ['prevstate_5f_7',['prevState_',['../classable_1_1_clicker_pin.html#a656eaee430ae34983091cf0d5bc509e2',1,'able::ClickerPin']]],
-  ['pulldownresistorcircuit_8',['PulldownResistorCircuit',['../classable_1_1_pulldown_resistor_circuit.html',1,'able']]],
-  ['pullupresistorcircuit_9',['PullupResistorCircuit',['../classable_1_1_pullup_resistor_circuit.html',1,'able']]]
+  ['prevmillis_5f_6',['prevMillis_',['../classable_1_1_double_clicker_pin.html#a75e737320c386a722008a3843a6e7f2e',1,'able::DoubleClickerPin']]],
+  ['prevreading_5f_7',['prevReading_',['../classable_1_1_debounced_pin.html#a045efdc6b3718d280cd986feeb97caa0',1,'able::DebouncedPin']]],
+  ['prevstate_5f_8',['prevState_',['../classable_1_1_clicker_pin.html#a656eaee430ae34983091cf0d5bc509e2',1,'able::ClickerPin']]],
+  ['pulldownresistorcircuit_9',['PulldownResistorCircuit',['../classable_1_1_pulldown_resistor_circuit.html',1,'able']]],
+  ['pullupresistorcircuit_10',['PullupResistorCircuit',['../classable_1_1_pullup_resistor_circuit.html',1,'able']]]
 ];
