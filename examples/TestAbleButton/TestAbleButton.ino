@@ -93,7 +93,7 @@ void loop() {
 #endif
 
   checkButtonListIntegrity(); // Check ButtonList::any* and ButtonList::all* states...
-  for(char i = 0; i < NUM_BUTTONS; ++i) {
+  for(int i = 0; i < NUM_BUTTONS; ++i) {
     displayButton(btns[i], btnState[i], i);
     checkButtonIntegrity(btns[i], btnState[i]);
 
