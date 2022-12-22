@@ -310,6 +310,20 @@ namespace able {
       DoubleClickerPin(const DoubleClickerPin &cpy) = delete; ///< Copying pins is not supported.
       DoubleClickerPin &operator=(const DoubleClickerPin &) = delete; ///< Assigning pins is not supported.
 
+    public:
+      //
+      // Accessors...
+      //
+
+      /**
+       * Return the double-click time.
+       * 
+       * @returns The number of milliseconds of debounce time. 
+       */
+      static inline uint16_t clickTime() {
+        return clickTime_ * 2; // Double the clickTime_ to match halving in setClickTime.
+      }
+
     protected:
       //
       // Modifiers...
