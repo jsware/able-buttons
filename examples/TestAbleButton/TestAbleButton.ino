@@ -1,19 +1,21 @@
 /**
  * @file TestAbleButton.ino Test the Arduino Button Library Extension (ABLE).
- * This program will periodically output "Looping..." to the Serial port. As you
- * press buttons connected to pins 2 and 3 it will assert the button settings
- * in the callback fuctions and in the main loop.
+ * This program will periodically output "Looking OK..." to the Serial port. As
+ * you press buttons connected to pins 2 and 3 it will assert the button
+ * settings in the callback fuctions and in the main loop.
  * 
  * The TestAbleButton program is split (by design) into multiple files to ensure
- * ABLE works in multi-module programs. A common TestAbleButton.h header file
+ * AbleButtons works in multi-module programs. A common Config.h header file
  * declares common elements shared across these modules.
  * 
  * @copyright Copyright (c) 2022 John Scott
  */
-#include "TestAbleButton.h"
+#include "Config.h"
+#include "Checks.h"
+#include "Utils.h"
 
-#define NUM_BUTTONS 2
 #if TESTABLE_CALLBACK
+#include "Callback.h"
 Button btnA(BUTTON_A_PIN, onEvent); ///< Button A
 Button btnB(BUTTON_B_PIN, onEvent); ///< Button B
 #else
@@ -29,7 +31,7 @@ Button *btns[NUM_BUTTONS] = {
 ButtonList btnList(btns); ///< List of buttons.
 bool led = false; ///< State of the builtin LED.
 
-struct ButtonState btnState[NUM_BUTTONS]; // Previous state for each button.
+void displayButtonChanges(Button *btn, ButtonState &state, int index);
 
 /**
  * Setup the PushBtn example. Called once to initialise everything.
@@ -44,20 +46,24 @@ void setup() {
   assert(Button::heldTime() == 2500);
   Button::setIdleTime(5000);
   assert(Button::idleTime() == 5000);
-  
+
+# if TESTABLE_CLASS >= TESTABLE_DOUBLECLICKER
+    Button::setClickTime(750);
+    assert(Button::clickTime() == 750);
+# endif
+
   btnList.begin(); // Begin buttons in the list (sets pin mode etc).
 
-  checkButtonListSetup(); // Check ButtonList setup OK.
   for(int i = 0; i < NUM_BUTTONS; ++i) {
     checkButtonSetup(btns[i]); // Check each button setup OK.
   }
+  checkButtonListIntegrity(); // Check ButtonList setup OK.
 }
 
 /**
  * Control TestAbleButton. Called repeatedly in a loop.
  */
 void loop() {
-  static ButtonState btnState[NUM_BUTTONS];
   static unsigned long ms = millis(); ///< Timer to preiodically print OK message.
 
   if(millis() - ms > 5000) {
@@ -76,39 +82,45 @@ void loop() {
 #endif
   digitalWrite(LED_BUILTIN, led); // Update the LED.
 
-#if TESTABLE_CALLBACK
-  // Check state when button pressed event.
-  if(pressedBtn) {
-    checkButtonJustPressed(pressedBtn);
-    checkButtonListJustPressed(pressedBtn);
-    pressedBtn = nullptr; // Clear most recent release callback signal.
-  }
-
-  // Check state when button released event.
-  if(releasedBtn) {
-    checkButtonJustReleased(releasedBtn);
-    checkButtonListJustReleased(releasedBtn);
-    releasedBtn = nullptr; // Clear most recent release callback signal.
-  }
-#endif
-
   checkButtonListIntegrity(); // Check ButtonList::any* and ButtonList::all* states...
-  for(int i = 0; i < NUM_BUTTONS; ++i) {
-    displayButton(btns[i], btnState[i], i);
-    checkButtonIntegrity(btns[i], btnState[i]);
 
-    // Save button state for next loop.
-    btnState[i].isPressed = btns[i]->isPressed();
-    btnState[i].isHeld = btns[i]->isHeld();
-    btnState[i].isIdle = btns[i]->isIdle();
-    btnState[i].isClicked = btns[i]->isClicked();
-#   if TESTABLE_CLASS >= TESTABLE_CLICKER
-      btnState[i].isClicked = btns[i]->isClicked();
+  for(int i = 0; i < NUM_BUTTONS; ++i) {
+    Button *btn = btns[i];
+    ButtonState &state(btnState[i]);
+
+    displayButtonChanges(btn, state, i);
+    checkButtonIntegrity(btn, state);
+
+#   if TESTABLE_CALLBACK
+      // Check state when button pressed event.
+      if(state.wasPressed) {
+        checkButtonJustPressed(btn);
+        state.wasPressed = false; // Clear most recent callback signal.
+      }
+
+      // Check state when button released event.
+      if(state.wasReleased) {
+        checkButtonJustReleased(btn);
+        state.wasReleased = false; // Clear most recent callback signal.
+      }
+
+      // Check state when button held event.
+      if(state.wasHeld) {
+        checkButtonJustHeld(btn);
+        state.wasHeld = false; // Clear most recent callback signal.
+      }
+
+      // Check state when button idle event.
+      if(state.wasIdle) {
+        checkButtonJustIdle(btn);
+        state.wasIdle = false; // Clear most recent release callback signal.
+      }
 #   endif
-#   if TESTABLE_CLASS >= TESTABLE_DOUBLECLICKER
-      btnState[i].isDoubleClicked = btns[i]->isDoubleClicked();
-#   endif
+
+    checkButtonListIntegrity();
   }
+
+  saveButtonStates(); // Save button states for the next loop.
 
   // Reset clicks/double-clicks and check.
 # if TESTABLE_CLASS >= TESTABLE_CLICKER
@@ -121,5 +133,48 @@ void loop() {
     assert(btnList.anyDoubleClicked() == btnList.resetDoubleClicked());
     assert(btnList.anyDoubleClicked() == false);
     checkButtonListIntegrity();
+# endif
+}
+
+
+/**
+ * Display button changes to Serial.
+ * 
+ * @param btn The button to display.
+ * @param state The last state of the button to track changes.
+ * @param index The array index of the button state (for output purposes).
+ */
+void displayButtonChanges(Button *btn, ButtonState &state, int index) {
+  // Basic checks...
+  if(btn->isPressed()) {
+    if(!state.isPressed) {
+      Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") pressed") << endl;
+    }
+  } else {
+    if(state.isPressed) {
+      Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") released") << endl;
+    }
+  }
+
+  if(!state.isHeld && btn->isHeld()) {
+    Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") held") << endl;
+  }
+
+  if(!state.isIdle && btn->isIdle()) {
+    Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") idle") << endl;
+  }
+
+  // Clickable checks...
+# if TESTABLE_CLASS >= TESTABLE_CLICKER
+    if(!state.isClicked && btn->isClicked()) {
+      Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") clicked") << endl;
+    }
+# endif
+
+  // Double clicker checks...
+# if TESTABLE_CLASS >= TESTABLE_DOUBLECLICKER
+    if(!state.isDoubleClicked && btn->isDoubleClicked()) {
+      Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") double-clicked") << endl;
+    }
 # endif
 }

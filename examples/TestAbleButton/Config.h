@@ -5,6 +5,14 @@
  * @copyright Copyright (c) 2022 John Scott
  */
 #pragma once
+#include <AbleButtons.h>
+
+//
+// Change these values based on pin connections...
+//
+#define NUM_BUTTONS 2 ///< The number of buttons to connect for testing.
+#define BUTTON_A_PIN 2 ///< Connect first button between this pin and ground.
+#define BUTTON_B_PIN 3 ///< Connect second button between this pin and ground.
 
 //
 // Change these values to test different combinations...
@@ -112,3 +120,14 @@
 # define TESTABLE_USING_BUTTON Unsupported
 # define TESTABLE_USING_BUTTONLIST Unsupported
 #endif /* TESTABLE_CIRCUIT */
+
+using Button = TESTABLE_USING_BUTTON; ///< Using the button defined by the circuit, callback and class.
+using ButtonList = TESTABLE_USING_BUTTONLIST; ///< Using the button list defined by the circuit, callback and class.
+
+//
+// Definitions of global variables...
+//
+extern Button btnA; ///< Button A
+extern Button btnB; ///< Button B
+extern Button *btns[]; ///< Array of buttons A and B
+extern ButtonList btnList; ///< Declaration of button list.
