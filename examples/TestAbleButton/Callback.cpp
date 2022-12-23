@@ -12,70 +12,6 @@
 
 #if TESTABLE_CALLBACK
   /**
-   * Callback function for button pressed.
-   * 
-   * @param btn The button generaing the event.
-   */
-  void onPressed(Button *btn) {
-    if(btn) {
-      checkButtonJustPressed(btn);
-    } else {
-      assert(btn != 0);
-    }
-
-    checkButtonListIntegrity();
-  }
-
-
-  /**
-   * Callback function for button held.
-   * 
-   * @param btn The button generaing the event.
-   */
-  void onHeld(Button *btn) {
-    if(btn) {
-      checkButtonJustHeld(btn);
-    } else {
-      assert(btn != 0);
-    }
-
-    checkButtonListIntegrity();
-  }
-
-
-  /**
-   * Callback function for button released.
-   * 
-   * @param btn The button generaing the event.
-   */
-  void onReleased(Button *btn) {
-    if(btn) {
-      checkButtonJustReleased(btn);
-    } else {
-      assert(btn != 0);
-    }
-
-    checkButtonListIntegrity();
-  }
-
-
-  /**
-   * Callback function for button idle.
-   * 
-   * @param btn The button generaing the event.
-   */
-  void onIdle(Button *btn) {
-    if(btn) {
-      checkButtonJustIdle(btn);
-    } else {
-      assert(btn != 0);
-    }
-
-    checkButtonListIntegrity();
-  }
-
-
-  /**
    * Callback function for button events.
    * 
    * @param event The event that has occured.
@@ -98,7 +34,7 @@
         assert(btnState[i].wasStarted);
       }
 
-      onPressed(btn);
+      checkButtonJustPressed(btn);
       state.wasPressed = true;
     } else if(event == Button::RELEASED_EVENT) {
       Serial << F("Event RELEASED_EVENT (") << event << F(") for id ") << id << endl;
@@ -107,7 +43,7 @@
         assert(btnState[i].wasStarted);
       }
 
-      onReleased(btn);
+      checkButtonJustReleased(btn);
       state.wasReleased = true;
     } else if(event == Button::HELD_EVENT) {
       Serial << F("Event HELD_EVENT (") << event << F(") for id ") << id << endl;
@@ -116,7 +52,7 @@
         assert(btnState[i].wasStarted);
       }
 
-      onHeld(btn);
+      checkButtonJustHeld(btn);
       state.wasHeld = true;
     } else if(event == Button::IDLE_EVENT) {
       Serial << F("Event IDLE_EVENT (") << event << F(") for id ") << id << endl;
@@ -125,7 +61,7 @@
         assert(btnState[i].wasStarted);
       }
 
-      onIdle(btn);
+      checkButtonJustIdle(btn);
       state.wasIdle = true;
     } else {
       Serial << F("ERROR: Event UNKNOWN (") << event << F(") for id ") << id << endl;

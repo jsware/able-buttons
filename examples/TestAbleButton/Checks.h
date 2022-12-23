@@ -42,7 +42,7 @@ void checkButtonJustIdle(Button *btn);
 void checkButtonJustClicked(Button *btn);
 void checkButtonJustDoubleClicked(Button *btn);
 void checkButtonIntegrity(Button *btn, ButtonState &state);
-void saveButtonStates();
+void displayButtonChanges(int index);
 
 //
 // Definitions of ButtonList checks...

@@ -31,8 +31,6 @@ Button *btns[NUM_BUTTONS] = {
 ButtonList btnList(btns); ///< List of buttons.
 bool led = false; ///< State of the builtin LED.
 
-void displayButtonChanges(Button *btn, ButtonState &state, int index);
-
 /**
  * Setup the PushBtn example. Called once to initialise everything.
  */
@@ -88,7 +86,6 @@ void loop() {
     Button *btn = btns[i];
     ButtonState &state(btnState[i]);
 
-    displayButtonChanges(btn, state, i);
     checkButtonIntegrity(btn, state);
 
 #   if TESTABLE_CALLBACK
@@ -118,9 +115,8 @@ void loop() {
 #   endif
 
     checkButtonListIntegrity();
+    displayButtonChanges(i);
   }
-
-  saveButtonStates(); // Save button states for the next loop.
 
   // Reset clicks/double-clicks and check.
 # if TESTABLE_CLASS >= TESTABLE_CLICKER
@@ -133,48 +129,5 @@ void loop() {
     assert(btnList.anyDoubleClicked() == btnList.resetDoubleClicked());
     assert(btnList.anyDoubleClicked() == false);
     checkButtonListIntegrity();
-# endif
-}
-
-
-/**
- * Display button changes to Serial.
- * 
- * @param btn The button to display.
- * @param state The last state of the button to track changes.
- * @param index The array index of the button state (for output purposes).
- */
-void displayButtonChanges(Button *btn, ButtonState &state, int index) {
-  // Basic checks...
-  if(btn->isPressed()) {
-    if(!state.isPressed) {
-      Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") pressed") << endl;
-    }
-  } else {
-    if(state.isPressed) {
-      Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") released") << endl;
-    }
-  }
-
-  if(!state.isHeld && btn->isHeld()) {
-    Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") held") << endl;
-  }
-
-  if(!state.isIdle && btn->isIdle()) {
-    Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") idle") << endl;
-  }
-
-  // Clickable checks...
-# if TESTABLE_CLASS >= TESTABLE_CLICKER
-    if(!state.isClicked && btn->isClicked()) {
-      Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") clicked") << endl;
-    }
-# endif
-
-  // Double clicker checks...
-# if TESTABLE_CLASS >= TESTABLE_DOUBLECLICKER
-    if(!state.isDoubleClicked && btn->isDoubleClicked()) {
-      Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") double-clicked") << endl;
-    }
 # endif
 }

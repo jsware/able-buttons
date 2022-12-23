@@ -234,8 +234,19 @@ void checkButtonIntegrity(Button *btn, ButtonState &state) {
 void checkButtonListIntegrity() {
   // ButtonList::all*() accessors...
   assert(btnList.allPressed() == (btnA.isPressed() && btnB.isPressed()));
-  assert(btnList.allHeld() == (btnA.isHeld() && btnB.isHeld()));
-  assert(btnList.allIdle() == (btnA.isIdle() && btnB.isIdle()));
+
+  // Because isHeld and isIdle use millis() timings, the state can change whilst
+  // checking ButtonList::allHeld/Idle and each Button:isHeld/Idle. So checking
+  // each twice ensures if the first check is false, it tries once more. Only if
+  // both comparisons are false means we have a problem...
+  assert(
+    (btnList.allHeld() == (btnA.isHeld() && btnB.isHeld())) ||
+    ((btnA.isHeld() && btnB.isHeld()) == btnList.allHeld())
+  );
+  assert(
+    (btnList.allIdle() == (btnA.isIdle() && btnB.isIdle())) ||
+    ((btnA.isIdle() && btnB.isIdle()) == btnList.allIdle())
+  );
 
 # if TESTABLE_CLASS >= TESTABLE_CLICKER
     assert(btnList.allClicked() == (btnA.isClicked() && btnB.isClicked()));
@@ -261,18 +272,68 @@ void checkButtonListIntegrity() {
 
 
 /**
- * Save the button state for the next loop. 
+ * Display button changes to Serial.
+ * 
+ * @param index Which button in the button list to check.
  */
-void saveButtonStates() {
-  for(int i = 0; i < NUM_BUTTONS; ++i) {
-    btnState[i].isPressed = btns[i]->isPressed();
-    btnState[i].isHeld = btns[i]->isHeld();
-    btnState[i].isIdle = btns[i]->isIdle();
-#   if TESTABLE_CLASS >= TESTABLE_CLICKER
-      btnState[i].isClicked = btns[i]->isClicked();
-#   endif
-#   if TESTABLE_CLASS >= TESTABLE_DOUBLECLICKER
-      btnState[i].isDoubleClicked = btns[i]->isDoubleClicked();
-#   endif
+void displayButtonChanges(int index) {
+  Button *btn = btns[index];
+  ButtonState &state(btnState[index]);
+
+  // Basic checks...
+  if(btn->isPressed()) {
+    if(!state.isPressed) {
+      Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") pressed") << endl;
+    }
+    state.isPressed = true;
+  } else {
+    if(state.isPressed) {
+      Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") released") << endl;
+    }
+    state.isPressed = false;
   }
+
+  if(btn->isHeld()) {
+    if(!state.isHeld) {
+      Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") held") << endl;
+    }
+    state.isHeld = true;
+  } else {
+    if(state.isHeld) {
+      Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") un-held") << endl;
+    }
+    state.isHeld = false;
+  }
+
+  if(btn->isIdle()) {
+    if(!state.isIdle) {
+      Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") idle") << endl;
+    }
+    state.isIdle = true;
+  } else {
+    if(state.isIdle) {
+      Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") un-idle") << endl;
+    }
+    state.isIdle = false;
+  }
+
+  // Clickable checks...
+# if TESTABLE_CLASS >= TESTABLE_CLICKER
+    if(!state.isClicked && btn->isClicked()) {
+      Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") clicked") << endl;
+      state.isClicked = true;
+    } else if(state.isClicked) {
+      state.isClicked = false;
+    }
+# endif
+
+  // Double clicker checks...
+# if TESTABLE_CLASS >= TESTABLE_DOUBLECLICKER
+    if(!state.isDoubleClicked && btn->isDoubleClicked()) {
+      Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") double-clicked") << endl;
+      state.isDoubleClicked = true;
+    } else {
+      state.isDoubleClicked = false;
+    }
+# endif
 }
