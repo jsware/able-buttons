@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['millisstart_5f_0',['millisStart_',['../classable_1_1_debounced_pin.html#a34e42859f6f6901a927e05dc6ecd404d',1,'able::DebouncedPin']]]
+  ['nextid_0',['nextId',['../classable_1_1_pin.html#ad600fe87414987bf74b6c2602478f05d',1,'able::Pin']]],
+  ['num_5fbuttons_1',['NUM_BUTTONS',['../_config_8h.html#a45add6b39f5b0c0137de978b90e26b5d',1,'Config.h']]]
 ];

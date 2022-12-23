@@ -128,9 +128,12 @@ $(document).ready(function(){initNavTree('classable_1_1_double_clicker_pin.html'
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:af8db4fad5ffdce4c5803fbe4052ed78c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_double_clicker_pin.html#af8db4fad5ffdce4c5803fbe4052ed78c">setClickTime</a> (uint16_t clickTime)</td></tr>
+<tr class="memitem:af8db4fad5ffdce4c5803fbe4052ed78c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_double_clicker_pin.html#af8db4fad5ffdce4c5803fbe4052ed78c">setClickTime</a> (uint16_t <a class="el" href="classable_1_1_double_clicker_pin.html#af8985211ef3bc70a2fc5f3da8bbd50dc">clickTime</a>)</td></tr>
 <tr class="memdesc:af8db4fad5ffdce4c5803fbe4052ed78c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the click time for input pins.  <a href="classable_1_1_double_clicker_pin.html#af8db4fad5ffdce4c5803fbe4052ed78c">More...</a><br /></td></tr>
 <tr class="separator:af8db4fad5ffdce4c5803fbe4052ed78c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8985211ef3bc70a2fc5f3da8bbd50dc"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_double_clicker_pin.html#af8985211ef3bc70a2fc5f3da8bbd50dc">clickTime</a> ()</td></tr>
+<tr class="memdesc:af8985211ef3bc70a2fc5f3da8bbd50dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the double-click time.  <a href="classable_1_1_double_clicker_pin.html#af8985211ef3bc70a2fc5f3da8bbd50dc">More...</a><br /></td></tr>
+<tr class="separator:af8985211ef3bc70a2fc5f3da8bbd50dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a504cf37c150a36c01ad7cc65bbdde4f0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_debounced_pin.html#a504cf37c150a36c01ad7cc65bbdde4f0">setDebounceTime</a> (uint8_t <a class="el" href="classable_1_1_debounced_pin.html#a706abb6220ce6ecbb7fb77f1ec614bfc">debounceTime</a>)</td></tr>
 <tr class="memdesc:a504cf37c150a36c01ad7cc65bbdde4f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the debounce time for input pins.  <a href="classable_1_1_debounced_pin.html#a504cf37c150a36c01ad7cc65bbdde4f0">More...</a><br /></td></tr>
 <tr class="separator:a504cf37c150a36c01ad7cc65bbdde4f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -262,6 +265,36 @@ Static Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="af8985211ef3bc70a2fc5f3da8bbd50dc" name="af8985211ef3bc70a2fc5f3da8bbd50dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8985211ef3bc70a2fc5f3da8bbd50dc">&#9670;&#160;</a></span>clickTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static uint16_t able::DoubleClickerPin::clickTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the double-click time. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of milliseconds of debounce time. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00323">323</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+
+</div>
+</div>
 <a id="a706abb6220ce6ecbb7fb77f1ec614bfc" name="a706abb6220ce6ecbb7fb77f1ec614bfc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a706abb6220ce6ecbb7fb77f1ec614bfc">&#9670;&#160;</a></span>debounceTime()</h2>
 
@@ -408,7 +441,7 @@ Static Protected Attributes</h2></td></tr>
 <p>Debounce the pin readings to get a stable state of the pin. </p>
 <p >When the state changes, remember the previous state so clicks (press then release can be identified). Calls <a class="el" href="classable_1_1_debounced_pin.html#a2dd4ea473f2e5c0a3909b2ebad3e3628" title="Debounce the pin readings to get a stable state of the pin.">DebouncedPin::readPin()</a> and monitors for a change in debounced state, remembering the previous state. </p>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00324">324</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00338">338</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -609,7 +642,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Time required for button to be double-clicked. </p>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00347">347</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00361">361</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -791,7 +824,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Previous millisecond count from last state change. </p>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00350">350</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00364">364</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -869,7 +902,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Count changes in state within double-click time. </p>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00349">349</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00363">363</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>

@@ -11,5 +11,6 @@ var annotated_dup =
       [ "Pin", "classable_1_1_pin.html", "classable_1_1_pin" ],
       [ "PulldownResistorCircuit", "classable_1_1_pulldown_resistor_circuit.html", null ],
       [ "PullupResistorCircuit", "classable_1_1_pullup_resistor_circuit.html", null ]
-    ] ]
+    ] ],
+    [ "ButtonState", "struct_button_state.html", "struct_button_state" ]
 ];

@@ -1,6 +1,7 @@
 var hierarchy =
 [
     [ "able::ButtonList< Button >", "classable_1_1_button_list.html", null ],
+    [ "ButtonState", "struct_button_state.html", null ],
     [ "able::Circuit", "classable_1_1_circuit.html", [
       [ "able::PulldownResistorCircuit", "classable_1_1_pulldown_resistor_circuit.html", null ],
       [ "able::PullupResistorCircuit", "classable_1_1_pullup_resistor_circuit.html", null ]

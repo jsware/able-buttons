@@ -1,14 +1,7 @@
 var searchData=
 [
-  ['pin_0',['Pin',['../classable_1_1_pin.html',1,'able::Pin'],['../classable_1_1_pin.html#a5c270736b6c4bcce46a86effc434bc4c',1,'able::Pin::Pin(uint8_t pin, uint8_t initState)']]],
-  ['pin_5f_1',['pin_',['../classable_1_1_pin.html#a3fd6ae0c9f8638e66d44513db30f0f45',1,'able::Pin']]],
-  ['pins_2ecpp_2',['Pins.cpp',['../_pins_8cpp.html',1,'']]],
-  ['pins_2eh_3',['Pins.h',['../_pins_8h.html',1,'']]],
-  ['pressed_2ecpp_4',['Pressed.cpp',['../_pressed_8cpp.html',1,'']]],
-  ['pressed_5fevent_5',['PRESSED_EVENT',['../classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9a5d92b52ea719735a1c019dff620bd307',1,'able::CallbackButton']]],
-  ['prevmillis_5f_6',['prevMillis_',['../classable_1_1_double_clicker_pin.html#a75e737320c386a722008a3843a6e7f2e',1,'able::DoubleClickerPin']]],
-  ['prevreading_5f_7',['prevReading_',['../classable_1_1_debounced_pin.html#a045efdc6b3718d280cd986feeb97caa0',1,'able::DebouncedPin']]],
-  ['prevstate_5f_8',['prevState_',['../classable_1_1_clicker_pin.html#a656eaee430ae34983091cf0d5bc509e2',1,'able::ClickerPin']]],
-  ['pulldownresistorcircuit_9',['PulldownResistorCircuit',['../classable_1_1_pulldown_resistor_circuit.html',1,'able']]],
-  ['pullupresistorcircuit_10',['PullupResistorCircuit',['../classable_1_1_pullup_resistor_circuit.html',1,'able']]]
+  ['readpin_0',['readPin',['../classable_1_1_pin.html#a736e530cb6cc3c536a2fc4ba36f5d966',1,'able::Pin::readPin()'],['../classable_1_1_debounced_pin.html#a2dd4ea473f2e5c0a3909b2ebad3e3628',1,'able::DebouncedPin::readPin()'],['../classable_1_1_clicker_pin.html#a1f81c00371c0898781fa2dcd334ca604',1,'able::ClickerPin::readPin()'],['../classable_1_1_double_clicker_pin.html#a9ee8b0bf872884dcbbe0686c9e9ba5e9',1,'able::DoubleClickerPin::readPin()']]],
+  ['released_5fevent_1',['RELEASED_EVENT',['../classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9ac4ac4fc9518ae512e37b043cc3967bee',1,'able::CallbackButton']]],
+  ['resetclicked_2',['resetClicked',['../classable_1_1_button.html#a7a67d1efc4ccd4700263f1f83ecb9cd8',1,'able::Button::resetClicked()'],['../classable_1_1_button_list.html#a971170ffe9f785f757c3a3c44f2a2f64',1,'able::ButtonList::resetClicked()']]],
+  ['resetdoubleclicked_3',['resetDoubleClicked',['../classable_1_1_button.html#a5e2e390b6957225ec99a57f7edf3d7e8',1,'able::Button::resetDoubleClicked()'],['../classable_1_1_button_list.html#a3824a62eef500200bd0158ff0ba4f75a',1,'able::ButtonList::resetDoubleClicked()']]]
 ];

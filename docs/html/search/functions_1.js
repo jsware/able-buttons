@@ -1,13 +1,8 @@
 var searchData=
 [
-  ['allclicked_0',['allClicked',['../classable_1_1_button_list.html#ace487df020849dec74b45257f74e57b2',1,'able::ButtonList']]],
-  ['alldoubleclicked_1',['allDoubleClicked',['../classable_1_1_button_list.html#a2dc93e5b536df1c594134ebc2393119c',1,'able::ButtonList']]],
-  ['allheld_2',['allHeld',['../classable_1_1_button_list.html#a5aac066edd4c5c56fcc3f4e22fd82759',1,'able::ButtonList']]],
-  ['allidle_3',['allIdle',['../classable_1_1_button_list.html#ac38e68396ecdde95c9a5904fc0532b81',1,'able::ButtonList']]],
-  ['allpressed_4',['allPressed',['../classable_1_1_button_list.html#a390aa96240516ad92176d6c9516e5e4c',1,'able::ButtonList']]],
-  ['anyclicked_5',['anyClicked',['../classable_1_1_button_list.html#a7e8650907f8b91fa4d5dc50be499ff0d',1,'able::ButtonList']]],
-  ['anydoubleclicked_6',['anyDoubleClicked',['../classable_1_1_button_list.html#a5aeeea98591063d172309572a98f0aff',1,'able::ButtonList']]],
-  ['anyheld_7',['anyHeld',['../classable_1_1_button_list.html#a528b6e655f66e34ac51fa327363402da',1,'able::ButtonList']]],
-  ['anyidle_8',['anyIdle',['../classable_1_1_button_list.html#ab15a3c6fd7f7a38e599319e5b87a52d9',1,'able::ButtonList']]],
-  ['anypressed_9',['anyPressed',['../classable_1_1_button_list.html#a96577e7371ebc2c6f6247358718aa56d',1,'able::ButtonList']]]
+  ['begin_0',['begin',['../classable_1_1_button.html#a070c4bacf8e732147d70888cde2e162c',1,'able::Button::begin()'],['../classable_1_1_button_list.html#aea1b30048be505cb60e803539b4b46bb',1,'able::ButtonList::begin()'],['../classable_1_1_callback_button.html#af225fbf706c3733bf375868d71fc341f',1,'able::CallbackButton::begin()']]],
+  ['button_1',['Button',['../classable_1_1_button.html#aeb78589242174f3b14541d3e4bdc5d7d',1,'able::Button']]],
+  ['button_2',['button',['../classable_1_1_button_list.html#a8f9deaddaefb298adbcab518781dfb35',1,'able::ButtonList']]],
+  ['buttonablecallback_3',['buttonableCallback',['../_buttonable_callback_8ino.html#ae10f0e256b6bfa9c21f77776631b65c6',1,'ButtonableCallback.ino']]],
+  ['buttonlist_4',['ButtonList',['../classable_1_1_button_list.html#aebe7a97df38f4fca9d484a5c93dd76f5',1,'able::ButtonList::ButtonList(Button *(&amp;buttons)[n])'],['../classable_1_1_button_list.html#ad13dd9dce010b0bb954c096d0bf01772',1,'able::ButtonList::ButtonList(Button **buttons, size_t len)']]]
 ];

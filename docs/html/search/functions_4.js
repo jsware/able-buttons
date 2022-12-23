@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['debouncedpin_0',['DebouncedPin',['../classable_1_1_debounced_pin.html#aa3aba731f6ceceb186318a88187fc64a',1,'able::DebouncedPin']]],
-  ['debouncetime_1',['debounceTime',['../classable_1_1_debounced_pin.html#a706abb6220ce6ecbb7fb77f1ec614bfc',1,'able::DebouncedPin']]],
-  ['doubleclickerpin_2',['DoubleClickerPin',['../classable_1_1_double_clicker_pin.html#a4735d170e63086c3d92875ca50e1ee26',1,'able::DoubleClickerPin']]]
+  ['handle_0',['handle',['../classable_1_1_button.html#a5ab3ba8f63c4e0b19fd82a60f291203a',1,'able::Button::handle()'],['../classable_1_1_button_list.html#a042199e6601a5370a7c5ef6053850662',1,'able::ButtonList::handle()'],['../classable_1_1_callback_button.html#ad3d1873b82c021c79dc47eb104b7f0dd',1,'able::CallbackButton::handle()']]],
+  ['heldtime_1',['heldTime',['../classable_1_1_debounced_pin.html#a804374bda0b5a8ee1116c29cbfa3aadc',1,'able::DebouncedPin']]],
+  ['holdablecallback_2',['holdableCallback',['../_holdable_callback_8ino.html#a82b873e98f971e702bc89eb9ec9332c5',1,'HoldableCallback.ino']]]
 ];

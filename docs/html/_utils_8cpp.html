@@ -105,51 +105,51 @@ $(document).ready(function(){initNavTree('_utils_8cpp.html',''); initResizable()
 
 <p>TestAbleButton utilities for producing assert failures.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="_test_able_button_8h_source.html">TestAbleButton.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="_utils_8h_source.html">Utils.h</a>&quot;</code><br />
 </div>
 <p><a href="_utils_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:afa7a3b4df18d4c84ed7e70bb0cf8d8b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_utils_8cpp.html#afa7a3b4df18d4c84ed7e70bb0cf8d8b2">__assert</a> (const char *__func, const char *__file, int __lineno, const __FlashStringHelper *__sexp)</td></tr>
-<tr class="memdesc:afa7a3b4df18d4c84ed7e70bb0cf8d8b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assert output function.  <a href="_utils_8cpp.html#afa7a3b4df18d4c84ed7e70bb0cf8d8b2">More...</a><br /></td></tr>
-<tr class="separator:afa7a3b4df18d4c84ed7e70bb0cf8d8b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f57a9bd47f5ccced044715c67dffc62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_utils_8cpp.html#a3f57a9bd47f5ccced044715c67dffc62">assertSerial</a> (const char *func, const char *file, int lineno, const __FlashStringHelper *exp)</td></tr>
+<tr class="memdesc:a3f57a9bd47f5ccced044715c67dffc62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output assertion to Serial when the assertion expression is false.  <a href="_utils_8cpp.html#a3f57a9bd47f5ccced044715c67dffc62">More...</a><br /></td></tr>
+<tr class="separator:a3f57a9bd47f5ccced044715c67dffc62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >TestAbleButton utilities for producing assert failures. </p>
-<p >This module provides an __assert function implementation for the <a class="el" href="_test_able_button_8h.html#ad6d5aaa966ca7424f7cb9bd01f2c838b" title="Macro to assert using FlashStringHelper to reduce memory usage.">assert()</a> calls that fail. This function uses locally defined print-stream &lt;&lt; operators to make it easier to output to the Serial object using C++ style stream output operations. </p>
+<p >This module provides an __assert function implementation for the <a class="el" href="_utils_8h.html#ad6d5aaa966ca7424f7cb9bd01f2c838b" title="Macro to assert using FlashStringHelper to reduce memory usage.">assert()</a> calls that fail. This function uses locally defined print-stream &lt;&lt; operators to make it easier to output to the Serial object using C++ style stream output operations. </p>
 
 <p class="definition">Definition in file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="afa7a3b4df18d4c84ed7e70bb0cf8d8b2" name="afa7a3b4df18d4c84ed7e70bb0cf8d8b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa7a3b4df18d4c84ed7e70bb0cf8d8b2">&#9670;&#160;</a></span>__assert()</h2>
+<a id="a3f57a9bd47f5ccced044715c67dffc62" name="a3f57a9bd47f5ccced044715c67dffc62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f57a9bd47f5ccced044715c67dffc62">&#9670;&#160;</a></span>assertSerial()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void __assert </td>
+          <td class="memname">void assertSerial </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>__func</em>, </td>
+          <td class="paramname"><em>func</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>__file</em>, </td>
+          <td class="paramname"><em>file</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>__lineno</em>, </td>
+          <td class="paramname"><em>lineno</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const __FlashStringHelper *&#160;</td>
-          <td class="paramname"><em>__sexp</em>&#160;</td>
+          <td class="paramname"><em>exp</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -159,19 +159,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Assert output function. </p>
-<p >Outputs an assertion failed message to Serial.</p>
+<p>Output assertion to Serial when the assertion expression is false. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">__func</td><td>The function name where the assertion failed. </td></tr>
-    <tr><td class="paramname">__file</td><td>The file name where the assertion failed. </td></tr>
-    <tr><td class="paramname">__lineno</td><td>The line number in the file where the assertion failed. </td></tr>
-    <tr><td class="paramname">__sexp</td><td>The assertion expression that evaluated to false. </td></tr>
+    <tr><td class="paramname">func</td><td>The <b>func</b> (function) name. </td></tr>
+    <tr><td class="paramname">file</td><td>The <b>FILE</b> name. </td></tr>
+    <tr><td class="paramname">lineno</td><td>The <b>LINE</b> number. </td></tr>
+    <tr><td class="paramname">exp</td><td>The failing assertion expression. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00018">18</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00013">13</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
 
 </div>
 </div>

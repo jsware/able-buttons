@@ -1,10 +1,15 @@
 var searchData=
 [
-  ['setcallback_0',['setCallback',['../classable_1_1_callback_button.html#ad85752457f708c5c4d4fa7e173656778',1,'able::CallbackButton']]],
-  ['setclicktime_1',['setClickTime',['../classable_1_1_double_clicker_pin.html#af8db4fad5ffdce4c5803fbe4052ed78c',1,'able::DoubleClickerPin']]],
-  ['setdebouncetime_2',['setDebounceTime',['../classable_1_1_debounced_pin.html#a504cf37c150a36c01ad7cc65bbdde4f0',1,'able::DebouncedPin']]],
-  ['setheldtime_3',['setHeldTime',['../classable_1_1_debounced_pin.html#aa57495a33fa3323cd5c6be521d1dbfb7',1,'able::DebouncedPin']]],
-  ['setidletime_4',['setIdleTime',['../classable_1_1_debounced_pin.html#aae7831657b3879176885558b7b0ac72b',1,'able::DebouncedPin']]],
-  ['setup_5',['setup',['../_buttonable_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;Buttonable.ino'],['../_buttonable2_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;Buttonable2.ino'],['../_buttonable_all_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;ButtonableAll.ino'],['../_buttonable_callback_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;ButtonableCallback.ino'],['../_debouncable_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;Debouncable.ino'],['../_debouncable_any_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;DebouncableAny.ino'],['../_debouncable_callback_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;DebouncableCallback.ino'],['../_doublable_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;Doublable.ino'],['../_holdable_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;Holdable.ino'],['../_holdable_callback_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;HoldableCallback.ino'],['../_test_able_button_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;TestAbleButton.ino']]],
-  ['statecount_5f_6',['stateCount_',['../classable_1_1_double_clicker_pin.html#abfcdc1421873c2284ff83ffa415e6b3e',1,'able::DoubleClickerPin']]]
+  ['testable_5fbutton_0',['TESTABLE_BUTTON',['../_config_8h.html#a76fa6723108551b45e2a0001f9c81d3c',1,'Config.h']]],
+  ['testable_5fcallback_1',['TESTABLE_CALLBACK',['../_config_8h.html#a53801476c1bc5fef1ee241286ff36b60',1,'Config.h']]],
+  ['testable_5fcircuit_2',['TESTABLE_CIRCUIT',['../_config_8h.html#a62c7f698b0d893157ec9032ea45e9262',1,'Config.h']]],
+  ['testable_5fclass_3',['TESTABLE_CLASS',['../_config_8h.html#acbcc4b1b41dfe954a6b2842fea73d56b',1,'Config.h']]],
+  ['testable_5fclicker_4',['TESTABLE_CLICKER',['../_config_8h.html#a5819bd0b7d3f65ff87cb76412e9055cc',1,'Config.h']]],
+  ['testable_5fdirect_5',['TESTABLE_DIRECT',['../_config_8h.html#affb1b8e08d7be8d800f9f46735e8699d',1,'Config.h']]],
+  ['testable_5fdoubleclicker_6',['TESTABLE_DOUBLECLICKER',['../_config_8h.html#a41f3a09ba740619f8ea076dd2aed398f',1,'Config.h']]],
+  ['testable_5fpulldown_7',['TESTABLE_PULLDOWN',['../_config_8h.html#ada8b6b041c83e4479d817e83240292c6',1,'Config.h']]],
+  ['testable_5fpullup_8',['TESTABLE_PULLUP',['../_config_8h.html#a034912f28ddcbc0b29eaf56349bd61cd',1,'Config.h']]],
+  ['testable_5fusing_5fbutton_9',['TESTABLE_USING_BUTTON',['../_config_8h.html#ab48d3be973709a7a807d30a6dd030da6',1,'Config.h']]],
+  ['testable_5fusing_5fbuttonlist_10',['TESTABLE_USING_BUTTONLIST',['../_config_8h.html#a2dc5f40ab9c8e187708b2122a16057d5',1,'Config.h']]],
+  ['testablebutton_2eino_11',['TestAbleButton.ino',['../_test_able_button_8ino.html',1,'']]]
 ];
