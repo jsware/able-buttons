@@ -17,8 +17,11 @@ struct ButtonState btnState[NUM_BUTTONS]; ///< Previous state for each button.
 void checkButtonSetup(Button *btn) {
   // Given the button, when first setup, then it...
   assert(btn->isPressed() == false); // ...is not pressed.
-  assert(btn->isHeld() == false); // ...is not held.
-  assert(btn->isIdle() == false); // ...is not idle.
+
+# if TESTABLE_CLASS >= TESTABLE_BUTTON
+    assert(btn->isHeld() == false); // ...is not held.
+    assert(btn->isIdle() == false); // ...is not idle.
+#endif
 
 # if TESTABLE_CLASS >= TESTABLE_CLICKER
     assert(btn->isClicked() == false); // ...is not clicked
@@ -38,8 +41,11 @@ void checkButtonSetup(Button *btn) {
 void checkButtonJustPressed(Button *btn) {
   // Given a button, when just pressed, then it...
   assert(btn->isPressed() == true); // ...must be pressed.
-  assert(btn->isHeld() == false); // ...cannot be held.
-  assert(btn->isIdle() == false); // ...cannot be idle.
+
+# if TESTABLE_CLASS >= TESTABLE_BUTTON
+    assert(btn->isHeld() == false); // ...cannot be held.
+    assert(btn->isIdle() == false); // ...cannot be idle.
+# endif
 
 # if TESTABLE_CLASS >= TESTABLE_CLICKER
     assert(btn->isClicked() == false); // ...cannot be clicked.
@@ -59,8 +65,11 @@ void checkButtonJustPressed(Button *btn) {
 void checkButtonJustReleased(Button *btn) {
   // Given a button, when just released, then it...
   assert(btn->isPressed() == false); // ...cannot be pressed.
-  assert(btn->isHeld() == false); // ...cannot be held.
-  assert(btn->isIdle() == false); // ...cannot be idle.
+
+# if TESTABLE_CLASS >= TESTABLE_BUTTON
+    assert(btn->isHeld() == false); // ...cannot be held.
+    assert(btn->isIdle() == false); // ...cannot be idle.
+# endif
 
 # if TESTABLE_CLASS >= TESTABLE_CLICKER
     assert(btn->isClicked() == true); // ...must be clicked.
@@ -80,8 +89,11 @@ void checkButtonJustReleased(Button *btn) {
 void checkButtonJustHeld(Button *btn) {
   // Given a button, when it is held, then it...
   assert(btn->isPressed() == true); // ...must be pressed.
-  assert(btn->isHeld() == true); // ...must be held.
-  assert(btn->isIdle() == false); // ...cannot be idle.
+
+# if TESTABLE_CLASS >= TESTABLE_BUTTON
+    assert(btn->isHeld() == true); // ...must be held.
+    assert(btn->isIdle() == false); // ...cannot be idle.
+# endif
 
 # if TESTABLE_CLASS >= TESTABLE_CLICKER
     assert(btn->isClicked() == false); // ...cannot be clicked.
@@ -101,8 +113,11 @@ void checkButtonJustHeld(Button *btn) {
 void checkButtonJustIdle(Button *btn) {
   // Given a button, when it is idle, then it...
   assert(btn->isPressed() == false); // ...cannot be pressed.
-  assert(btn->isHeld() == false); // ...cannot be held.
-  assert(btn->isIdle() == true); // ...will be idle.
+
+# if TESTABLE_CLASS >= TESTABLE_BUTTON
+    assert(btn->isHeld() == false); // ...cannot be held.
+    assert(btn->isIdle() == true); // ...will be idle.
+# endif
 
 # if TESTABLE_CLASS >= TESTABLE_CLICKER
     assert(btn->isClicked() == false); // ...cannot be clicked.
@@ -122,8 +137,11 @@ void checkButtonJustIdle(Button *btn) {
 void checkButtonJustClicked(Button *btn) {
   // Given a button, when it just becomes clicked, then it...
   assert(btn->isPressed() == false); // ...cannot be pressed.
-  assert(btn->isHeld() == false); // ...cannot be held.
-  assert(btn->isIdle() == false); // ...cannot be idle.
+
+# if TESTABLE_CLASS >= TESTABLE_BUTTON
+    assert(btn->isHeld() == false); // ...cannot be held.
+    assert(btn->isIdle() == false); // ...cannot be idle.
+# endif
 
 # if TESTABLE_CLASS >= TESTABLE_CLICKER
     assert(btn->isClicked() == true); // ...must be clicked.
@@ -142,8 +160,11 @@ void checkButtonJustClicked(Button *btn) {
 void checkButtonJustDoubleClicked(Button *btn) {
   // Given a button, when it just becomes double-clicked, then it...
   assert(btn->isPressed() == false); // ...cannot be pressed.
-  assert(btn->isHeld() == false); // ...cannot be held.
-  assert(btn->isIdle() == false); // ...cannot be idle.
+
+# if TESTABLE_CLASS >= TESTABLE_BUTTON
+    assert(btn->isHeld() == false); // ...cannot be held.
+    assert(btn->isIdle() == false); // ...cannot be idle.
+#endif
 
 # if TESTABLE_CLASS >= TESTABLE_CLICKER
     assert(btn->isClicked() == true); // ...must be clicked.
@@ -168,9 +189,11 @@ void checkButtonIntegrity(Button *btn, ButtonState &state) {
       // ...when it is just pressed, then...
       checkButtonJustPressed(btn);
     } else {
-      // ...when it is still pressed, then it...
-      // assert(btn->isHeld() == false); // ...*might* be held.
-      assert(btn->isIdle() == false); // ...cannot be idle.
+#     if TESTABLE_CLASS >= TESTABLE_BUTTON
+        // ...when it is still pressed, then it...
+        // assert(btn->isHeld() == false); // ...*might* be held.
+        assert(btn->isIdle() == false); // ...cannot be idle.
+#     endif
 
 #     if TESTABLE_CLASS >= TESTABLE_CLICKER
         assert(btn->isClicked() == false); // ...cannot be clicked.
@@ -186,9 +209,11 @@ void checkButtonIntegrity(Button *btn, ButtonState &state) {
       // ...when it is just released, then...
       checkButtonJustReleased(btn);
     } else {
-      // ...when it is still released, then it...
-      assert(btn->isHeld() == false); // ...cannot be held.
-      // assert(btn->isIdle() == false); // ...*might* be idle.
+#     if TESTABLE_CLASS >= TESTABLE_BUTTON
+        // ...when it is still released, then it...
+        assert(btn->isHeld() == false); // ...cannot be held.
+        // assert(btn->isIdle() == false); // ...*might* be idle.
+#     endif
 
 #     if TESTABLE_CLASS >= TESTABLE_CLICKER
         assert(btn->isClicked() == false); // ...cannot be clicked.
@@ -200,15 +225,18 @@ void checkButtonIntegrity(Button *btn, ButtonState &state) {
     }
   }
 
-  if(!state.isHeld && btn->isHeld()) {
-    // Given a button that has just become held, then...
-    checkButtonJustHeld(btn);
-  }
 
-  if(!state.isIdle && btn->isIdle()) {
-    // Given a button that has just become idle, then...
-    checkButtonJustIdle(btn);
-  }
+# if TESTABLE_CLASS >= TESTABLE_BUTTON
+    if(!state.isHeld && btn->isHeld()) {
+      // Given a button that has just become held, then...
+      checkButtonJustHeld(btn);
+    }
+
+    if(!state.isIdle && btn->isIdle()) {
+      // Given a button that has just become idle, then...
+      checkButtonJustIdle(btn);
+    }
+# endif
 
   // Clickable checks...
 # if TESTABLE_CLASS >= TESTABLE_CLICKER
@@ -235,18 +263,20 @@ void checkButtonListIntegrity() {
   // ButtonList::all*() accessors...
   assert(btnList.allPressed() == (btnA.isPressed() && btnB.isPressed()));
 
-  // Because isHeld and isIdle use millis() timings, the state can change whilst
-  // checking ButtonList::allHeld/Idle and each Button:isHeld/Idle. So checking
-  // each twice ensures if the first check is false, it tries once more. Only if
-  // both comparisons are false means we have a problem...
-  assert(
-    (btnList.allHeld() == (btnA.isHeld() && btnB.isHeld())) ||
-    ((btnA.isHeld() && btnB.isHeld()) == btnList.allHeld())
-  );
-  assert(
-    (btnList.allIdle() == (btnA.isIdle() && btnB.isIdle())) ||
-    ((btnA.isIdle() && btnB.isIdle()) == btnList.allIdle())
-  );
+# if TESTABLE_CLASS >= TESTABLE_BUTTON
+    // Because isHeld and isIdle use millis() timings, the state can change
+    // whilst checking ButtonList::allHeld/Idle and each Button:isHeld/Idle. So
+    // checking each twice ensures if the first check is false, it tries once
+    // more. Only if both comparisons are false means we have a problem...
+    assert(
+      (btnList.allHeld() == (btnA.isHeld() && btnB.isHeld())) ||
+      (btnList.allHeld() == (btnA.isHeld() && btnB.isHeld()))
+    );
+    assert(
+      (btnList.allIdle() == (btnA.isIdle() && btnB.isIdle())) ||
+      (btnList.allIdle() == (btnA.isIdle() && btnB.isIdle()))
+    );
+# endif
 
 # if TESTABLE_CLASS >= TESTABLE_CLICKER
     assert(btnList.allClicked() == (btnA.isClicked() && btnB.isClicked()));
@@ -258,8 +288,21 @@ void checkButtonListIntegrity() {
 
   // ButtonList::any*() accessors...
   assert(btnList.anyPressed() == (btnA.isPressed() || btnB.isPressed()));
-  assert(btnList.anyHeld() == (btnA.isHeld() || btnB.isHeld()));
-  assert(btnList.anyIdle() == (btnA.isIdle() || btnB.isIdle()));
+
+# if TESTABLE_CLASS >= TESTABLE_BUTTON
+    // Because isHeld and isIdle use millis() timings, the state can change
+    // whilst checking ButtonList::anyHeld/Idle and each Button:isHeld/Idle. So
+    // checking each twice ensures if the first check is false, it tries once
+    // more. Only if both comparisons are false means we have a problem...
+    assert(
+      (btnList.anyHeld() == (btnA.isHeld() || btnB.isHeld())) ||
+      (btnList.anyHeld() == (btnA.isHeld() || btnB.isHeld()))
+    );
+    assert(
+      (btnList.anyIdle() == (btnA.isIdle() || btnB.isIdle())) ||
+      (btnList.anyIdle() == (btnA.isIdle() || btnB.isIdle()))
+    );
+# endif
 
 # if TESTABLE_CLASS >= TESTABLE_CLICKER
     assert(btnList.anyClicked() == (btnA.isClicked() || btnB.isClicked()));
@@ -293,29 +336,31 @@ void displayButtonChanges(int index) {
     state.isPressed = false;
   }
 
-  if(btn->isHeld()) {
-    if(!state.isHeld) {
-      Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") held") << endl;
+# if TESTABLE_CLASS >= TESTABLE_BUTTON
+    if(btn->isHeld()) {
+      if(!state.isHeld) {
+        Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") held") << endl;
+      }
+      state.isHeld = true;
+    } else {
+      if(state.isHeld) {
+        Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") un-held") << endl;
+      }
+      state.isHeld = false;
     }
-    state.isHeld = true;
-  } else {
-    if(state.isHeld) {
-      Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") un-held") << endl;
-    }
-    state.isHeld = false;
-  }
 
-  if(btn->isIdle()) {
-    if(!state.isIdle) {
-      Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") idle") << endl;
+    if(btn->isIdle()) {
+      if(!state.isIdle) {
+        Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") idle") << endl;
+      }
+      state.isIdle = true;
+    } else {
+      if(state.isIdle) {
+        Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") un-idle") << endl;
+      }
+      state.isIdle = false;
     }
-    state.isIdle = true;
-  } else {
-    if(state.isIdle) {
-      Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") un-idle") << endl;
-    }
-    state.isIdle = false;
-  }
+# endif
 
   // Clickable checks...
 # if TESTABLE_CLASS >= TESTABLE_CLICKER

@@ -40,10 +40,12 @@ void setup() {
 
   pinMode(LED_BUILTIN, OUTPUT);
 
-  Button::setHeldTime(2500);
-  assert(Button::heldTime() == 2500);
-  Button::setIdleTime(5000);
-  assert(Button::idleTime() == 5000);
+# if TESTABLE_CLASS >= TESTABLE_BUTTON
+    Button::setHeldTime(2500);
+    assert(Button::heldTime() == 2500);
+    Button::setIdleTime(5000);
+    assert(Button::idleTime() == 5000);
+#endif
 
 # if TESTABLE_CLASS >= TESTABLE_DOUBLECLICKER
     Button::setClickTime(750);
