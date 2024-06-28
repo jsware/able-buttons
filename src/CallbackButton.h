@@ -65,7 +65,7 @@ namespace able {
        */
       void begin() {
         Button::begin();
-        doCallback(BEGIN_EVENT);
+        this->doCallback(BEGIN_EVENT);
       }
 
       /**
@@ -76,14 +76,14 @@ namespace able {
         Button::handle();
         if(currState != this->currState_) {
           if(this->isPressed()) {
-            doCallback(PRESSED_EVENT);
+            this->doCallback(PRESSED_EVENT);
           } else {
-            doCallback(RELEASED_EVENT);
+            this->doCallback(RELEASED_EVENT);
           }
         } else if(lastEvent_ != HELD_EVENT && this->isHeld()) {
-            doCallback(HELD_EVENT);
+            this->doCallback(HELD_EVENT);
         } else if(lastEvent_ != IDLE_EVENT && this->isIdle()) {
-            doCallback(IDLE_EVENT);
+            this->doCallback(IDLE_EVENT);
         }
       }
       
@@ -171,11 +171,11 @@ namespace able {
         if(this->lastEvent_ == Button::RELEASED_EVENT) {
           switch(Button::clicks(Button::BUTTON_PRESSED, Button::BUTTON_RELEASED)){
             case 1:
-              doCallback(Button::SINGLE_CLICKED_EVENT);
+              this->doCallback(Button::SINGLE_CLICKED_EVENT);
               break;
 
             case 2:
-              doCallback(Button::DOUBLE_CLICKED_EVENT);
+              this->doCallback(Button::DOUBLE_CLICKED_EVENT);
               break;
 
             default: // No clicks.
