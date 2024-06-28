@@ -22,6 +22,15 @@ namespace able {
   class Button: public Pin {
     public:
       //
+      // Constants...
+      //
+      enum {
+        BUTTON_PRESSED = Circuit::BUTTON_PRESSED,
+        BUTTON_RELEASED = Circuit::BUTTON_RELEASED
+      };
+
+    public:
+      //
       // Creators...
       //
 
@@ -71,6 +80,21 @@ namespace able {
       bool resetClicked() {
         bool rc = this->isClicked();
         this->prevState_ = this->currState_;
+        return rc;
+      }
+
+      /**
+       * Reset the clicked state of the button, returning what is was. This
+       * allows the click state to be effectively read once so that a clicked
+       * state only triggers something once, when checked. For example toggling
+       * something on/off when the button is clicked. For buttons that don't
+       * support clicking, the compile will fail with errors.
+       * 
+       * @return True if the button was clicked, else false.
+       */
+      bool resetSingleClicked() {
+        bool rc = this->isSingleClicked();
+        if(rc) this->stateCount_ = 0;
         return rc;
       }
 
@@ -131,6 +155,20 @@ namespace able {
        */
       bool isClicked() const {
         return this->currState_ == Circuit::BUTTON_RELEASED && this->prevState_ == Circuit::BUTTON_PRESSED;
+      }
+
+      /**
+       * Determine if the button is exclusively single-clicked. Clicks are
+       * registered as a press then release. Single-clicks wait until any
+       * double-click time has passed to ensure it's exclusively a click and not
+       * the first click in a double-click sequence. If the DoubleClickerPin is
+       * used, the button returns the single-click state, otherwise the compile
+       * will fail with errors.
+       * 
+       * @return True if exclusively clicked else false.
+       */
+      bool isSingleClicked() const {
+        return this->stateCount_ == 2 && ((millis() - this->millisStart_) >= this->clickTime_);
       }
 
       /**

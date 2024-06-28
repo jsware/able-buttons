@@ -24,10 +24,11 @@ void checkButtonSetup(Button *btn) {
 #endif
 
 # if TESTABLE_CLASS >= TESTABLE_CLICKER
-    assert(btn->isClicked() == false); // ...is not clicked
+    assert(btn->isClicked() == false); // ...is not clicked.
 # endif
 
 # if TESTABLE_CLASS >= TESTABLE_DOUBLECLICKER
+    assert(btn->isSingleClicked() == false); // ...is not exclusively clicked.
     assert(btn->isDoubleClicked() == false); // ...is not double-clicked.
 # endif
 }
@@ -52,6 +53,7 @@ void checkButtonJustPressed(Button *btn) {
 # endif
 
 # if TESTABLE_CLASS >= TESTABLE_DOUBLECLICKER
+    assert(btn->isSingleClicked() == false); // ...is not exclusively clicked.
     assert(btn->isDoubleClicked() == false); // ...cannot be double-clicked.
 # endif
 }
@@ -76,6 +78,7 @@ void checkButtonJustReleased(Button *btn) {
 # endif
 
 # if TESTABLE_CLASS >= TESTABLE_DOUBLECLICKER
+    assert(btn->isSingleClicked() == false); // ...is not exclusively clicked.
     // assert(btn->isDoubleClicked() == true); // ...*might* be double-clicked.
 # endif
 }
@@ -100,6 +103,7 @@ void checkButtonJustHeld(Button *btn) {
 # endif
 
 # if TESTABLE_CLASS >= TESTABLE_DOUBLECLICKER
+    assert(btn->isSingleClicked() == false); // ...is not exclusively clicked.
     assert(btn->isDoubleClicked() == false); // ...cannot be double-clicked.
 # endif
 }
@@ -124,6 +128,7 @@ void checkButtonJustIdle(Button *btn) {
 # endif
 
 # if TESTABLE_CLASS >= TESTABLE_DOUBLECLICKER
+    assert(btn->isSingleClicked() == false); // ...is not exclusively clicked.
     assert(btn->isDoubleClicked() == false); // ...cannot be double-clicked.
 # endif
 }
@@ -148,8 +153,20 @@ void checkButtonJustClicked(Button *btn) {
 # endif
 
 # if TESTABLE_CLASS >= TESTABLE_DOUBLECLICKER
+    assert(btn->isSingleClicked() == false); // ...is not exclusively clicked.
     // assert(btn->isDoubleClicked() == false); // ...*might* be double-clicked.
 # endif
+}
+
+
+/**
+ * Check button that has just been single-clicked.
+ * 
+ * @param btn The button to check. 
+ */
+void checkButtonJustSingleClicked(Button *btn) {
+  // Given a button, when it just becomes single-clicked, then it...
+  assert(btn->isPressed() == false); // ...cannot be pressed.
 }
 
 /**
@@ -171,6 +188,7 @@ void checkButtonJustDoubleClicked(Button *btn) {
 # endif
 
 # if TESTABLE_CLASS >= TESTABLE_DOUBLECLICKER
+    assert(btn->isSingleClicked() == false); // ...is not exclusively clicked.
     assert(btn->isDoubleClicked() == true); // ...will be double-clicked.
 # endif
 }
@@ -200,6 +218,7 @@ void checkButtonIntegrity(Button *btn, ButtonState &state) {
 #     endif
 
 #     if TESTABLE_CLASS >= TESTABLE_DOUBLECLICKER
+        assert(btn->isSingleClicked() == false); // ...is not exclusively clicked.
         assert(btn->isDoubleClicked() == false); // ...cannot double-clicked.
 #     endif
     }
@@ -216,7 +235,7 @@ void checkButtonIntegrity(Button *btn, ButtonState &state) {
 #     endif
 
 #     if TESTABLE_CLASS >= TESTABLE_CLICKER
-        assert(btn->isClicked() == false); // ...cannot be clicked.
+        // assert(btn->isClicked() == false); // ...*might* be clicked.
 #     endif
 
 #     if TESTABLE_CLASS >= TESTABLE_DOUBLECLICKER
@@ -248,6 +267,11 @@ void checkButtonIntegrity(Button *btn, ButtonState &state) {
 
   // Double clicker checks...
 # if TESTABLE_CLASS >= TESTABLE_DOUBLECLICKER
+    if(!state.isSingleClicked && btn->isSingleClicked()) {
+      // given a button that has just been double-clicked, then...
+      checkButtonJustSingleClicked(btn);
+    }
+
     if(!state.isDoubleClicked && btn->isDoubleClicked()) {
       // given a button that has just been double-clicked, then...
       checkButtonJustDoubleClicked(btn);
@@ -283,6 +307,7 @@ void checkButtonListIntegrity() {
 # endif
 
 # if TESTABLE_CLASS >= TESTABLE_DOUBLECLICKER
+    assert(btnList.allSingleClicked() == (btnA.isSingleClicked() && btnB.isSingleClicked()));
     assert(btnList.allDoubleClicked() == (btnA.isDoubleClicked() && btnB.isDoubleClicked()));
 # endif
 
@@ -364,8 +389,10 @@ void displayButtonChanges(int index) {
 
   // Clickable checks...
 # if TESTABLE_CLASS >= TESTABLE_CLICKER
-    if(!state.isClicked && btn->isClicked()) {
-      Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") clicked") << endl;
+    if(btn->isClicked()) {
+      if(!state.isClicked) {
+        Serial << F("Button btns[") << index << F("] (btn") << (char)('A' + index) << F(") clicked") << endl;
+      }
       state.isClicked = true;
     } else if(state.isClicked) {
       state.isClicked = false;

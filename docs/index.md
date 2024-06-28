@@ -300,6 +300,8 @@ void loop() {
 }
 ```
 
+Since V0.4.0 of `AbleButtons` an `isSingleClicked()` can be used to check for exclusive single-clicks. This avoids `isClicked()` returning true for the first click in a double-click sequence. A companion `resetSingleClicked()` is provided that returns true if an exclusive single-click was reset.
+
 ### Callback Buttons
 
 A callback button will call you back using a user-supplied function when button events occur. You define a callback function and provide it to the button when defined.
@@ -325,6 +327,11 @@ The following events occur for all callback button types:
 * The `RELEASED_EVENT` is called once when the button is released. It is not called repeatedly when the button is unpressed.
 * The `HELD_EVENT` is called when a button has been pressed longer than the `Button::setHeldTime()` duration.
 * The `IDLE_EVENT` is called when a button has been released longer than the `Button::setIdleTime()` duration.
+
+**New in V0.4.0:**
+
+* The `SINGLE_CLICKED_EVENT` is called when a button is clicked. For the DoubleClickerButton, it is only sent when the button is exclusively clicked and not when a double-click is sent.
+* The `DOUBLE_CLICK_EVENT` is called when a button is double-clicked (DoubleClickerButtons only). When sent, the `SINGLE_CLICKED_EVENT` is not sent beforehand.
 
 Your callback function also receives the `id` of the button. This `id` allows a shared callback function to differentiate between each button. A `ButtonList::button(id)` method retrieves the button based on the id provided.
 
@@ -363,8 +370,8 @@ Different `AbleButtons` can be used by a name that represents the combined featu
 | `AblePulldownClickerButton`               | Pulldown | Click        | No        | `AblePulldownClickerButtonList`               |
 | `AblePulldownCallbackClickerButton`       | Pulldown | Click        | Yes       | `AblePulldownCallbackClickerButtonList`       |
 | `AblePulldownDirectButton`                | Pulldown | Direct       | No        | `AblePulldownDirectButtonList`                |
-| `AblePulldownDoubleClickerButton`         | Pull-up  | Double-Click | No        | `AblePulldownDoubleClickerButtonList`         |
-| `AblePulldownCallbackDoubleClickerButton` | Pull-up  | Double-Click | Yes       | `AblePulldownCallbackDoubleClickerButtonList` |
+| `AblePulldownDoubleClickerButton`         | Pulldown | Double-Click | No        | `AblePulldownDoubleClickerButtonList`         |
+| `AblePulldownCallbackDoubleClickerButton` | Pulldown | Double-Click | Yes       | `AblePulldownCallbackDoubleClickerButtonList` |
 | `AblePullupButton`                        | Pull-up  | Push         | No        | `AblePullupButtonList`                        |
 | `AblePullupCallbackButton`                | Pull-up  | Push         | Yes       | `AblePullupCallbackButtonList`                |
 | `AblePullupClickerButton`                 | Pull-up  | Click        | No        | `AblePullupClickerButtonList`                 |

@@ -97,6 +97,22 @@ namespace able {
         return rc;
       }
 
+      /**
+       * Reset single-clicked state of all buttons, returning true if any were
+       * single-clicked.
+       * 
+       * @return True if any single-clicked, else false.
+       */
+      bool resetSingleClicked() {
+        bool rc = false;
+        for(size_t i = 0; i < len_; ++i) {
+          if(buttons_[i]->resetSingleClicked()) {
+            rc = true;
+          }
+        }
+        return rc;
+      }
+
     public:
       //
       // Accessors...
@@ -274,6 +290,36 @@ namespace able {
         bool rc = false;
         for(size_t i = 0; i < len_; ++i) {
           if(buttons_[i]->isDoubleClicked()) {
+            rc = true;
+          }
+        }
+        return rc;
+      }
+
+      /**
+       * Determine if all of the buttons have been single-clicked.
+       * 
+       * @return True if all single-clicked, else false.
+       */
+      bool allSingleClicked() const {
+        bool rc = true;
+        for(size_t i = 0; i < len_; ++i) {
+          if(!buttons_[i]->isSingleClicked()) {
+            rc = false;
+          }
+        }
+        return rc;
+      }
+
+      /**
+       * Determine if any of the buttons have been single-clicked.
+       * 
+       * @return True if any single-clicked, else false.
+       */
+      bool anySingleClicked() const {
+        bool rc = false;
+        for(size_t i = 0; i < len_; ++i) {
+          if(buttons_[i]->isSingleClicked()) {
             rc = true;
           }
         }

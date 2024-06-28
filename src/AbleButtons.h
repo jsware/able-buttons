@@ -87,7 +87,7 @@ using AblePulldownDoubleClickerButton = able::Button<able::PulldownResistorCircu
  * the double-click time. As with other button capabilities, button presses are
  * debounced to provide a reliable push/released signal.
  */
-using AblePulldownCallbackDoubleClickerButton = able::CallbackButton<able::Button<able::PulldownResistorCircuit, able::DoubleClickerPin>>;
+using AblePulldownCallbackDoubleClickerButton = able::CallbackClickerButton<able::CallbackButton<able::Button<able::PulldownResistorCircuit, able::DoubleClickerPin>>>;
 
 //
 // Pulldown button lists...
@@ -230,7 +230,7 @@ using AblePullupDoubleClickerButton = able::Button<able::PullupResistorCircuit, 
  * click time. As with other button capabilities, button presses are debounced
  * to provide a reliable push/released signal.
  */
-using AblePullupCallbackDoubleClickerButton = able::CallbackButton<able::Button<able::PullupResistorCircuit, able::DoubleClickerPin>>;
+using AblePullupCallbackDoubleClickerButton = able::CallbackClickerButton<able::CallbackButton<able::Button<able::PullupResistorCircuit, able::DoubleClickerPin>>>;
 
 //
 // Pull-up button lists...
