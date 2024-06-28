@@ -80,7 +80,7 @@ namespace able {
        * 
        * @returns Always no clicks (0) as clicks not supported by default.
        */
-      inline int clicks(uint8_t pressed, uint8_t released) {
+      inline int clicks(uint8_t /* pressed */, uint8_t /* released */) {
         return 0;
       }
       
@@ -370,7 +370,7 @@ namespace able {
        * 
        * @returns no click (0), single click (1) or double-click (2).
        */
-      inline int clicks(uint8_t pressed, uint8_t released) const {
+      inline int clicks(uint8_t /* pressed */, uint8_t /* released */) const {
         if(this->stateCount_ >= 4) {
           return 2;
         } else {
