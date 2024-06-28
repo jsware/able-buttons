@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['endl_0',['endl',['../_utils_8h.html#af3e89d6d049971ff5b2358a3d5fcd594a5cbad4ad24fd9b8c066cdad096cd2f18',1,'Utils.h']]]
+  ['double_5fclicked_5fevent_0',['DOUBLE_CLICKED_EVENT',['../classable_1_1_callback_button.html#a415cc7c70b71735d760ba28700a315f9a82e326c025a8750f7d0d7b40b928b4fb',1,'able::CallbackButton']]]
 ];

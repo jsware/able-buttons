@@ -32,7 +32,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">AbleButtons<span id="projectnumber">&#160;V0.2.0</span>
+   <div id="projectname">AbleButtons<span id="projectnumber">&#160;V0.4.0</span>
    </div>
    <div id="projectbrief">Lightweight button library for Arduino.</div>
   </td>
@@ -155,6 +155,9 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a1f81c00371c0898781fa2dcd334ca604"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_clicker_pin.html#a1f81c00371c0898781fa2dcd334ca604">readPin</a> ()</td></tr>
 <tr class="memdesc:a1f81c00371c0898781fa2dcd334ca604"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debounce the pin readings to get a stable state of the pin.  <a href="classable_1_1_clicker_pin.html#a1f81c00371c0898781fa2dcd334ca604">More...</a><br /></td></tr>
 <tr class="separator:a1f81c00371c0898781fa2dcd334ca604"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f249ae80f91b00133745d5b54813dc1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_clicker_pin.html#a4f249ae80f91b00133745d5b54813dc1">clicks</a> (uint8_t pressed, uint8_t released)</td></tr>
+<tr class="memdesc:a4f249ae80f91b00133745d5b54813dc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of clicks.  <a href="classable_1_1_clicker_pin.html#a4f249ae80f91b00133745d5b54813dc1">More...</a><br /></td></tr>
+<tr class="separator:a4f249ae80f91b00133745d5b54813dc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
@@ -199,7 +202,7 @@ Static Protected Attributes</h2></td></tr>
 <div class="textblock"><p >Debounced pin class that remembers the previous debounced state. </p>
 <p >This allows clicks (a combination of press then release) to be identified. This class extends the basic <a class="el" href="classable_1_1_debounced_pin.html" title="Debouned Pin class.">DebouncedPin</a> class to add the previous state. </p>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00218">218</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00239">239</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a67130ddd227559b5bbda79abb568c509" name="a67130ddd227559b5bbda79abb568c509"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a67130ddd227559b5bbda79abb568c509">&#9670;&#160;</a></span>ClickerPin()</h2>
@@ -245,11 +248,59 @@ Static Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00231">231</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00252">252</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4f249ae80f91b00133745d5b54813dc1" name="a4f249ae80f91b00133745d5b54813dc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f249ae80f91b00133745d5b54813dc1">&#9670;&#160;</a></span>clicks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int able::ClickerPin::clicks </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>pressed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>released</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the number of clicks. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pressed</td><td>The pressed state of a button. </td></tr>
+    <tr><td class="paramname">released</td><td>The released state of a button.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Always single clicks (1) as double-clicks not supported. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00297">297</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+
+</div>
+</div>
 <a id="a706abb6220ce6ecbb7fb77f1ec614bfc" name="a706abb6220ce6ecbb7fb77f1ec614bfc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a706abb6220ce6ecbb7fb77f1ec614bfc">&#9670;&#160;</a></span>debounceTime()</h2>
 
@@ -276,7 +327,7 @@ Static Protected Attributes</h2></td></tr>
 <p>Return the pin debounce time. </p>
 <dl class="section return"><dt>Returns</dt><dd>The number of milliseconds of debounce time. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00179">179</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00200">200</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -306,7 +357,7 @@ Static Protected Attributes</h2></td></tr>
 <p>Return the pin held time. </p>
 <dl class="section return"><dt>Returns</dt><dd>The number of milliseconds after which a pin is held. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00188">188</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00209">209</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -336,7 +387,7 @@ Static Protected Attributes</h2></td></tr>
 <p>Return the pin idle time. </p>
 <dl class="section return"><dt>Returns</dt><dd>The number of milliseconds after which a pin is idle. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00197">197</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00218">218</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -396,7 +447,7 @@ Static Protected Attributes</h2></td></tr>
 <p>Debounce the pin readings to get a stable state of the pin. </p>
 <p >When the state changes, remember the previous state so clicks (press then release can be identified). Calls <a class="el" href="classable_1_1_debounced_pin.html#a2dd4ea473f2e5c0a3909b2ebad3e3628" title="Debounce the pin readings to get a stable state of the pin.">DebouncedPin::readPin()</a> and monitors for a change in debounced state, remembering the previous state. </p>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00252">252</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00273">273</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -433,7 +484,7 @@ Static Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00098">98</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00119">119</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -470,7 +521,7 @@ Static Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00108">108</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00129">129</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -507,7 +558,7 @@ Static Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00118">118</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00139">139</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -534,7 +585,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Auto-assigned button identifier. </p>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00070">70</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00091">91</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -560,7 +611,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>The reading of the pin. </p>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00073">73</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00094">94</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -586,7 +637,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Time required to debounce all input pins. </p>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00205">205</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00226">226</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -612,7 +663,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Time required for button to be held. </p>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00206">206</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00227">227</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -638,7 +689,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Time required for button to be idle. </p>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00207">207</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00228">228</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -664,7 +715,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Debounce start timer to handle button transition. </p>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00210">210</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00231">231</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -690,7 +741,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>The Arduino pin connected to the button. </p>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00072">72</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00093">93</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -716,7 +767,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>The previous pin reading, to monitor state transitions. </p>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00209">209</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00230">230</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -742,7 +793,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Previous debounced reading of the pin. </p>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00267">267</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00305">305</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>

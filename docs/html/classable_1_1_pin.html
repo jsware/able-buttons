@@ -32,7 +32,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">AbleButtons<span id="projectnumber">&#160;V0.2.0</span>
+   <div id="projectname">AbleButtons<span id="projectnumber">&#160;V0.4.0</span>
    </div>
    <div id="projectbrief">Lightweight button library for Arduino.</div>
   </td>
@@ -119,11 +119,12 @@ $(document).ready(function(){initNavTree('classable_1_1_pin.html',''); initResiz
  <div class="center">
   <img src="classable_1_1_pin.png" usemap="#able::Pin_map" alt=""/>
   <map id="able::Pin_map" name="able::Pin_map">
-<area href="classable_1_1_button.html" title="Core Button class." alt="able::Button&lt; Circuit, Pin &gt;" shape="rect" coords="0,56,185,80"/>
-<area href="classable_1_1_debounced_pin.html" title="Debouned Pin class." alt="able::DebouncedPin" shape="rect" coords="195,56,380,80"/>
-<area href="classable_1_1_callback_button.html" title="Callback button template to call a function if the button is pressed." alt="able::CallbackButton&lt; Button &gt;" shape="rect" coords="0,112,185,136"/>
-<area href="classable_1_1_clicker_pin.html" title="Debounced pin class that remembers the previous debounced state." alt="able::ClickerPin" shape="rect" coords="195,112,380,136"/>
-<area href="classable_1_1_double_clicker_pin.html" title="Pin class that counts state changes within a time-period." alt="able::DoubleClickerPin" shape="rect" coords="195,168,380,192"/>
+<area href="classable_1_1_button.html" title="Core Button class." alt="able::Button&lt; Circuit, Pin &gt;" shape="rect" coords="117,56,342,80"/>
+<area href="classable_1_1_debounced_pin.html" title="Debouned Pin class." alt="able::DebouncedPin" shape="rect" coords="470,56,695,80"/>
+<area href="classable_1_1_callback_button.html" title="Callback button template to call a function if the button is pressed." alt="able::CallbackButton&lt; Button &gt;" shape="rect" coords="0,112,225,136"/>
+<area href="classable_1_1_callback_clicker_button.html" title="Callback clicker button template to call a function if the button is pressed." alt="able::CallbackClickerButton&lt; Button &gt;" shape="rect" coords="235,112,460,136"/>
+<area href="classable_1_1_clicker_pin.html" title="Debounced pin class that remembers the previous debounced state." alt="able::ClickerPin" shape="rect" coords="470,112,695,136"/>
+<area href="classable_1_1_double_clicker_pin.html" title="Pin class that counts state changes within a time-period." alt="able::DoubleClickerPin" shape="rect" coords="470,168,695,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -135,6 +136,9 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a736e530cb6cc3c536a2fc4ba36f5d966"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_pin.html#a736e530cb6cc3c536a2fc4ba36f5d966">readPin</a> ()</td></tr>
 <tr class="memdesc:a736e530cb6cc3c536a2fc4ba36f5d966"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the pin directly.  <a href="classable_1_1_pin.html#a736e530cb6cc3c536a2fc4ba36f5d966">More...</a><br /></td></tr>
 <tr class="separator:a736e530cb6cc3c536a2fc4ba36f5d966"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee12982f422f67e6a391a9eef99f990b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classable_1_1_pin.html#aee12982f422f67e6a391a9eef99f990b">clicks</a> (uint8_t pressed, uint8_t released)</td></tr>
+<tr class="memdesc:aee12982f422f67e6a391a9eef99f990b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of clicks.  <a href="classable_1_1_pin.html#aee12982f422f67e6a391a9eef99f990b">More...</a><br /></td></tr>
+<tr class="separator:aee12982f422f67e6a391a9eef99f990b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
@@ -212,6 +216,54 @@ Static Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aee12982f422f67e6a391a9eef99f990b" name="aee12982f422f67e6a391a9eef99f990b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee12982f422f67e6a391a9eef99f990b">&#9670;&#160;</a></span>clicks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int able::Pin::clicks </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>pressed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>released</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the number of clicks. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pressed</td><td>The pressed state of a button. </td></tr>
+    <tr><td class="paramname">released</td><td>The released state of a button.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Always no clicks (0) as clicks not supported by default. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00083">83</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+
+</div>
+</div>
 <a id="ad600fe87414987bf74b6c2602478f05d" name="ad600fe87414987bf74b6c2602478f05d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad600fe87414987bf74b6c2602478f05d">&#9670;&#160;</a></span>nextId()</h2>
 
@@ -268,7 +320,7 @@ Static Protected Attributes</h2></td></tr>
 <p>Read the pin directly. </p>
 <p >In order to save memory, virtual functions are <em>not</em> used (which can consume almost 1K of memory to deal with). Runtime polymorphism is not required, so avoiding virtual functions saves memory. </p>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00062">62</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00066">66</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -295,7 +347,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>Auto-assigned button identifier. </p>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00070">70</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00091">91</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -321,7 +373,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>The reading of the pin. </p>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00073">73</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00094">94</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>
@@ -347,7 +399,7 @@ Static Protected Attributes</h2></td></tr>
 
 <p>The Arduino pin connected to the button. </p>
 
-<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00072">72</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pins_8h_source.html#l00093">93</a> of file <a class="el" href="_pins_8h_source.html">Pins.h</a>.</p>
 
 </div>
 </div>

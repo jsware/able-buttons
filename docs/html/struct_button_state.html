@@ -32,7 +32,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">AbleButtons<span id="projectnumber">&#160;V0.2.0</span>
+   <div id="projectname">AbleButtons<span id="projectnumber">&#160;V0.4.0</span>
    </div>
    <div id="projectbrief">Lightweight button library for Arduino.</div>
   </td>
@@ -121,8 +121,11 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:a04894d3034febc0e4cc0dcc4ada31257"><td class="mdescLeft">&#160;</td><td class="mdescRight">Button is idle.  <a href="struct_button_state.html#a04894d3034febc0e4cc0dcc4ada31257">More...</a><br /></td></tr>
 <tr class="separator:a04894d3034febc0e4cc0dcc4ada31257"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d4d66eab3908a39bc15fd6c6a3409e2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_button_state.html#a3d4d66eab3908a39bc15fd6c6a3409e2">isClicked</a></td></tr>
-<tr class="memdesc:a3d4d66eab3908a39bc15fd6c6a3409e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Button clicked (presed+released).  <a href="struct_button_state.html#a3d4d66eab3908a39bc15fd6c6a3409e2">More...</a><br /></td></tr>
+<tr class="memdesc:a3d4d66eab3908a39bc15fd6c6a3409e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Button clicked (pressed+released).  <a href="struct_button_state.html#a3d4d66eab3908a39bc15fd6c6a3409e2">More...</a><br /></td></tr>
 <tr class="separator:a3d4d66eab3908a39bc15fd6c6a3409e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94e0f96ee05bda6a35038d53ad894cdd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_button_state.html#a94e0f96ee05bda6a35038d53ad894cdd">isSingleClicked</a></td></tr>
+<tr class="memdesc:a94e0f96ee05bda6a35038d53ad894cdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Button single-clicked.  <a href="struct_button_state.html#a94e0f96ee05bda6a35038d53ad894cdd">More...</a><br /></td></tr>
+<tr class="separator:a94e0f96ee05bda6a35038d53ad894cdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02839ef654a251fef3ec7fde231aecef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_button_state.html#a02839ef654a251fef3ec7fde231aecef">isDoubleClicked</a></td></tr>
 <tr class="memdesc:a02839ef654a251fef3ec7fde231aecef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Button double-clicked.  <a href="struct_button_state.html#a02839ef654a251fef3ec7fde231aecef">More...</a><br /></td></tr>
 <tr class="separator:a02839ef654a251fef3ec7fde231aecef"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,6 +144,19 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:aa7ae4891dc3a12a5b77e3c7051ecfae4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_button_state.html#aa7ae4891dc3a12a5b77e3c7051ecfae4">wasIdle</a></td></tr>
 <tr class="memdesc:aa7ae4891dc3a12a5b77e3c7051ecfae4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Button received idle callback.  <a href="struct_button_state.html#aa7ae4891dc3a12a5b77e3c7051ecfae4">More...</a><br /></td></tr>
 <tr class="separator:aa7ae4891dc3a12a5b77e3c7051ecfae4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2c1c493769e97bb8388674da4a6236f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_button_state.html#af2c1c493769e97bb8388674da4a6236f">wasClicked</a></td></tr>
+<tr class="memdesc:af2c1c493769e97bb8388674da4a6236f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Button received clicked callback.  <a href="struct_button_state.html#af2c1c493769e97bb8388674da4a6236f">More...</a><br /></td></tr>
+<tr class="separator:af2c1c493769e97bb8388674da4a6236f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae970d91f249d21a095665b95ed6431ee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_button_state.html#ae970d91f249d21a095665b95ed6431ee">wasSingleClicked</a></td></tr>
+<tr class="memdesc:ae970d91f249d21a095665b95ed6431ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Button received single-clicked callback.  <a href="struct_button_state.html#ae970d91f249d21a095665b95ed6431ee">More...</a><br /></td></tr>
+<tr class="separator:ae970d91f249d21a095665b95ed6431ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01dfd4d0eef54e2689f9a09300762b79"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_button_state.html#a01dfd4d0eef54e2689f9a09300762b79">resetSingleClicked</a></td></tr>
+<tr class="separator:a01dfd4d0eef54e2689f9a09300762b79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0778e81185b77aa6fea9043a6d466d0c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_button_state.html#a0778e81185b77aa6fea9043a6d466d0c">wasDoubleClicked</a></td></tr>
+<tr class="memdesc:a0778e81185b77aa6fea9043a6d466d0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Button received double-clicked callback.  <a href="struct_button_state.html#a0778e81185b77aa6fea9043a6d466d0c">More...</a><br /></td></tr>
+<tr class="separator:a0778e81185b77aa6fea9043a6d466d0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f48866515af8da58884886a110670f7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_button_state.html#a7f48866515af8da58884886a110670f7">resetDoubleClicked</a></td></tr>
+<tr class="separator:a7f48866515af8da58884886a110670f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Structure for remembering the state of each button. </p>
@@ -160,7 +176,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Button clicked (presed+released). </p>
+<p>Button clicked (pressed+released). </p>
 
 <p class="definition">Definition at line <a class="el" href="_checks_8h_source.html#l00018">18</a> of file <a class="el" href="_checks_8h_source.html">Checks.h</a>.</p>
 
@@ -180,7 +196,7 @@ Public Attributes</h2></td></tr>
 
 <p>Button double-clicked. </p>
 
-<p class="definition">Definition at line <a class="el" href="_checks_8h_source.html#l00021">21</a> of file <a class="el" href="_checks_8h_source.html">Checks.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_checks_8h_source.html#l00022">22</a> of file <a class="el" href="_checks_8h_source.html">Checks.h</a>.</p>
 
 </div>
 </div>
@@ -238,6 +254,92 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a94e0f96ee05bda6a35038d53ad894cdd" name="a94e0f96ee05bda6a35038d53ad894cdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94e0f96ee05bda6a35038d53ad894cdd">&#9670;&#160;</a></span>isSingleClicked</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ButtonState::isSingleClicked</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Button single-clicked. </p>
+
+<p class="definition">Definition at line <a class="el" href="_checks_8h_source.html#l00021">21</a> of file <a class="el" href="_checks_8h_source.html">Checks.h</a>.</p>
+
+</div>
+</div>
+<a id="a7f48866515af8da58884886a110670f7" name="a7f48866515af8da58884886a110670f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f48866515af8da58884886a110670f7">&#9670;&#160;</a></span>resetDoubleClicked</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ButtonState::resetDoubleClicked</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_checks_8h_source.html#l00037">37</a> of file <a class="el" href="_checks_8h_source.html">Checks.h</a>.</p>
+
+</div>
+</div>
+<a id="a01dfd4d0eef54e2689f9a09300762b79" name="a01dfd4d0eef54e2689f9a09300762b79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01dfd4d0eef54e2689f9a09300762b79">&#9670;&#160;</a></span>resetSingleClicked</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ButtonState::resetSingleClicked</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_checks_8h_source.html#l00035">35</a> of file <a class="el" href="_checks_8h_source.html">Checks.h</a>.</p>
+
+</div>
+</div>
+<a id="af2c1c493769e97bb8388674da4a6236f" name="af2c1c493769e97bb8388674da4a6236f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2c1c493769e97bb8388674da4a6236f">&#9670;&#160;</a></span>wasClicked</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ButtonState::wasClicked</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Button received clicked callback. </p>
+
+<p class="definition">Definition at line <a class="el" href="_checks_8h_source.html#l00031">31</a> of file <a class="el" href="_checks_8h_source.html">Checks.h</a>.</p>
+
+</div>
+</div>
+<a id="a0778e81185b77aa6fea9043a6d466d0c" name="a0778e81185b77aa6fea9043a6d466d0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0778e81185b77aa6fea9043a6d466d0c">&#9670;&#160;</a></span>wasDoubleClicked</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ButtonState::wasDoubleClicked</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Button received double-clicked callback. </p>
+
+<p class="definition">Definition at line <a class="el" href="_checks_8h_source.html#l00036">36</a> of file <a class="el" href="_checks_8h_source.html">Checks.h</a>.</p>
+
+</div>
+</div>
 <a id="a8d9e7d3819185d508f1297cbad910350" name="a8d9e7d3819185d508f1297cbad910350"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8d9e7d3819185d508f1297cbad910350">&#9670;&#160;</a></span>wasHeld</h2>
 
@@ -252,7 +354,7 @@ Public Attributes</h2></td></tr>
 
 <p>Button received held callback. </p>
 
-<p class="definition">Definition at line <a class="el" href="_checks_8h_source.html#l00027">27</a> of file <a class="el" href="_checks_8h_source.html">Checks.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_checks_8h_source.html#l00028">28</a> of file <a class="el" href="_checks_8h_source.html">Checks.h</a>.</p>
 
 </div>
 </div>
@@ -270,7 +372,7 @@ Public Attributes</h2></td></tr>
 
 <p>Button received idle callback. </p>
 
-<p class="definition">Definition at line <a class="el" href="_checks_8h_source.html#l00028">28</a> of file <a class="el" href="_checks_8h_source.html">Checks.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_checks_8h_source.html#l00029">29</a> of file <a class="el" href="_checks_8h_source.html">Checks.h</a>.</p>
 
 </div>
 </div>
@@ -288,7 +390,7 @@ Public Attributes</h2></td></tr>
 
 <p>Button received pressed callback. </p>
 
-<p class="definition">Definition at line <a class="el" href="_checks_8h_source.html#l00025">25</a> of file <a class="el" href="_checks_8h_source.html">Checks.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_checks_8h_source.html#l00026">26</a> of file <a class="el" href="_checks_8h_source.html">Checks.h</a>.</p>
 
 </div>
 </div>
@@ -306,7 +408,25 @@ Public Attributes</h2></td></tr>
 
 <p>Button received released callback. </p>
 
-<p class="definition">Definition at line <a class="el" href="_checks_8h_source.html#l00026">26</a> of file <a class="el" href="_checks_8h_source.html">Checks.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_checks_8h_source.html#l00027">27</a> of file <a class="el" href="_checks_8h_source.html">Checks.h</a>.</p>
+
+</div>
+</div>
+<a id="ae970d91f249d21a095665b95ed6431ee" name="ae970d91f249d21a095665b95ed6431ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae970d91f249d21a095665b95ed6431ee">&#9670;&#160;</a></span>wasSingleClicked</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ButtonState::wasSingleClicked</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Button received single-clicked callback. </p>
+
+<p class="definition">Definition at line <a class="el" href="_checks_8h_source.html#l00034">34</a> of file <a class="el" href="_checks_8h_source.html">Checks.h</a>.</p>
 
 </div>
 </div>
@@ -324,7 +444,7 @@ Public Attributes</h2></td></tr>
 
 <p>Button received begin callback. </p>
 
-<p class="definition">Definition at line <a class="el" href="_checks_8h_source.html#l00024">24</a> of file <a class="el" href="_checks_8h_source.html">Checks.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_checks_8h_source.html#l00025">25</a> of file <a class="el" href="_checks_8h_source.html">Checks.h</a>.</p>
 
 </div>
 </div>
