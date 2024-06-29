@@ -54,6 +54,14 @@ void setup() {
 
   btnList.begin(); // Begin buttons in the list (sets pin mode etc).
 
+  // Serial << "State: " << btnB.currState_
+  //       << "; Prev: " <<btnB.prevState_
+  //       << "; msStart: " << btnB.millisStart_
+  //       << "; msPrev: " << btnB.prevMillis_
+  //       << "; Count: " << btnB.stateCount_
+  //       << "; ms: " << millis()
+  //       << endl;
+
   for(int i = 0; i < NUM_BUTTONS; ++i) {
     checkButtonSetup(btns[i]); // Check each button setup OK.
   }
@@ -64,7 +72,14 @@ void setup() {
  * Control TestAbleButton. Called repeatedly in a loop.
  */
 void loop() {
+  // static uint8_t currState = btnB.currState_;
+  // static uint8_t prevState = btnB.prevState_;
+  // static unsigned long millisStart = btnB.millisStart_;
+  // static unsigned long prevStart = btnB.prevMillis_;
+  // static uint8_t stateCount = btnB.stateCount_;
   static unsigned long ms = millis(); ///< Timer to preiodically print OK message.
+  bool resetSingleClicked = false;
+  bool resetDoubleClicked = false;
 
   if(millis() - ms > 5000) {
     Serial.println(F("Looking OK..."));
@@ -72,6 +87,28 @@ void loop() {
   }
 
   btnList.handle(); // Handle features of the buttons (debouncing, clicks & callbacks).
+
+  // if (currState != btnB.currState_
+  //     || prevState != btnB.prevState_
+  //     || millisStart != btnB.millisStart_
+  //     || prevStart != btnB.prevMillis_
+  //     || stateCount != btnB.stateCount_
+  //     || (btnB.stateCount_ && (millis() - btnB.millisStart_) >= btnB.clickTime_)) {
+  //   Serial << "State: " << btnB.currState_
+  //         << "; Prev: " <<btnB.prevState_
+  //         << "; msStart: " << btnB.millisStart_
+  //         << "; msPrev: " << btnB.prevMillis_
+  //         << "; Count: " << btnB.stateCount_
+  //         << "; Delta: " << millis() - btnB.millisStart_
+  //         << "; Time: " << btnB.clickTime_
+  //         << endl;
+
+  //   currState = btnB.currState_;
+  //   prevState = btnB.prevState_;
+  //   millisStart = btnB.millisStart_;
+  //   prevStart = btnB.prevMillis_;
+  //   stateCount = btnB.stateCount_;
+  // }
 
 #if TESTABLE_CLASS < TESTABLE_CLICKER
   led = btnList.anyPressed(); // Display pressed activity to LED.
@@ -100,20 +137,57 @@ void loop() {
       // Check state when button released event.
       if(state.wasReleased) {
         checkButtonJustReleased(btn);
-        state.wasReleased = false; // Clear most recent callback signal.
+        state.wasReleased = false;
       }
 
       // Check state when button held event.
       if(state.wasHeld) {
         checkButtonJustHeld(btn);
-        state.wasHeld = false; // Clear most recent callback signal.
+        state.wasHeld = false;
       }
 
       // Check state when button idle event.
       if(state.wasIdle) {
         checkButtonJustIdle(btn);
-        state.wasIdle = false; // Clear most recent release callback signal.
+        state.wasIdle = false;
       }
+
+      // Check state when button idle event.
+      if(state.wasIdle) {
+        checkButtonJustIdle(btn);
+        state.wasIdle = false;
+      }
+
+#     if TESTABLE_CLASS >= TESTABLE_CLICKER
+        // Check state when button clicked event.
+        if(state.wasClicked) {
+          checkButtonJustClicked(btn);
+          state.wasClicked = false; 
+        }
+#     endif
+#     if TESTABLE_CLASS >= TESTABLE_DOUBLECLICKER
+        // Check state when button single-clicked event.
+        if(state.wasSingleClicked) {
+          checkButtonJustSingleClicked(btn);
+          state.wasSingleClicked = false; 
+        }
+
+        if(state.resetSingleClicked) {
+          resetSingleClicked = true;
+          state.resetSingleClicked = false;
+        }
+
+        // Check state when button double-clicked event.
+        if(state.wasDoubleClicked) {
+          checkButtonJustDoubleClicked(btn);
+          state.wasDoubleClicked = false; 
+        }
+
+        if(state.resetDoubleClicked) {
+          resetDoubleClicked = true;
+          state.resetDoubleClicked = false;
+        } 
+#     endif
 #   endif
 
     checkButtonListIntegrity();
@@ -128,8 +202,15 @@ void loop() {
 # endif
 
 # if TESTABLE_CLASS >= TESTABLE_DOUBLECLICKER
-    assert(btnList.anyDoubleClicked() == btnList.resetDoubleClicked());
-    assert(btnList.anyDoubleClicked() == false);
+    if(resetSingleClicked) {
+      assert(btnList.anySingleClicked() == btnList.resetSingleClicked());
+      assert(btnList.anySingleClicked() == false);
+    }
+
+    if(resetDoubleClicked) {
+      assert(btnList.anyDoubleClicked() == btnList.resetDoubleClicked());
+      assert(btnList.anyDoubleClicked() == false);
+    }
     checkButtonListIntegrity();
 # endif
 }

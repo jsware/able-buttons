@@ -53,6 +53,10 @@ namespace able {
       Pin &operator=(const Pin &) = delete; ///< Assigning pins not supported.
 
     protected:
+      //
+      // Modifiers...
+      //
+
       /**
        * Read the pin directly. In order to save memory, virtual functions are
        * *not* used (which can consume almost 1K of memory to deal with).
@@ -64,6 +68,23 @@ namespace able {
       }
 
     protected:
+      //
+      // Accessors...
+      //
+
+      /**
+       * Return the number of clicks.
+       * 
+       * @param pressed The pressed state of a button.
+       * @param released The released state of a button.
+       * 
+       * @returns Always no clicks (0) as clicks not supported by default.
+       */
+      inline int clicks(uint8_t /* pressed */, uint8_t /* released */) {
+        return 0;
+      }
+      
+      protected:
       //
       // Data...
       //
@@ -259,8 +280,25 @@ namespace able {
           prevState_ = currState;
         }
       }
-      
+
     protected:
+      //
+      // Accessors...
+      //
+
+      /**
+       * Return the number of clicks.
+       * 
+       * @param pressed The pressed state of a button.
+       * @param released The released state of a button.
+       * 
+       * @returns Always single clicks (1) as double-clicks not supported.
+       */
+      inline int clicks(uint8_t pressed, uint8_t released) {
+        return this->currState_ == released && this->prevState_ == pressed;
+      }
+
+      protected:
       //
       // Data...
       //
@@ -324,6 +362,22 @@ namespace able {
         return clickTime_ * 2; // Double the clickTime_ to match halving in setClickTime.
       }
 
+      /**
+       * Return the number of clicks.
+       * 
+       * @param pressed The pressed state of a button.
+       * @param released The released state of a button.
+       * 
+       * @returns no click (0), single click (1) or double-click (2).
+       */
+      inline int clicks(uint8_t /* pressed */, uint8_t /* released */) const {
+        if(this->stateCount_ >= 4) {
+          return 2;
+        } else {
+          return this->stateCount_ == 2 && ((millis() - this->millisStart_) >= this->clickTime_);
+        }
+      }
+
     protected:
       //
       // Modifiers...
@@ -345,7 +399,7 @@ namespace able {
         // Save previous state & millis if it changed.
         if(currState != currState_) {
           prevState_ = currState;
-          if(millisStart_ - prevMillis_ <= clickTime_) {
+          if(millisStart_ - prevMillis_ < clickTime_) {
             ++stateCount_;
           } else {
             stateCount_ = 1;

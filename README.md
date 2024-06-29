@@ -342,8 +342,8 @@ Different `AbleButtons` can be used by a name that represents the combined featu
 | `AblePulldownClickerButton`               | Pulldown | Click        | No        | `AblePulldownClickerButtonList`               |
 | `AblePulldownCallbackClickerButton`       | Pulldown | Click        | Yes       | `AblePulldownCallbackClickerButtonList`       |
 | `AblePulldownDirectButton`                | Pulldown | Direct       | No        | `AblePulldownDirectButtonList`                |
-| `AblePulldownDoubleClickerButton`         | Pull-up  | Double-Click | No        | `AblePulldownDoubleClickerButtonList`         |
-| `AblePulldownCallbackDoubleClickerButton` | Pull-up  | Double-Click | Yes       | `AblePulldownCallbackDoubleClickerButtonList` |
+| `AblePulldownDoubleClickerButton`         | Pulldown | Double-Click | No        | `AblePulldownDoubleClickerButtonList`         |
+| `AblePulldownCallbackDoubleClickerButton` | Pulldown | Double-Click | Yes       | `AblePulldownCallbackDoubleClickerButtonList` |
 | `AblePullupButton`                        | Pull-up  | Push         | No        | `AblePullupButtonList`                        |
 | `AblePullupCallbackButton`                | Pull-up  | Push         | Yes       | `AblePullupCallbackButtonList`                |
 | `AblePullupClickerButton`                 | Pull-up  | Click        | No        | `AblePullupClickerButtonList`                 |

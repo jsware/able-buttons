@@ -63,6 +63,30 @@
 
       checkButtonJustIdle(btn);
       state.wasIdle = true;
+    } else if(event == Button::SINGLE_CLICKED_EVENT) {
+      Serial << F("Event SINGLE_CLICKED_EVENT (") << event << F(") for id ") << id << endl;
+
+      for(size_t i = 0; i < sizeof(NUM_BUTTONS); ++i) {
+        assert(btnState[i].wasStarted);
+      }
+
+      checkButtonJustSingleClicked(btn);
+#     if TESTABLE_CLASS >= TESTABLE_DOUBLECLICKER
+        state.wasSingleClicked = true;
+        state.resetSingleClicked = true;
+#     endif
+    } else if(event == Button::DOUBLE_CLICKED_EVENT) {
+      Serial << F("Event DOUBLE_CLICKED_EVENT (") << event << F(") for id ") << id << endl;
+
+      for(size_t i = 0; i < sizeof(NUM_BUTTONS); ++i) {
+        assert(btnState[i].wasStarted);
+      }
+
+      checkButtonJustDoubleClicked(btn);
+#     if TESTABLE_CLASS >= TESTABLE_DOUBLECLICKER
+        state.wasDoubleClicked = true;
+        state.resetDoubleClicked = true;
+#     endif
     } else {
       Serial << F("ERROR: Event UNKNOWN (") << event << F(") for id ") << id << endl;
     }

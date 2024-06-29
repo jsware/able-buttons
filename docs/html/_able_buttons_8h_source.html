@@ -32,7 +32,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">AbleButtons<span id="projectnumber">&#160;V0.2.0</span>
+   <div id="projectname">AbleButtons<span id="projectnumber">&#160;V0.4.0</span>
    </div>
    <div id="projectbrief">Lightweight button library for Arduino.</div>
   </td>
@@ -189,7 +189,7 @@ $(document).ready(function(){initNavTree('_able_buttons_8h_source.html',''); ini
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment"> * the double-click time. As with other button capabilities, button presses are</span></div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment"> * debounced to provide a reliable push/released signal.</span></div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="_able_buttons_8h.html#a328bd627681c42a0107449faa908ba62">   90</a></span><span class="keyword">using </span><a class="code hl_class" href="classable_1_1_callback_button.html">AblePulldownCallbackDoubleClickerButton</a> = <a class="code hl_class" href="classable_1_1_callback_button.html">able::CallbackButton&lt;able::Button&lt;able::PulldownResistorCircuit, able::DoubleClickerPin&gt;</a>&gt;;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="_able_buttons_8h.html#a027de45878255a6bf072b81048ddab0f">   90</a></span><span class="keyword">using </span><a class="code hl_class" href="classable_1_1_callback_clicker_button.html">AblePulldownCallbackDoubleClickerButton</a> = <a class="code hl_class" href="classable_1_1_callback_clicker_button.html">able::CallbackClickerButton&lt;able::CallbackButton&lt;able::Button&lt;able::PulldownResistorCircuit, able::DoubleClickerPin&gt;</a>&gt;&gt;;</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">//</span></div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">// Pulldown button lists...</span></div>
@@ -332,7 +332,7 @@ $(document).ready(function(){initNavTree('_able_buttons_8h_source.html',''); ini
 <div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="comment"> * click time. As with other button capabilities, button presses are debounced</span></div>
 <div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span><span class="comment"> * to provide a reliable push/released signal.</span></div>
 <div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno"><a class="line" href="_able_buttons_8h.html#aeaa96c274162294b569228a9a07ab271">  233</a></span><span class="keyword">using </span><a class="code hl_class" href="classable_1_1_callback_button.html">AblePullupCallbackDoubleClickerButton</a> = <a class="code hl_class" href="classable_1_1_callback_button.html">able::CallbackButton&lt;able::Button&lt;able::PullupResistorCircuit, able::DoubleClickerPin&gt;</a>&gt;;</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno"><a class="line" href="_able_buttons_8h.html#a3019cb0b7a5fd1635bd3262fe2151670">  233</a></span><span class="keyword">using </span><a class="code hl_class" href="classable_1_1_callback_clicker_button.html">AblePullupCallbackDoubleClickerButton</a> = <a class="code hl_class" href="classable_1_1_callback_clicker_button.html">able::CallbackClickerButton&lt;able::CallbackButton&lt;able::Button&lt;able::PullupResistorCircuit, able::DoubleClickerPin&gt;</a>&gt;&gt;;</div>
 <div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
 <div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="comment">//</span></div>
 <div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="comment">// Pull-up button lists...</span></div>
@@ -404,6 +404,7 @@ $(document).ready(function(){initNavTree('_able_buttons_8h_source.html',''); ini
 <div class="ttc" id="aclassable_1_1_button_html"><div class="ttname"><a href="classable_1_1_button.html">able::Button</a></div><div class="ttdoc">Core Button class.</div><div class="ttdef"><b>Definition:</b> <a href="_button_8h_source.html#l00022">Button.h:22</a></div></div>
 <div class="ttc" id="aclassable_1_1_button_list_html"><div class="ttname"><a href="classable_1_1_button_list.html">able::ButtonList</a></div><div class="ttdoc">Template for a list of buttons of the same type.</div><div class="ttdef"><b>Definition:</b> <a href="_button_list_8h_source.html#l00020">ButtonList.h:20</a></div></div>
 <div class="ttc" id="aclassable_1_1_callback_button_html"><div class="ttname"><a href="classable_1_1_callback_button.html">able::CallbackButton</a></div><div class="ttdoc">Callback button template to call a function if the button is pressed.</div><div class="ttdef"><b>Definition:</b> <a href="_callback_button_8h_source.html#l00018">CallbackButton.h:18</a></div></div>
+<div class="ttc" id="aclassable_1_1_callback_clicker_button_html"><div class="ttname"><a href="classable_1_1_callback_clicker_button.html">able::CallbackClickerButton</a></div><div class="ttdoc">Callback clicker button template to call a function if the button is pressed.</div><div class="ttdef"><b>Definition:</b> <a href="_callback_button_8h_source.html#l00136">CallbackButton.h:136</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
